@@ -30,6 +30,11 @@ class SettingsViewController: NSViewController {
             self.settingsLabel.stringValue = instanceName
             self.lastcheckLabel.stringValue = instanceObject.lastRefresh
             self.hostTextbox.stringValue = instanceObject.hosturl
+        } else if((instance as? OwncloudModel) != nil) {
+            let instanceObject = systemInstances[instanceName] as! OwncloudModel
+            self.settingsLabel.stringValue = instanceName
+            self.lastcheckLabel.stringValue = instanceObject.lastRefresh
+            self.hostTextbox.stringValue = instanceObject.hosturl
         }
     }
     
@@ -49,7 +54,22 @@ class SettingsViewController: NSViewController {
             dict.setObject("Joomla", forKey: "type")
             
             return dict.writeToFile(path, atomically: true)
-        } else {
+        } else if((instance as? OwncloudModel) != nil) {
+            let instanceObject = systemInstances[instanceName] as! JoomlaModel
+            let path = appurl.stringByAppendingString(self.instanceName).stringByAppendingString(".plist")
+            let dict: NSMutableDictionary = NSMutableDictionary()
+            
+            dict.setObject(self.hostTextbox.stringValue, forKey: "hosturl")
+            dict.setObject(instanceObject.name, forKey: "name")
+            dict.setObject(instanceObject.currentVersion, forKey: "currentVersion")
+            dict.setObject(instanceObject.lastRefresh, forKey: "lastRefresh")
+            dict.setObject(instanceObject.headVersion, forKey: "headVersion")
+            dict.setObject(instanceObject.creationDate, forKey: "creationDate")
+            dict.setObject("Owncloud", forKey: "type")
+            
+            return dict.writeToFile(path, atomically: true)
+        }
+        else {
             return false
         }
     }

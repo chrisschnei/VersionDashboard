@@ -14,18 +14,16 @@ class OwncloudModel : GenericModel {
     var lastRefresh = String()
     var headVersion = String()
     var creationDate = String()
-    var apiToken = String()
     var name = String()
     var type = String()
     
-    init(creationDate: String, currentVersion: String, hosturl: String, apiToken: String, lastRefresh: String, name: String, type: String, headVersion: String) {
+    init(creationDate: String, currentVersion: String, hosturl: String, lastRefresh: String, name: String, type: String, headVersion: String) {
         self.hosturl = hosturl
         self.currentVersion = currentVersion
         self.lastRefresh = lastRefresh
         self.headVersion = headVersion
         self.creationDate = creationDate
         self.name = name
-        self.apiToken = apiToken
         self.type = type
     }
     
@@ -44,7 +42,6 @@ class OwncloudModel : GenericModel {
         dict.setObject(self.lastRefresh, forKey: "lastRefresh")
         dict.setObject(self.headVersion, forKey: "headVersion")
         dict.setObject(self.creationDate, forKey: "creationDate")
-        dict.setObject(self.apiToken, forKey: "apiToken")
         dict.setObject("Owncloud", forKey: "type")
         
         let fileManager = NSFileManager.defaultManager()
@@ -68,6 +65,34 @@ class OwncloudModel : GenericModel {
             print("WARNING: Couldn't load dictionary from plist file!")
             return false
         }
+    }
+    
+    func getInstanceVersion(url: String) -> String {
+        let semaphore = dispatch_semaphore_create(0)
+        let url = NSURL(string: url)
+        var version = ""
+        
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+            dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            let body = (NSString(data: data!, encoding: NSUTF8StringEncoding))
+            let lines = body?.componentsSeparatedByString("\n")
+            for part in lines! {
+                if(part.rangeOfString("versionstring") != nil) {
+                    let part2 = part.componentsSeparatedByString(",")
+                    for element in part2 {
+                        if((element.rangeOfString("versionstring")) != nil) {
+                            let element2 = element.componentsSeparatedByString(":")
+                            version = (element2[1].stringByReplacingOccurrencesOfString("\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil))
+                            dispatch_semaphore_signal(semaphore)
+                        }
+                    }
+                }
+                }
+            })
+        }
+        task.resume()
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
+        return version
     }
 
 }

@@ -114,7 +114,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                 joomlamodel!.currentVersion = instanceVersion
                 //Check Version
                 if(!(headVersion == instanceVersion)) {
-                    joomlamodel!.sendNotification("Newer version available", informativeText: "Please update your \(instanceName) instance")
+                    self.sendNotification("Newer version available", informativeText: "Please update your \(instanceName) instance")
                 }
                 //Date
                 let dateFormatter = NSDateFormatter()
@@ -126,7 +126,29 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                 }
                 self.systemTableView.deselectAll(self)
                 self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
-            } else {
+            } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
+                let owncloudmodel = systemInstances[instanceName] as? OwncloudModel
+                let instanceVersion = owncloudmodel!.getInstanceVersion((owncloudmodel?.hosturl)!.stringByAppendingString(owncloudVersionURL))
+                //Remote Version url
+                let headVersion = owncloudmodel!.getInstanceVersion(owncloudAPIUrl.stringByAppendingString(owncloudVersionURL))
+                owncloudmodel!.headVersion = headVersion
+                owncloudmodel!.currentVersion = instanceVersion
+                //Check Version
+                if(!(headVersion == instanceVersion)) {
+                    self.sendNotification("Newer version available", informativeText: "Please update your \(instanceName) instance")
+                }
+                //Date
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+                dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+                owncloudmodel!.lastRefresh = dateFormatter.stringFromDate(NSDate())
+                if(!(owncloudmodel!.saveConfigfile())) {
+                    print("Error saving plist File.")
+                }
+                self.systemTableView.deselectAll(self)
+                self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+            }
+            else {
                 print("Was anderes")
             }            
         } else {
@@ -135,6 +157,13 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         }
         self.checkActiveSpinner.stopAnimation(self)
         self.checkActiveSpinner.hidden = true
+    }
+    
+    func sendNotification(title: String, informativeText: String) {
+        let notification = NSUserNotification()
+        notification.title = title
+        notification.informativeText = informativeText
+        NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
     }
     
     func loadConfigfiles() {
@@ -149,7 +178,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                 } else if myDict!["type"] as! String == "Wordpress" {
                     
                 } else if myDict!["type"] as! String == "Owncloud" {
-                    systemInstances[myDict!["name"] as! String] = OwncloudM
+                    systemInstances[myDict!["name"] as! String] = OwncloudModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String)
                 } else if myDict!["type"] as! String == "Piwik" {
                     
                 }
@@ -169,6 +198,18 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                 self.latestsversionLabel.stringValue = joomlaobject!.headVersion
                 self.deployedversionLabel.stringValue = joomlaobject!.currentVersion
                 if(joomlaobject!.headVersion == joomlaobject!.currentVersion) {
+                    self.statusLabel.stringValue = "OK"
+                } else {
+                    self.statusLabel.stringValue = "Update available"
+                }
+            } else if((modelclass as? OwncloudModel) != nil) {
+                let owncloudmodel = modelclass as? OwncloudModel
+                self.hostLabel.stringValue = owncloudmodel!.hosturl
+                self.systemLabel.stringValue = owncloudmodel!.name
+                self.lastcheckLabel.stringValue = owncloudmodel!.lastRefresh
+                self.latestsversionLabel.stringValue = owncloudmodel!.headVersion
+                self.deployedversionLabel.stringValue = owncloudmodel!.currentVersion
+                if(owncloudmodel!.headVersion == owncloudmodel!.currentVersion) {
                     self.statusLabel.stringValue = "OK"
                 } else {
                     self.statusLabel.stringValue = "Update available"

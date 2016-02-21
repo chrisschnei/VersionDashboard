@@ -14,6 +14,7 @@ class OwncloudViewController: NSViewController {
     @IBOutlet weak var saveButton: NSButton!
     @IBOutlet weak var urlField: NSTextField!
     @IBOutlet weak var tokenField: NSTextField!
+    @IBOutlet weak var instanceName: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,5 +26,9 @@ class OwncloudViewController: NSViewController {
     }
     
     @IBAction func saveAction(sender: AnyObject) {
+        let owncloudinstance = OwncloudModel(creationDate: "", currentVersion: "", hosturl: urlField.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Owncloud", headVersion: "")
+        owncloudinstance.saveConfigfile()
+        NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
+        self.dismissController(self)
     }
 }

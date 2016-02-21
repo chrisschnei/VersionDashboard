@@ -52,13 +52,6 @@ class JoomlaModel : GenericModel, XMLParserDelegate {
         return dict.writeToFile(path, atomically: true)
     }
     
-    func sendNotification(title: String, informativeText: String) {
-        let notification = NSUserNotification()
-        notification.title = title
-        notification.informativeText = informativeText
-        NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
-    }
-    
     func loadConfigfile() -> Bool {
         let path = NSBundle.mainBundle().pathForResource("config/Joomla", ofType: "plist")
         let myDict = NSDictionary(contentsOfFile: path!)
@@ -79,7 +72,8 @@ class JoomlaModel : GenericModel, XMLParserDelegate {
     }
     
     func getInstanceVersion(url: String) -> String {
-        let pathToXml = NSURL(string: self.hosturl.stringByAppendingString(joomlapath))
+//        let pathToXml = NSURL(string: self.hosturl.stringByAppendingString(joomlapath))
+        let pathToXml = NSURL(string: url)
         let parser = XMLParser(url: pathToXml!);
         
         parser.delegate = self;
