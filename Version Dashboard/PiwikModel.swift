@@ -15,18 +15,20 @@ class PiwikModel : GenericModel, XMLParserDelegate {
     var headVersion = String()
     var creationDate = String()
     var apiToken = String()
+    var updateAvailable = Int()
     var name = String()
     var type = String()
     
     var version = String()
     
-    init(creationDate: String, currentVersion: String, hosturl: String, apiToken: String, lastRefresh: String, name: String, type: String, headVersion: String) {
+    init(creationDate: String, currentVersion: String, hosturl: String, apiToken: String, lastRefresh: String, name: String, type: String, headVersion: String, updateAvailable: Int) {
         self.hosturl = hosturl
         self.currentVersion = currentVersion
         self.lastRefresh = lastRefresh
         self.headVersion = headVersion
         self.apiToken = apiToken
         self.creationDate = creationDate
+        self.updateAvailable = updateAvailable
         self.name = name
         self.type = type
     }
@@ -47,6 +49,7 @@ class PiwikModel : GenericModel, XMLParserDelegate {
         dict.setObject(self.headVersion, forKey: "headVersion")
         dict.setObject(self.creationDate, forKey: "creationDate")
         dict.setObject(self.apiToken, forKey: "apiToken")
+        dict.setObject(self.updateAvailable, forKey: "updateAvailable")
         dict.setObject("Piwik", forKey: "type")
         
         let fileManager = NSFileManager.defaultManager()
@@ -57,7 +60,7 @@ class PiwikModel : GenericModel, XMLParserDelegate {
         return dict.writeToFile(path, atomically: true)
     }
     
-    func loadConfigfile() -> Bool {
+    /*func loadConfigfile() -> Bool {
         let path = NSBundle.mainBundle().pathForResource("config/Joomla", ofType: "plist")
         let myDict = NSDictionary(contentsOfFile: path!)
         if (myDict != nil) {
@@ -71,7 +74,7 @@ class PiwikModel : GenericModel, XMLParserDelegate {
             print("WARNING: Couldn't load dictionary from plist file!")
             return false
         }
-    }
+    }*/
     
     func getInstanceVersion(url: String) -> String {
         if let version = NSData(contentsOfURL: NSURL(string: url)!) {

@@ -29,7 +29,7 @@ class OwncloudViewController: NSViewController {
         if(self.checkURLTextfields()) {
             return
         }
-        let owncloudinstance = OwncloudModel(creationDate: "", currentVersion: "", hosturl: urlField.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Owncloud", headVersion: "")
+        let owncloudinstance = OwncloudModel(creationDate: "", currentVersion: "", hosturl: urlField.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Owncloud", headVersion: "", updateAvailable: 0)
         owncloudinstance.saveConfigfile()
         NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
         self.dismissController(self)

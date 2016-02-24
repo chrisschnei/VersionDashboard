@@ -23,6 +23,10 @@ class WordpressViewController: NSViewController {
         if(self.checkURLTextfields()) {
             return
         }
+        let wordpressinstance = WordpressModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Wordpress", headVersion: "", updateAvailable:  0)
+        wordpressinstance.saveConfigfile()
+        NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
+        self.dismissController(self)
     }
     
     @IBAction func cancelAction(sender: AnyObject) {

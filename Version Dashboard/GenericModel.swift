@@ -11,6 +11,5 @@ import Foundation
 protocol GenericModel {
     
     func saveConfigfile() -> Bool
-    func loadConfigfile() -> Bool
 
 }

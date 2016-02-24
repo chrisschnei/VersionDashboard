@@ -14,15 +14,17 @@ class OwncloudModel : GenericModel {
     var lastRefresh = String()
     var headVersion = String()
     var creationDate = String()
+    var updateAvailable = Int()
     var name = String()
     var type = String()
     
-    init(creationDate: String, currentVersion: String, hosturl: String, lastRefresh: String, name: String, type: String, headVersion: String) {
+    init(creationDate: String, currentVersion: String, hosturl: String, lastRefresh: String, name: String, type: String, headVersion: String, updateAvailable: Int) {
         self.hosturl = hosturl
         self.currentVersion = currentVersion
         self.lastRefresh = lastRefresh
         self.headVersion = headVersion
         self.creationDate = creationDate
+        self.updateAvailable = updateAvailable
         self.name = name
         self.type = type
     }
@@ -42,6 +44,7 @@ class OwncloudModel : GenericModel {
         dict.setObject(self.lastRefresh, forKey: "lastRefresh")
         dict.setObject(self.headVersion, forKey: "headVersion")
         dict.setObject(self.creationDate, forKey: "creationDate")
+        dict.setObject(self.updateAvailable, forKey: "updateAvailable")
         dict.setObject("Owncloud", forKey: "type")
         
         let fileManager = NSFileManager.defaultManager()
@@ -52,7 +55,7 @@ class OwncloudModel : GenericModel {
         return dict.writeToFile(path, atomically: true)
     }
     
-    func loadConfigfile() -> Bool {
+    /*func loadConfigfile() -> Bool {
         let path = NSBundle.mainBundle().pathForResource("config/Joomla", ofType: "plist")
         let myDict = NSDictionary(contentsOfFile: path!)
         if (myDict != nil) {
@@ -60,12 +63,13 @@ class OwncloudModel : GenericModel {
             self.currentVersion = myDict!.valueForKey("currentVersion")! as! String
             self.lastRefresh = myDict!.valueForKey("lastRefresh")! as! String
             self.headVersion = myDict!.valueForKey("headVersion")! as! String
+            self.updateAvailable = myDict!.valueForKey("updateAvailable")! as! Int
             return true
         } else {
             print("WARNING: Couldn't load dictionary from plist file!")
             return false
         }
-    }
+    }*/
     
     func getInstanceVersion(url: String) -> String {
         if let version = NSData(contentsOfURL: NSURL(string: url)!) {

@@ -14,16 +14,18 @@ class JoomlaModel : GenericModel, XMLParserDelegate {
     var lastRefresh = String()
     var headVersion = String()
     var creationDate = String()
+    var updateAvailable = Int()
     var name = String()
     var type = String()
     
-    init(creationDate: String, currentVersion: String, hosturl: String, lastRefresh: String, name: String, type: String, headVersion: String) {
+    init(creationDate: String, currentVersion: String, hosturl: String, lastRefresh: String, name: String, type: String, headVersion: String, updateAvailable: Int) {
         self.hosturl = hosturl
         self.currentVersion = currentVersion
         self.lastRefresh = lastRefresh
         self.headVersion = headVersion
         self.creationDate = creationDate
         self.name = name
+        self.updateAvailable = updateAvailable
         self.type = type
     }
     
@@ -42,6 +44,7 @@ class JoomlaModel : GenericModel, XMLParserDelegate {
         dict.setObject(self.lastRefresh, forKey: "lastRefresh")
         dict.setObject(self.headVersion, forKey: "headVersion")
         dict.setObject(self.creationDate, forKey: "creationDate")
+        dict.setObject(self.updateAvailable, forKey: "updateAvailable")
         dict.setObject("Joomla", forKey: "type")
         
         let fileManager = NSFileManager.defaultManager()
@@ -52,7 +55,7 @@ class JoomlaModel : GenericModel, XMLParserDelegate {
         return dict.writeToFile(path, atomically: true)
     }
     
-    func loadConfigfile() -> Bool {
+    /*func loadConfigfile() -> Bool {
         let path = NSBundle.mainBundle().pathForResource("config/Joomla", ofType: "plist")
         let myDict = NSDictionary(contentsOfFile: path!)
         if (myDict != nil) {
@@ -65,7 +68,7 @@ class JoomlaModel : GenericModel, XMLParserDelegate {
             print("WARNING: Couldn't load dictionary from plist file!")
             return false
         }
-    }
+    }*/
     
     func XMLParserError(parser: XMLParser, error: String) {
         print(error);

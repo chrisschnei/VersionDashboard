@@ -26,7 +26,7 @@ class PiwikController: NSViewController {
         if(self.checkURLTextfields()) {
             return
         }
-        let piwikinstance = PiwikModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, apiToken : tokenField.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Piwik", headVersion: "")
+        let piwikinstance = PiwikModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, apiToken : tokenField.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Piwik", headVersion: "", updateAvailable: 0)
         piwikinstance.saveConfigfile()
         NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
         self.dismissController(self)

@@ -8,7 +8,6 @@
 
 import Cocoa
 import SystemConfiguration
-import Foundation
 
 class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
 
@@ -36,11 +35,13 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     }
     
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
-        if (((sender as! NSButton).title) == "Edit") {
-            let destination = segue.destinationController as! SettingsViewController
-            let instances = Array(systemInstances.keys)
-            let instanceNa = instances[self.systemTableView.selectedRow]
-            destination.instanceName = instanceNa
+        if(self.systemTableView.selectedRow != -1) {
+            if (((sender as! NSButton).title) == "Edit") {
+                let instances = Array(systemInstances.keys)
+                let instanceNa = instances[self.systemTableView.selectedRow]
+                let destination = segue.destinationController as! SettingsViewController
+                destination.instanceName = instanceNa
+            }
         }
     }
 
@@ -91,6 +92,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     }
     
     func reloadTable(notification: NSNotification) {
+        incrementBadgeNumber()
         let selectedRow = self.systemTableView.selectedRow
         self.systemTableView.deselectAll(self)
         systemInstances.removeAll()
@@ -113,8 +115,15 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                 joomlamodel!.headVersion = headVersion
                 joomlamodel!.currentVersion = instanceVersion
                 //Check Version
-                if(!(headVersion == instanceVersion)) {
+                if(!(headVersion == instanceVersion) && (joomlamodel!.updateAvailable == 0)) {
+                    joomlamodel!.updateAvailable = 1
+                    incrementBadgeNumber()
                     self.sendNotification("Newer version available", informativeText: "Please update your \(instanceName) instance")
+                } else if((headVersion == instanceVersion) && (joomlamodel!.updateAvailable == 1)) {
+                    joomlamodel!.updateAvailable = 0
+                    decrementBadgeNumber()
+                } else {
+                    joomlamodel!.updateAvailable = 0
                 }
                 //Date
                 let dateFormatter = NSDateFormatter()
@@ -134,8 +143,15 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                 owncloudmodel!.headVersion = headVersion
                 owncloudmodel!.currentVersion = instanceVersion
                 //Check Version
-                if(!(headVersion == instanceVersion)) {
+                if(!(headVersion == instanceVersion) && (owncloudmodel!.updateAvailable == 0)) {
+                    owncloudmodel!.updateAvailable = 1
+                    incrementBadgeNumber()
                     self.sendNotification("Newer version available", informativeText: "Please update your \(instanceName) instance")
+                } else if((headVersion == instanceVersion) && (owncloudmodel!.updateAvailable == 1)) {
+                    owncloudmodel!.updateAvailable = 0
+                    decrementBadgeNumber()
+                } else {
+                    owncloudmodel!.updateAvailable = 0
                 }
                 //Date
                 let dateFormatter = NSDateFormatter()
@@ -155,8 +171,15 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                 piwikmodel!.headVersion = headVersion
                 piwikmodel!.currentVersion = instanceVersion
                 //Check Version
-                if(!(headVersion == instanceVersion)) {
+                if(!(headVersion == instanceVersion) && (piwikmodel!.updateAvailable == 0)) {
+                    piwikmodel!.updateAvailable = 1
+                    incrementBadgeNumber()
                     self.sendNotification("Newer version available", informativeText: "Please update your \(instanceName) instance")
+                } else if((headVersion == instanceVersion) && (piwikmodel!.updateAvailable == 1)) {
+                    piwikmodel!.updateAvailable = 0
+                    decrementBadgeNumber()
+                } else {
+                    piwikmodel!.updateAvailable = 0
                 }
                 //Date
                 let dateFormatter = NSDateFormatter()
@@ -168,10 +191,36 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                 }
                 self.systemTableView.deselectAll(self)
                 self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+            } else if((systemInstances[instanceName] as? WordpressModel) != nil) {
+                let wordpressmodel = systemInstances[instanceName] as? WordpressModel
+                let instanceVersion = wordpressmodel!.getInstanceVersion((wordpressmodel?.hosturl)!)
+                print(instanceVersion)
+                //Remote Version url
+                let headVersion = wordpressmodel!.getInstanceVersionJSON(wordpressAPIUrl)
+                wordpressmodel!.headVersion = headVersion
+                wordpressmodel!.currentVersion = instanceVersion
+                //Check Version
+                if(!(headVersion == instanceVersion) && (wordpressmodel!.updateAvailable == 0)) {
+                    wordpressmodel!.updateAvailable = 1
+                    incrementBadgeNumber()
+                    self.sendNotification("Newer version available", informativeText: "Please update your \(instanceName) instance")
+                } else if((headVersion == instanceVersion) && (wordpressmodel!.updateAvailable == 1)) {
+                    wordpressmodel!.updateAvailable = 0
+                    decrementBadgeNumber()
+                } else {
+                    wordpressmodel!.updateAvailable = 0
+                }
+                //Date
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+                dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+                wordpressmodel!.lastRefresh = dateFormatter.stringFromDate(NSDate())
+                if(!(wordpressmodel!.saveConfigfile())) {
+                    print("Error saving plist File.")
+                }
+                self.systemTableView.deselectAll(self)
+                self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
             }
-            else {
-                print("Was anderes")
-            }            
         } else {
             self.noInternetConnection.hidden = false
             self.refreshButton.stringValue = "Retry"
@@ -195,13 +244,16 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
             if element.hasSuffix("plist") {
                 let myDict = NSDictionary(contentsOfFile: appurl.stringByAppendingString(element))
                 if myDict!["type"] as! String == "Joomla" {
-                    systemInstances[myDict!["name"] as! String] = JoomlaModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String)
+                    systemInstances[myDict!["name"] as! String] = JoomlaModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int)
                 } else if myDict!["type"] as! String == "Wordpress" {
-                    
+                    systemInstances[myDict!["name"] as! String] = WordpressModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int)
                 } else if myDict!["type"] as! String == "Owncloud" {
-                    systemInstances[myDict!["name"] as! String] = OwncloudModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String)
+                    systemInstances[myDict!["name"] as! String] = OwncloudModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int)
                 } else if myDict!["type"] as! String == "Piwik" {
-                    systemInstances[myDict!["name"] as! String] = PiwikModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, apiToken: myDict!["apiToken"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String)
+                    systemInstances[myDict!["name"] as! String] = PiwikModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, apiToken: myDict!["apiToken"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int)
+                }
+                if((myDict!["updateAvailable"] as! Int) == 1) {
+                    incrementBadgeNumber()
                 }
             }
         }
@@ -218,7 +270,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                 self.lastcheckLabel.stringValue = joomlaobject!.lastRefresh
                 self.latestsversionLabel.stringValue = joomlaobject!.headVersion
                 self.deployedversionLabel.stringValue = joomlaobject!.currentVersion
-                if(joomlaobject!.headVersion == joomlaobject!.currentVersion) {
+                if(joomlaobject!.updateAvailable == 0) {
                     self.statusLabel.stringValue = "OK"
                 } else {
                     self.statusLabel.stringValue = "Update available"
@@ -230,7 +282,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                 self.lastcheckLabel.stringValue = owncloudmodel!.lastRefresh
                 self.latestsversionLabel.stringValue = owncloudmodel!.headVersion
                 self.deployedversionLabel.stringValue = owncloudmodel!.currentVersion
-                if(owncloudmodel!.headVersion == owncloudmodel!.currentVersion) {
+                if(owncloudmodel!.updateAvailable == 0) {
                     self.statusLabel.stringValue = "OK"
                 } else {
                     self.statusLabel.stringValue = "Update available"
@@ -242,13 +294,23 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                 self.lastcheckLabel.stringValue = piwikmodel!.lastRefresh
                 self.latestsversionLabel.stringValue = piwikmodel!.headVersion
                 self.deployedversionLabel.stringValue = piwikmodel!.currentVersion
-                if(piwikmodel!.headVersion == piwikmodel!.currentVersion) {
+                if(piwikmodel!.updateAvailable == 0) {
                     self.statusLabel.stringValue = "OK"
                 } else {
                     self.statusLabel.stringValue = "Update available"
                 }
             } else if((modelclass as? WordpressModel) != nil) {
-                print("Wordpress instanz")
+                let piwikmodel = modelclass as? WordpressModel
+                self.hostLabel.stringValue = piwikmodel!.hosturl
+                self.systemLabel.stringValue = piwikmodel!.name
+                self.lastcheckLabel.stringValue = piwikmodel!.lastRefresh
+                self.latestsversionLabel.stringValue = piwikmodel!.headVersion
+                self.deployedversionLabel.stringValue = piwikmodel!.currentVersion
+                if(piwikmodel!.updateAvailable == 0) {
+                    self.statusLabel.stringValue = "OK"
+                } else {
+                    self.statusLabel.stringValue = "Update available"
+                }
             }
         }
     }

@@ -27,7 +27,7 @@ class JoomlaViewController: NSViewController {
         if(self.checkURLTextfields()) {
             return
         }
-        let joomlainstance = JoomlaModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Joomla", headVersion: "")
+        let joomlainstance = JoomlaModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Joomla", headVersion: "", updateAvailable: 0)
         joomlainstance.saveConfigfile()
         NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
         self.dismissController(self)
