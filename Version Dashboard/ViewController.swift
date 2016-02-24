@@ -147,13 +147,34 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                 }
                 self.systemTableView.deselectAll(self)
                 self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+            } else if((systemInstances[instanceName] as? PiwikModel) != nil) {
+                let piwikmodel = systemInstances[instanceName] as? PiwikModel
+                let instanceVersion = piwikmodel!.getInstanceVersionXML((piwikmodel?.hosturl)!.stringByAppendingString(piwikAPIUrl).stringByAppendingString(piwikmodel!.apiToken))
+                //Remote Version url
+                let headVersion = piwikmodel!.getInstanceVersion(piwikLatestVersionURL)
+                piwikmodel!.headVersion = headVersion
+                piwikmodel!.currentVersion = instanceVersion
+                //Check Version
+                if(!(headVersion == instanceVersion)) {
+                    self.sendNotification("Newer version available", informativeText: "Please update your \(instanceName) instance")
+                }
+                //Date
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+                dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+                piwikmodel!.lastRefresh = dateFormatter.stringFromDate(NSDate())
+                if(!(piwikmodel!.saveConfigfile())) {
+                    print("Error saving plist File.")
+                }
+                self.systemTableView.deselectAll(self)
+                self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
             }
             else {
                 print("Was anderes")
             }            
         } else {
             self.noInternetConnection.hidden = false
-            self.refreshButton.enabled = false
+            self.refreshButton.stringValue = "Retry"
         }
         self.checkActiveSpinner.stopAnimation(self)
         self.checkActiveSpinner.hidden = true
@@ -180,7 +201,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                 } else if myDict!["type"] as! String == "Owncloud" {
                     systemInstances[myDict!["name"] as! String] = OwncloudModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String)
                 } else if myDict!["type"] as! String == "Piwik" {
-                    
+                    systemInstances[myDict!["name"] as! String] = PiwikModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, apiToken: myDict!["apiToken"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String)
                 }
             }
         }
@@ -210,6 +231,18 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                 self.latestsversionLabel.stringValue = owncloudmodel!.headVersion
                 self.deployedversionLabel.stringValue = owncloudmodel!.currentVersion
                 if(owncloudmodel!.headVersion == owncloudmodel!.currentVersion) {
+                    self.statusLabel.stringValue = "OK"
+                } else {
+                    self.statusLabel.stringValue = "Update available"
+                }
+            } else if((modelclass as? PiwikModel) != nil) {
+                let piwikmodel = modelclass as? PiwikModel
+                self.hostLabel.stringValue = piwikmodel!.hosturl
+                self.systemLabel.stringValue = piwikmodel!.name
+                self.lastcheckLabel.stringValue = piwikmodel!.lastRefresh
+                self.latestsversionLabel.stringValue = piwikmodel!.headVersion
+                self.deployedversionLabel.stringValue = piwikmodel!.currentVersion
+                if(piwikmodel!.headVersion == piwikmodel!.currentVersion) {
                     self.statusLabel.stringValue = "OK"
                 } else {
                     self.statusLabel.stringValue = "Update available"

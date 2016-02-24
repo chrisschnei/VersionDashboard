@@ -35,6 +35,11 @@ class SettingsViewController: NSViewController {
             self.settingsLabel.stringValue = instanceName
             self.lastcheckLabel.stringValue = instanceObject.lastRefresh
             self.hostTextbox.stringValue = instanceObject.hosturl
+        } else if((instance as? PiwikModel) != nil) {
+            let instanceObject = systemInstances[instanceName] as! PiwikModel
+            self.settingsLabel.stringValue = instanceName
+            self.lastcheckLabel.stringValue = instanceObject.lastRefresh
+            self.hostTextbox.stringValue = instanceObject.hosturl
         }
     }
     
@@ -55,7 +60,7 @@ class SettingsViewController: NSViewController {
             
             return dict.writeToFile(path, atomically: true)
         } else if((instance as? OwncloudModel) != nil) {
-            let instanceObject = systemInstances[instanceName] as! JoomlaModel
+            let instanceObject = systemInstances[instanceName] as! OwncloudModel
             let path = appurl.stringByAppendingString(self.instanceName).stringByAppendingString(".plist")
             let dict: NSMutableDictionary = NSMutableDictionary()
             
@@ -66,6 +71,21 @@ class SettingsViewController: NSViewController {
             dict.setObject(instanceObject.headVersion, forKey: "headVersion")
             dict.setObject(instanceObject.creationDate, forKey: "creationDate")
             dict.setObject("Owncloud", forKey: "type")
+            
+            return dict.writeToFile(path, atomically: true)
+        } else if((instance as? OwncloudModel) != nil) {
+            let instanceObject = systemInstances[instanceName] as! PiwikModel
+            let path = appurl.stringByAppendingString(self.instanceName).stringByAppendingString(".plist")
+            let dict: NSMutableDictionary = NSMutableDictionary()
+            
+            dict.setObject(self.hostTextbox.stringValue, forKey: "hosturl")
+            dict.setObject(instanceObject.name, forKey: "name")
+            dict.setObject(instanceObject.currentVersion, forKey: "currentVersion")
+            dict.setObject(instanceObject.lastRefresh, forKey: "lastRefresh")
+            dict.setObject(instanceObject.headVersion, forKey: "headVersion")
+            dict.setObject(instanceObject.creationDate, forKey: "creationDate")
+            dict.setObject(instanceObject.apiToken, forKey: "apiToken")
+            dict.setObject("Piwik", forKey: "type")
             
             return dict.writeToFile(path, atomically: true)
         }

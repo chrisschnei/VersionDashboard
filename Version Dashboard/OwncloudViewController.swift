@@ -13,8 +13,8 @@ class OwncloudViewController: NSViewController {
     @IBOutlet weak var cancelButton: NSLayoutConstraint!
     @IBOutlet weak var saveButton: NSButton!
     @IBOutlet weak var urlField: NSTextField!
-    @IBOutlet weak var tokenField: NSTextField!
     @IBOutlet weak var instanceName: NSTextField!
+    @IBOutlet weak var errorMessage: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +26,27 @@ class OwncloudViewController: NSViewController {
     }
     
     @IBAction func saveAction(sender: AnyObject) {
+        if(self.checkURLTextfields()) {
+            return
+        }
         let owncloudinstance = OwncloudModel(creationDate: "", currentVersion: "", hosturl: urlField.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Owncloud", headVersion: "")
         owncloudinstance.saveConfigfile()
         NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
         self.dismissController(self)
+    }
+    
+    func checkURLTextfields() -> Bool {
+        var error = false
+        if(!(self.urlField.stringValue.hasSuffix("/"))) {
+            self.errorMessage.stringValue = "URL must end with a /. "
+            self.errorMessage.hidden = false
+            error = true
+        }
+        if(!(self.urlField.stringValue.hasPrefix("http"))) {
+            self.errorMessage.stringValue = "No protocol specified."
+            self.errorMessage.hidden = false
+            error = true
+        }
+        return error
     }
 }

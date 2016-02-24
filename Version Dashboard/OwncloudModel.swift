@@ -68,31 +68,23 @@ class OwncloudModel : GenericModel {
     }
     
     func getInstanceVersion(url: String) -> String {
-        let semaphore = dispatch_semaphore_create(0)
-        let url = NSURL(string: url)
-        var version = ""
-        
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
-            dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            let body = (NSString(data: data!, encoding: NSUTF8StringEncoding))
-            let lines = body?.componentsSeparatedByString("\n")
+        if let version = NSData(contentsOfURL: NSURL(string: url)!) {
+            let version = String(data: version, encoding: NSUTF8StringEncoding)
+            let lines = version?.componentsSeparatedByString("\n")
             for part in lines! {
                 if(part.rangeOfString("versionstring") != nil) {
                     let part2 = part.componentsSeparatedByString(",")
                     for element in part2 {
                         if((element.rangeOfString("versionstring")) != nil) {
                             let element2 = element.componentsSeparatedByString(":")
-                            version = (element2[1].stringByReplacingOccurrencesOfString("\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil))
-                            dispatch_semaphore_signal(semaphore)
+                            let version = (element2[1].stringByReplacingOccurrencesOfString("\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil))
+                            return version
                         }
                     }
                 }
-                }
-            })
+            }
         }
-        task.resume()
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
-        return version
+        return ""
     }
 
 }

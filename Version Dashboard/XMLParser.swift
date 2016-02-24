@@ -35,11 +35,20 @@ class XMLParser : NSObject, NSXMLParserDelegate {
                 self.delegate?.XMLParserError(self, error: "Parsing failed?")
             };
         }
-        return self.object["version"]!
+        if(self.object["version"] != nil) {
+            return self.object["version"]!
+        } else if(self.object["result"] != nil) {
+            return self.object["result"]!
+        } else {
+            return "test"
+        }
     }
     
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
-        if elementName == "version" {
+        if(elementName == "version") {
+            object.removeAll(keepCapacity: false)
+            inItem = true
+        } else if(elementName == "result") {
             object.removeAll(keepCapacity: false)
             inItem = true
         }
@@ -60,7 +69,7 @@ class XMLParser : NSObject, NSXMLParserDelegate {
     }
     
     func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        if elementName == "version" {
+        if((elementName == "version") || (elementName == "result")) {
             inItem = false
         }
     }
