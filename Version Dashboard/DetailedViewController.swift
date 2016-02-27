@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DetailedViewController.swift
 //  Version Dashboard
 //
 //  Created by Christian Schneider on 10.02.16.
@@ -9,7 +9,7 @@
 import Cocoa
 import SystemConfiguration
 
-class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
+class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
 
     @IBOutlet weak var refreshButton: NSButton!
     @IBOutlet weak var systemLabel: NSTextField!
@@ -92,7 +92,6 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     }
     
     func reloadTable(notification: NSNotification) {
-        incrementBadgeNumber()
         let selectedRow = self.systemTableView.selectedRow
         self.systemTableView.deselectAll(self)
         systemInstances.removeAll()

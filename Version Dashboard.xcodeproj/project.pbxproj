@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA6AD7B01C6B4BD90097CD9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD7AF1C6B4BD90097CD9A /* AppDelegate.swift */; };
-		AA6AD7B21C6B4BD90097CD9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD7B11C6B4BD90097CD9A /* ViewController.swift */; };
+		AA6AD7B21C6B4BD90097CD9A /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD7B11C6B4BD90097CD9A /* DetailedViewController.swift */; };
 		AA6AD7B41C6B4BD90097CD9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA6AD7B31C6B4BD90097CD9A /* Assets.xcassets */; };
 		AA6AD7B71C6B4BD90097CD9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA6AD7B51C6B4BD90097CD9A /* Main.storyboard */; };
 		AA6AD7C21C6B4BD90097CD9A /* Version_DashboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD7C11C6B4BD90097CD9A /* Version_DashboardTests.swift */; };
@@ -32,6 +32,10 @@
 		AA6AD8121C6CDA890097CD9A /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD8111C6CDA890097CD9A /* constants.swift */; };
 		AA6AD8141C6CE7B60097CD9A /* InstanceRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD8131C6CE7B60097CD9A /* InstanceRepositories.swift */; };
 		AA6AD8511C7E397B0097CD9A /* badgeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD8501C7E397B0097CD9A /* badgeFunctions.swift */; };
+		AAA5631B1C81DFE700E1199A /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA5631A1C81DFE700E1199A /* SummaryViewController.swift */; };
+		AAA5631D1C81E01200E1199A /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA5631C1C81E01200E1199A /* MainWindow.swift */; };
+		AAA5631F1C81E09600E1199A /* Detailed view.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA5631E1C81E09600E1199A /* Detailed view.png */; };
+		AAA563211C81E0A000E1199A /* Summarize.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA563201C81E0A000E1199A /* Summarize.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +58,7 @@
 /* Begin PBXFileReference section */
 		AA6AD7AC1C6B4BD90097CD9A /* Version Dashboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Version Dashboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA6AD7AF1C6B4BD90097CD9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AA6AD7B11C6B4BD90097CD9A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AA6AD7B11C6B4BD90097CD9A /* DetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 		AA6AD7B31C6B4BD90097CD9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA6AD7B61C6B4BD90097CD9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AA6AD7B81C6B4BD90097CD9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,6 +88,10 @@
 		AA6AD8111C6CDA890097CD9A /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		AA6AD8131C6CE7B60097CD9A /* InstanceRepositories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstanceRepositories.swift; sourceTree = "<group>"; };
 		AA6AD8501C7E397B0097CD9A /* badgeFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = badgeFunctions.swift; sourceTree = "<group>"; };
+		AAA5631A1C81DFE700E1199A /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		AAA5631C1C81E01200E1199A /* MainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
+		AAA5631E1C81E09600E1199A /* Detailed view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Detailed view.png"; sourceTree = "<group>"; };
+		AAA563201C81E0A000E1199A /* Summarize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Summarize.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +178,8 @@
 		AA6AD7F81C6B81190097CD9A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AAA5631E1C81E09600E1199A /* Detailed view.png */,
+				AAA563201C81E0A000E1199A /* Summarize.png */,
 				AA6AD7E41C6B75DC0097CD9A /* owncloud.tiff */,
 				AA6AD7E61C6B75E50097CD9A /* piwik.tiff */,
 				AA6AD7E81C6B75ED0097CD9A /* joomla.png */,
@@ -195,13 +205,15 @@
 		AA6AD8061C6BC9550097CD9A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AA6AD7B11C6B4BD90097CD9A /* ViewController.swift */,
+				AA6AD7B11C6B4BD90097CD9A /* DetailedViewController.swift */,
 				AA6AD7DC1C6B60230097CD9A /* SettingsViewController.swift */,
 				AA6AD7E01C6B73AC0097CD9A /* AddSystemViewController.swift */,
 				AA6AD7EC1C6B777B0097CD9A /* PiwikViewController.swift */,
 				AA6AD7F01C6B779D0097CD9A /* OwncloudViewController.swift */,
 				AA6AD7F21C6B77AE0097CD9A /* JoomlaViewController.swift */,
 				AA6AD7F41C6B77C00097CD9A /* WordpressViewController.swift */,
+				AAA5631A1C81DFE700E1199A /* SummaryViewController.swift */,
+				AAA5631C1C81E01200E1199A /* MainWindow.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -311,8 +323,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA6AD8101C6BE0E70097CD9A /* config in Resources */,
+				AAA563211C81E0A000E1199A /* Summarize.png in Resources */,
 				AA6AD7E51C6B75DC0097CD9A /* owncloud.tiff in Resources */,
 				AA6AD7E71C6B75E50097CD9A /* piwik.tiff in Resources */,
+				AAA5631F1C81E09600E1199A /* Detailed view.png in Resources */,
 				AA6AD7EB1C6B75F80097CD9A /* wordpress.tiff in Resources */,
 				AA6AD7B41C6B4BD90097CD9A /* Assets.xcassets in Resources */,
 				AA6AD7B71C6B4BD90097CD9A /* Main.storyboard in Resources */,
@@ -343,7 +357,7 @@
 			files = (
 				AA6AD7F51C6B77C00097CD9A /* WordpressViewController.swift in Sources */,
 				AA6AD8021C6BC93B0097CD9A /* WordpressModel.swift in Sources */,
-				AA6AD7B21C6B4BD90097CD9A /* ViewController.swift in Sources */,
+				AA6AD7B21C6B4BD90097CD9A /* DetailedViewController.swift in Sources */,
 				AA6AD8081C6BCB800097CD9A /* GenericModel.swift in Sources */,
 				AA6AD7FA1C6B8F220097CD9A /* XMLParser.swift in Sources */,
 				AA6AD8511C7E397B0097CD9A /* badgeFunctions.swift in Sources */,
@@ -351,6 +365,7 @@
 				AA6AD7FE1C6BC9210097CD9A /* PiwikModel.swift in Sources */,
 				AA6AD7E21C6B73AC0097CD9A /* AddSystemViewController.swift in Sources */,
 				AA6AD8141C6CE7B60097CD9A /* InstanceRepositories.swift in Sources */,
+				AAA5631D1C81E01200E1199A /* MainWindow.swift in Sources */,
 				AA6AD8121C6CDA890097CD9A /* constants.swift in Sources */,
 				AA6AD7B01C6B4BD90097CD9A /* AppDelegate.swift in Sources */,
 				AA6AD7EE1C6B777B0097CD9A /* PiwikViewController.swift in Sources */,
@@ -358,6 +373,7 @@
 				AA6AD7DE1C6B60230097CD9A /* SettingsViewController.swift in Sources */,
 				AA6AD8041C6BC9450097CD9A /* JoomlaModel.swift in Sources */,
 				AA6AD7F31C6B77AE0097CD9A /* JoomlaViewController.swift in Sources */,
+				AAA5631B1C81DFE700E1199A /* SummaryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
