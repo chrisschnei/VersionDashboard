@@ -10,6 +10,7 @@ import Cocoa
 
 class SummaryViewController: NSViewController {
 
+    @IBOutlet var summaryViewController: NSView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.

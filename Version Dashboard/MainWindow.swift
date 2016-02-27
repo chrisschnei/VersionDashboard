@@ -10,17 +10,24 @@ import Cocoa
 
 class MainWindow: NSWindowController {
 
-    @IBOutlet weak var mainwindows: NSWindow!
+    @IBOutlet weak var mainwindow: NSWindow!
     @IBOutlet weak var summaryview: NSToolbarItem!
     @IBOutlet weak var detailedview: NSToolbarItem!
     @IBOutlet weak var tabbar: NSToolbar!
     
     override func windowDidLoad() {
         super.windowDidLoad()
-    
-        self.mainwindows.titleVisibility = NSWindowTitleVisibility.Hidden;
-//        self.mainwindows.titlebarAppearsTransparent = True;
-        self.mainwindows.styleMask |= NSFullSizeContentViewWindowMask;
+        self.mainwindow.titleVisibility = NSWindowTitleVisibility.Hidden;
+        self.mainwindow.styleMask |= NSFullSizeContentViewWindowMask;
     }
 
+    @IBAction func detailedViewClicked(sender: AnyObject) {
+        let viewController = storyboard?.instantiateControllerWithIdentifier("detailedviewcontroller") as! NSViewController
+        self.mainwindow?.contentViewController = viewController
+    }
+    
+    @IBAction func summaryViewClicked(sender: AnyObject) {
+        let viewController = storyboard?.instantiateControllerWithIdentifier("summaryviewcontroller") as! NSViewController
+        self.window?.contentViewController = viewController
+    }
 }
