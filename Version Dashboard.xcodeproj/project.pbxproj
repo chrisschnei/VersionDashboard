@@ -36,6 +36,9 @@
 		AAA5631D1C81E01200E1199A /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA5631C1C81E01200E1199A /* MainWindow.swift */; };
 		AAA5631F1C81E09600E1199A /* Detailed view.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA5631E1C81E09600E1199A /* Detailed view.png */; };
 		AAA563211C81E0A000E1199A /* Summarize.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA563201C81E0A000E1199A /* Summarize.png */; };
+		AAA563231C821E6000E1199A /* SystemInstancesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA563221C821E6000E1199A /* SystemInstancesModel.swift */; };
+		AAA563251C83021F00E1199A /* Outdated item.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA563241C83021F00E1199A /* Outdated item.png */; };
+		AAA563271C8302A300E1199A /* OutdatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA563261C8302A300E1199A /* OutdatedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +95,9 @@
 		AAA5631C1C81E01200E1199A /* MainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		AAA5631E1C81E09600E1199A /* Detailed view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Detailed view.png"; sourceTree = "<group>"; };
 		AAA563201C81E0A000E1199A /* Summarize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Summarize.png; sourceTree = "<group>"; };
+		AAA563221C821E6000E1199A /* SystemInstancesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemInstancesModel.swift; sourceTree = "<group>"; };
+		AAA563241C83021F00E1199A /* Outdated item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Outdated item.png"; sourceTree = "<group>"; };
+		AAA563261C8302A300E1199A /* OutdatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutdatedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +184,7 @@
 		AA6AD7F81C6B81190097CD9A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AAA563241C83021F00E1199A /* Outdated item.png */,
 				AAA5631E1C81E09600E1199A /* Detailed view.png */,
 				AAA563201C81E0A000E1199A /* Summarize.png */,
 				AA6AD7E41C6B75DC0097CD9A /* owncloud.tiff */,
@@ -198,6 +205,7 @@
 				AA6AD7FD1C6BC9210097CD9A /* PiwikModel.swift */,
 				AA6AD8071C6BCB800097CD9A /* GenericModel.swift */,
 				AA6AD8131C6CE7B60097CD9A /* InstanceRepositories.swift */,
+				AAA563221C821E6000E1199A /* SystemInstancesModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -214,6 +222,7 @@
 				AA6AD7F41C6B77C00097CD9A /* WordpressViewController.swift */,
 				AAA5631A1C81DFE700E1199A /* SummaryViewController.swift */,
 				AAA5631C1C81E01200E1199A /* MainWindow.swift */,
+				AAA563261C8302A300E1199A /* OutdatedViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -323,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA6AD8101C6BE0E70097CD9A /* config in Resources */,
+				AAA563251C83021F00E1199A /* Outdated item.png in Resources */,
 				AAA563211C81E0A000E1199A /* Summarize.png in Resources */,
 				AA6AD7E51C6B75DC0097CD9A /* owncloud.tiff in Resources */,
 				AA6AD7E71C6B75E50097CD9A /* piwik.tiff in Resources */,
@@ -358,6 +368,7 @@
 				AA6AD7F51C6B77C00097CD9A /* WordpressViewController.swift in Sources */,
 				AA6AD8021C6BC93B0097CD9A /* WordpressModel.swift in Sources */,
 				AA6AD7B21C6B4BD90097CD9A /* DetailedViewController.swift in Sources */,
+				AAA563231C821E6000E1199A /* SystemInstancesModel.swift in Sources */,
 				AA6AD8081C6BCB800097CD9A /* GenericModel.swift in Sources */,
 				AA6AD7FA1C6B8F220097CD9A /* XMLParser.swift in Sources */,
 				AA6AD8511C7E397B0097CD9A /* badgeFunctions.swift in Sources */,
@@ -369,6 +380,7 @@
 				AA6AD8121C6CDA890097CD9A /* constants.swift in Sources */,
 				AA6AD7B01C6B4BD90097CD9A /* AppDelegate.swift in Sources */,
 				AA6AD7EE1C6B777B0097CD9A /* PiwikViewController.swift in Sources */,
+				AAA563271C8302A300E1199A /* OutdatedViewController.swift in Sources */,
 				AA6AD8001C6BC92F0097CD9A /* OwncloudModel.swift in Sources */,
 				AA6AD7DE1C6B60230097CD9A /* SettingsViewController.swift in Sources */,
 				AA6AD8041C6BC9450097CD9A /* JoomlaModel.swift in Sources */,

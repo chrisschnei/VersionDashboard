@@ -55,22 +55,6 @@ class OwncloudModel : GenericModel {
         return dict.writeToFile(path, atomically: true)
     }
     
-    /*func loadConfigfile() -> Bool {
-        let path = NSBundle.mainBundle().pathForResource("config/Joomla", ofType: "plist")
-        let myDict = NSDictionary(contentsOfFile: path!)
-        if (myDict != nil) {
-            self.hosturl = myDict!.valueForKey("hosturl")! as! String
-            self.currentVersion = myDict!.valueForKey("currentVersion")! as! String
-            self.lastRefresh = myDict!.valueForKey("lastRefresh")! as! String
-            self.headVersion = myDict!.valueForKey("headVersion")! as! String
-            self.updateAvailable = myDict!.valueForKey("updateAvailable")! as! Int
-            return true
-        } else {
-            print("WARNING: Couldn't load dictionary from plist file!")
-            return false
-        }
-    }*/
-    
     func getInstanceVersion(url: String) -> String {
         if let version = NSData(contentsOfURL: NSURL(string: url)!) {
             let version = String(data: version, encoding: NSUTF8StringEncoding)

@@ -420,22 +420,28 @@
                         <value key="maxSize" type="size" width="680" height="480"/>
                         <toolbar key="toolbar" implicitIdentifier="A6443199-AC4D-4202-9444-A3EDAE6F940F" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="H4y-30-MH0">
                             <allowedToolbarItems>
-                                <toolbarItem implicitItemIdentifier="7D9AF1CE-1242-4C09-810A-37D5A199BD6E" label="Detailed View" paletteLabel="Detailed View" tag="-1" image="Detailed view" id="E4i-Mv-nM7">
+                                <toolbarItem implicitItemIdentifier="7D9AF1CE-1242-4C09-810A-37D5A199BD6E" label="Detailed View" paletteLabel="Detailed View" toolTip="Show detailed informations" tag="-1" image="Detailed view" id="E4i-Mv-nM7">
                                     <connections>
                                         <action selector="detailedViewClicked:" target="B8D-0N-5wS" id="Jt8-1x-7fd"/>
                                     </connections>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="AD6A0E58-82FD-4BAB-9A7B-F0FC9E42FBAF" label="Summary" paletteLabel="Summary" tag="-1" image="Summarize" id="v31-g5-7ng">
+                                <toolbarItem implicitItemIdentifier="AD6A0E58-82FD-4BAB-9A7B-F0FC9E42FBAF" label="Summary" paletteLabel="Summary" toolTip="Show summary of instances" tag="-1" image="Summarize" id="v31-g5-7ng">
                                     <connections>
                                         <action selector="summaryViewClicked:" target="B8D-0N-5wS" id="Eh0-Sf-oaw"/>
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="xe7-pW-FdN"/>
+                                <toolbarItem implicitItemIdentifier="BE4EEB9B-E343-4530-9572-D89FDFB1822E" label="Outdated" paletteLabel="Outdated" toolTip="Outdated instances" tag="-1" image="Outdated item" id="M32-r8-3JJ">
+                                    <connections>
+                                        <action selector="outdatedViewClicked:" target="B8D-0N-5wS" id="Wi5-Ph-9j0"/>
+                                    </connections>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="xe7-pW-FdN"/>
                                 <toolbarItem reference="v31-g5-7ng"/>
                                 <toolbarItem reference="E4i-Mv-nM7"/>
+                                <toolbarItem reference="M32-r8-3JJ"/>
                                 <toolbarItem reference="xe7-pW-FdN"/>
                             </defaultToolbarItems>
                         </toolbar>
@@ -443,9 +449,10 @@
                     <connections>
                         <outlet property="detailedview" destination="E4i-Mv-nM7" id="INn-b6-mVd"/>
                         <outlet property="mainwindow" destination="IQv-IB-iLA" id="8Yu-2R-5xe"/>
+                        <outlet property="outdatedItem" destination="M32-r8-3JJ" id="ZP7-it-syf"/>
                         <outlet property="summaryview" destination="v31-g5-7ng" id="jYK-UY-fHf"/>
                         <outlet property="tabbar" destination="H4y-30-MH0" id="sOe-8e-U5f"/>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                        <segue destination="X2f-d4-1Xq" kind="relationship" relationship="window.shadowedContentViewController" id="UcY-Gh-bXk"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -460,55 +467,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="680" height="480"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0C2-LV-LAx">
-                                <rect key="frame" x="491" y="23" width="157" height="32"/>
-                                <buttonCell key="cell" type="push" title="Check all instances" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KyC-md-Mp8">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xmr-rM-mPs">
-                                <rect key="frame" x="237" y="318" width="37" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="nwG-hf-j3B">
+                                <rect key="frame" x="118" y="315" width="130" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Number of Instances" id="nwG-hf-j3B">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2qE-zo-Cbq">
-                                <rect key="frame" x="237" y="279" width="37" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="v7d-9R-ot2">
+                                <rect key="frame" x="118" y="276" width="127" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Owncloud Instances" id="v7d-9R-ot2">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XDx-cm-9TT">
-                                <rect key="frame" x="237" y="193" width="37" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="ZpI-Am-VPh">
+                                <rect key="frame" x="118" y="190" width="110" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Joomla Instances" id="ZpI-Am-VPh">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sz6-J5-V9f">
-                                <rect key="frame" x="237" y="145" width="37" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="YKJ-Nb-Xmw">
+                                <rect key="frame" x="118" y="148" width="131" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Wordpress Instances" id="YKJ-Nb-Xmw">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aEm-St-Vcm">
-                                <rect key="frame" x="237" y="237" width="37" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="CQT-VO-5Qv">
+                                <rect key="frame" x="118" y="234" width="98" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Piwik Instances" id="CQT-VO-5Qv">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zqC-cR-iIy">
-                                <rect key="frame" x="406" y="318" width="37" height="17"/>
+                                <rect key="frame" x="287" y="315" width="37" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="7Uz-mN-qwB">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -516,7 +516,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CWB-kv-xPz">
-                                <rect key="frame" x="406" y="279" width="37" height="17"/>
+                                <rect key="frame" x="287" y="276" width="37" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="3G8-IN-dws">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -524,7 +524,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N1r-8c-FYF">
-                                <rect key="frame" x="406" y="193" width="37" height="17"/>
+                                <rect key="frame" x="287" y="190" width="37" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="dYQ-O8-MGd">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -532,16 +532,80 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hAw-Vm-QJT">
-                                <rect key="frame" x="406" y="145" width="37" height="17"/>
+                                <rect key="frame" x="287" y="148" width="37" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="qT2-vi-RKq">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kRI-9U-YnH">
+                                <rect key="frame" x="359" y="315" width="128" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Instances up to date" id="zdU-SP-7pM">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="608-eK-l3G">
+                                <rect key="frame" x="528" y="315" width="37" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="icu-uc-e7e">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DLS-Sq-3Mn">
+                                <rect key="frame" x="359" y="276" width="132" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Instances out of date" id="zbl-pc-JxK">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nya-5D-GD6">
+                                <rect key="frame" x="528" y="276" width="37" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="4Zi-cs-Ti1">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Kj-6H-Ff5">
-                                <rect key="frame" x="406" y="237" width="37" height="17"/>
+                                <rect key="frame" x="287" y="234" width="37" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="flA-tM-d1H">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0C2-LV-LAx">
+                                <rect key="frame" x="491" y="23" width="157" height="32"/>
+                                <buttonCell key="cell" type="push" title="Check all instances" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KyC-md-Mp8">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="checkAllInstances:" target="X2f-d4-1Xq" id="hM5-wJ-bbi"/>
+                                </connections>
+                            </button>
+                            <box horizontalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="amO-TI-BHH">
+                                <rect key="frame" x="338" y="131" width="5" height="210"/>
+                                <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <font key="titleFont" metaFont="system"/>
+                            </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VpC-3R-Ecc">
+                                <rect key="frame" x="359" y="234" width="86" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PHP Versions" id="eIB-eA-dgS">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PhD-Lk-Ssm">
+                                <rect key="frame" x="528" y="234" width="37" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="VXF-M5-l3I">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -550,7 +614,24 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="amountInstancesOutofdate" destination="nya-5D-GD6" id="zy5-n7-fWL"/>
+                        <outlet property="amountInstancesUptodate" destination="608-eK-l3G" id="4xp-qF-v7D"/>
+                        <outlet property="amountJoomlaInstances" destination="N1r-8c-FYF" id="1cY-Sj-ObV"/>
+                        <outlet property="amountNoInstances" destination="zqC-cR-iIy" id="WjT-At-wLu"/>
+                        <outlet property="amountOwncloudInstances" destination="CWB-kv-xPz" id="d50-V5-rpE"/>
+                        <outlet property="amountPiwikInstances" destination="8Kj-6H-Ff5" id="aEG-mj-SvJ"/>
+                        <outlet property="amountWordpressInstances" destination="hAw-Vm-QJT" id="fGd-gN-jZ0"/>
+                        <outlet property="checkAllInstancesButton" destination="0C2-LV-LAx" id="lj8-1A-iJd"/>
+                        <outlet property="instancesOutofdateLabel" destination="DLS-Sq-3Mn" id="JeS-iS-Tyl"/>
+                        <outlet property="instancesUptodateLabel" destination="kRI-9U-YnH" id="rTe-iN-J2l"/>
+                        <outlet property="joomlaInstancesLabel" destination="XDx-cm-9TT" id="jWe-Ht-hcS"/>
+                        <outlet property="noOfInstancesLabel" destination="Xmr-rM-mPs" id="3Ti-ss-Bae"/>
+                        <outlet property="owncloudInstancesLabel" destination="2qE-zo-Cbq" id="Qo8-nc-DyO"/>
+                        <outlet property="phpVersions" destination="PhD-Lk-Ssm" id="Xj4-yZ-qIN"/>
+                        <outlet property="phpVersionsLabel" destination="VpC-3R-Ecc" id="Vve-Tk-qj9"/>
+                        <outlet property="piwikInstancesLabel" destination="aEm-St-Vcm" id="D1e-11-dR3"/>
                         <outlet property="summaryViewController" destination="LeM-NU-AWq" id="SSV-Kp-m5W"/>
+                        <outlet property="wordpressInstancesLabel" destination="Sz6-J5-V9f" id="wtJ-Yn-By8"/>
                     </connections>
                 </viewController>
                 <customObject id="2g3-6X-tPi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -740,7 +821,7 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="U77-6m-pGq" viewBased="YES" id="SUz-Zq-Pay">
-                                            <rect key="frame" x="0.0" y="0.0" width="319" height="0.0"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="319" height="361"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -881,6 +962,19 @@ DQ
             </objects>
             <point key="canvasLocation" x="-54" y="702"/>
         </scene>
+        <!--Outdated instances-->
+        <scene sceneID="mKG-yP-sXb">
+            <objects>
+                <viewController title="Outdated instances" storyboardIdentifier="outdatedviewcontroller" id="SKc-0J-o2d" sceneMemberID="viewController">
+                    <view key="view" id="l61-2m-qjy">
+                        <rect key="frame" x="0.0" y="0.0" width="680" height="480"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="tuF-cR-rKY" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="672" y="702"/>
+        </scene>
         <!--Add System View Controller-->
         <scene sceneID="afO-b3-eK0">
             <objects>
@@ -957,7 +1051,7 @@ Gw
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="0yH-Ve-WTP" kind="sheet" id="Zur-rd-MTK"/>
+                                    <segue destination="dms-g4-Ywq" kind="sheet" id="HKE-L7-mdP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -983,7 +1077,7 @@ Gw
                 </viewController>
                 <customObject id="JSu-ur-Iub" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="649" y="807"/>
+            <point key="canvasLocation" x="207" y="1258"/>
         </scene>
         <!--PiwikInstance-->
         <scene sceneID="Qae-bO-nXs">
@@ -1120,7 +1214,7 @@ DQ
                 </viewController>
                 <customObject id="XUM-WB-HJU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="629" y="1276"/>
+            <point key="canvasLocation" x="187" y="1727"/>
         </scene>
         <!--JoomlaInstance-->
         <scene sceneID="PTj-Z4-y8A">
@@ -1247,7 +1341,7 @@ DQ
                 </viewController>
                 <customObject id="1xX-kY-cu9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1140" y="1276"/>
+            <point key="canvasLocation" x="698" y="1727"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="yvE-ap-T19">
@@ -1366,122 +1460,7 @@ Gw
                 </viewController>
                 <customObject id="scL-FW-Zg3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="644" y="470"/>
-        </scene>
-        <!--WordpressInstance-->
-        <scene sceneID="zjC-9k-jmg">
-            <objects>
-                <viewController title="WordpressInstance" id="0yH-Ve-WTP" customClass="WordpressViewController" customModule="Version_Dashboard" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="v9d-Gh-9HK">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vVw-9C-jGP">
-                                <rect key="frame" x="43" y="21" width="82" height="32"/>
-                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cFf-Fk-YFr">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent" base64-UTF8="YES">
-Gw
-</string>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="cancelAction:" target="0yH-Ve-WTP" id="6dL-1f-4XO"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LsT-VI-w1O">
-                                <rect key="frame" x="337" y="21" width="70" height="32"/>
-                                <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zfa-sz-Ky3">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent" base64-UTF8="YES">
-DQ
-</string>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="saveAction:" target="0yH-Ve-WTP" id="NVc-ve-8ny"/>
-                                </connections>
-                            </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vC3-Mc-vEI">
-                                <rect key="frame" x="87" y="250" width="181" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Add new Wordpress instance" id="4uE-p1-GcX">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qve-c9-TKx">
-                                <rect key="frame" x="75" y="204" width="62" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Host URL" id="CtU-J0-oUw">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Juz-I7-fFY" customClass="WordpressViewController">
-                                <rect key="frame" x="241" y="201" width="160" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="http://example.com/" drawsBackground="YES" id="u6j-cO-EaB">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="O8B-Ml-j9C">
-                                <rect key="frame" x="75" y="167" width="93" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Instance name" id="alO-eY-ZBD">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Osh-Gw-RUQ">
-                                <rect key="frame" x="241" y="162" width="162" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="6vE-g8-tQQ">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IHv-cd-fyZ">
-                                <rect key="frame" x="54" y="65" width="351" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Error message textlabel" id="iew-cU-Lw7">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="vVw-9C-jGP" firstAttribute="leading" secondItem="v9d-Gh-9HK" secondAttribute="leading" constant="49" id="1xI-K1-1Nv"/>
-                            <constraint firstItem="Osh-Gw-RUQ" firstAttribute="leading" secondItem="Juz-I7-fFY" secondAttribute="leading" id="4JT-EX-mgM"/>
-                            <constraint firstItem="qve-c9-TKx" firstAttribute="leading" secondItem="v9d-Gh-9HK" secondAttribute="leading" constant="77" id="6iR-xv-LWk"/>
-                            <constraint firstItem="O8B-Ml-j9C" firstAttribute="leading" secondItem="qve-c9-TKx" secondAttribute="leading" id="GsY-ox-g72"/>
-                            <constraint firstItem="vC3-Mc-vEI" firstAttribute="top" secondItem="v9d-Gh-9HK" secondAttribute="top" constant="33" id="JFe-O3-syr"/>
-                            <constraint firstItem="LsT-VI-w1O" firstAttribute="trailing" secondItem="Juz-I7-fFY" secondAttribute="trailing" id="Ksy-Dq-Vh9"/>
-                            <constraint firstItem="Osh-Gw-RUQ" firstAttribute="top" secondItem="Juz-I7-fFY" secondAttribute="bottom" constant="17" id="MFC-k0-jQm"/>
-                            <constraint firstAttribute="trailing" secondItem="Juz-I7-fFY" secondAttribute="trailing" constant="49" id="MqL-hZ-VjV"/>
-                            <constraint firstItem="Osh-Gw-RUQ" firstAttribute="trailing" secondItem="IHv-cd-fyZ" secondAttribute="trailing" id="Swn-HJ-pa0"/>
-                            <constraint firstItem="Osh-Gw-RUQ" firstAttribute="leading" secondItem="O8B-Ml-j9C" secondAttribute="trailing" constant="75" id="Up9-v3-8Vs"/>
-                            <constraint firstItem="vVw-9C-jGP" firstAttribute="top" secondItem="IHv-cd-fyZ" secondAttribute="bottom" constant="16" id="VkT-2g-G4F"/>
-                            <constraint firstItem="IHv-cd-fyZ" firstAttribute="leading" secondItem="v9d-Gh-9HK" secondAttribute="leading" constant="56" id="Z6Y-Qa-yzw"/>
-                            <constraint firstItem="LsT-VI-w1O" firstAttribute="baseline" secondItem="vVw-9C-jGP" secondAttribute="baseline" id="c1k-EM-0AF"/>
-                            <constraint firstItem="Juz-I7-fFY" firstAttribute="top" secondItem="vC3-Mc-vEI" secondAttribute="bottom" constant="27" id="eml-sg-rwq"/>
-                            <constraint firstItem="Juz-I7-fFY" firstAttribute="baseline" secondItem="qve-c9-TKx" secondAttribute="baseline" id="m46-Zt-zY2"/>
-                            <constraint firstItem="vC3-Mc-vEI" firstAttribute="leading" secondItem="v9d-Gh-9HK" secondAttribute="leading" constant="89" id="oaS-X4-x5Z"/>
-                            <constraint firstAttribute="trailing" secondItem="Osh-Gw-RUQ" secondAttribute="trailing" constant="47" id="vwp-xB-0hN"/>
-                            <constraint firstItem="IHv-cd-fyZ" firstAttribute="top" secondItem="Osh-Gw-RUQ" secondAttribute="bottom" constant="80" id="ze2-Ry-0eg"/>
-                            <constraint firstItem="O8B-Ml-j9C" firstAttribute="top" secondItem="Osh-Gw-RUQ" secondAttribute="top" id="znC-Fy-4Lp"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="errorMessage" destination="IHv-cd-fyZ" id="Sqy-yY-0N3"/>
-                        <outlet property="hostUrl" destination="Juz-I7-fFY" id="yGd-2B-qgY"/>
-                        <outlet property="instanceName" destination="Osh-Gw-RUQ" id="kVa-Cg-oms"/>
-                    </connections>
-                </viewController>
-                <customObject id="a5R-ub-FPc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1653" y="1276"/>
+            <point key="canvasLocation" x="-410" y="1258"/>
         </scene>
         <!--OwncloudInstance-->
         <scene sceneID="OQA-UR-BfH">
@@ -1597,11 +1576,106 @@ DQ
                 </viewController>
                 <customObject id="jd9-xv-mxw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="126" y="1276"/>
+            <point key="canvasLocation" x="-316" y="1727"/>
+        </scene>
+        <!--WordpressInstance-->
+        <scene sceneID="ACV-Cs-CFQ">
+            <objects>
+                <viewController title="WordpressInstance" id="dms-g4-Ywq" customClass="WordpressViewController" customModule="Version_Dashboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="u91-LB-tum">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t1e-po-1WU">
+                                <rect key="frame" x="43" y="21" width="82" height="32"/>
+                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GvI-8Y-YfY">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="cancelAction:" target="dms-g4-Ywq" id="dvZ-Wh-gKD"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g7K-4a-4GT">
+                                <rect key="frame" x="337" y="21" width="70" height="32"/>
+                                <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LTA-cQ-hs1">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="saveAction:" target="dms-g4-Ywq" id="BDi-wY-C7i"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ELt-HD-qq8">
+                                <rect key="frame" x="87" y="250" width="181" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Add new Wordpress instance" id="aHJ-n3-Skx">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vX3-Yr-SLg">
+                                <rect key="frame" x="75" y="204" width="62" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Host URL" id="ufB-aY-bct">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wrg-Pp-ChO">
+                                <rect key="frame" x="241" y="201" width="160" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="http://example.com/" drawsBackground="YES" id="Uoc-4M-zcs">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IR4-V6-BK0">
+                                <rect key="frame" x="75" y="167" width="93" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Instance name" id="MKj-Zd-24C">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jyH-iU-dRv">
+                                <rect key="frame" x="241" y="162" width="162" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="yqD-og-VV6">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sKt-He-kfC">
+                                <rect key="frame" x="54" y="65" width="351" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Error message textlabel" id="IaD-gS-LDr">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="errorMessage" destination="sKt-He-kfC" id="hId-QA-BdI"/>
+                        <outlet property="hostUrl" destination="Wrg-Pp-ChO" id="y2C-ws-ien"/>
+                        <outlet property="instanceName" destination="jyH-iU-dRv" id="Png-9T-cby"/>
+                    </connections>
+                </viewController>
+                <customObject id="pvh-qd-88x" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1211" y="1727"/>
         </scene>
     </scenes>
     <resources>
         <image name="Detailed view" width="28.799999237060547" height="28.799999237060547"/>
+        <image name="Outdated item" width="28.799999237060547" height="28.799999237060547"/>
         <image name="Summarize" width="28.559999465942383" height="27.840000152587891"/>
         <image name="joomla" width="40" height="40"/>
         <image name="owncloud" width="83" height="44"/>

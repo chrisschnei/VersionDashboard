@@ -28,7 +28,6 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     override func viewDidLoad() {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTable:", name: "load", object: nil)
-        self.loadConfigfiles()
         systemTableView.setDelegate(self)
         systemTableView.setDataSource(self)
         self.addInstancesToTable()
@@ -83,7 +82,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         let path = appurl.stringByAppendingString(filename).stringByAppendingString(".plist")
         self.deleteFile(path)
         systemInstances.removeAll()
-        self.loadConfigfiles()
+        SummaryViewController().loadConfigfiles()
         self.addInstancesToTable()
     }
     
@@ -95,7 +94,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         let selectedRow = self.systemTableView.selectedRow
         self.systemTableView.deselectAll(self)
         systemInstances.removeAll()
-        self.loadConfigfiles()
+        SummaryViewController().loadConfigfiles()
         self.systemTableView.reloadData()
         self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
     }
@@ -193,7 +192,6 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             } else if((systemInstances[instanceName] as? WordpressModel) != nil) {
                 let wordpressmodel = systemInstances[instanceName] as? WordpressModel
                 let instanceVersion = wordpressmodel!.getInstanceVersion((wordpressmodel?.hosturl)!)
-                print(instanceVersion)
                 //Remote Version url
                 let headVersion = wordpressmodel!.getInstanceVersionJSON(wordpressAPIUrl)
                 wordpressmodel!.headVersion = headVersion
@@ -233,29 +231,6 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         notification.title = title
         notification.informativeText = informativeText
         NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
-    }
-    
-    func loadConfigfiles() {
-        let fileManager = NSFileManager.defaultManager()
-        let enumerator:NSDirectoryEnumerator = fileManager.enumeratorAtPath(appurl)!
-        
-        while let element = enumerator.nextObject() as? String {
-            if element.hasSuffix("plist") {
-                let myDict = NSDictionary(contentsOfFile: appurl.stringByAppendingString(element))
-                if myDict!["type"] as! String == "Joomla" {
-                    systemInstances[myDict!["name"] as! String] = JoomlaModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int)
-                } else if myDict!["type"] as! String == "Wordpress" {
-                    systemInstances[myDict!["name"] as! String] = WordpressModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int)
-                } else if myDict!["type"] as! String == "Owncloud" {
-                    systemInstances[myDict!["name"] as! String] = OwncloudModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int)
-                } else if myDict!["type"] as! String == "Piwik" {
-                    systemInstances[myDict!["name"] as! String] = PiwikModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, apiToken: myDict!["apiToken"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int)
-                }
-                if((myDict!["updateAvailable"] as! Int) == 1) {
-                    incrementBadgeNumber()
-                }
-            }
-        }
     }
     
     func updateInstanceDetails(index: Int) {

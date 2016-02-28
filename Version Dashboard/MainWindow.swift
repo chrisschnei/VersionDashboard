@@ -13,12 +13,13 @@ class MainWindow: NSWindowController {
     @IBOutlet weak var mainwindow: NSWindow!
     @IBOutlet weak var summaryview: NSToolbarItem!
     @IBOutlet weak var detailedview: NSToolbarItem!
+    @IBOutlet weak var outdatedItem: NSToolbarItem!
     @IBOutlet weak var tabbar: NSToolbar!
     
     override func windowDidLoad() {
         super.windowDidLoad()
-        self.mainwindow.titleVisibility = NSWindowTitleVisibility.Hidden;
-        self.mainwindow.styleMask |= NSFullSizeContentViewWindowMask;
+        self.mainwindow.titleVisibility = NSWindowTitleVisibility.Visible
+        self.mainwindow.styleMask |= NSFullSizeContentViewWindowMask
     }
 
     @IBAction func detailedViewClicked(sender: AnyObject) {
@@ -28,6 +29,11 @@ class MainWindow: NSWindowController {
     
     @IBAction func summaryViewClicked(sender: AnyObject) {
         let viewController = storyboard?.instantiateControllerWithIdentifier("summaryviewcontroller") as! NSViewController
+        self.window?.contentViewController = viewController
+    }
+    
+    @IBAction func outdatedViewClicked(sender: AnyObject) {
+        let viewController = storyboard?.instantiateControllerWithIdentifier("outdatedviewcontroller") as! NSViewController
         self.window?.contentViewController = viewController
     }
 }

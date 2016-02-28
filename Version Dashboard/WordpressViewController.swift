@@ -11,8 +11,8 @@ import Cocoa
 class WordpressViewController: NSViewController {
 
     @IBOutlet weak var errorMessage: NSTextField!
-    @IBOutlet weak var hostUrl: NSTextField!
     @IBOutlet weak var instanceName: NSTextField!
+    @IBOutlet weak var hostUrl: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()

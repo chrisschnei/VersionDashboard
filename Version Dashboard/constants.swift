@@ -19,4 +19,6 @@ let piwikLatestVersionURL = "https://api.piwik.org/1.0/getLatestVersion/"
 let owncloudAPIUrl = "https://demo.owncloud.org/"
 let owncloudVersionURL = "index.php/core/js/oc.js"
 
-/*https://asana24.net/piwik/index.php?module=API&method=API.getPiwikVersion&token_auth=2d23a0d2ae3951274ab64561227b6703*/
+enum supportedPlatforms {
+    case Wordpress
+}

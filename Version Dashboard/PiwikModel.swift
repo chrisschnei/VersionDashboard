@@ -60,22 +60,6 @@ class PiwikModel : GenericModel, XMLParserDelegate {
         return dict.writeToFile(path, atomically: true)
     }
     
-    /*func loadConfigfile() -> Bool {
-        let path = NSBundle.mainBundle().pathForResource("config/Joomla", ofType: "plist")
-        let myDict = NSDictionary(contentsOfFile: path!)
-        if (myDict != nil) {
-            self.hosturl = myDict!.valueForKey("hosturl")! as! String
-            self.currentVersion = myDict!.valueForKey("currentVersion")! as! String
-            self.lastRefresh = myDict!.valueForKey("lastRefresh")! as! String
-            self.headVersion = myDict!.valueForKey("headVersion")! as! String
-            self.apiToken = myDict!.valueForKey("apiToken")! as! String
-            return true
-        } else {
-            print("WARNING: Couldn't load dictionary from plist file!")
-            return false
-        }
-    }*/
-    
     func getInstanceVersion(url: String) -> String {
         if let version = NSData(contentsOfURL: NSURL(string: url)!) {
             let version = String(data: version, encoding: NSUTF8StringEncoding)
@@ -89,7 +73,6 @@ class PiwikModel : GenericModel, XMLParserDelegate {
     }
     
     func getInstanceVersionXML(url: String) -> String {
-        //        let pathToXml = NSURL(string: self.hosturl.stringByAppendingString(joomlapath))
         let pathToXml = NSURL(string: url)
         let parser = XMLParser(url: pathToXml!);
         

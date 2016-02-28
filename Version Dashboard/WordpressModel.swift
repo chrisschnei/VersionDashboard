@@ -55,28 +55,12 @@ class WordpressModel : GenericModel {
         return dict.writeToFile(path, atomically: true)
     }
     
-    /*func loadConfigfile() -> Bool {
-        let path = NSBundle.mainBundle().pathForResource("config/Joomla", ofType: "plist")
-        let myDict = NSDictionary(contentsOfFile: path!)
-        if (myDict != nil) {
-            self.hosturl = myDict!.valueForKey("hosturl")! as! String
-            self.currentVersion = myDict!.valueForKey("currentVersion")! as! String
-            self.lastRefresh = myDict!.valueForKey("lastRefresh")! as! String
-            self.headVersion = myDict!.valueForKey("headVersion")! as! String
-            return true
-        } else {
-            print("WARNING: Couldn't load dictionary from plist file!")
-            return false
-        }
-    }*/
-    
     func getInstanceVersion(url: String) -> String {
         if let version = NSData(contentsOfURL: NSURL(string: url)!) {
             let version = String(data: version, encoding: NSUTF8StringEncoding)
             let lines = version?.componentsSeparatedByString("\n")
             for part in lines! {
                 if(part.rangeOfString("wp-embed.min.js?ver=") != nil) {
-                    print(part)
                     let part2 = part.componentsSeparatedByString("wp-embed.min.js?ver=")
                     let part3 = part2[1].componentsSeparatedByString("'")
                     return part3[0]
