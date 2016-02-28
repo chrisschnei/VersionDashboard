@@ -28,6 +28,7 @@ class SummaryViewController: NSViewController {
     @IBOutlet weak var owncloudInstancesLabel: NSTextField!
     @IBOutlet weak var noOfInstancesLabel: NSTextField!
     @IBOutlet var summaryViewController: NSView!
+    @IBOutlet weak var refreshActiveSpinner: NSProgressIndicator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +62,12 @@ class SummaryViewController: NSViewController {
     }
     
     @IBAction func checkAllInstances(sender: AnyObject) {
+        self.refreshActiveSpinner.hidden = false
+        self.refreshActiveSpinner.startAnimation(self)
+        SystemInstancesModel().checkAllInstancesVersions() { result in
+            self.refreshActiveSpinner.stopAnimation(self)
+            self.refreshActiveSpinner.hidden = true
+        }
     }
     
     func loadConfigfiles() {

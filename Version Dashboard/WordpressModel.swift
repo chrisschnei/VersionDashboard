@@ -55,6 +55,31 @@ class WordpressModel : GenericModel {
         return dict.writeToFile(path, atomically: true)
     }
     
+    func updateDate() {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        self.lastRefresh = dateFormatter.stringFromDate(NSDate())
+    }
+    
+    func getVersions() {
+        self.headVersion = self.getInstanceVersionJSON(wordpressAPIUrl)
+        self.currentVersion = self.getInstanceVersion(self.hosturl)
+    }
+    
+    func checkNotificationRequired() {
+        if(!(self.headVersion == self.currentVersion) && (self.updateAvailable == 0)) {
+            self.updateAvailable = 1
+            incrementBadgeNumber()
+            sendNotification("Newer version available", informativeText: "Please update your \(self.name) instance")
+        } else if((self.headVersion == self.currentVersion) && (self.updateAvailable == 1)) {
+            self.updateAvailable = 0
+            decrementBadgeNumber()
+        } else {
+            self.updateAvailable = 0
+        }
+    }
+    
     func getInstanceVersion(url: String) -> String {
         if let version = NSData(contentsOfURL: NSURL(string: url)!) {
             let version = String(data: version, encoding: NSUTF8StringEncoding)

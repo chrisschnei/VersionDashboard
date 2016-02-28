@@ -539,6 +539,22 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VpC-3R-Ecc">
+                                <rect key="frame" x="359" y="234" width="86" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PHP Versions" id="eIB-eA-dgS">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PhD-Lk-Ssm">
+                                <rect key="frame" x="528" y="234" width="37" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="VXF-M5-l3I">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kRI-9U-YnH">
                                 <rect key="frame" x="359" y="315" width="128" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Instances up to date" id="zdU-SP-7pM">
@@ -595,22 +611,9 @@
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <font key="titleFont" metaFont="system"/>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VpC-3R-Ecc">
-                                <rect key="frame" x="359" y="234" width="86" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PHP Versions" id="eIB-eA-dgS">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PhD-Lk-Ssm">
-                                <rect key="frame" x="528" y="234" width="37" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="VXF-M5-l3I">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                            <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Chi-F0-rb0">
+                                <rect key="frame" x="469" y="32" width="16" height="16"/>
+                            </progressIndicator>
                         </subviews>
                     </view>
                     <connections>
@@ -630,6 +633,7 @@
                         <outlet property="phpVersions" destination="PhD-Lk-Ssm" id="Xj4-yZ-qIN"/>
                         <outlet property="phpVersionsLabel" destination="VpC-3R-Ecc" id="Vve-Tk-qj9"/>
                         <outlet property="piwikInstancesLabel" destination="aEm-St-Vcm" id="D1e-11-dR3"/>
+                        <outlet property="refreshActiveSpinner" destination="Chi-F0-rb0" id="aWY-xW-Lg8"/>
                         <outlet property="summaryViewController" destination="LeM-NU-AWq" id="SSV-Kp-m5W"/>
                         <outlet property="wordpressInstancesLabel" destination="Sz6-J5-V9f" id="wtJ-Yn-By8"/>
                     </connections>

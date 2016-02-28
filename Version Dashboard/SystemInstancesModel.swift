@@ -10,10 +10,40 @@ import Foundation
 
 class SystemInstancesModel {
     
-    func checkAllInstancesVersions() -> Bool {
-        return true
+    func checkAllInstancesVersions(completionHandler: (Bool) -> ()) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            for instance in systemInstances.keys {
+                if((systemInstances[instance] as? JoomlaModel) != nil) {
+                    let joomlamodel = systemInstances[instance] as? JoomlaModel
+                    //Remote Version url
+                    joomlamodel!.getVersions()
+                    joomlamodel!.updateDate()
+                    joomlamodel!.saveConfigfile()
+                } else if((systemInstances[instance] as? PiwikModel) != nil) {
+                    let piwikmodel = systemInstances[instance] as? PiwikModel
+                    //Remote Version url
+                    piwikmodel!.getVersions()
+                    piwikmodel!.updateDate()
+                    piwikmodel!.saveConfigfile()
+                } else if((systemInstances[instance] as? OwncloudModel) != nil) {
+                    let owncloudmodel = systemInstances[instance] as? OwncloudModel
+                    //Remote Version url
+                    owncloudmodel!.getVersions()
+                    owncloudmodel!.updateDate()
+                    owncloudmodel!.saveConfigfile()
+                } else if((systemInstances[instance] as? WordpressModel) != nil) {
+                    let wordpressmodel = systemInstances[instance] as? WordpressModel
+                    //Remote Version url
+                    wordpressmodel!.getVersions()
+                    wordpressmodel!.updateDate()
+                    wordpressmodel!.saveConfigfile()
+                }
+            }
+            completionHandler(true)
+        }
     }
     
+    //Todo implement php check functionality
     func checkAllInstancesPHPVersions() -> String {
         return "5.3"
     }

@@ -39,6 +39,7 @@
 		AAA563231C821E6000E1199A /* SystemInstancesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA563221C821E6000E1199A /* SystemInstancesModel.swift */; };
 		AAA563251C83021F00E1199A /* Outdated item.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA563241C83021F00E1199A /* Outdated item.png */; };
 		AAA563271C8302A300E1199A /* OutdatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA563261C8302A300E1199A /* OutdatedViewController.swift */; };
+		AAA563291C83567300E1199A /* NotificationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA563281C83567300E1199A /* NotificationFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		AAA563221C821E6000E1199A /* SystemInstancesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemInstancesModel.swift; sourceTree = "<group>"; };
 		AAA563241C83021F00E1199A /* Outdated item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Outdated item.png"; sourceTree = "<group>"; };
 		AAA563261C8302A300E1199A /* OutdatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutdatedViewController.swift; sourceTree = "<group>"; };
+		AAA563281C83567300E1199A /* NotificationFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				AA6AD8051C6BC94A0097CD9A /* Models */,
 				AA6AD8111C6CDA890097CD9A /* constants.swift */,
 				AA6AD8501C7E397B0097CD9A /* badgeFunctions.swift */,
+				AAA563281C83567300E1199A /* NotificationFunctions.swift */,
 			);
 			path = "Version Dashboard";
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				AA6AD7F11C6B779D0097CD9A /* OwncloudViewController.swift in Sources */,
 				AA6AD7FE1C6BC9210097CD9A /* PiwikModel.swift in Sources */,
 				AA6AD7E21C6B73AC0097CD9A /* AddSystemViewController.swift in Sources */,
+				AAA563291C83567300E1199A /* NotificationFunctions.swift in Sources */,
 				AA6AD8141C6CE7B60097CD9A /* InstanceRepositories.swift in Sources */,
 				AAA5631D1C81E01200E1199A /* MainWindow.swift in Sources */,
 				AA6AD8121C6CDA890097CD9A /* constants.swift in Sources */,

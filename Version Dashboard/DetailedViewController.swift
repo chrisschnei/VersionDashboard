@@ -46,7 +46,6 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
 
     override var representedObject: AnyObject? {
         didSet {
-        // Update the view, if already loaded.
         }
     }
     
@@ -107,27 +106,12 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             let instanceName = Array(systemInstances.keys)[selectedRow]
             if((systemInstances[instanceName] as? JoomlaModel) != nil) {
                 let joomlamodel = systemInstances[instanceName] as? JoomlaModel
-                let instanceVersion = joomlamodel!.getInstanceVersion((joomlamodel!.hosturl).stringByAppendingString(joomlapath))
                 //Remote Version url
-                let headVersion = joomlamodel!.getInstanceVersion(joomlaAPIUrl.stringByAppendingString(joomlapath))
-                joomlamodel!.headVersion = headVersion
-                joomlamodel!.currentVersion = instanceVersion
+                joomlamodel!.getVersions()
                 //Check Version
-                if(!(headVersion == instanceVersion) && (joomlamodel!.updateAvailable == 0)) {
-                    joomlamodel!.updateAvailable = 1
-                    incrementBadgeNumber()
-                    self.sendNotification("Newer version available", informativeText: "Please update your \(instanceName) instance")
-                } else if((headVersion == instanceVersion) && (joomlamodel!.updateAvailable == 1)) {
-                    joomlamodel!.updateAvailable = 0
-                    decrementBadgeNumber()
-                } else {
-                    joomlamodel!.updateAvailable = 0
-                }
+                joomlamodel!.checkNotificationRequired()
                 //Date
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-                dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-                joomlamodel!.lastRefresh = dateFormatter.stringFromDate(NSDate())
+                joomlamodel!.updateDate()
                 if(!(joomlamodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
@@ -135,27 +119,12 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
             } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
                 let owncloudmodel = systemInstances[instanceName] as? OwncloudModel
-                let instanceVersion = owncloudmodel!.getInstanceVersion((owncloudmodel?.hosturl)!.stringByAppendingString(owncloudVersionURL))
                 //Remote Version url
-                let headVersion = owncloudmodel!.getInstanceVersion(owncloudAPIUrl.stringByAppendingString(owncloudVersionURL))
-                owncloudmodel!.headVersion = headVersion
-                owncloudmodel!.currentVersion = instanceVersion
+                owncloudmodel!.getVersions()
                 //Check Version
-                if(!(headVersion == instanceVersion) && (owncloudmodel!.updateAvailable == 0)) {
-                    owncloudmodel!.updateAvailable = 1
-                    incrementBadgeNumber()
-                    self.sendNotification("Newer version available", informativeText: "Please update your \(instanceName) instance")
-                } else if((headVersion == instanceVersion) && (owncloudmodel!.updateAvailable == 1)) {
-                    owncloudmodel!.updateAvailable = 0
-                    decrementBadgeNumber()
-                } else {
-                    owncloudmodel!.updateAvailable = 0
-                }
+                owncloudmodel!.checkNotificationRequired()
                 //Date
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-                dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-                owncloudmodel!.lastRefresh = dateFormatter.stringFromDate(NSDate())
+                owncloudmodel!.updateDate()
                 if(!(owncloudmodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
@@ -163,27 +132,12 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
             } else if((systemInstances[instanceName] as? PiwikModel) != nil) {
                 let piwikmodel = systemInstances[instanceName] as? PiwikModel
-                let instanceVersion = piwikmodel!.getInstanceVersionXML((piwikmodel?.hosturl)!.stringByAppendingString(piwikAPIUrl).stringByAppendingString(piwikmodel!.apiToken))
                 //Remote Version url
-                let headVersion = piwikmodel!.getInstanceVersion(piwikLatestVersionURL)
-                piwikmodel!.headVersion = headVersion
-                piwikmodel!.currentVersion = instanceVersion
+                piwikmodel!.getVersions()
                 //Check Version
-                if(!(headVersion == instanceVersion) && (piwikmodel!.updateAvailable == 0)) {
-                    piwikmodel!.updateAvailable = 1
-                    incrementBadgeNumber()
-                    self.sendNotification("Newer version available", informativeText: "Please update your \(instanceName) instance")
-                } else if((headVersion == instanceVersion) && (piwikmodel!.updateAvailable == 1)) {
-                    piwikmodel!.updateAvailable = 0
-                    decrementBadgeNumber()
-                } else {
-                    piwikmodel!.updateAvailable = 0
-                }
+                piwikmodel!.checkNotificationRequired()
                 //Date
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-                dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-                piwikmodel!.lastRefresh = dateFormatter.stringFromDate(NSDate())
+                piwikmodel!.updateDate()
                 if(!(piwikmodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
@@ -191,27 +145,12 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
             } else if((systemInstances[instanceName] as? WordpressModel) != nil) {
                 let wordpressmodel = systemInstances[instanceName] as? WordpressModel
-                let instanceVersion = wordpressmodel!.getInstanceVersion((wordpressmodel?.hosturl)!)
                 //Remote Version url
-                let headVersion = wordpressmodel!.getInstanceVersionJSON(wordpressAPIUrl)
-                wordpressmodel!.headVersion = headVersion
-                wordpressmodel!.currentVersion = instanceVersion
+                wordpressmodel!.getVersions()
                 //Check Version
-                if(!(headVersion == instanceVersion) && (wordpressmodel!.updateAvailable == 0)) {
-                    wordpressmodel!.updateAvailable = 1
-                    incrementBadgeNumber()
-                    self.sendNotification("Newer version available", informativeText: "Please update your \(instanceName) instance")
-                } else if((headVersion == instanceVersion) && (wordpressmodel!.updateAvailable == 1)) {
-                    wordpressmodel!.updateAvailable = 0
-                    decrementBadgeNumber()
-                } else {
-                    wordpressmodel!.updateAvailable = 0
-                }
+                wordpressmodel!.checkNotificationRequired()
                 //Date
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-                dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-                wordpressmodel!.lastRefresh = dateFormatter.stringFromDate(NSDate())
+                wordpressmodel!.updateDate()
                 if(!(wordpressmodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
@@ -224,13 +163,6 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         }
         self.checkActiveSpinner.stopAnimation(self)
         self.checkActiveSpinner.hidden = true
-    }
-    
-    func sendNotification(title: String, informativeText: String) {
-        let notification = NSUserNotification()
-        notification.title = title
-        notification.informativeText = informativeText
-        NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
     }
     
     func updateInstanceDetails(index: Int) {
@@ -274,13 +206,13 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     self.statusLabel.stringValue = "Update available"
                 }
             } else if((modelclass as? WordpressModel) != nil) {
-                let piwikmodel = modelclass as? WordpressModel
-                self.hostLabel.stringValue = piwikmodel!.hosturl
-                self.systemLabel.stringValue = piwikmodel!.name
-                self.lastcheckLabel.stringValue = piwikmodel!.lastRefresh
-                self.latestsversionLabel.stringValue = piwikmodel!.headVersion
-                self.deployedversionLabel.stringValue = piwikmodel!.currentVersion
-                if(piwikmodel!.updateAvailable == 0) {
+                let wordpressmodel = modelclass as? WordpressModel
+                self.hostLabel.stringValue = wordpressmodel!.hosturl
+                self.systemLabel.stringValue = wordpressmodel!.name
+                self.lastcheckLabel.stringValue = wordpressmodel!.lastRefresh
+                self.latestsversionLabel.stringValue = wordpressmodel!.headVersion
+                self.deployedversionLabel.stringValue = wordpressmodel!.currentVersion
+                if(wordpressmodel!.updateAvailable == 0) {
                     self.statusLabel.stringValue = "OK"
                 } else {
                     self.statusLabel.stringValue = "Update available"

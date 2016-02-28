@@ -33,6 +33,31 @@ class PiwikModel : GenericModel, XMLParserDelegate {
         self.type = type
     }
     
+    func checkNotificationRequired() {
+        if(!(self.headVersion == self.currentVersion) && (self.updateAvailable == 0)) {
+            self.updateAvailable = 1
+            incrementBadgeNumber()
+            sendNotification("Newer version available", informativeText: "Please update your \(self.name) instance")
+        } else if((self.headVersion == self.currentVersion) && (self.updateAvailable == 1)) {
+            self.updateAvailable = 0
+            decrementBadgeNumber()
+        } else {
+            self.updateAvailable = 0
+        }
+    }
+    
+    func updateDate() {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        self.lastRefresh = dateFormatter.stringFromDate(NSDate())
+    }
+    
+    func getVersions() {
+        self.headVersion = self.getInstanceVersion(piwikLatestVersionURL)
+        self.currentVersion = self.getInstanceVersionXML((self.hosturl).stringByAppendingString(piwikAPIUrl).stringByAppendingString(self.apiToken))
+    }
+    
     func saveConfigfile() -> Bool {
         let path = appurl.stringByAppendingString(self.name).stringByAppendingString(".plist")
         let dict: NSMutableDictionary = NSMutableDictionary()

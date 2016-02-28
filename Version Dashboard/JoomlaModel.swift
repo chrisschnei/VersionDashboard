@@ -55,6 +55,31 @@ class JoomlaModel : GenericModel, XMLParserDelegate {
         return dict.writeToFile(path, atomically: true)
     }
     
+    func updateDate() {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        self.lastRefresh = dateFormatter.stringFromDate(NSDate())
+    }
+    
+    func getVersions() {
+        self.headVersion = self.getInstanceVersion(joomlaAPIUrl.stringByAppendingString(joomlapath))
+        self.currentVersion = self.getInstanceVersion((self.hosturl).stringByAppendingString(joomlapath))
+    }
+    
+    func checkNotificationRequired() {
+        if(!(self.headVersion == self.currentVersion) && (self.updateAvailable == 0)) {
+            self.updateAvailable = 1
+            incrementBadgeNumber()
+            sendNotification("Newer version available", informativeText: "Please update your \(self.name) instance")
+        } else if((self.headVersion == self.currentVersion) && (self.updateAvailable == 1)) {
+            self.updateAvailable = 0
+            decrementBadgeNumber()
+        } else {
+            self.updateAvailable = 0
+        }
+    }
+    
     func XMLParserError(parser: XMLParser, error: String) {
         print(error);
     }
