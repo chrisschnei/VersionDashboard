@@ -13,10 +13,10 @@ class PiwikController: NSViewController {
     @IBOutlet weak var hostUrl: NSTextField!
     @IBOutlet weak var tokenField: NSTextField!
     @IBOutlet weak var cancelButton: NSButton!
-    @IBOutlet weak var saveButton: NSLayoutConstraint!
     @IBOutlet weak var instanceName: NSTextField!
-    
     @IBOutlet weak var errorMessage: NSTextField!
+    @IBOutlet weak var saveButton: NSButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -26,10 +26,25 @@ class PiwikController: NSViewController {
         if(self.checkURLTextfields()) {
             return
         }
+        if(self.checkInstanceNameAlreadyPresent()) {
+            return
+        }
         let piwikinstance = PiwikModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, apiToken : tokenField.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Piwik", headVersion: "", updateAvailable: 0)
         piwikinstance.saveConfigfile()
         NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
         self.dismissController(self)
+    }
+    
+    func checkInstanceNameAlreadyPresent() -> Bool {
+        var alreadyPresent = false
+        let fileManager = NSFileManager.defaultManager()
+        if (fileManager.fileExistsAtPath(appurl.stringByAppendingString(self.instanceName.stringValue).stringByAppendingString(".plist")))
+        {
+            alreadyPresent = true
+            self.errorMessage.hidden = false
+            self.errorMessage.stringValue = "Instance already used. Choose another one."
+        }
+        return alreadyPresent
     }
     
     @IBAction func cancelAction(sender: AnyObject) {

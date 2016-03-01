@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import SystemConfiguration
 
 class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
 
@@ -24,6 +23,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     @IBOutlet weak var systemTableView: NSTableView!
     @IBOutlet weak var noInternetConnection: NSTextField!
     @IBOutlet weak var checkActiveSpinner: NSProgressIndicator!
+    @IBOutlet weak var takeMeToMyInstance: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         systemTableView.setDelegate(self)
         systemTableView.setDataSource(self)
         self.addInstancesToTable()
+        self.takeMeToMyInstance.enabled = false
     }
     
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
@@ -49,20 +50,22 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         }
     }
     
-    func checkInternetConnection() -> Bool {
-            var zeroAddress = sockaddr_in()
-            zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))
-            zeroAddress.sin_family = sa_family_t(AF_INET)
-            let defaultRouteReachability = withUnsafePointer(&zeroAddress) {
-                SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
+    @IBAction func takeMeToMyInstance(sender: AnyObject) {
+        if(self.systemTableView.selectedRow != -1) {
+            let instancename = Array(systemInstances.keys)[self.systemTableView.selectedRow]
+            let instance = systemInstances[instancename]
+            var url = ""
+            if((instance as? JoomlaModel) != nil) {
+                url = (instance as! JoomlaModel).hosturl.stringByAppendingString("administrator/")
+            } else if((instance as? WordpressModel) != nil) {
+                url = (instance as! WordpressModel).hosturl.stringByAppendingString("wp-admin/")
+            } else if((instance as? PiwikModel) != nil) {
+                url = (instance as! PiwikModel).hosturl
+            } else if((instance as? OwncloudModel) != nil) {
+                url = (instance as! OwncloudModel).hosturl
             }
-            var flags = SCNetworkReachabilityFlags()
-            if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
-                return false
-            }
-            let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
-            let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
-            return (isReachable && !needsConnection)
+            NSWorkspace.sharedWorkspace().openURL(NSURL(string: url)!)
+        }
     }
 
     func deleteFile(path: String) {
@@ -101,7 +104,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     @IBAction func refreshInstance(sender: AnyObject) {
         self.checkActiveSpinner.hidden = false
         self.checkActiveSpinner.startAnimation(self)
-        if(self.checkInternetConnection()) {
+        if(checkInternetConnection()) {
             let selectedRow = systemTableView.selectedRow
             let instanceName = Array(systemInstances.keys)[selectedRow]
             if((systemInstances[instanceName] as? JoomlaModel) != nil) {
@@ -167,6 +170,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     
     func updateInstanceDetails(index: Int) {
         if((index) != -1) {
+            self.takeMeToMyInstance.enabled = true
             let key = Array(systemInstances.keys)[index]
             let modelclass = systemInstances[key].self!
             if((modelclass as? JoomlaModel) != nil) {
@@ -218,6 +222,8 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     self.statusLabel.stringValue = "Update available"
                 }
             }
+        } else {
+            self.takeMeToMyInstance.enabled = false   
         }
     }
     

@@ -27,10 +27,25 @@ class JoomlaViewController: NSViewController {
         if(self.checkURLTextfields()) {
             return
         }
+        if(self.checkInstanceNameAlreadyPresent()) {
+            return
+        }
         let joomlainstance = JoomlaModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Joomla", headVersion: "", updateAvailable: 0)
         joomlainstance.saveConfigfile()
         NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
         self.dismissController(self)
+    }
+    
+    func checkInstanceNameAlreadyPresent() -> Bool {
+        var alreadyPresent = false
+        let fileManager = NSFileManager.defaultManager()
+        if (fileManager.fileExistsAtPath(appurl.stringByAppendingString(self.instanceName.stringValue).stringByAppendingString(".plist")))
+        {
+            alreadyPresent = true
+            self.errorMessage.hidden = false
+            self.errorMessage.stringValue = "Instance already used. Choose another one."
+        }
+        return alreadyPresent
     }
     
     func checkURLTextfields() -> Bool {

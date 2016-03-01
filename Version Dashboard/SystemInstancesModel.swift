@@ -19,24 +19,28 @@ class SystemInstancesModel {
                     joomlamodel!.getVersions()
                     joomlamodel!.updateDate()
                     joomlamodel!.saveConfigfile()
+                    joomlamodel!.checkNotificationRequired()
                 } else if((systemInstances[instance] as? PiwikModel) != nil) {
                     let piwikmodel = systemInstances[instance] as? PiwikModel
                     //Remote Version url
                     piwikmodel!.getVersions()
                     piwikmodel!.updateDate()
                     piwikmodel!.saveConfigfile()
+                    piwikmodel!.checkNotificationRequired()
                 } else if((systemInstances[instance] as? OwncloudModel) != nil) {
                     let owncloudmodel = systemInstances[instance] as? OwncloudModel
                     //Remote Version url
                     owncloudmodel!.getVersions()
                     owncloudmodel!.updateDate()
                     owncloudmodel!.saveConfigfile()
+                    owncloudmodel!.checkNotificationRequired()
                 } else if((systemInstances[instance] as? WordpressModel) != nil) {
                     let wordpressmodel = systemInstances[instance] as? WordpressModel
                     //Remote Version url
                     wordpressmodel!.getVersions()
                     wordpressmodel!.updateDate()
                     wordpressmodel!.saveConfigfile()
+                    wordpressmodel!.checkNotificationRequired()
                 }
             }
             completionHandler(true)
