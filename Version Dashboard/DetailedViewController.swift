@@ -9,7 +9,7 @@
 import Cocoa
 
 class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
-
+    
     @IBOutlet weak var refreshButton: NSButton!
     @IBOutlet weak var systemLabel: NSTextField!
     @IBOutlet weak var hostLabel: NSTextField!
@@ -44,7 +44,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             }
         }
     }
-
+    
     override var representedObject: AnyObject? {
         didSet {
         }
@@ -67,7 +67,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             NSWorkspace.sharedWorkspace().openURL(NSURL(string: url)!)
         }
     }
-
+    
     func deleteFile(path: String) {
         let fileManager = NSFileManager.defaultManager()
         do {
@@ -79,13 +79,16 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     }
     
     @IBAction func removeInstance(sender: AnyObject) {
-        let instances = Array(systemInstances.keys)
-        let filename = instances[self.systemTableView.selectedRow]
-        let path = appurl.stringByAppendingString(filename).stringByAppendingString(".plist")
-        self.deleteFile(path)
-        systemInstances.removeAll()
-        SummaryViewController().loadConfigfiles()
-        self.addInstancesToTable()
+        if(self.systemTableView.selectedRow != -1) {
+            let instances = Array(systemInstances.keys)
+            let filename = instances[self.systemTableView.selectedRow]
+            let path = appurl.stringByAppendingString(filename).stringByAppendingString(".plist")
+            self.deleteFile(path)
+            zeroBadgeNumber()
+            systemInstances.removeAll()
+            SummaryViewController().loadConfigfiles()
+            self.addInstancesToTable()
+        }
     }
     
     func addInstancesToTable() {
@@ -110,9 +113,14 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             if((systemInstances[instanceName] as? JoomlaModel) != nil) {
                 let joomlamodel = systemInstances[instanceName] as? JoomlaModel
                 //Remote Version url
-                joomlamodel!.getVersions()
-                //Check Version
-                joomlamodel!.checkNotificationRequired()
+                if(joomlamodel!.getVersions()) {
+                    //Check Version
+                    self.noInternetConnection.hidden = true
+                    joomlamodel!.checkNotificationRequired()
+                } else {
+                    self.noInternetConnection.stringValue = "Error fetching versions."
+                    self.noInternetConnection.hidden = false
+                }
                 //Date
                 joomlamodel!.updateDate()
                 if(!(joomlamodel!.saveConfigfile())) {
@@ -123,9 +131,14 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
                 let owncloudmodel = systemInstances[instanceName] as? OwncloudModel
                 //Remote Version url
-                owncloudmodel!.getVersions()
-                //Check Version
-                owncloudmodel!.checkNotificationRequired()
+                if(owncloudmodel!.getVersions()) {
+                    //Check Version
+                    self.noInternetConnection.hidden = true
+                    owncloudmodel!.checkNotificationRequired()
+                } else {
+                    self.noInternetConnection.stringValue = "Error fetching versions."
+                    self.noInternetConnection.hidden = false
+                }
                 //Date
                 owncloudmodel!.updateDate()
                 if(!(owncloudmodel!.saveConfigfile())) {
@@ -136,9 +149,14 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             } else if((systemInstances[instanceName] as? PiwikModel) != nil) {
                 let piwikmodel = systemInstances[instanceName] as? PiwikModel
                 //Remote Version url
-                piwikmodel!.getVersions()
-                //Check Version
-                piwikmodel!.checkNotificationRequired()
+                if(piwikmodel!.getVersions()) {
+                    //Check Version
+                    self.noInternetConnection.hidden = true
+                    piwikmodel!.checkNotificationRequired()
+                } else {
+                    self.noInternetConnection.stringValue = "Error fetching versions."
+                    self.noInternetConnection.hidden = false
+                }
                 //Date
                 piwikmodel!.updateDate()
                 if(!(piwikmodel!.saveConfigfile())) {
@@ -149,9 +167,14 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             } else if((systemInstances[instanceName] as? WordpressModel) != nil) {
                 let wordpressmodel = systemInstances[instanceName] as? WordpressModel
                 //Remote Version url
-                wordpressmodel!.getVersions()
-                //Check Version
-                wordpressmodel!.checkNotificationRequired()
+                if(wordpressmodel!.getVersions()) {
+                    //Check Version
+                    self.noInternetConnection.hidden = true
+                    wordpressmodel!.checkNotificationRequired()
+                } else {
+                    self.noInternetConnection.stringValue = "Error fetching versions."
+                    self.noInternetConnection.hidden = false
+                }
                 //Date
                 wordpressmodel!.updateDate()
                 if(!(wordpressmodel!.saveConfigfile())) {
@@ -161,6 +184,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
             }
         } else {
+            self.noInternetConnection.stringValue = "Check internet connection."
             self.noInternetConnection.hidden = false
             self.refreshButton.stringValue = "Retry"
         }
@@ -180,10 +204,14 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.lastcheckLabel.stringValue = joomlaobject!.lastRefresh
                 self.latestsversionLabel.stringValue = joomlaobject!.headVersion
                 self.deployedversionLabel.stringValue = joomlaobject!.currentVersion
-                if(joomlaobject!.updateAvailable == 0) {
-                    self.statusLabel.stringValue = "OK"
+                if(self.latestsversionLabel.stringValue != "" || self.deployedversionLabel.stringValue != "") {
+                    if(joomlaobject!.updateAvailable == 0) {
+                        self.statusLabel.stringValue = "OK"
+                    } else {
+                        self.statusLabel.stringValue = "Update available"
+                    }
                 } else {
-                    self.statusLabel.stringValue = "Update available"
+                    self.statusLabel.stringValue = ""
                 }
             } else if((modelclass as? OwncloudModel) != nil) {
                 let owncloudmodel = modelclass as? OwncloudModel
@@ -192,10 +220,14 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.lastcheckLabel.stringValue = owncloudmodel!.lastRefresh
                 self.latestsversionLabel.stringValue = owncloudmodel!.headVersion
                 self.deployedversionLabel.stringValue = owncloudmodel!.currentVersion
-                if(owncloudmodel!.updateAvailable == 0) {
-                    self.statusLabel.stringValue = "OK"
+                if(self.latestsversionLabel.stringValue != "" || self.deployedversionLabel.stringValue != "") {
+                    if(owncloudmodel!.updateAvailable == 0) {
+                        self.statusLabel.stringValue = "OK"
+                    } else {
+                        self.statusLabel.stringValue = "Update available"
+                    }
                 } else {
-                    self.statusLabel.stringValue = "Update available"
+                    self.statusLabel.stringValue = ""
                 }
             } else if((modelclass as? PiwikModel) != nil) {
                 let piwikmodel = modelclass as? PiwikModel
@@ -204,10 +236,14 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.lastcheckLabel.stringValue = piwikmodel!.lastRefresh
                 self.latestsversionLabel.stringValue = piwikmodel!.headVersion
                 self.deployedversionLabel.stringValue = piwikmodel!.currentVersion
-                if(piwikmodel!.updateAvailable == 0) {
-                    self.statusLabel.stringValue = "OK"
+                if(self.latestsversionLabel.stringValue != "" || self.deployedversionLabel.stringValue != "") {
+                    if(piwikmodel!.updateAvailable == 0) {
+                        self.statusLabel.stringValue = "OK"
+                    } else {
+                        self.statusLabel.stringValue = "Update available"
+                    }
                 } else {
-                    self.statusLabel.stringValue = "Update available"
+                    self.statusLabel.stringValue = ""
                 }
             } else if((modelclass as? WordpressModel) != nil) {
                 let wordpressmodel = modelclass as? WordpressModel
@@ -216,14 +252,20 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.lastcheckLabel.stringValue = wordpressmodel!.lastRefresh
                 self.latestsversionLabel.stringValue = wordpressmodel!.headVersion
                 self.deployedversionLabel.stringValue = wordpressmodel!.currentVersion
-                if(wordpressmodel!.updateAvailable == 0) {
-                    self.statusLabel.stringValue = "OK"
+                if(self.latestsversionLabel.stringValue != "" || self.deployedversionLabel.stringValue != "") {
+                    if(wordpressmodel!.updateAvailable == 0) {
+                        self.statusLabel.stringValue = "OK"
+                    } else if(wordpressmodel?.updateAvailable == -1) {
+                        self.statusLabel.stringValue = "Error fetching versions"
+                    } else {
+                        self.statusLabel.stringValue = "Update available"
+                    }
                 } else {
-                    self.statusLabel.stringValue = "Update available"
+                    self.statusLabel.stringValue = ""
                 }
             }
         } else {
-            self.takeMeToMyInstance.enabled = false   
+            self.takeMeToMyInstance.enabled = false
         }
     }
     

@@ -28,19 +28,21 @@ class XMLParser : NSObject, NSXMLParserDelegate {
         
         dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)){
             let xmlCode = NSData(contentsOfURL: self.url);
-//            let string = NSString(data: xmlCode!, encoding: NSUTF8StringEncoding);
-            let parser = NSXMLParser(data: xmlCode!);
-            parser.delegate = self
-            if !parser.parse() {
-                self.delegate?.XMLParserError(self, error: "Parsing failed?")
-            };
+            if(xmlCode != nil) {
+//                self.delegate?.XMLParserError(self, error: "Couldnt fetch version")
+                let parser = NSXMLParser(data: xmlCode!);
+                parser.delegate = self
+                if !parser.parse() {
+                    self.delegate?.XMLParserError(self, error: "Parsing failed")
+                };
+            }
         }
         if(self.object["version"] != nil) {
             return self.object["version"]!
         } else if(self.object["result"] != nil) {
             return self.object["result"]!
         } else {
-            return "test"
+            return ""
         }
     }
     

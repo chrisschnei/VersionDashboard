@@ -53,9 +53,15 @@ class PiwikModel : GenericModel, XMLParserDelegate {
         self.lastRefresh = dateFormatter.stringFromDate(NSDate())
     }
     
-    func getVersions() {
-        self.headVersion = self.getInstanceVersion(piwikLatestVersionURL)
-        self.currentVersion = self.getInstanceVersionXML((self.hosturl).stringByAppendingString(piwikAPIUrl).stringByAppendingString(self.apiToken))
+    func getVersions() -> Bool {
+        let headVersion = self.getInstanceVersion(piwikLatestVersionURL)
+        let currentVersion = self.getInstanceVersionXML((self.hosturl).stringByAppendingString(piwikAPIUrl).stringByAppendingString(self.apiToken))
+        if(headVersion != "" && currentVersion != "") {
+            self.headVersion = headVersion
+            self.currentVersion = currentVersion
+            return true
+        }
+        return false
     }
     
     func saveConfigfile() -> Bool {

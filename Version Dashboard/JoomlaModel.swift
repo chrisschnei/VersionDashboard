@@ -62,9 +62,15 @@ class JoomlaModel : GenericModel, XMLParserDelegate {
         self.lastRefresh = dateFormatter.stringFromDate(NSDate())
     }
     
-    func getVersions() {
-        self.headVersion = self.getInstanceVersion(joomlaAPIUrl.stringByAppendingString(joomlapath))
-        self.currentVersion = self.getInstanceVersion((self.hosturl).stringByAppendingString(joomlapath))
+    func getVersions() -> Bool {
+        let headVersion = self.getInstanceVersion(joomlaAPIUrl.stringByAppendingString(joomlapath))
+        let currentVersion = self.getInstanceVersion((self.hosturl).stringByAppendingString(joomlapath))
+        if(headVersion != "" && currentVersion != "") {
+            self.headVersion = headVersion
+            self.currentVersion = currentVersion
+            return true
+        }
+        return false
     }
     
     func checkNotificationRequired() {

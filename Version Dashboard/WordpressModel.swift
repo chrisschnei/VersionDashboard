@@ -62,13 +62,22 @@ class WordpressModel : GenericModel {
         self.lastRefresh = dateFormatter.stringFromDate(NSDate())
     }
     
-    func getVersions() {
-        self.headVersion = self.getInstanceVersionJSON(wordpressAPIUrl)
-        self.currentVersion = self.getInstanceVersion(self.hosturl)
+    func getVersions() -> Bool {
+        let headVersion = self.getInstanceVersionJSON(wordpressAPIUrl)
+        let currentVersion = self.getInstanceVersion(self.hosturl)
+        if(headVersion != "" && currentVersion != "") {
+            self.headVersion = headVersion
+            self.currentVersion = currentVersion
+            return true
+        }
+        return false
     }
     
-    func checkNotificationRequired() {
-        if(!(self.headVersion == self.currentVersion) && (self.updateAvailable == 0)) {
+    func checkNotificationRequired() -> Bool {
+        if((self.headVersion == "" ) || (self.currentVersion == "")) {
+            self.updateAvailable = -1
+            return false
+        } else if(!(self.headVersion == self.currentVersion) && (self.updateAvailable == 0)) {
             self.updateAvailable = 1
             incrementBadgeNumber()
             sendNotification("Newer version available", informativeText: "Please update your \(self.name) instance")
@@ -78,17 +87,20 @@ class WordpressModel : GenericModel {
         } else {
             self.updateAvailable = 0
         }
+        return true
     }
     
     func getInstanceVersion(url: String) -> String {
-        if let version = NSData(contentsOfURL: NSURL(string: url)!) {
-            let version = String(data: version, encoding: NSUTF8StringEncoding)
-            let lines = version?.componentsSeparatedByString("\n")
-            for part in lines! {
-                if(part.rangeOfString("wp-embed.min.js?ver=") != nil) {
-                    let part2 = part.componentsSeparatedByString("wp-embed.min.js?ver=")
-                    let part3 = part2[1].componentsSeparatedByString("'")
-                    return part3[0]
+        if(url != "") {
+            if let version = NSData(contentsOfURL: NSURL(string: url)!) {
+                let version = String(data: version, encoding: NSUTF8StringEncoding)
+                let lines = version?.componentsSeparatedByString("\n")
+                for part in lines! {
+                    if(part.rangeOfString("wp-embed.min.js?ver=") != nil) {
+                        let part2 = part.componentsSeparatedByString("wp-embed.min.js?ver=")
+                        let part3 = part2[1].componentsSeparatedByString("'")
+                        return part3[0]
+                    }
                 }
             }
         }

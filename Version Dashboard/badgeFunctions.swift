@@ -10,7 +10,7 @@ import Cocoa
 
 func incrementBadgeNumber() {
     let doc = NSApp.dockTile as NSDockTile
-    if(doc.badgeLabel == nil) {
+    if(doc.badgeLabel == nil || doc.badgeLabel == "") {
         doc.badgeLabel = "0"
     }
     let batchnumber = Int(doc.badgeLabel!)!
@@ -21,8 +21,13 @@ func decrementBadgeNumber() {
     let doc = NSApp.dockTile as NSDockTile
     let batchnumber = Int(doc.badgeLabel!)!
     if(batchnumber > 0) {
-        doc.badgeLabel = ""
-    } else {
         doc.badgeLabel = String(batchnumber - 1)
+    } else {
+        doc.badgeLabel = ""
     }
+}
+
+func zeroBadgeNumber() {
+    let doc = NSApp.dockTile as NSDockTile
+    doc.badgeLabel = ""
 }

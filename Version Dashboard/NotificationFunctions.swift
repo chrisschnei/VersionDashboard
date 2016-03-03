@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Cocoa
 
 func sendNotification(title: String, informativeText: String) {
     let notification = NSUserNotification()

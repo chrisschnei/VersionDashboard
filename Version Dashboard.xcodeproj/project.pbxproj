@@ -32,6 +32,8 @@
 		AA6AD8121C6CDA890097CD9A /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD8111C6CDA890097CD9A /* constants.swift */; };
 		AA6AD8141C6CE7B60097CD9A /* InstanceRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD8131C6CE7B60097CD9A /* InstanceRepositories.swift */; };
 		AA6AD8511C7E397B0097CD9A /* badgeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD8501C7E397B0097CD9A /* badgeFunctions.swift */; };
+		AA7FB8441C88CEBD009FC40B /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7FB8431C88CEBD009FC40B /* PreferencesWindowController.swift */; };
+		AA7FB8461C88CEF1009FC40B /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7FB8451C88CEF1009FC40B /* PreferencesViewController.swift */; };
 		AAA5631B1C81DFE700E1199A /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA5631A1C81DFE700E1199A /* SummaryViewController.swift */; };
 		AAA5631D1C81E01200E1199A /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA5631C1C81E01200E1199A /* MainWindow.swift */; };
 		AAA5631F1C81E09600E1199A /* Detailed view.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA5631E1C81E09600E1199A /* Detailed view.png */; };
@@ -93,6 +95,8 @@
 		AA6AD8111C6CDA890097CD9A /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		AA6AD8131C6CE7B60097CD9A /* InstanceRepositories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstanceRepositories.swift; sourceTree = "<group>"; };
 		AA6AD8501C7E397B0097CD9A /* badgeFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = badgeFunctions.swift; sourceTree = "<group>"; };
+		AA7FB8431C88CEBD009FC40B /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
+		AA7FB8451C88CEF1009FC40B /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		AAA5631A1C81DFE700E1199A /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		AAA5631C1C81E01200E1199A /* MainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		AAA5631E1C81E09600E1199A /* Detailed view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Detailed view.png"; sourceTree = "<group>"; };
@@ -154,13 +158,13 @@
 			isa = PBXGroup;
 			children = (
 				AA6AD7F81C6B81190097CD9A /* Images */,
-				AA6AD7AF1C6B4BD90097CD9A /* AppDelegate.swift */,
 				AA6AD8061C6BC9550097CD9A /* Controllers */,
 				AA6AD7B31C6B4BD90097CD9A /* Assets.xcassets */,
 				AA6AD7B51C6B4BD90097CD9A /* Main.storyboard */,
 				AA6AD7B81C6B4BD90097CD9A /* Info.plist */,
-				AA6AD7F91C6B8F220097CD9A /* XMLParser.swift */,
 				AA6AD8051C6BC94A0097CD9A /* Models */,
+				AA6AD7AF1C6B4BD90097CD9A /* AppDelegate.swift */,
+				AA6AD7F91C6B8F220097CD9A /* XMLParser.swift */,
 				AA6AD8111C6CDA890097CD9A /* constants.swift */,
 				AA6AD8501C7E397B0097CD9A /* badgeFunctions.swift */,
 				AAA563281C83567300E1199A /* NotificationFunctions.swift */,
@@ -229,6 +233,8 @@
 				AAA5631A1C81DFE700E1199A /* SummaryViewController.swift */,
 				AAA5631C1C81E01200E1199A /* MainWindow.swift */,
 				AAA563261C8302A300E1199A /* OutdatedViewController.swift */,
+				AA7FB8431C88CEBD009FC40B /* PreferencesWindowController.swift */,
+				AA7FB8451C88CEF1009FC40B /* PreferencesViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -371,12 +377,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA7FB8461C88CEF1009FC40B /* PreferencesViewController.swift in Sources */,
 				AA6AD7F51C6B77C00097CD9A /* WordpressViewController.swift in Sources */,
 				AA6AD8021C6BC93B0097CD9A /* WordpressModel.swift in Sources */,
 				AA6AD7B21C6B4BD90097CD9A /* DetailedViewController.swift in Sources */,
 				AAA563231C821E6000E1199A /* SystemInstancesModel.swift in Sources */,
 				AA6AD8081C6BCB800097CD9A /* GenericModel.swift in Sources */,
 				AAA5632D1C83837A00E1199A /* InternetConnectivity.swift in Sources */,
+				AA7FB8441C88CEBD009FC40B /* PreferencesWindowController.swift in Sources */,
 				AA6AD7FA1C6B8F220097CD9A /* XMLParser.swift in Sources */,
 				AA6AD8511C7E397B0097CD9A /* badgeFunctions.swift in Sources */,
 				AA6AD7F11C6B779D0097CD9A /* OwncloudViewController.swift in Sources */,

@@ -62,13 +62,19 @@ class OwncloudModel : GenericModel {
         self.lastRefresh = dateFormatter.stringFromDate(NSDate())
     }
     
-    func getVersions() {
-        self.headVersion = self.getInstanceVersion(owncloudAPIUrl.stringByAppendingString(owncloudVersionURL))
-        self.currentVersion = self.getInstanceVersion((self.hosturl).stringByAppendingString(owncloudVersionURL))
+    func getVersions() -> Bool {
+        let headVersion = self.getInstanceVersion(owncloudAPIUrl.stringByAppendingString(owncloudVersionURL))
+        let currentVersion = self.getInstanceVersion((self.hosturl).stringByAppendingString(owncloudVersionURL))
+        if(headVersion != "" && currentVersion != "") {
+            self.headVersion = headVersion
+            self.currentVersion = currentVersion
+            return true
+        }
+        return false
     }
     
     func checkNotificationRequired() {
-        if(!(self.headVersion == self.currentVersion) && (self.updateAvailable == 0)) {
+        if((self.headVersion < self.currentVersion) && (self.updateAvailable == 0)) {
             self.updateAvailable = 1
             incrementBadgeNumber()
             sendNotification("Newer version available", informativeText: "Please update your \(self.name) instance")

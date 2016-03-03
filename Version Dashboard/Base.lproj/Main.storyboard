@@ -24,7 +24,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                            <connections>
+                                                <segue destination="lKe-qP-1I3" kind="modal" id="JL1-qp-yfJ"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
                                         <menuItem title="Hide Version Dashboard" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
@@ -195,7 +199,7 @@
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Version_Dashboard" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18" y="-307"/>
+            <point key="canvasLocation" x="-54" y="-440"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -246,6 +250,37 @@
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-54" y="71"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="ju9-AI-Amt">
+            <objects>
+                <windowController id="lKe-qP-1I3" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="JtY-Dg-bi9">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="-1117" y="66" width="480" height="270"/>
+                        <rect key="screenRect" x="-1280" y="-224" width="1280" height="1001"/>
+                    </window>
+                    <connections>
+                        <segue destination="Sma-kB-1iu" kind="relationship" relationship="window.shadowedContentViewController" id="OA9-H7-sQB"/>
+                    </connections>
+                </windowController>
+                <customObject id="gLJ-vO-un4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-781" y="-226"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Q5X-sk-cla">
+            <objects>
+                <viewController id="Sma-kB-1iu" sceneMemberID="viewController">
+                    <view key="view" id="b4Y-fp-onJ">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="jCz-eV-Lss" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-781" y="182"/>
         </scene>
         <!--Summary View Controller-->
         <scene sceneID="hxu-Gl-8Bg">
@@ -654,7 +689,7 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="U77-6m-pGq" viewBased="YES" id="SUz-Zq-Pay">
-                                            <rect key="frame" x="0.0" y="0.0" width="319" height="361"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="319" height="0.0"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1112,10 +1147,10 @@ Gw
                                 </buttonCell>
                             </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="4MJ-ct-iDJ">
-                                <rect key="frame" x="85" y="111" width="48" height="48"/>
+                                <rect key="frame" x="60" y="111" width="73" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="kTN-sv-5YT"/>
-                                    <constraint firstAttribute="width" constant="48" id="w21-2P-6zl"/>
+                                    <constraint firstAttribute="width" constant="73" id="A1f-EM-XIM"/>
+                                    <constraint firstAttribute="height" constant="48" id="FIA-ta-ut8"/>
                                 </constraints>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="owncloud" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nt8-qp-y2o">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1128,7 +1163,7 @@ Gw
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="wEb-ze-nrD">
                                 <rect key="frame" x="249" y="111" width="48" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="O6p-V6-0zz"/>
+                                    <constraint firstAttribute="width" constant="48" id="hDQ-fS-DEU"/>
                                 </constraints>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="joomla" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="dcN-FV-MYv">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1141,7 +1176,7 @@ Gw
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="P93-jV-bbV">
                                 <rect key="frame" x="158" y="111" width="48" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="wCN-gD-Prf"/>
+                                    <constraint firstAttribute="width" constant="48" id="OoF-5u-vde"/>
                                 </constraints>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="piwik" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Bb5-17-4F6">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1171,22 +1206,22 @@ Gw
                             </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="wEb-ze-nrD" firstAttribute="top" secondItem="P93-jV-bbV" secondAttribute="top" id="93a-vE-1rR"/>
-                            <constraint firstItem="4MJ-ct-iDJ" firstAttribute="top" secondItem="Ket-68-bye" secondAttribute="bottom" constant="74" id="FjM-Ik-hca"/>
-                            <constraint firstItem="Aw7-gO-1ek" firstAttribute="leading" secondItem="5fz-05-hua" secondAttribute="leading" constant="20" symbolic="YES" id="KKM-YI-Skr"/>
-                            <constraint firstItem="wEb-ze-nrD" firstAttribute="top" secondItem="bqa-eA-va2" secondAttribute="top" id="Ms3-af-42V"/>
-                            <constraint firstItem="P93-jV-bbV" firstAttribute="leading" secondItem="4MJ-ct-iDJ" secondAttribute="trailing" constant="25" id="NNt-Ip-j4M"/>
-                            <constraint firstItem="Ket-68-bye" firstAttribute="leading" secondItem="5fz-05-hua" secondAttribute="leading" constant="20" id="QST-5v-oRM"/>
-                            <constraint firstItem="4MJ-ct-iDJ" firstAttribute="leading" secondItem="5fz-05-hua" secondAttribute="leading" constant="85" id="Tvu-BI-ZWN"/>
-                            <constraint firstItem="4MJ-ct-iDJ" firstAttribute="bottom" secondItem="P93-jV-bbV" secondAttribute="bottom" id="UBH-ob-vu5"/>
-                            <constraint firstItem="Ket-68-bye" firstAttribute="top" secondItem="5fz-05-hua" secondAttribute="top" constant="20" symbolic="YES" id="VY0-c8-Cge"/>
-                            <constraint firstItem="4MJ-ct-iDJ" firstAttribute="top" secondItem="P93-jV-bbV" secondAttribute="top" id="ZAM-lh-IIN"/>
-                            <constraint firstItem="bqa-eA-va2" firstAttribute="bottom" secondItem="wEb-ze-nrD" secondAttribute="bottom" id="ZLr-aT-1uQ"/>
-                            <constraint firstItem="wEb-ze-nrD" firstAttribute="leading" secondItem="P93-jV-bbV" secondAttribute="trailing" constant="43" id="cIc-mo-JZn"/>
-                            <constraint firstItem="wEb-ze-nrD" firstAttribute="bottom" secondItem="P93-jV-bbV" secondAttribute="bottom" id="ncy-v3-h8M"/>
-                            <constraint firstAttribute="bottom" secondItem="Aw7-gO-1ek" secondAttribute="bottom" constant="13" id="tPc-QI-oYw"/>
-                            <constraint firstAttribute="trailing" secondItem="bqa-eA-va2" secondAttribute="trailing" constant="85" id="ud6-Yk-gnA"/>
-                            <constraint firstItem="bqa-eA-va2" firstAttribute="leading" secondItem="wEb-ze-nrD" secondAttribute="trailing" constant="50" id="vct-ES-UIs"/>
+                            <constraint firstItem="4MJ-ct-iDJ" firstAttribute="top" secondItem="P93-jV-bbV" secondAttribute="top" id="9yb-xr-bGK"/>
+                            <constraint firstAttribute="trailing" secondItem="bqa-eA-va2" secondAttribute="trailing" constant="85" id="DJv-5f-KB1"/>
+                            <constraint firstItem="4MJ-ct-iDJ" firstAttribute="leading" secondItem="5fz-05-hua" secondAttribute="leading" constant="60" id="GU5-TC-74p"/>
+                            <constraint firstItem="wEb-ze-nrD" firstAttribute="top" secondItem="bqa-eA-va2" secondAttribute="top" id="PyW-UO-LA6"/>
+                            <constraint firstItem="Ket-68-bye" firstAttribute="top" secondItem="5fz-05-hua" secondAttribute="top" constant="20" symbolic="YES" id="Pyy-fg-c1b"/>
+                            <constraint firstItem="wEb-ze-nrD" firstAttribute="centerY" secondItem="5fz-05-hua" secondAttribute="centerY" id="VGf-bU-kPs"/>
+                            <constraint firstItem="wEb-ze-nrD" firstAttribute="top" secondItem="P93-jV-bbV" secondAttribute="top" id="WvE-82-CVx"/>
+                            <constraint firstItem="wEb-ze-nrD" firstAttribute="leading" secondItem="P93-jV-bbV" secondAttribute="trailing" constant="43" id="c7u-qq-2vP"/>
+                            <constraint firstItem="P93-jV-bbV" firstAttribute="leading" secondItem="4MJ-ct-iDJ" secondAttribute="trailing" constant="25" id="cIX-9c-JOO"/>
+                            <constraint firstItem="Ket-68-bye" firstAttribute="leading" secondItem="Aw7-gO-1ek" secondAttribute="leading" id="in9-KP-5UO"/>
+                            <constraint firstItem="P93-jV-bbV" firstAttribute="bottom" secondItem="wEb-ze-nrD" secondAttribute="bottom" id="lEu-Nl-Rps"/>
+                            <constraint firstItem="bqa-eA-va2" firstAttribute="leading" secondItem="wEb-ze-nrD" secondAttribute="trailing" constant="50" id="nnU-7i-nMd"/>
+                            <constraint firstItem="wEb-ze-nrD" firstAttribute="bottom" secondItem="bqa-eA-va2" secondAttribute="bottom" id="qxt-Mk-YGu"/>
+                            <constraint firstItem="P93-jV-bbV" firstAttribute="bottom" secondItem="4MJ-ct-iDJ" secondAttribute="bottom" id="ty7-1X-Dhg"/>
+                            <constraint firstItem="Aw7-gO-1ek" firstAttribute="top" secondItem="4MJ-ct-iDJ" secondAttribute="bottom" constant="77" id="wgQ-g3-Li2"/>
+                            <constraint firstItem="Ket-68-bye" firstAttribute="leading" secondItem="5fz-05-hua" secondAttribute="leading" constant="20" symbolic="YES" id="ysD-lm-DLY"/>
                         </constraints>
                     </view>
                 </viewController>
