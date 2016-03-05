@@ -73,11 +73,8 @@ class WordpressModel : GenericModel {
         return false
     }
     
-    func checkNotificationRequired() -> Bool {
-        if((self.headVersion == "" ) || (self.currentVersion == "")) {
-            self.updateAvailable = -1
-            return false
-        } else if(!(self.headVersion == self.currentVersion) && (self.updateAvailable == 0)) {
+    func checkNotificationRequired() {
+        if(!(self.headVersion == self.currentVersion) && (self.updateAvailable == 0)) {
             self.updateAvailable = 1
             incrementBadgeNumber()
             sendNotification("Newer version available", informativeText: "Please update your \(self.name) instance")
@@ -87,7 +84,6 @@ class WordpressModel : GenericModel {
         } else {
             self.updateAvailable = 0
         }
-        return true
     }
     
     func getInstanceVersion(url: String) -> String {

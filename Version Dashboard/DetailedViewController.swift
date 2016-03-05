@@ -86,7 +86,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             self.deleteFile(path)
             zeroBadgeNumber()
             systemInstances.removeAll()
-            SummaryViewController().loadConfigfiles()
+            SystemInstancesModel().loadConfigfiles()
             self.addInstancesToTable()
         }
     }
@@ -99,7 +99,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         let selectedRow = self.systemTableView.selectedRow
         self.systemTableView.deselectAll(self)
         systemInstances.removeAll()
-        SummaryViewController().loadConfigfiles()
+        SystemInstancesModel().loadConfigfiles()
         self.systemTableView.reloadData()
         self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
     }

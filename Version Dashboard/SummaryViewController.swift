@@ -32,9 +32,12 @@ class SummaryViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
-        self.loadConfigfiles()
+        PreferencesViewController().loadConfigurationFile()
+        SystemInstancesModel().loadConfigfiles()
         self.initLabels()
+        if((configurationSettings["automaticRefreshActive"] as! Bool) == true) {
+            PreferencesViewController().automaticRefresh()
+        }
     }
     
     func initLabels() {
@@ -61,36 +64,16 @@ class SummaryViewController: NSViewController {
         self.amountInstancesUptodate.stringValue = String(SystemInstancesModel().getAmountOfUptodateInstances())
     }
     
+    func checksFinished() {
+        self.refreshActiveSpinner.stopAnimation(self)
+        self.refreshActiveSpinner.hidden = true
+    }
+    
     @IBAction func checkAllInstances(sender: AnyObject) {
         self.refreshActiveSpinner.hidden = false
         self.refreshActiveSpinner.startAnimation(self)
         SystemInstancesModel().checkAllInstancesVersions() { result in
-            self.refreshActiveSpinner.stopAnimation(self)
-            self.refreshActiveSpinner.hidden = true
+            self.performSelectorOnMainThread("checksFinished", withObject: self, waitUntilDone: true)
         }
     }
-    
-    func loadConfigfiles() {
-        let fileManager = NSFileManager.defaultManager()
-        let enumerator:NSDirectoryEnumerator = fileManager.enumeratorAtPath(appurl)!
-        
-        while let element = enumerator.nextObject() as? String {
-            if element.hasSuffix("plist") {
-                let myDict = NSDictionary(contentsOfFile: appurl.stringByAppendingString(element))
-                if myDict!["type"] as! String == "Joomla" {
-                    systemInstances[myDict!["name"] as! String] = JoomlaModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int)
-                } else if myDict!["type"] as! String == "Wordpress" {
-                    systemInstances[myDict!["name"] as! String] = WordpressModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int)
-                } else if myDict!["type"] as! String == "Owncloud" {
-                    systemInstances[myDict!["name"] as! String] = OwncloudModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int)
-                } else if myDict!["type"] as! String == "Piwik" {
-                    systemInstances[myDict!["name"] as! String] = PiwikModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, apiToken: myDict!["apiToken"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int)
-                }
-                if((myDict!["updateAvailable"] as! Int) == 1) {
-                    incrementBadgeNumber()
-                }
-            }
-        }
-    }
-
 }

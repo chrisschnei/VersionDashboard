@@ -254,8 +254,8 @@
         <!--Window Controller-->
         <scene sceneID="ju9-AI-Amt">
             <objects>
-                <windowController id="lKe-qP-1I3" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="JtY-Dg-bi9">
+                <windowController id="lKe-qP-1I3" customClass="PreferencesWindowController" customModule="Version_Dashboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="JtY-Dg-bi9">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="-1117" y="66" width="480" height="270"/>
@@ -269,18 +269,95 @@
             </objects>
             <point key="canvasLocation" x="-781" y="-226"/>
         </scene>
-        <!--View Controller-->
+        <!--Preferences-->
         <scene sceneID="Q5X-sk-cla">
             <objects>
-                <viewController id="Sma-kB-1iu" sceneMemberID="viewController">
+                <viewController title="Preferences" id="Sma-kB-1iu" customClass="PreferencesViewController" customModule="Version_Dashboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="b4Y-fp-onJ">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="196"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yst-XC-hSV">
+                                <rect key="frame" x="18" y="159" width="314" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Enable automatic instance refresh" id="Yub-R7-B9C">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FKF-QT-342">
+                                <rect key="frame" x="255" y="13" width="81" height="32"/>
+                                <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Z6V-Q0-H9m">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="savePreferences:" target="Sma-kB-1iu" id="3wt-Ox-zaD"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fEc-Uc-b3c">
+                                <rect key="frame" x="14" y="13" width="81" height="32"/>
+                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="75o-m5-aJw">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="cancelPreferences:" target="Sma-kB-1iu" id="lEI-4B-DCc"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kuN-Yx-1F8">
+                                <rect key="frame" x="59" y="66" width="101" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Interval in hours" id="Ggg-vf-RWh">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y9Z-db-y2I">
+                                <rect key="frame" x="59" y="108" width="64" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Activated" id="TAP-ME-8Yp">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3KZ-WJ-fDM">
+                                <rect key="frame" x="192" y="97" width="22" height="38"/>
+                                <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="Isb-b9-7Ce">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Tg-IT-24g">
+                                <rect key="frame" x="194" y="59" width="99" height="26"/>
+                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="KOl-80-PeY">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </comboBoxCell>
+                            </comboBox>
+                        </subviews>
                     </view>
+                    <connections>
+                        <outlet property="activatedCheckbox" destination="3KZ-WJ-fDM" id="Szo-Jn-uu6"/>
+                        <outlet property="activatedTextLabel" destination="Y9Z-db-y2I" id="E4U-hY-ZuN"/>
+                        <outlet property="cancelButton" destination="fEc-Uc-b3c" id="Rri-Ch-hEy"/>
+                        <outlet property="dropdownInterval" destination="5Tg-IT-24g" id="9xw-uV-alZ"/>
+                        <outlet property="infoTextLabel" destination="Yst-XC-hSV" id="JfE-XD-d2V"/>
+                        <outlet property="intervalTextLabel" destination="kuN-Yx-1F8" id="llU-c6-5I0"/>
+                        <outlet property="saveButton" destination="FKF-QT-342" id="Omn-Zf-Hlo"/>
+                        <outlet property="view" destination="b4Y-fp-onJ" id="odv-Ww-ePr"/>
+                    </connections>
                 </viewController>
                 <customObject id="jCz-eV-Lss" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-781" y="182"/>
+            <point key="canvasLocation" x="-781" y="153"/>
         </scene>
         <!--Summary View Controller-->
         <scene sceneID="hxu-Gl-8Bg">
@@ -956,30 +1033,6 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eHz-vo-CVz">
-                                <rect key="frame" x="579" y="24" width="87" height="32"/>
-                                <buttonCell key="cell" type="push" title="Refresh" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gkm-sP-GH4">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="refreshInstance:" target="SKc-0J-o2d" id="ovp-k8-wB9"/>
-                                </connections>
-                            </button>
-                            <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="kXR-7z-rxN">
-                                <rect key="frame" x="556" y="34" width="16" height="16"/>
-                            </progressIndicator>
-                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1wi-nK-egg">
-                                <rect key="frame" x="385" y="34" width="147" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="143" id="zHR-Mg-jcN"/>
-                                </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="No internet connection" id="dVm-Dr-Xia">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2o-8F-LBc">
                                 <rect key="frame" x="14" y="61" width="321" height="385"/>
                                 <clipView key="contentView" id="267-bQ-OMm">
@@ -1052,6 +1105,30 @@ DQ
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eHz-vo-CVz">
+                                <rect key="frame" x="579" y="13" width="87" height="32"/>
+                                <buttonCell key="cell" type="push" title="Refresh" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gkm-sP-GH4">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="refreshInstance:" target="SKc-0J-o2d" id="ovp-k8-wB9"/>
+                                </connections>
+                            </button>
+                            <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="kXR-7z-rxN">
+                                <rect key="frame" x="556" y="23" width="16" height="16"/>
+                            </progressIndicator>
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1wi-nK-egg">
+                                <rect key="frame" x="385" y="23" width="147" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="143" id="zHR-Mg-jcN"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="No internet connection" id="dVm-Dr-Xia">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="hIz-IQ-rem" firstAttribute="trailing" secondItem="yaN-7g-FRC" secondAttribute="trailing" id="0Oh-Ea-ZCW"/>
@@ -1097,7 +1174,7 @@ DQ
                             <constraint firstItem="j1M-BE-ptA" firstAttribute="baseline" secondItem="0Sr-AL-9vs" secondAttribute="firstBaseline" id="qNG-0O-OIp"/>
                             <constraint firstItem="ZpB-gO-GwI" firstAttribute="top" secondItem="GsD-U4-tzV" secondAttribute="bottom" constant="13" id="yV9-8d-6QD"/>
                             <constraint firstItem="Z3g-lS-q2e" firstAttribute="leading" secondItem="JGg-nh-blm" secondAttribute="leading" id="yfe-Or-RMs"/>
-                            <constraint firstAttribute="bottom" secondItem="eHz-vo-CVz" secondAttribute="bottom" constant="31" id="zPB-D7-vgg"/>
+                            <constraint firstAttribute="bottom" secondItem="eHz-vo-CVz" secondAttribute="bottom" constant="20" id="zPB-D7-vgg"/>
                             <constraint firstItem="JGg-nh-blm" firstAttribute="top" secondItem="Die-1o-nyB" secondAttribute="bottom" constant="14" id="zmT-fk-3aj"/>
                         </constraints>
                     </view>

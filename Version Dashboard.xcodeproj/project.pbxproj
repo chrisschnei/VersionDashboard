@@ -34,6 +34,7 @@
 		AA6AD8511C7E397B0097CD9A /* badgeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD8501C7E397B0097CD9A /* badgeFunctions.swift */; };
 		AA7FB8441C88CEBD009FC40B /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7FB8431C88CEBD009FC40B /* PreferencesWindowController.swift */; };
 		AA7FB8461C88CEF1009FC40B /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7FB8451C88CEF1009FC40B /* PreferencesViewController.swift */; };
+		AA7FB8481C88DE94009FC40B /* configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA7FB8471C88DE94009FC40B /* configuration.plist */; };
 		AAA5631B1C81DFE700E1199A /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA5631A1C81DFE700E1199A /* SummaryViewController.swift */; };
 		AAA5631D1C81E01200E1199A /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA5631C1C81E01200E1199A /* MainWindow.swift */; };
 		AAA5631F1C81E09600E1199A /* Detailed view.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA5631E1C81E09600E1199A /* Detailed view.png */; };
@@ -97,6 +98,7 @@
 		AA6AD8501C7E397B0097CD9A /* badgeFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = badgeFunctions.swift; sourceTree = "<group>"; };
 		AA7FB8431C88CEBD009FC40B /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		AA7FB8451C88CEF1009FC40B /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		AA7FB8471C88DE94009FC40B /* configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = configuration.plist; sourceTree = "<group>"; };
 		AAA5631A1C81DFE700E1199A /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		AAA5631C1C81E01200E1199A /* MainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		AAA5631E1C81E09600E1199A /* Detailed view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Detailed view.png"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				AA6AD7B31C6B4BD90097CD9A /* Assets.xcassets */,
 				AA6AD7B51C6B4BD90097CD9A /* Main.storyboard */,
 				AA6AD7B81C6B4BD90097CD9A /* Info.plist */,
+				AA7FB8471C88DE94009FC40B /* configuration.plist */,
 				AA6AD8051C6BC94A0097CD9A /* Models */,
 				AA6AD7AF1C6B4BD90097CD9A /* AppDelegate.swift */,
 				AA6AD7F91C6B8F220097CD9A /* XMLParser.swift */,
@@ -223,16 +226,16 @@
 		AA6AD8061C6BC9550097CD9A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AAA5631C1C81E01200E1199A /* MainWindow.swift */,
+				AAA5631A1C81DFE700E1199A /* SummaryViewController.swift */,
 				AA6AD7B11C6B4BD90097CD9A /* DetailedViewController.swift */,
-				AA6AD7DC1C6B60230097CD9A /* SettingsViewController.swift */,
+				AAA563261C8302A300E1199A /* OutdatedViewController.swift */,
 				AA6AD7E01C6B73AC0097CD9A /* AddSystemViewController.swift */,
+				AA6AD7DC1C6B60230097CD9A /* SettingsViewController.swift */,
 				AA6AD7EC1C6B777B0097CD9A /* PiwikViewController.swift */,
 				AA6AD7F01C6B779D0097CD9A /* OwncloudViewController.swift */,
 				AA6AD7F21C6B77AE0097CD9A /* JoomlaViewController.swift */,
 				AA6AD7F41C6B77C00097CD9A /* WordpressViewController.swift */,
-				AAA5631A1C81DFE700E1199A /* SummaryViewController.swift */,
-				AAA5631C1C81E01200E1199A /* MainWindow.swift */,
-				AAA563261C8302A300E1199A /* OutdatedViewController.swift */,
 				AA7FB8431C88CEBD009FC40B /* PreferencesWindowController.swift */,
 				AA7FB8451C88CEF1009FC40B /* PreferencesViewController.swift */,
 			);
@@ -347,6 +350,7 @@
 				AAA563251C83021F00E1199A /* Outdated item.png in Resources */,
 				AAA563211C81E0A000E1199A /* Summarize.png in Resources */,
 				AA6AD7E51C6B75DC0097CD9A /* owncloud.tiff in Resources */,
+				AA7FB8481C88DE94009FC40B /* configuration.plist in Resources */,
 				AA6AD7E71C6B75E50097CD9A /* piwik.tiff in Resources */,
 				AAA5631F1C81E09600E1199A /* Detailed view.png in Resources */,
 				AA6AD7EB1C6B75F80097CD9A /* wordpress.tiff in Resources */,

@@ -20,7 +20,7 @@ func incrementBadgeNumber() {
 func decrementBadgeNumber() {
     let doc = NSApp.dockTile as NSDockTile
     let batchnumber = Int(doc.badgeLabel!)!
-    if(batchnumber > 0) {
+    if(batchnumber > 1) {
         doc.badgeLabel = String(batchnumber - 1)
     } else {
         doc.badgeLabel = ""

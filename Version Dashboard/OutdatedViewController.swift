@@ -28,64 +28,87 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     @IBOutlet weak var spinner: NSProgressIndicator!
     @IBOutlet weak var errorLabel: NSTextField!
     
-    var outdatedInstances : [String] = []
-    
     override func viewDidLoad() {
+        outdatedInstances.removeAll()
         tableView.setDelegate(self)
         tableView.setDataSource(self)
     }
     
     func updateInstanceDetails(index: Int) {
         if((index) != -1) {
-            let key = Array(systemInstances.keys)[index]
+            let key = outdatedInstances[index]
             let modelclass = systemInstances[key].self!
             if((modelclass as? JoomlaModel) != nil) {
                 let joomlaobject = modelclass as? JoomlaModel
-                self.hostLabel.stringValue = joomlaobject!.hosturl
-                self.systemLabel.stringValue = joomlaobject!.name
+                self.hostName.stringValue = joomlaobject!.hosturl
+                self.systemName.stringValue = joomlaobject!.name
                 self.lastcheck.stringValue = joomlaobject!.lastRefresh
                 self.latestVersion.stringValue = joomlaobject!.headVersion
                 self.currentVersion.stringValue = joomlaobject!.currentVersion
-                if(joomlaobject!.updateAvailable == 0) {
-                    self.statusLabel.stringValue = "OK"
+                if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
+                    if(joomlaobject!.updateAvailable == 0) {
+                        self.statusLabel.stringValue = "OK"
+                    } else if(joomlaobject?.updateAvailable == -1) {
+                        self.statusLabel.stringValue = "Error fetching versions"
+                    } else {
+                        self.statusLabel.stringValue = "Update available"
+                    }
                 } else {
-                    self.statusLabel.stringValue = "Update available"
+                    self.statusLabel.stringValue = ""
                 }
             } else if((modelclass as? OwncloudModel) != nil) {
                 let owncloudmodel = modelclass as? OwncloudModel
-                self.hostLabel.stringValue = owncloudmodel!.hosturl
-                self.systemLabel.stringValue = owncloudmodel!.name
+                self.hostName.stringValue = owncloudmodel!.hosturl
+                self.systemName.stringValue = owncloudmodel!.name
                 self.lastcheck.stringValue = owncloudmodel!.lastRefresh
                 self.latestVersion.stringValue = owncloudmodel!.headVersion
                 self.currentVersion.stringValue = owncloudmodel!.currentVersion
-                if(owncloudmodel!.updateAvailable == 0) {
-                    self.statusLabel.stringValue = "OK"
+                if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
+                    if(owncloudmodel!.updateAvailable == 0) {
+                        self.statusLabel.stringValue = "OK"
+                    } else if(owncloudmodel?.updateAvailable == -1) {
+                        self.statusLabel.stringValue = "Error fetching versions"
+                    } else {
+                        self.statusLabel.stringValue = "Update available"
+                    }
                 } else {
-                    self.statusLabel.stringValue = "Update available"
+                    self.statusLabel.stringValue = ""
                 }
             } else if((modelclass as? PiwikModel) != nil) {
                 let piwikmodel = modelclass as? PiwikModel
-                self.hostLabel.stringValue = piwikmodel!.hosturl
-                self.systemLabel.stringValue = piwikmodel!.name
+                self.hostName.stringValue = piwikmodel!.hosturl
+                self.systemName.stringValue = piwikmodel!.name
                 self.lastcheck.stringValue = piwikmodel!.lastRefresh
                 self.latestVersion.stringValue = piwikmodel!.headVersion
                 self.currentVersion.stringValue = piwikmodel!.currentVersion
-                if(piwikmodel!.updateAvailable == 0) {
-                    self.statusLabel.stringValue = "OK"
+                if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
+                    if(piwikmodel!.updateAvailable == 0) {
+                        self.statusLabel.stringValue = "OK"
+                    } else if(piwikmodel?.updateAvailable == -1) {
+                        self.statusLabel.stringValue = "Error fetching versions"
+                    } else {
+                        self.statusLabel.stringValue = "Update available"
+                    }
                 } else {
-                    self.statusLabel.stringValue = "Update available"
+                    self.statusLabel.stringValue = ""
                 }
             } else if((modelclass as? WordpressModel) != nil) {
                 let wordpressmodel = modelclass as? WordpressModel
-                self.hostLabel.stringValue = wordpressmodel!.hosturl
-                self.systemLabel.stringValue = wordpressmodel!.name
+                self.hostName.stringValue = wordpressmodel!.hosturl
+                self.systemName.stringValue = wordpressmodel!.name
                 self.lastcheck.stringValue = wordpressmodel!.lastRefresh
                 self.latestVersion.stringValue = wordpressmodel!.headVersion
                 self.currentVersion.stringValue = wordpressmodel!.currentVersion
-                if(wordpressmodel!.updateAvailable == 0) {
-                    self.statusLabel.stringValue = "OK"
+                if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
+                    if(wordpressmodel!.updateAvailable == 0) {
+                        self.statusLabel.stringValue = "OK"
+                    } else if(wordpressmodel?.updateAvailable == -1) {
+                        self.statusLabel.stringValue = "Error fetching versions"
+                    } else {
+                        self.statusLabel.stringValue = "Update available"
+                    }
                 } else {
-                    self.statusLabel.stringValue = "Update available"
+                    self.statusLabel.stringValue = ""
                 }
             }
         }
@@ -96,7 +119,8 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
         self.spinner.startAnimation(self)
         if(checkInternetConnection()) {
             let selectedRow = tableView.selectedRow
-            let instanceName = Array(systemInstances.keys)[selectedRow]
+            let instanceName = outdatedInstances[selectedRow]
+            print(instanceName)
             if((systemInstances[instanceName] as? JoomlaModel) != nil) {
                 let joomlamodel = systemInstances[instanceName] as? JoomlaModel
                 //Remote Version url
@@ -156,12 +180,22 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
         }
         self.spinner.stopAnimation(self)
         self.spinner.hidden = true
+        self.reloadTable()
+    }
+    
+    func reloadTable() {
+        let selectedRow = self.tableView.selectedRow
+        self.tableView.deselectAll(self)
+        outdatedInstances.removeAll()
+        self.loadOutdatedInstances()
+        self.tableView.reloadData()
+        self.tableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
     }
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView?
     {
         let cellView = tableView.makeViewWithIdentifier("InstanceName", owner: self) as! NSTableCellView
-        cellView.textField?.stringValue = self.outdatedInstances[row]
+        cellView.textField?.stringValue = outdatedInstances[row]
         return cellView
     }
     
@@ -169,31 +203,32 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
         self.updateInstanceDetails(tableView.selectedRow)
     }
     
-    func numberOfRowsInTableView(aTableView: NSTableView) -> Int {
-        var count = 0
+    func loadOutdatedInstances() {
         for instance in systemInstances.keys {
             if((systemInstances[instance] as? JoomlaModel) != nil) {
                 if((systemInstances[instance] as! JoomlaModel).updateAvailable == 1) {
-                    count = count + 1
-                    self.outdatedInstances.append(instance)
+                    outdatedInstances.append(instance)
                 }
             } else if((systemInstances[instance] as? WordpressModel) != nil) {
                 if((systemInstances[instance] as! WordpressModel).updateAvailable == 1) {
-                    count = count + 1
-                    self.outdatedInstances.append(instance)
+                    outdatedInstances.append(instance)
                 }
             } else if((systemInstances[instance] as? PiwikModel) != nil) {
                 if((systemInstances[instance] as! PiwikModel).updateAvailable == 1) {
-                    count = count + 1
-                    self.outdatedInstances.append(instance)
+                    outdatedInstances.append(instance)
                 }
             } else if((systemInstances[instance] as? OwncloudModel) != nil) {
                 if((systemInstances[instance] as! OwncloudModel).updateAvailable == 1) {
-                    count = count + 1
-                    self.outdatedInstances.append(instance)
+                    outdatedInstances.append(instance)
                 }
             }
         }
-        return count
+    }
+    
+    func numberOfRowsInTableView(aTableView: NSTableView) -> Int {
+        outdatedInstances.removeAll()
+        self.loadOutdatedInstances()
+        print(outdatedInstances.count)
+        return outdatedInstances.count
     }
 }

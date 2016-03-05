@@ -11,5 +11,8 @@ import Foundation
 protocol GenericModel {
     
     func saveConfigfile() -> Bool
-
+    func updateDate()
+    func getVersions() -> Bool
+    func checkNotificationRequired()
+    
 }

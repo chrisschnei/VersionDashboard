@@ -74,7 +74,7 @@ class JoomlaModel : GenericModel, XMLParserDelegate {
     }
     
     func checkNotificationRequired() {
-        if(!(self.headVersion == self.currentVersion) && (self.updateAvailable == 0)) {
+        if((self.headVersion != self.currentVersion) && (self.updateAvailable == 0)) {
             self.updateAvailable = 1
             incrementBadgeNumber()
             sendNotification("Newer version available", informativeText: "Please update your \(self.name) instance")
@@ -96,7 +96,6 @@ class JoomlaModel : GenericModel, XMLParserDelegate {
         
         parser.delegate = self;
         let s = parser.parse {
-        //            return self.parser.object["version"]!
         }
         return s
     }
