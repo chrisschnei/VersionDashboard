@@ -1,0 +1,9 @@
+/* 
+  german.strings
+  Version Dashboard
+
+  Created by Christian Schneider on 05.03.16.
+  Copyright © 2016 NonameCompany. All rights reserved.
+*/
+
+"errorfetchingVersions" = "Versionscheck fehlgeschlagen.";

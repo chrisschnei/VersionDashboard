@@ -86,19 +86,67 @@ class WordpressModel : GenericModel {
         }
     }
     
-    func getInstanceVersion(url: String) -> String {
-        if(url != "") {
-            if let version = NSData(contentsOfURL: NSURL(string: url)!) {
-                let version = String(data: version, encoding: NSUTF8StringEncoding)
-                let lines = version?.componentsSeparatedByString("\n")
-                for part in lines! {
-                    if(part.rangeOfString("wp-embed.min.js?ver=") != nil) {
-                        let part2 = part.componentsSeparatedByString("wp-embed.min.js?ver=")
-                        let part3 = part2[1].componentsSeparatedByString("'")
-                        return part3[0]
-                    }
+    func checkVersionViaJavascript(url: String) -> String {
+        if let version = NSData(contentsOfURL: NSURL(string: url)!) {
+            let version = String(data: version, encoding: NSUTF8StringEncoding)
+            let lines = version?.componentsSeparatedByString("\n")
+            for part in lines! {
+                if(part.rangeOfString("wp-embed.min.js?ver=") != nil) {
+                    let part2 = part.componentsSeparatedByString("wp-embed.min.js?ver=")
+                    let part3 = part2[1].componentsSeparatedByString("'")
+                    return part3[0]
                 }
             }
+        }
+        return ""
+    }
+    
+    func checkVersionViaReadmeHtml(url: String) -> String {
+        if let version = NSData(contentsOfURL: NSURL(string: url)!) {
+            let version = String(data: version, encoding: NSUTF8StringEncoding)
+            let lines = version?.componentsSeparatedByString("\n")
+            for part in lines! {
+                if(part.rangeOfString("Version") != nil) {
+                    let part2 = part.componentsSeparatedByString(" ")
+                    return part2.last!
+                }
+            }
+        }
+        return ""
+    }
+    
+    func checkVersionViaRSSFeed(url: String) -> String {
+        if let version = NSData(contentsOfURL: NSURL(string: url)!) {
+            let version = String(data: version, encoding: NSUTF8StringEncoding)
+            let lines = version?.componentsSeparatedByString("\n")
+            for part in lines! {
+                if(part.rangeOfString("<generator>") != nil) {
+                    let part2 = part.componentsSeparatedByString("=")
+                    let part3 = part2[1].componentsSeparatedByString("</")
+                    return part3[0]
+                }
+            }
+        }
+        return ""
+    }
+    
+    func getInstanceVersion(url: String) -> String {
+        if(url != "") {
+            var result = ""
+            result = self.checkVersionViaJavascript(url)
+            result = ""
+            if(result != "") {
+                return result
+            }
+            result = self.checkVersionViaReadmeHtml(url.stringByAppendingString("readme.html"))
+            if(result != "") {
+                return result
+            }
+            result = self.checkVersionViaRSSFeed(url.stringByAppendingString("feed"))
+            if(result != "") {
+                return result
+            }
+            return result
         }
         return ""
     }

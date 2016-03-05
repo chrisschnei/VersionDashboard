@@ -36,7 +36,8 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
         if(self.systemTableView.selectedRow != -1) {
-            if (((sender as! NSButton).title) == "Edit") {
+            let button = sender as! NSButton
+            if (((button.title) == "Edit") || ((button.title) == "Bearbeiten")) {
                 let instances = Array(systemInstances.keys)
                 let instanceNa = instances[self.systemTableView.selectedRow]
                 let destination = segue.destinationController as! SettingsViewController
@@ -118,7 +119,8 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     self.noInternetConnection.hidden = true
                     joomlamodel!.checkNotificationRequired()
                 } else {
-                    self.noInternetConnection.stringValue = "Error fetching versions."
+                    print(NSLocalizedString("errorfetchingVersions", comment: ""))
+                    self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
                     self.noInternetConnection.hidden = false
                 }
                 //Date

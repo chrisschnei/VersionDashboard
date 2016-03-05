@@ -1,0 +1,425 @@
+
+/* Class = "NSMenuItem"; title = "Customize Toolbar…"; ObjectID = "1UK-8n-QPP"; */
+"1UK-8n-QPP.title" = "Toolbar anpassen…";
+
+/* Class = "NSMenu"; title = "Speech"; ObjectID = "1WI-qq-15x"; */
+"1WI-qq-15x.title" = "Speech";
+
+/* Class = "NSMenuItem"; title = "Version Dashboard"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "Version Dashboard";
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "3G8-IN-dws"; */
+"3G8-IN-dws.title" = "Label";
+
+/* Class = "NSButtonCell"; title = "Edit"; ObjectID = "3bX-wQ-lZE"; */
+"3bX-wQ-lZE.title" = "Bearbeiten";
+
+/* Class = "NSTextFieldCell"; placeholderString = "http://example.com/"; ObjectID = "3hP-Qd-euA"; */
+"3hP-Qd-euA.placeholderString" = "http://beispiel.com/";
+
+/* Class = "NSMenuItem"; title = "Redo"; ObjectID = "3li-ur-t0e"; */
+"3li-ur-t0e.title" = "Wiederrufen";
+
+/* Class = "NSMenuItem"; title = "Find…"; ObjectID = "45i-ag-Zbz"; */
+"45i-ag-Zbz.title" = "Suchen…";
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "4Zi-cs-Ti1"; */
+"4Zi-cs-Ti1.title" = "Label";
+
+/* Class = "NSMenuItem"; title = "Quit Version Dashboard"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "Version Dashboard beenden";
+
+/* Class = "NSTextFieldCell"; title = "System"; ObjectID = "5fT-xN-Zuw"; */
+"5fT-xN-Zuw.title" = "System";
+
+/* Class = "NSMenuItem"; title = "About Version Dashboard"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "Über Version Dashboard";
+
+/* Class = "NSTextFieldCell"; title = "Error message textlabel"; ObjectID = "6s0-LZ-oRG"; */
+"6s0-LZ-oRG.title" = "Error message textlabel";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "75o-m5-aJw"; */
+"75o-m5-aJw.title" = "Abbrechen";
+
+/* Class = "NSMenuItem"; title = "Start Speaking"; ObjectID = "7AO-Wj-ikf"; */
+"7AO-Wj-ikf.title" = "Start Speaking";
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "7Uz-mN-qwB"; */
+"7Uz-mN-qwB.title" = "Label";
+
+/* Class = "NSTextFieldCell"; title = "Click on a logo below to create a new instance"; ObjectID = "9Od-0g-RiT"; */
+"9Od-0g-RiT.title" = "Wählen Sie ein Instanztyp aus.";
+
+/* Class = "NSMenuItem"; title = "Find and Replace…"; ObjectID = "9uq-vQ-lNa"; */
+"9uq-vQ-lNa.title" = "Find and Replace…";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "ACQ-6C-4oF"; */
+"ACQ-6C-4oF.title" = "Abbrechen";
+
+/* Class = "NSTextFieldCell"; title = "Instance name"; ObjectID = "AVw-Ml-HZb"; */
+"AVw-Ml-HZb.title" = "Instanzname";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "Hauptmenü";
+
+/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "BOF-NM-1cW"; */
+"BOF-NM-1cW.title" = "Einstellungen…";
+
+/* Class = "NSTextFieldCell"; placeholderString = "http://example.com/"; ObjectID = "BYn-7O-pRP"; */
+"BYn-7O-pRP.placeholderString" = "http://beispiel.de/";
+
+/* Class = "NSTextFieldCell"; title = "System"; ObjectID = "Bue-0R-xcd"; */
+"Bue-0R-xcd.title" = "System";
+
+/* Class = "NSTextFieldCell"; title = "Piwik Instances"; ObjectID = "CQT-VO-5Qv"; */
+"CQT-VO-5Qv.title" = "Piwik Instanzen";
+
+/* Class = "NSMenuItem"; title = "Undo"; ObjectID = "DDN-V5-z4J"; */
+"DDN-V5-z4J.title" = "Wiederrufen";
+
+/* Class = "NSTextFieldCell"; title = "Instance name"; ObjectID = "DEY-A5-tYy"; */
+"DEY-A5-tYy.title" = "Instanzname";
+
+/* Class = "NSTableColumn"; headerCell.title = "Instance Name"; ObjectID = "DQk-Ef-tyh"; */
+"DQk-Ef-tyh.headerCell.title" = "Instanzname";
+
+/* Class = "NSToolbarItem"; label = "Detailed View"; ObjectID = "E4i-Mv-nM7"; */
+"E4i-Mv-nM7.label" = "Details";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Detailed View"; ObjectID = "E4i-Mv-nM7"; */
+"E4i-Mv-nM7.paletteLabel" = "Details";
+
+/* Class = "NSToolbarItem"; toolTip = "Show detailed informations"; ObjectID = "E4i-Mv-nM7"; */
+"E4i-Mv-nM7.toolTip" = "Zeige Detailinformationen";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "Eat-PM-epL"; */
+"Eat-PM-epL.title" = "Table View Cell";
+
+/* Class = "NSButtonCell"; title = "+"; ObjectID = "FSN-ce-7gf"; */
+"FSN-ce-7gf.title" = "+";
+
+/* Class = "NSButtonCell"; title = "Save"; ObjectID = "Fcc-ri-zNt"; */
+"Fcc-ri-zNt.title" = "Speichern";
+
+/* Class = "NSViewController"; title = "PiwikInstance"; ObjectID = "Fcf-yV-hnA"; */
+"Fcf-yV-hnA.title" = "Piwikinstanz";
+
+/* Class = "NSMenu"; title = "Find"; ObjectID = "Fm2-dI-StZ"; */
+"Fm2-dI-StZ.title" = "Suchen";
+
+/* Class = "NSViewController"; title = "JoomlaInstance"; ObjectID = "Fvk-we-7IL"; */
+"Fvk-we-7IL.title" = "Joomlainstanz";
+
+/* Class = "NSTextFieldCell"; title = "No internet connection"; ObjectID = "G9d-0f-1hb"; */
+"G9d-0f-1hb.title" = "Keine Internetverbindung";
+
+/* Class = "NSTextFieldCell"; title = "Interval in hours"; ObjectID = "Ggg-vf-RWh"; */
+"Ggg-vf-RWh.title" = "Interval in Stunden";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "GvI-8Y-YfY"; */
+"GvI-8Y-YfY.title" = "Abbrechen";
+
+/* Class = "NSMenuItem"; title = "View"; ObjectID = "H8h-7b-M4v"; */
+"H8h-7b-M4v.title" = "View";
+
+/* Class = "NSMenu"; title = "View"; ObjectID = "HyV-fh-RgO"; */
+"HyV-fh-RgO.title" = "View";
+
+/* Class = "NSWindow"; title = "Version Dashboard"; ObjectID = "IQv-IB-iLA"; */
+"IQv-IB-iLA.title" = "Version Dashboard";
+
+/* Class = "NSTextFieldCell"; title = "Error message textlabel"; ObjectID = "IaD-gS-LDr"; */
+"IaD-gS-LDr.title" = "Error message textlabel";
+
+/* Class = "NSTextFieldCell"; title = "Current Version"; ObjectID = "Iew-MW-iOQ"; */
+"Iew-MW-iOQ.title" = "Aktuelle Instanzversion";
+
+/* Class = "NSTextFieldCell"; title = "Add new Joomla instance"; ObjectID = "JMi-is-fLx"; */
+"JMi-is-fLx.title" = "Füge neue Joomla Instanz hinzu";
+
+/* Class = "NSWindow"; title = "Preferences"; ObjectID = "JtY-Dg-bi9"; */
+"JtY-Dg-bi9.title" = "Einstellungen";
+
+/* Class = "NSTextFieldCell"; title = "Status"; ObjectID = "Kk4-9p-D1n"; */
+"Kk4-9p-D1n.title" = "Status";
+
+/* Class = "NSTextFieldCell"; title = "Host"; ObjectID = "Krs-uG-vie"; */
+"Krs-uG-vie.title" = "Host";
+
+/* Class = "NSButtonCell"; title = "Check all instances"; ObjectID = "KyC-md-Mp8"; */
+"KyC-md-Mp8.title" = "Prüfe alle Instanzen";
+
+/* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "LE2-aR-0XJ"; */
+"LE2-aR-0XJ.title" = "Alle nach vorne bringen";
+
+/* Class = "NSButtonCell"; title = "Save"; ObjectID = "LTA-cQ-hs1"; */
+"LTA-cQ-hs1.title" = "Speichern";
+
+/* Class = "NSToolbarItem"; label = "Outdated"; ObjectID = "M32-r8-3JJ"; */
+"M32-r8-3JJ.label" = "Veraltet";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Outdated"; ObjectID = "M32-r8-3JJ"; */
+"M32-r8-3JJ.paletteLabel" = "Veraltet";
+
+/* Class = "NSToolbarItem"; toolTip = "Outdated instances"; ObjectID = "M32-r8-3JJ"; */
+"M32-r8-3JJ.toolTip" = "Veraltete Instanzen";
+
+/* Class = "NSTextFieldCell"; title = "Instance name"; ObjectID = "MKj-Zd-24C"; */
+"MKj-Zd-24C.title" = "Instanzname";
+
+/* Class = "NSTextFieldCell"; title = "Status"; ObjectID = "MRk-mo-2E2"; */
+"MRk-mo-2E2.title" = "Status";
+
+/* Class = "NSMenuItem"; title = "Cut"; ObjectID = "MSm-8B-Vb3"; */
+"MSm-8B-Vb3.title" = "Ausschneiden";
+
+/* Class = "NSMenuItem"; title = "Select All"; ObjectID = "N0Y-Cf-APF"; */
+"N0Y-Cf-APF.title" = "Alle auswählen";
+
+/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "OY7-WF-poV"; */
+"OY7-WF-poV.title" = "Minimieren";
+
+/* Class = "NSMenuItem"; title = "Hide Version Dashboard"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "Version Dashboard ausblenden";
+
+/* Class = "NSTextFieldCell"; title = "Latests Version"; ObjectID = "On7-fJ-FiJ"; */
+"On7-fJ-FiJ.title" = "Aktuelle Version";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "OuF-5G-2f0"; */
+"OuF-5G-2f0.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "Qhi-Se-ocl"; */
+"Qhi-Se-ocl.title" = "Abbrechen";
+
+/* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
+"R4o-n2-Eq4.title" = "Zoom";
+
+/* Class = "NSViewController"; title = "Outdated instances"; ObjectID = "SKc-0J-o2d"; */
+"SKc-0J-o2d.title" = "Veraltete Instanzen";
+
+/* Class = "NSMenuItem"; title = "Jump to Selection"; ObjectID = "SSQ-5g-Qzd"; */
+"SSQ-5g-Qzd.title" = "Jump to Selection";
+
+/* Class = "NSViewController"; title = "Preferences"; ObjectID = "Sma-kB-1iu"; */
+"Sma-kB-1iu.title" = "Einstellungen";
+
+/* Class = "NSTextFieldCell"; title = "Activated"; ObjectID = "TAP-ME-8Yp"; */
+"TAP-ME-8Yp.title" = "Aktiviert";
+
+/* Class = "NSButtonCell"; title = "Save"; ObjectID = "TAV-QS-sAi"; */
+"TAV-QS-sAi.title" = "Speichern";
+
+/* Class = "NSMenu"; title = "Window"; ObjectID = "Td7-aD-5lo"; */
+"Td7-aD-5lo.title" = "Fenster";
+
+/* Class = "NSTextFieldCell"; placeholderString = "http://example.com/"; ObjectID = "Uoc-4M-zcs"; */
+"Uoc-4M-zcs.placeholderString" = "http://beisppiel.de/";
+
+/* Class = "NSButtonCell"; title = "Take me to my instance"; ObjectID = "Uvf-ji-2uS"; */
+"Uvf-ji-2uS.title" = "Öffne Instanz";
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "VXF-M5-l3I"; */
+"VXF-M5-l3I.title" = "Label";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "Andere ausblenden";
+
+/* Class = "NSButtonCell"; title = "-"; ObjectID = "WSA-MG-y50"; */
+"WSA-MG-y50.title" = "-";
+
+/* Class = "NSTextFieldCell"; title = "Last Check"; ObjectID = "WZM-It-gmy"; */
+"WZM-It-gmy.title" = "Letzte Aktualisierung";
+
+/* Class = "NSTextFieldCell"; title = "Host URL"; ObjectID = "Wz9-j7-6Qt"; */
+"Wz9-j7-6Qt.title" = "Host URL";
+
+/* Class = "NSViewController"; title = "Summary View Controller"; ObjectID = "X2f-d4-1Xq"; */
+"X2f-d4-1Xq.title" = "Summary View Controller";
+
+/* Class = "NSMenuItem"; title = "Find"; ObjectID = "YF3-Lt-Xh7"; */
+"YF3-Lt-Xh7.title" = "Suchen";
+
+/* Class = "NSTextFieldCell"; title = "Wordpress Instances"; ObjectID = "YKJ-Nb-Xmw"; */
+"YKJ-Nb-Xmw.title" = "Wordpress Instanzen";
+
+/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "YjW-6n-9Xz"; */
+"YjW-6n-9Xz.title" = "Einfügen";
+
+/* Class = "NSMenuItem"; title = "Use Selection for Find"; ObjectID = "Yo6-Bd-MbG"; */
+"Yo6-Bd-MbG.title" = "Use Selection for Find";
+
+/* Class = "NSTextFieldCell"; title = "Enable automatic instance refresh"; ObjectID = "Yub-R7-B9C"; */
+"Yub-R7-B9C.title" = "Aktiviere automatische Überprüfung";
+
+/* Class = "NSButtonCell"; title = "Save"; ObjectID = "Z6V-Q0-H9m"; */
+"Z6V-Q0-H9m.title" = "Speichern";
+
+/* Class = "NSTextFieldCell"; title = "Instance name"; ObjectID = "ZWU-4P-aIK"; */
+"ZWU-4P-aIK.title" = "Instanzname";
+
+/* Class = "NSTextFieldCell"; title = "Joomla Instances"; ObjectID = "ZpI-Am-VPh"; */
+"ZpI-Am-VPh.title" = "Joomla Instanz";
+
+/* Class = "NSTextFieldCell"; title = "Add new Wordpress instance"; ObjectID = "aHJ-n3-Skx"; */
+"aHJ-n3-Skx.title" = "Füge neue Wordpress Instanz hinzu";
+
+/* Class = "NSMenuItem"; title = "Window"; ObjectID = "aUF-d1-5bR"; */
+"aUF-d1-5bR.title" = "Fenster";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "amO-TI-BHH"; */
+"amO-TI-BHH.title" = "Box";
+
+/* Class = "NSMenu"; title = "Edit"; ObjectID = "bUX-5M-tj8"; */
+"bUX-5M-tj8.title" = "Bearbeiten";
+
+/* Class = "NSTextFieldCell"; title = "Current Version"; ObjectID = "bY0-gO-HiG"; */
+"bY0-gO-HiG.title" = "Aktuelle Version";
+
+/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "bpV-tB-yAC"; */
+"bpV-tB-yAC.title" = "Bearbeiten";
+
+/* Class = "NSButtonCell"; title = "Save"; ObjectID = "cxB-oq-lSy"; */
+"cxB-oq-lSy.title" = "Speichern";
+
+/* Class = "NSTextFieldCell"; title = "No internet connection"; ObjectID = "dVm-Dr-Xia"; */
+"dVm-Dr-Xia.title" = "Keine Internet Verbindung";
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "dYQ-O8-MGd"; */
+"dYQ-O8-MGd.title" = "Label";
+
+/* Class = "NSViewController"; title = "WordpressInstance"; ObjectID = "dms-g4-Ywq"; */
+"dms-g4-Ywq.title" = "Wordpress Instanz";
+
+/* Class = "NSButtonCell"; title = "Refresh"; ObjectID = "e3K-om-mzz"; */
+"e3K-om-mzz.title" = "Aktualisieren";
+
+/* Class = "NSTextFieldCell"; title = "PHP Versions"; ObjectID = "eIB-eA-dgS"; */
+"eIB-eA-dgS.title" = "PHP Versionen";
+
+/* Class = "NSTextFieldCell"; title = "System"; ObjectID = "ea9-q7-2Y9"; */
+"ea9-q7-2Y9.title" = "System";
+
+/* Class = "NSTextFieldCell"; title = "Latests Version"; ObjectID = "eue-Ig-izv"; */
+"eue-Ig-izv.title" = "Aktuellste Version";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "fbO-nR-KgK"; */
+"fbO-nR-KgK.title" = "Abbrechen";
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "flA-tM-d1H"; */
+"flA-tM-d1H.title" = "Label";
+
+/* Class = "NSButtonCell"; title = "Refresh"; ObjectID = "gkm-sP-GH4"; */
+"gkm-sP-GH4.title" = "Aktualisieren";
+
+/* Class = "NSMenuItem"; title = "Stop Speaking"; ObjectID = "hjb-Tl-Nf3"; */
+"hjb-Tl-Nf3.title" = "Stop Speaking";
+
+/* Class = "NSTextFieldCell"; title = "Error message textlabel"; ObjectID = "hqZ-gM-HbA"; */
+"hqZ-gM-HbA.title" = "Fehlermeldung";
+
+/* Class = "NSTextFieldCell"; placeholderString = "http://example.com/"; ObjectID = "hyM-j3-HzZ"; */
+"hyM-j3-HzZ.placeholderString" = "http://beispiel.de/";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "iMA-e8-dWa"; */
+"iMA-e8-dWa.title" = "Abbrechen";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "iP5-4n-tOR"; */
+"iP5-4n-tOR.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "icu-uc-e7e"; */
+"icu-uc-e7e.title" = "Label";
+
+/* Class = "NSTableColumn"; headerCell.title = "Instance Name"; ObjectID = "ilA-2d-BRA"; */
+"ilA-2d-BRA.headerCell.title" = "Instanzname";
+
+/* Class = "NSMenuItem"; title = "Speech"; ObjectID = "kas-Tf-DZU"; */
+"kas-Tf-DZU.title" = "Speech";
+
+/* Class = "NSTextFieldCell"; title = "Last Check"; ObjectID = "law-gm-i1b"; */
+"law-gm-i1b.title" = "Letzte Aktualisierung";
+
+/* Class = "NSTextFieldCell"; title = "Host"; ObjectID = "mK1-Vi-vvt"; */
+"mK1-Vi-vvt.title" = "Host";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "nF2-Kr-GZY"; */
+"nF2-Kr-GZY.title" = "Abbrechen";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "nGz-vh-TnS"; */
+"nGz-vh-TnS.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Number of Instances"; ObjectID = "nwG-hf-j3B"; */
+"nwG-hf-j3B.title" = "Anzahl Instanzen";
+
+/* Class = "NSTextFieldCell"; title = "Host URL"; ObjectID = "ob4-3C-JkY"; */
+"ob4-3C-JkY.title" = "Host URL";
+
+/* Class = "NSMenuItem"; title = "Copy"; ObjectID = "pJh-jg-23y"; */
+"pJh-jg-23y.title" = "Kopieren";
+
+/* Class = "NSTextFieldCell"; title = "Host"; ObjectID = "qAU-9h-9ft"; */
+"qAU-9h-9ft.title" = "Host";
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "qT2-vi-RKq"; */
+"qT2-vi-RKq.title" = "Label";
+
+/* Class = "NSTextFieldCell"; title = "Add new Owncloud instance"; ObjectID = "sMT-rw-fKS"; */
+"sMT-rw-fKS.title" = "Neue Owncloud Instanz hinzufügen";
+
+/* Class = "NSTextFieldCell"; title = "Error message textlabel"; ObjectID = "sUN-TD-aWt"; */
+"sUN-TD-aWt.title" = "Fehlermeldung";
+
+/* Class = "NSMenuItem"; title = "Show Toolbar"; ObjectID = "snW-S8-Cw5"; */
+"snW-S8-Cw5.title" = "Zeige Toolbar";
+
+/* Class = "NSTextFieldCell"; placeholderString = "http://example.com/"; ObjectID = "t5T-bK-yYl"; */
+"t5T-bK-yYl.placeholderString" = "http://beispiel.de/";
+
+/* Class = "NSTextFieldCell"; title = "Last Check"; ObjectID = "t7h-Od-5mg"; */
+"t7h-Od-5mg.title" = "Letzte Aktualisierung";
+
+/* Class = "NSTextFieldCell"; title = "API Token"; ObjectID = "tmz-7A-fVo"; */
+"tmz-7A-fVo.title" = "API Token";
+
+/* Class = "NSMenu"; title = "Version Dashboard"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "Version Dashboard";
+
+/* Class = "NSTextFieldCell"; title = "Host URL"; ObjectID = "ufB-aY-bct"; */
+"ufB-aY-bct.title" = "Host URL";
+
+/* Class = "NSToolbarItem"; label = "Summary"; ObjectID = "v31-g5-7ng"; */
+"v31-g5-7ng.label" = "Übersicht";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Summary"; ObjectID = "v31-g5-7ng"; */
+"v31-g5-7ng.paletteLabel" = "Übersicht";
+
+/* Class = "NSToolbarItem"; toolTip = "Show summary of instances"; ObjectID = "v31-g5-7ng"; */
+"v31-g5-7ng.toolTip" = "Zeige Übersicht";
+
+/* Class = "NSTextFieldCell"; title = "Owncloud Instances"; ObjectID = "v7d-9R-ot2"; */
+"v7d-9R-ot2.title" = "Owncloud Instanzen";
+
+/* Class = "NSButtonCell"; title = "Save"; ObjectID = "vSi-yM-Huf"; */
+"vSi-yM-Huf.title" = "Speichern";
+
+/* Class = "NSMenuItem"; title = "Find Previous"; ObjectID = "x0H-sW-bNM"; */
+"x0H-sW-bNM.title" = "Find Previous";
+
+/* Class = "NSMenuItem"; title = "Find Next"; ObjectID = "xjb-U3-Jbw"; */
+"xjb-U3-Jbw.title" = "Find Next";
+
+/* Class = "NSTextFieldCell"; title = "Host URL"; ObjectID = "y7U-VJ-cPz"; */
+"y7U-VJ-cPz.title" = "Host URL";
+
+/* Class = "NSViewController"; title = "OwncloudInstance"; ObjectID = "yRM-Ta-SWb"; */
+"yRM-Ta-SWb.title" = "OwncloudInstance";
+
+/* Class = "NSTextFieldCell"; title = "Add new Piwik instance"; ObjectID = "zaU-OF-K0k"; */
+"zaU-OF-K0k.title" = "Füge neue Piwikinstanz hinzu";
+
+/* Class = "NSTextFieldCell"; title = "Instances out of date"; ObjectID = "zbl-pc-JxK"; */
+"zbl-pc-JxK.title" = "Veraltete Instanzen";
+
+/* Class = "NSTextFieldCell"; title = "Instances up to date"; ObjectID = "zdU-SP-7pM"; */
+"zdU-SP-7pM.title" = "Aktuelle Instanzen";
+
+"errorfetchingVersions" = "Versionscheck fehlgeschlagen.";

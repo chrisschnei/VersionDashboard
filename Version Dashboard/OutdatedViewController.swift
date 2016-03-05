@@ -120,7 +120,6 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
         if(checkInternetConnection()) {
             let selectedRow = tableView.selectedRow
             let instanceName = outdatedInstances[selectedRow]
-            print(instanceName)
             if((systemInstances[instanceName] as? JoomlaModel) != nil) {
                 let joomlamodel = systemInstances[instanceName] as? JoomlaModel
                 //Remote Version url
@@ -228,7 +227,6 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     func numberOfRowsInTableView(aTableView: NSTableView) -> Int {
         outdatedInstances.removeAll()
         self.loadOutdatedInstances()
-        print(outdatedInstances.count)
         return outdatedInstances.count
     }
 }
