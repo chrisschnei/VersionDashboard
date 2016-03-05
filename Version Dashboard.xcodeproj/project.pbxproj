@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA288CCC1C8B5C0F0026A172 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA288CCB1C8B5C0F0026A172 /* Localizable.strings */; };
+		AA288CD41C8B64120026A172 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA288CD61C8B64120026A172 /* Localizable.strings */; };
 		AA6AD7B01C6B4BD90097CD9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD7AF1C6B4BD90097CD9A /* AppDelegate.swift */; };
 		AA6AD7B21C6B4BD90097CD9A /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD7B11C6B4BD90097CD9A /* DetailedViewController.swift */; };
 		AA6AD7B41C6B4BD90097CD9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA6AD7B31C6B4BD90097CD9A /* Assets.xcassets */; };
@@ -66,7 +66,8 @@
 
 /* Begin PBXFileReference section */
 		AA288CCA1C8B0C300026A172 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
-		AA288CCB1C8B5C0F0026A172 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		AA288CD51C8B64120026A172 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AA288CD71C8B641A0026A172 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AA6AD7AC1C6B4BD90097CD9A /* Version Dashboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Version Dashboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA6AD7AF1C6B4BD90097CD9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA6AD7B11C6B4BD90097CD9A /* DetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
@@ -89,7 +90,7 @@
 		AA6AD7F01C6B779D0097CD9A /* OwncloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwncloudViewController.swift; sourceTree = "<group>"; };
 		AA6AD7F21C6B77AE0097CD9A /* JoomlaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoomlaViewController.swift; sourceTree = "<group>"; };
 		AA6AD7F41C6B77C00097CD9A /* WordpressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordpressViewController.swift; sourceTree = "<group>"; };
-		AA6AD7F91C6B8F220097CD9A /* XMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
+		AA6AD7F91C6B8F220097CD9A /* XMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XMLParser.swift; path = "Version Dashboard/XMLParser.swift"; sourceTree = "<group>"; };
 		AA6AD7FD1C6BC9210097CD9A /* PiwikModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PiwikModel.swift; sourceTree = "<group>"; };
 		AA6AD7FF1C6BC92F0097CD9A /* OwncloudModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwncloudModel.swift; sourceTree = "<group>"; };
 		AA6AD8011C6BC93B0097CD9A /* WordpressModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordpressModel.swift; sourceTree = "<group>"; };
@@ -98,7 +99,7 @@
 		AA6AD80F1C6BE0E70097CD9A /* config */ = {isa = PBXFileReference; lastKnownFileType = folder; name = config; path = "Version Dashboard/config"; sourceTree = "<group>"; };
 		AA6AD8111C6CDA890097CD9A /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		AA6AD8131C6CE7B60097CD9A /* InstanceRepositories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstanceRepositories.swift; sourceTree = "<group>"; };
-		AA6AD8501C7E397B0097CD9A /* badgeFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = badgeFunctions.swift; sourceTree = "<group>"; };
+		AA6AD8501C7E397B0097CD9A /* badgeFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = badgeFunctions.swift; path = "Version Dashboard/badgeFunctions.swift"; sourceTree = "<group>"; };
 		AA7FB8431C88CEBD009FC40B /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		AA7FB8451C88CEF1009FC40B /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		AA7FB8471C88DE94009FC40B /* configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = configuration.plist; sourceTree = "<group>"; };
@@ -109,8 +110,8 @@
 		AAA563221C821E6000E1199A /* SystemInstancesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemInstancesModel.swift; sourceTree = "<group>"; };
 		AAA563241C83021F00E1199A /* Outdated item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Outdated item.png"; sourceTree = "<group>"; };
 		AAA563261C8302A300E1199A /* OutdatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutdatedViewController.swift; sourceTree = "<group>"; };
-		AAA563281C83567300E1199A /* NotificationFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationFunctions.swift; sourceTree = "<group>"; };
-		AAA5632C1C83837A00E1199A /* InternetConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnectivity.swift; sourceTree = "<group>"; };
+		AAA563281C83567300E1199A /* NotificationFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationFunctions.swift; path = "Version Dashboard/NotificationFunctions.swift"; sourceTree = "<group>"; };
+		AAA5632C1C83837A00E1199A /* InternetConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InternetConnectivity.swift; path = "Version Dashboard/InternetConnectivity.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +139,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA288CD21C8B62490026A172 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				AA6AD7F91C6B8F220097CD9A /* XMLParser.swift */,
+				AA6AD8501C7E397B0097CD9A /* badgeFunctions.swift */,
+				AAA563281C83567300E1199A /* NotificationFunctions.swift */,
+				AAA5632C1C83837A00E1199A /* InternetConnectivity.swift */,
+			);
+			name = Helper;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		AA6AD7A31C6B4BD90097CD9A = {
 			isa = PBXGroup;
 			children = (
@@ -163,19 +176,16 @@
 			isa = PBXGroup;
 			children = (
 				AA6AD7F81C6B81190097CD9A /* Images */,
-				AA6AD8061C6BC9550097CD9A /* Controllers */,
 				AA6AD7B31C6B4BD90097CD9A /* Assets.xcassets */,
-				AA6AD7B51C6B4BD90097CD9A /* Main.storyboard */,
-				AA288CCB1C8B5C0F0026A172 /* Localizable.strings */,
 				AA6AD7B81C6B4BD90097CD9A /* Info.plist */,
 				AA7FB8471C88DE94009FC40B /* configuration.plist */,
+				AA6AD7B51C6B4BD90097CD9A /* Main.storyboard */,
+				AA288CD61C8B64120026A172 /* Localizable.strings */,
+				AA6AD8061C6BC9550097CD9A /* Controllers */,
 				AA6AD8051C6BC94A0097CD9A /* Models */,
+				AA288CD21C8B62490026A172 /* Helper */,
 				AA6AD7AF1C6B4BD90097CD9A /* AppDelegate.swift */,
-				AA6AD7F91C6B8F220097CD9A /* XMLParser.swift */,
 				AA6AD8111C6CDA890097CD9A /* constants.swift */,
-				AA6AD8501C7E397B0097CD9A /* badgeFunctions.swift */,
-				AAA563281C83567300E1199A /* NotificationFunctions.swift */,
-				AAA5632C1C83837A00E1199A /* InternetConnectivity.swift */,
 			);
 			path = "Version Dashboard";
 			sourceTree = "<group>";
@@ -332,6 +342,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = AA6AD7A31C6B4BD90097CD9A;
 			productRefGroup = AA6AD7AD1C6B4BD90097CD9A /* Products */;
@@ -350,7 +361,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA288CCC1C8B5C0F0026A172 /* Localizable.strings in Resources */,
+				AA288CD41C8B64120026A172 /* Localizable.strings in Resources */,
 				AA6AD8101C6BE0E70097CD9A /* config in Resources */,
 				AAA563251C83021F00E1199A /* Outdated item.png in Resources */,
 				AAA563211C81E0A000E1199A /* Summarize.png in Resources */,
@@ -445,6 +456,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		AA288CD61C8B64120026A172 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA288CD51C8B64120026A172 /* Base */,
+				AA288CD71C8B641A0026A172 /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		AA6AD7B51C6B4BD90097CD9A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
