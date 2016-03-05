@@ -42,12 +42,6 @@ class PreferencesViewController: NSViewController {
     }
     
     func saveConfigurationFile() {
-        if((Bool(self.activatedCheckbox.state) == true) && ((configurationSettings["automaticRefreshActive"] as! Bool) == false)) {
-            PreferencesViewController().automaticRefresh()
-        } else if(Bool(self.activatedCheckbox.state) == false) {
-            PreferencesViewController().stopTimer()
-        }
-        
         configurationSettings["interval"] = self.dropdownInterval.selectedCell()?.stringValue
         configurationSettings["automaticRefreshActive"] = Bool(self.activatedCheckbox.state)
         
@@ -65,6 +59,12 @@ class PreferencesViewController: NSViewController {
     
     @IBAction func savePreferences(sender: AnyObject) {
         self.saveConfigurationFile()
+        if(Bool(self.activatedCheckbox.state) == true) {
+            self.stopTimer()
+            self.automaticRefresh()
+        } else if(Bool(self.activatedCheckbox.state) == false) {
+            self.stopTimer()
+        }
         self.dismissController(self)
     }
     
@@ -73,7 +73,9 @@ class PreferencesViewController: NSViewController {
     }
     
     func checkInstancesAutomatic() {
-        SystemInstancesModel().checkAllInstancesVersions() { result in
+        if(checkInternetConnection()) {
+            SystemInstancesModel().checkAllInstancesVersions() { result in
+            }
         }
     }
     
@@ -82,7 +84,7 @@ class PreferencesViewController: NSViewController {
     }
     
     func automaticRefresh() {
-        let seconds = (configurationSettings["interval"] as! Double)*(60.0*60.0)
+        let seconds = Double(configurationSettings["interval"] as! String)!*(60.0*60.0)
         timer = NSTimer.scheduledTimerWithTimeInterval(seconds, target: self, selector: Selector("checkInstancesAutomatic"), userInfo: nil, repeats: true)
     }
 }
