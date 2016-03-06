@@ -77,7 +77,7 @@ class WordpressModel : GenericModel {
         if(!(self.headVersion == self.currentVersion) && (self.updateAvailable == 0)) {
             self.updateAvailable = 1
             incrementBadgeNumber()
-            sendNotification("Newer version available", informativeText: "Please update your \(self.name) instance")
+            sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), self.name)))
         } else if((self.headVersion == self.currentVersion) && (self.updateAvailable == 1)) {
             self.updateAvailable = 0
             decrementBadgeNumber()
@@ -134,7 +134,6 @@ class WordpressModel : GenericModel {
         if(url != "") {
             var result = ""
             result = self.checkVersionViaJavascript(url)
-            result = ""
             if(result != "") {
                 return result
             }

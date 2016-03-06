@@ -37,7 +37,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
         if(self.systemTableView.selectedRow != -1) {
             let button = sender as! NSButton
-            if (((button.title) == "Edit") || ((button.title) == "Bearbeiten")) {
+            if (((button.title) == NSLocalizedString("edit", comment:"")) || ((button.title) == NSLocalizedString("edit", comment:""))) {
                 let instances = Array(systemInstances.keys)
                 let instanceNa = instances[self.systemTableView.selectedRow]
                 let destination = segue.destinationController as! SettingsViewController
@@ -57,9 +57,9 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             let instance = systemInstances[instancename]
             var url = ""
             if((instance as? JoomlaModel) != nil) {
-                url = (instance as! JoomlaModel).hosturl.stringByAppendingString("administrator/")
+                url = (instance as! JoomlaModel).hosturl.stringByAppendingString(joomlaBackendURL)
             } else if((instance as? WordpressModel) != nil) {
-                url = (instance as! WordpressModel).hosturl.stringByAppendingString("wp-admin/")
+                url = (instance as! WordpressModel).hosturl.stringByAppendingString(wordpressBackendURL)
             } else if((instance as? PiwikModel) != nil) {
                 url = (instance as! PiwikModel).hosturl
             } else if((instance as? OwncloudModel) != nil) {
@@ -138,7 +138,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     self.noInternetConnection.hidden = true
                     owncloudmodel!.checkNotificationRequired()
                 } else {
-                    self.noInternetConnection.stringValue = "Error fetching versions."
+                    self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
                     self.noInternetConnection.hidden = false
                 }
                 //Date
@@ -156,7 +156,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     self.noInternetConnection.hidden = true
                     piwikmodel!.checkNotificationRequired()
                 } else {
-                    self.noInternetConnection.stringValue = "Error fetching versions."
+                    self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
                     self.noInternetConnection.hidden = false
                 }
                 //Date
@@ -174,7 +174,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     self.noInternetConnection.hidden = true
                     wordpressmodel!.checkNotificationRequired()
                 } else {
-                    self.noInternetConnection.stringValue = "Error fetching versions."
+                    self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
                     self.noInternetConnection.hidden = false
                 }
                 //Date
@@ -186,9 +186,9 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
             }
         } else {
-            self.noInternetConnection.stringValue = "Check internet connection."
+            self.noInternetConnection.stringValue = NSLocalizedString("errorInternetConnection", comment: "")
             self.noInternetConnection.hidden = false
-            self.refreshButton.stringValue = "Retry"
+            self.refreshButton.stringValue = NSLocalizedString("retry", comment: "")
         }
         self.checkActiveSpinner.stopAnimation(self)
         self.checkActiveSpinner.hidden = true
@@ -208,9 +208,9 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.deployedversionLabel.stringValue = joomlaobject!.currentVersion
                 if(self.latestsversionLabel.stringValue != "" || self.deployedversionLabel.stringValue != "") {
                     if(joomlaobject!.updateAvailable == 0) {
-                        self.statusLabel.stringValue = "OK"
+                        self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")
                     } else {
-                        self.statusLabel.stringValue = "Update available"
+                        self.statusLabel.stringValue = NSLocalizedString("updateavailable", comment: "")
                     }
                 } else {
                     self.statusLabel.stringValue = ""
@@ -224,9 +224,9 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.deployedversionLabel.stringValue = owncloudmodel!.currentVersion
                 if(self.latestsversionLabel.stringValue != "" || self.deployedversionLabel.stringValue != "") {
                     if(owncloudmodel!.updateAvailable == 0) {
-                        self.statusLabel.stringValue = "OK"
+                        self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")
                     } else {
-                        self.statusLabel.stringValue = "Update available"
+                        self.statusLabel.stringValue = NSLocalizedString("updateavailable", comment: "")
                     }
                 } else {
                     self.statusLabel.stringValue = ""
@@ -240,9 +240,9 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.deployedversionLabel.stringValue = piwikmodel!.currentVersion
                 if(self.latestsversionLabel.stringValue != "" || self.deployedversionLabel.stringValue != "") {
                     if(piwikmodel!.updateAvailable == 0) {
-                        self.statusLabel.stringValue = "OK"
+                        self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")
                     } else {
-                        self.statusLabel.stringValue = "Update available"
+                        self.statusLabel.stringValue = NSLocalizedString("updateavailable", comment: "")
                     }
                 } else {
                     self.statusLabel.stringValue = ""
@@ -256,11 +256,11 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.deployedversionLabel.stringValue = wordpressmodel!.currentVersion
                 if(self.latestsversionLabel.stringValue != "" || self.deployedversionLabel.stringValue != "") {
                     if(wordpressmodel!.updateAvailable == 0) {
-                        self.statusLabel.stringValue = "OK"
+                        self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")
                     } else if(wordpressmodel?.updateAvailable == -1) {
-                        self.statusLabel.stringValue = "Error fetching versions"
+                        self.statusLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
                     } else {
-                        self.statusLabel.stringValue = "Update available"
+                        self.statusLabel.stringValue = NSLocalizedString("updateavailable", comment: "")
                     }
                 } else {
                     self.statusLabel.stringValue = ""

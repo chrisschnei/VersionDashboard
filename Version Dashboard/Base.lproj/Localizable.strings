@@ -7,3 +7,13 @@
 */
 
 "errorfetchingVersions" = "Error checking version.";
+"edit" = "Edit";
+"errorInternetConnection" = "Check internet connection.";
+"retry" = "Retry";
+"ok" = "OK";
+"updateavailable" = "Update available";
+"instanceDuplicate" = "Instance already used. Choose another one.";
+"urlEnding" = "URL not ending with / .";
+"protocolMissing" = "No protocol specified.";
+"newerVersion" = "Newer version available";
+"pleaseUpdate" = "Please update your %@ instance";

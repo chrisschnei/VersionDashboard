@@ -7,3 +7,13 @@
 */
 
 "errorfetchingVersions" = "Versionscheck fehlgeschlagen.";
+"edit" = "Bearbeiten";
+"errorInternetConnection" = "Keine Internetverbindung.";
+"retry" = "Wiederholen";
+"ok" = "OK";
+"updateavailable" = "Update verfügbar";
+"instanceDuplicate" = "Instanzname bereits vorhanden.";
+"urlEnding" = "URL muss mit / abschließen.";
+"protocolMissing" = "Kein Protokoll angegeben.";
+"newerVersion" = "Aktuellere Version verfügbar";
+"pleaseUpdate" = "Bitte aktualisieren Sie Ihre %@ Instanz";

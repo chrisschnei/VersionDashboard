@@ -132,7 +132,7 @@
 "IaD-gS-LDr.title" = "Error message textlabel";
 
 /* Class = "NSTextFieldCell"; title = "Current Version"; ObjectID = "Iew-MW-iOQ"; */
-"Iew-MW-iOQ.title" = "Aktuelle Instanzversion";
+"Iew-MW-iOQ.title" = "Instanzversion";
 
 /* Class = "NSTextFieldCell"; title = "Add new Joomla instance"; ObjectID = "JMi-is-fLx"; */
 "JMi-is-fLx.title" = "Füge neue Joomla Instanz hinzu";
@@ -273,7 +273,7 @@
 "bUX-5M-tj8.title" = "Bearbeiten";
 
 /* Class = "NSTextFieldCell"; title = "Current Version"; ObjectID = "bY0-gO-HiG"; */
-"bY0-gO-HiG.title" = "Aktuelle Version";
+"bY0-gO-HiG.title" = "Instanzversion";
 
 /* Class = "NSMenuItem"; title = "Edit"; ObjectID = "bpV-tB-yAC"; */
 "bpV-tB-yAC.title" = "Bearbeiten";
@@ -300,7 +300,7 @@
 "ea9-q7-2Y9.title" = "System";
 
 /* Class = "NSTextFieldCell"; title = "Latests Version"; ObjectID = "eue-Ig-izv"; */
-"eue-Ig-izv.title" = "Aktuellste Version";
+"eue-Ig-izv.title" = "Aktuelle Version";
 
 /* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "fbO-nR-KgK"; */
 "fbO-nR-KgK.title" = "Abbrechen";
@@ -421,5 +421,3 @@
 
 /* Class = "NSTextFieldCell"; title = "Instances up to date"; ObjectID = "zdU-SP-7pM"; */
 "zdU-SP-7pM.title" = "Aktuelle Instanzen";
-
-"errorfetchingVersions" = "Versionscheck fehlgeschlagen.";

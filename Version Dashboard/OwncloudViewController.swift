@@ -45,7 +45,7 @@ class OwncloudViewController: NSViewController {
         {
             alreadyPresent = true
             self.errorMessage.hidden = false
-            self.errorMessage.stringValue = "Instance already used. Choose another one."
+            self.errorMessage.stringValue = NSLocalizedString("instanceDuplicate", comment: "")
         }
         return alreadyPresent
     }
@@ -53,12 +53,12 @@ class OwncloudViewController: NSViewController {
     func checkURLTextfields() -> Bool {
         var error = false
         if(!(self.urlField.stringValue.hasSuffix("/"))) {
-            self.errorMessage.stringValue = "URL must end with a /. "
+            self.errorMessage.stringValue = NSLocalizedString("urlEnding", comment: "")
             self.errorMessage.hidden = false
             error = true
         }
         if(!(self.urlField.stringValue.hasPrefix("http"))) {
-            self.errorMessage.stringValue = "No protocol specified."
+            self.errorMessage.stringValue = NSLocalizedString("protocolMissing", comment: "")
             self.errorMessage.hidden = false
             error = true
         }

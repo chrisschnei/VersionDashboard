@@ -47,11 +47,11 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.currentVersion.stringValue = joomlaobject!.currentVersion
                 if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
                     if(joomlaobject!.updateAvailable == 0) {
-                        self.statusLabel.stringValue = "OK"
+                        self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")
                     } else if(joomlaobject?.updateAvailable == -1) {
-                        self.statusLabel.stringValue = "Error fetching versions"
+                        self.statusLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
                     } else {
-                        self.statusLabel.stringValue = "Update available"
+                        self.statusLabel.stringValue = NSLocalizedString("updateavailable", comment: "")
                     }
                 } else {
                     self.statusLabel.stringValue = ""
@@ -65,11 +65,11 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.currentVersion.stringValue = owncloudmodel!.currentVersion
                 if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
                     if(owncloudmodel!.updateAvailable == 0) {
-                        self.statusLabel.stringValue = "OK"
+                        self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")
                     } else if(owncloudmodel?.updateAvailable == -1) {
-                        self.statusLabel.stringValue = "Error fetching versions"
+                        self.statusLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
                     } else {
-                        self.statusLabel.stringValue = "Update available"
+                        self.statusLabel.stringValue = NSLocalizedString("updateavailable", comment: "")
                     }
                 } else {
                     self.statusLabel.stringValue = ""
@@ -83,11 +83,11 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.currentVersion.stringValue = piwikmodel!.currentVersion
                 if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
                     if(piwikmodel!.updateAvailable == 0) {
-                        self.statusLabel.stringValue = "OK"
+                        self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")
                     } else if(piwikmodel?.updateAvailable == -1) {
-                        self.statusLabel.stringValue = "Error fetching versions"
+                        self.statusLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
                     } else {
-                        self.statusLabel.stringValue = "Update available"
+                        self.statusLabel.stringValue = NSLocalizedString("updateavailable", comment: "")
                     }
                 } else {
                     self.statusLabel.stringValue = ""
@@ -101,11 +101,11 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.currentVersion.stringValue = wordpressmodel!.currentVersion
                 if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
                     if(wordpressmodel!.updateAvailable == 0) {
-                        self.statusLabel.stringValue = "OK"
+                        self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")
                     } else if(wordpressmodel?.updateAvailable == -1) {
-                        self.statusLabel.stringValue = "Error fetching versions"
+                        self.statusLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
                     } else {
-                        self.statusLabel.stringValue = "Update available"
+                        self.statusLabel.stringValue = NSLocalizedString("updateavailable", comment: "")
                     }
                 } else {
                     self.statusLabel.stringValue = ""
@@ -175,7 +175,7 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
             }
         } else {
             self.errorLabel.hidden = false
-            self.refreshButton.stringValue = "Retry"
+            self.refreshButton.stringValue = NSLocalizedString("retry", comment: "")
         }
         self.spinner.stopAnimation(self)
         self.spinner.hidden = true
