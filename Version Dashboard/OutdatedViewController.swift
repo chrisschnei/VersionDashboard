@@ -47,14 +47,14 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.currentVersion.stringValue = joomlaobject!.currentVersion
                 if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
                     if(joomlaobject!.updateAvailable == 0) {
-                        self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")
+                        self.status.stringValue = NSLocalizedString("ok", comment: "")
                     } else if(joomlaobject?.updateAvailable == -1) {
-                        self.statusLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                        self.status.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
                     } else {
-                        self.statusLabel.stringValue = NSLocalizedString("updateavailable", comment: "")
+                        self.status.stringValue = NSLocalizedString("updateavailable", comment: "")
                     }
                 } else {
-                    self.statusLabel.stringValue = ""
+                    self.status.stringValue = ""
                 }
             } else if((modelclass as? OwncloudModel) != nil) {
                 let owncloudmodel = modelclass as? OwncloudModel
@@ -65,14 +65,14 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.currentVersion.stringValue = owncloudmodel!.currentVersion
                 if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
                     if(owncloudmodel!.updateAvailable == 0) {
-                        self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")
+                        self.status.stringValue = NSLocalizedString("ok", comment: "")
                     } else if(owncloudmodel?.updateAvailable == -1) {
-                        self.statusLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                        self.status.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
                     } else {
-                        self.statusLabel.stringValue = NSLocalizedString("updateavailable", comment: "")
+                        self.status.stringValue = NSLocalizedString("updateavailable", comment: "")
                     }
                 } else {
-                    self.statusLabel.stringValue = ""
+                    self.status.stringValue = ""
                 }
             } else if((modelclass as? PiwikModel) != nil) {
                 let piwikmodel = modelclass as? PiwikModel
@@ -83,14 +83,14 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.currentVersion.stringValue = piwikmodel!.currentVersion
                 if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
                     if(piwikmodel!.updateAvailable == 0) {
-                        self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")
+                        self.status.stringValue = NSLocalizedString("ok", comment: "")
                     } else if(piwikmodel?.updateAvailable == -1) {
-                        self.statusLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                        self.status.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
                     } else {
-                        self.statusLabel.stringValue = NSLocalizedString("updateavailable", comment: "")
+                        self.status.stringValue = NSLocalizedString("updateavailable", comment: "")
                     }
                 } else {
-                    self.statusLabel.stringValue = ""
+                    self.status.stringValue = ""
                 }
             } else if((modelclass as? WordpressModel) != nil) {
                 let wordpressmodel = modelclass as? WordpressModel
@@ -101,14 +101,14 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.currentVersion.stringValue = wordpressmodel!.currentVersion
                 if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
                     if(wordpressmodel!.updateAvailable == 0) {
-                        self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")
+                        self.status.stringValue = NSLocalizedString("ok", comment: "")
                     } else if(wordpressmodel?.updateAvailable == -1) {
-                        self.statusLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                        self.status.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
                     } else {
-                        self.statusLabel.stringValue = NSLocalizedString("updateavailable", comment: "")
+                        self.status.stringValue = NSLocalizedString("updateavailable", comment: "")
                     }
                 } else {
-                    self.statusLabel.stringValue = ""
+                    self.status.stringValue = ""
                 }
             }
         }
@@ -123,9 +123,15 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
             if((systemInstances[instanceName] as? JoomlaModel) != nil) {
                 let joomlamodel = systemInstances[instanceName] as? JoomlaModel
                 //Remote Version url
-                joomlamodel!.getVersions()
-                //Check Version
-                joomlamodel!.checkNotificationRequired()
+                if(joomlamodel!.getVersions()) {
+                    //Check Version
+                    self.errorLabel.hidden = true
+                    joomlamodel!.checkNotificationRequired()
+                } else {
+                    print(NSLocalizedString("errorfetchingVersions", comment: ""))
+                    self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                    self.errorLabel.hidden = false
+                }
                 //Date
                 joomlamodel!.updateDate()
                 if(!(joomlamodel!.saveConfigfile())) {
@@ -136,9 +142,15 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
             } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
                 let owncloudmodel = systemInstances[instanceName] as? OwncloudModel
                 //Remote Version url
-                owncloudmodel!.getVersions()
-                //Check Version
-                owncloudmodel!.checkNotificationRequired()
+                if(owncloudmodel!.getVersions()) {
+                    //Check Version
+                    self.errorLabel.hidden = true
+                    owncloudmodel!.checkNotificationRequired()
+                } else {
+                    print(NSLocalizedString("errorfetchingVersions", comment: ""))
+                    self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                    self.errorLabel.hidden = false
+                }
                 //Date
                 owncloudmodel!.updateDate()
                 if(!(owncloudmodel!.saveConfigfile())) {
@@ -149,9 +161,15 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
             } else if((systemInstances[instanceName] as? PiwikModel) != nil) {
                 let piwikmodel = systemInstances[instanceName] as? PiwikModel
                 //Remote Version url
-                piwikmodel!.getVersions()
-                //Check Version
-                piwikmodel!.checkNotificationRequired()
+                if(piwikmodel!.getVersions()) {
+                    //Check Version
+                    self.errorLabel.hidden = true
+                    piwikmodel!.checkNotificationRequired()
+                } else {
+                    print(NSLocalizedString("errorfetchingVersions", comment: ""))
+                    self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                    self.errorLabel.hidden = false
+                }
                 //Date
                 piwikmodel!.updateDate()
                 if(!(piwikmodel!.saveConfigfile())) {
@@ -162,9 +180,15 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
             } else if((systemInstances[instanceName] as? WordpressModel) != nil) {
                 let wordpressmodel = systemInstances[instanceName] as? WordpressModel
                 //Remote Version url
-                wordpressmodel!.getVersions()
-                //Check Version
-                wordpressmodel!.checkNotificationRequired()
+                if(wordpressmodel!.getVersions()) {
+                    //Check Version
+                    self.errorLabel.hidden = true
+                    wordpressmodel!.checkNotificationRequired()
+                } else {
+                    print(NSLocalizedString("errorfetchingVersions", comment: ""))
+                    self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                    self.errorLabel.hidden = false
+                }
                 //Date
                 wordpressmodel!.updateDate()
                 if(!(wordpressmodel!.saveConfigfile())) {

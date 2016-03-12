@@ -78,11 +78,10 @@ class OwncloudModel : GenericModel {
             self.updateAvailable = 1
             incrementBadgeNumber()
             sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), self.name)))
+            self.saveConfigfile()
         } else if((self.headVersion == self.currentVersion) && (self.updateAvailable == 1)) {
             self.updateAvailable = 0
             decrementBadgeNumber()
-        } else {
-            self.updateAvailable = 0
         }
     }
     

@@ -41,8 +41,6 @@ class PiwikModel : GenericModel, XMLParserDelegate {
         } else if((self.headVersion == self.currentVersion) && (self.updateAvailable == 1)) {
             self.updateAvailable = 0
             decrementBadgeNumber()
-        } else {
-            self.updateAvailable = 0
         }
     }
     

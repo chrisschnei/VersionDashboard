@@ -33,7 +33,9 @@ class SummaryViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         PreferencesViewController().loadConfigurationFile()
-        SystemInstancesModel().loadConfigfiles()
+        if(systemInstances.count == 0) {
+            SystemInstancesModel().loadConfigfiles()
+        }
         self.initLabels()
         if((configurationSettings["automaticRefreshActive"] as! Bool) == true) {
             PreferencesViewController().automaticRefresh()
