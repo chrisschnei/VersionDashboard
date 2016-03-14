@@ -24,6 +24,10 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     @IBOutlet weak var noInternetConnection: NSTextField!
     @IBOutlet weak var checkActiveSpinner: NSProgressIndicator!
     @IBOutlet weak var takeMeToMyInstance: NSButton!
+    @IBOutlet weak var phpVersionLabel: NSTextField!
+    @IBOutlet weak var phpVersion: NSTextField!
+    @IBOutlet weak var webserverLabel: NSLayoutConstraint!
+    @IBOutlet weak var webserver: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,7 +123,6 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     self.noInternetConnection.hidden = true
                     joomlamodel!.checkNotificationRequired()
                 } else {
-                    print(NSLocalizedString("errorfetchingVersions", comment: ""))
                     self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
                     self.noInternetConnection.hidden = false
                 }
@@ -206,6 +209,8 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.lastcheckLabel.stringValue = joomlaobject!.lastRefresh
                 self.latestsversionLabel.stringValue = joomlaobject!.headVersion
                 self.deployedversionLabel.stringValue = joomlaobject!.currentVersion
+                self.phpVersion.stringValue = joomlaobject!.phpVersion
+                self.webserver.stringValue = joomlaobject!.serverType
                 if(self.latestsversionLabel.stringValue != "" || self.deployedversionLabel.stringValue != "") {
                     if(joomlaobject!.updateAvailable == 0) {
                         self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")
@@ -222,6 +227,8 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.lastcheckLabel.stringValue = owncloudmodel!.lastRefresh
                 self.latestsversionLabel.stringValue = owncloudmodel!.headVersion
                 self.deployedversionLabel.stringValue = owncloudmodel!.currentVersion
+                self.phpVersion.stringValue = owncloudmodel!.phpVersion
+                self.webserver.stringValue = owncloudmodel!.serverType
                 if(self.latestsversionLabel.stringValue != "" || self.deployedversionLabel.stringValue != "") {
                     if(owncloudmodel!.updateAvailable == 0) {
                         self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")
@@ -238,6 +245,8 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.lastcheckLabel.stringValue = piwikmodel!.lastRefresh
                 self.latestsversionLabel.stringValue = piwikmodel!.headVersion
                 self.deployedversionLabel.stringValue = piwikmodel!.currentVersion
+                self.phpVersion.stringValue = piwikmodel!.phpVersion
+                self.webserver.stringValue = piwikmodel!.serverType
                 if(self.latestsversionLabel.stringValue != "" || self.deployedversionLabel.stringValue != "") {
                     if(piwikmodel!.updateAvailable == 0) {
                         self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")
@@ -254,6 +263,8 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.lastcheckLabel.stringValue = wordpressmodel!.lastRefresh
                 self.latestsversionLabel.stringValue = wordpressmodel!.headVersion
                 self.deployedversionLabel.stringValue = wordpressmodel!.currentVersion
+                self.phpVersion.stringValue = wordpressmodel!.phpVersion
+                self.webserver.stringValue = wordpressmodel!.serverType
                 if(self.latestsversionLabel.stringValue != "" || self.deployedversionLabel.stringValue != "") {
                     if(wordpressmodel!.updateAvailable == 0) {
                         self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")

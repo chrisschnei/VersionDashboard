@@ -27,6 +27,10 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     @IBOutlet weak var refreshButton: NSButton!
     @IBOutlet weak var spinner: NSProgressIndicator!
     @IBOutlet weak var errorLabel: NSTextField!
+    @IBOutlet weak var phpVersionLabel: NSTextField!
+    @IBOutlet weak var phpVersion: NSTextField!
+    @IBOutlet weak var webserverLabel: NSLayoutConstraint!
+    @IBOutlet weak var webserver: NSTextField!
     
     override func viewDidLoad() {
         outdatedInstances.removeAll()

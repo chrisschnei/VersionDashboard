@@ -18,10 +18,12 @@ class PiwikModel : GenericModel, XMLParserDelegate {
     var updateAvailable = Int()
     var name = String()
     var type = String()
+    var phpVersion = String()
+    var serverType = String()
     
     var version = String()
     
-    init(creationDate: String, currentVersion: String, hosturl: String, apiToken: String, lastRefresh: String, name: String, type: String, headVersion: String, updateAvailable: Int) {
+    init(creationDate: String, currentVersion: String, hosturl: String, apiToken: String, lastRefresh: String, name: String, type: String, headVersion: String, updateAvailable: Int, phpVersion: String, serverType: String) {
         self.hosturl = hosturl
         self.currentVersion = currentVersion
         self.lastRefresh = lastRefresh
@@ -31,6 +33,8 @@ class PiwikModel : GenericModel, XMLParserDelegate {
         self.updateAvailable = updateAvailable
         self.name = name
         self.type = type
+        self.phpVersion = phpVersion
+        self.serverType = serverType
     }
     
     func checkNotificationRequired() {
@@ -54,7 +58,8 @@ class PiwikModel : GenericModel, XMLParserDelegate {
     func getVersions() -> Bool {
         let headVersion = self.getInstanceVersion(piwikLatestVersionURL)
         let currentVersion = self.getInstanceVersionXML((self.hosturl).stringByAppendingString(piwikAPIUrl).stringByAppendingString(self.apiToken))
-        if(headVersion != "" && currentVersion != "") {
+        self.phpVersionRequest(self.phpReturnHandler)
+        if(headVersion != "" && currentVersion != "" && self.phpVersion != "") {
             self.headVersion = headVersion
             self.currentVersion = currentVersion
             return true
@@ -79,6 +84,8 @@ class PiwikModel : GenericModel, XMLParserDelegate {
         dict.setObject(self.creationDate, forKey: "creationDate")
         dict.setObject(self.apiToken, forKey: "apiToken")
         dict.setObject(self.updateAvailable, forKey: "updateAvailable")
+        dict.setObject(self.phpVersion, forKey: "phpVersion")
+        dict.setObject(self.serverType, forKey: "serverType")
         dict.setObject("Piwik", forKey: "type")
         
         let fileManager = NSFileManager.defaultManager()
@@ -107,8 +114,46 @@ class PiwikModel : GenericModel, XMLParserDelegate {
         
         parser.delegate = self;
         let s = parser.parse {
-            //            return self.parser.object["version"]!
         }
         return s
+    }
+    
+    func phpReturnHandler(data: NSURLResponse!) {
+        let lines = (String(data!)).componentsSeparatedByString("\n")
+        if(lines.count > 0) {
+            for line in lines {
+                if(line.rangeOfString("X-Powered-By") != nil) {
+                    let phpArray = line.componentsSeparatedByString("=")
+                    let phpString = phpArray[1].componentsSeparatedByString("PHP/")
+                    let number = phpString[1].componentsSeparatedByString("\"")[0]
+                    self.phpVersion = number
+                }
+                if(line.rangeOfString("Server") != nil) {
+                    let phpArray = line.componentsSeparatedByString("=")
+                    let phpString = phpArray[1].componentsSeparatedByString("\"")
+                    let server = phpString[1].componentsSeparatedByString("\"")[0]
+                    self.serverType = server
+                }
+            }
+        } else {
+            self.phpVersion = ""
+            self.serverType = ""
+        }
+    }
+    
+    func phpVersionRequest(completionHandler: ((NSURLResponse!) -> Void)?)
+    {
+        let semaphore = dispatch_semaphore_create(0)
+        let url : NSURL! = NSURL(string:self.hosturl)
+        let request: NSURLRequest = NSURLRequest(URL:url)
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: config)
+        
+        let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
+            completionHandler?(response);
+            dispatch_semaphore_signal(semaphore)
+        });
+        task.resume()
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
     }
 }

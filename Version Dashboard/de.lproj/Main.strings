@@ -356,6 +356,10 @@
 /* Class = "NSMenuItem"; title = "Copy"; ObjectID = "pJh-jg-23y"; */
 "pJh-jg-23y.title" = "Kopieren";
 
+"nVe-8k-HFe.title" = "Ausschneiden";
+
+"cmy-gH-Kso.title" = "Alles auswählen";
+
 /* Class = "NSTextFieldCell"; title = "Host"; ObjectID = "qAU-9h-9ft"; */
 "qAU-9h-9ft.title" = "Host";
 
@@ -421,3 +425,9 @@
 
 /* Class = "NSTextFieldCell"; title = "Instances up to date"; ObjectID = "zdU-SP-7pM"; */
 "zdU-SP-7pM.title" = "Aktuelle Instanzen";
+
+"VpC-3R-Ecc.title" = "PHP Versionen";
+
+"4GS-Yf-Kuw.title" = "PHP Version";
+
+"bGM-5e-vSi.title" = "PHP Version";
