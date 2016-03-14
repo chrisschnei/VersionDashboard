@@ -17,3 +17,4 @@
 "protocolMissing" = "Kein Protokoll angegeben.";
 "newerVersion" = "Aktuellere Version verfügbar";
 "pleaseUpdate" = "Bitte aktualisieren Sie Ihre %@ Instanz";
+"noSelectionMade" = "Keine Instanz markiert.";

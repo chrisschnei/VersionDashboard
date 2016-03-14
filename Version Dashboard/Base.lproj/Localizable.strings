@@ -17,3 +17,4 @@
 "protocolMissing" = "No protocol specified.";
 "newerVersion" = "Newer version available";
 "pleaseUpdate" = "Please update your %@ instance";
+"noSelectionMade" = "No instance selected.";

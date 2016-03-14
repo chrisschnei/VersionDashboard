@@ -114,79 +114,84 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         self.checkActiveSpinner.startAnimation(self)
         if(checkInternetConnection()) {
             let selectedRow = systemTableView.selectedRow
-            let instanceName = Array(systemInstances.keys)[selectedRow]
-            if((systemInstances[instanceName] as? JoomlaModel) != nil) {
-                let joomlamodel = systemInstances[instanceName] as? JoomlaModel
-                //Remote Version url
-                if(joomlamodel!.getVersions()) {
-                    //Check Version
-                    self.noInternetConnection.hidden = true
-                    joomlamodel!.checkNotificationRequired()
-                } else {
-                    self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                    self.noInternetConnection.hidden = false
+            if(selectedRow != -1) {
+                let instanceName = Array(systemInstances.keys)[selectedRow]
+                if((systemInstances[instanceName] as? JoomlaModel) != nil) {
+                    let joomlamodel = systemInstances[instanceName] as? JoomlaModel
+                    //Remote Version url
+                    if(joomlamodel!.getVersions()) {
+                        //Check Version
+                        self.noInternetConnection.hidden = true
+                        joomlamodel!.checkNotificationRequired()
+                    } else {
+                        self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                        self.noInternetConnection.hidden = false
+                    }
+                    //Date
+                    joomlamodel!.updateDate()
+                    if(!(joomlamodel!.saveConfigfile())) {
+                        print("Error saving plist File.")
+                    }
+                    self.systemTableView.deselectAll(self)
+                    self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+                } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
+                    let owncloudmodel = systemInstances[instanceName] as? OwncloudModel
+                    //Remote Version url
+                    if(owncloudmodel!.getVersions()) {
+                        //Check Version
+                        self.noInternetConnection.hidden = true
+                        owncloudmodel!.checkNotificationRequired()
+                    } else {
+                        self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                        self.noInternetConnection.hidden = false
+                    }
+                    //Date
+                    owncloudmodel!.updateDate()
+                    if(!(owncloudmodel!.saveConfigfile())) {
+                        print("Error saving plist File.")
+                    }
+                    self.systemTableView.deselectAll(self)
+                    self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+                } else if((systemInstances[instanceName] as? PiwikModel) != nil) {
+                    let piwikmodel = systemInstances[instanceName] as? PiwikModel
+                    //Remote Version url
+                    if(piwikmodel!.getVersions()) {
+                        //Check Version
+                        self.noInternetConnection.hidden = true
+                        piwikmodel!.checkNotificationRequired()
+                    } else {
+                        self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                        self.noInternetConnection.hidden = false
+                    }
+                    //Date
+                    piwikmodel!.updateDate()
+                    if(!(piwikmodel!.saveConfigfile())) {
+                        print("Error saving plist File.")
+                    }
+                    self.systemTableView.deselectAll(self)
+                    self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+                } else if((systemInstances[instanceName] as? WordpressModel) != nil) {
+                    let wordpressmodel = systemInstances[instanceName] as? WordpressModel
+                    //Remote Version url
+                    if(wordpressmodel!.getVersions()) {
+                        //Check Version
+                        self.noInternetConnection.hidden = true
+                        wordpressmodel!.checkNotificationRequired()
+                    } else {
+                        self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                        self.noInternetConnection.hidden = false
+                    }
+                    //Date
+                    wordpressmodel!.updateDate()
+                    if(!(wordpressmodel!.saveConfigfile())) {
+                        print("Error saving plist File.")
+                    }
+                    self.systemTableView.deselectAll(self)
+                    self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
                 }
-                //Date
-                joomlamodel!.updateDate()
-                if(!(joomlamodel!.saveConfigfile())) {
-                    print("Error saving plist File.")
-                }
-                self.systemTableView.deselectAll(self)
-                self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
-            } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
-                let owncloudmodel = systemInstances[instanceName] as? OwncloudModel
-                //Remote Version url
-                if(owncloudmodel!.getVersions()) {
-                    //Check Version
-                    self.noInternetConnection.hidden = true
-                    owncloudmodel!.checkNotificationRequired()
-                } else {
-                    self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                    self.noInternetConnection.hidden = false
-                }
-                //Date
-                owncloudmodel!.updateDate()
-                if(!(owncloudmodel!.saveConfigfile())) {
-                    print("Error saving plist File.")
-                }
-                self.systemTableView.deselectAll(self)
-                self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
-            } else if((systemInstances[instanceName] as? PiwikModel) != nil) {
-                let piwikmodel = systemInstances[instanceName] as? PiwikModel
-                //Remote Version url
-                if(piwikmodel!.getVersions()) {
-                    //Check Version
-                    self.noInternetConnection.hidden = true
-                    piwikmodel!.checkNotificationRequired()
-                } else {
-                    self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                    self.noInternetConnection.hidden = false
-                }
-                //Date
-                piwikmodel!.updateDate()
-                if(!(piwikmodel!.saveConfigfile())) {
-                    print("Error saving plist File.")
-                }
-                self.systemTableView.deselectAll(self)
-                self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
-            } else if((systemInstances[instanceName] as? WordpressModel) != nil) {
-                let wordpressmodel = systemInstances[instanceName] as? WordpressModel
-                //Remote Version url
-                if(wordpressmodel!.getVersions()) {
-                    //Check Version
-                    self.noInternetConnection.hidden = true
-                    wordpressmodel!.checkNotificationRequired()
-                } else {
-                    self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                    self.noInternetConnection.hidden = false
-                }
-                //Date
-                wordpressmodel!.updateDate()
-                if(!(wordpressmodel!.saveConfigfile())) {
-                    print("Error saving plist File.")
-                }
-                self.systemTableView.deselectAll(self)
-                self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+            } else {
+                self.noInternetConnection.stringValue = NSLocalizedString("noSelectionMade", comment: "")
+                self.noInternetConnection.hidden = false
             }
         } else {
             self.noInternetConnection.stringValue = NSLocalizedString("errorInternetConnection", comment: "")
@@ -284,9 +289,20 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView?
     {
+        self.systemTableView.rowHeight = 30.0
         let cellView = tableView.makeViewWithIdentifier("InstanceName", owner: self) as! NSTableCellView
         let instancesArray = Array(systemInstances.keys)
-        cellView.textField?.stringValue = instancesArray[row]
+        let name = instancesArray[row]
+        if((systemInstances[name] as? OwncloudModel) != nil) {
+            cellView.imageView!.image = NSImage(named: "owncloud_dots.png")!
+        } else if((systemInstances[name] as? PiwikModel) != nil) {
+            cellView.imageView!.image = NSImage(named: "piwik_dots.png")!
+        } else if((systemInstances[name] as? WordpressModel) != nil) {
+            cellView.imageView!.image = NSImage(named: "wordpress_dots.png")!
+        } else if((systemInstances[name] as? JoomlaModel) != nil) {
+            cellView.imageView!.image = NSImage(named: "joomla_dots.png")!
+        }
+        cellView.textField?.stringValue = name
         return cellView
     }
     

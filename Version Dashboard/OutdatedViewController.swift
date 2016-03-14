@@ -49,6 +49,8 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.lastcheck.stringValue = joomlaobject!.lastRefresh
                 self.latestVersion.stringValue = joomlaobject!.headVersion
                 self.currentVersion.stringValue = joomlaobject!.currentVersion
+                self.phpVersion.stringValue = joomlaobject!.phpVersion
+                self.webserver.stringValue = joomlaobject!.serverType
                 if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
                     if(joomlaobject!.updateAvailable == 0) {
                         self.status.stringValue = NSLocalizedString("ok", comment: "")
@@ -67,6 +69,8 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.lastcheck.stringValue = owncloudmodel!.lastRefresh
                 self.latestVersion.stringValue = owncloudmodel!.headVersion
                 self.currentVersion.stringValue = owncloudmodel!.currentVersion
+                self.phpVersion.stringValue = owncloudmodel!.phpVersion
+                self.webserver.stringValue = owncloudmodel!.serverType
                 if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
                     if(owncloudmodel!.updateAvailable == 0) {
                         self.status.stringValue = NSLocalizedString("ok", comment: "")
@@ -85,6 +89,8 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.lastcheck.stringValue = piwikmodel!.lastRefresh
                 self.latestVersion.stringValue = piwikmodel!.headVersion
                 self.currentVersion.stringValue = piwikmodel!.currentVersion
+                self.phpVersion.stringValue = piwikmodel!.phpVersion
+                self.webserver.stringValue = piwikmodel!.serverType
                 if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
                     if(piwikmodel!.updateAvailable == 0) {
                         self.status.stringValue = NSLocalizedString("ok", comment: "")
@@ -103,6 +109,8 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.lastcheck.stringValue = wordpressmodel!.lastRefresh
                 self.latestVersion.stringValue = wordpressmodel!.headVersion
                 self.currentVersion.stringValue = wordpressmodel!.currentVersion
+                self.phpVersion.stringValue = wordpressmodel!.phpVersion
+                self.webserver.stringValue = wordpressmodel!.serverType
                 if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
                     if(wordpressmodel!.updateAvailable == 0) {
                         self.status.stringValue = NSLocalizedString("ok", comment: "")
@@ -221,8 +229,20 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView?
     {
+        self.tableView.rowHeight = 30.0
         let cellView = tableView.makeViewWithIdentifier("InstanceName", owner: self) as! NSTableCellView
-        cellView.textField?.stringValue = outdatedInstances[row]
+        let instancesArray = Array(systemInstances.keys)
+        let name = instancesArray[row]
+        if((systemInstances[name] as? OwncloudModel) != nil) {
+            cellView.imageView!.image = NSImage(named: "owncloud_dots.png")!
+        } else if((systemInstances[name] as? PiwikModel) != nil) {
+            cellView.imageView!.image = NSImage(named: "piwik_dots.png")!
+        } else if((systemInstances[name] as? WordpressModel) != nil) {
+            cellView.imageView!.image = NSImage(named: "wordpress_dots.png")!
+        } else if((systemInstances[name] as? JoomlaModel) != nil) {
+            cellView.imageView!.image = NSImage(named: "joomla_dots.png")!
+        }
+        cellView.textField?.stringValue = name
         return cellView
     }
     
