@@ -72,7 +72,7 @@ class OwncloudModel : GenericModel {
         let headVersion = self.getInstanceVersion(owncloudAPIUrl.stringByAppendingString(owncloudVersionURL))
         let currentVersion = self.getInstanceVersion((self.hosturl).stringByAppendingString(owncloudVersionURL))
         self.phpVersionRequest(self.phpReturnHandler)
-        if(headVersion != "" && currentVersion != "" && self.phpVersion != "") {
+        if(headVersion != "" && currentVersion != "") {
             self.headVersion = headVersion
             self.currentVersion = currentVersion
             return true
@@ -81,7 +81,7 @@ class OwncloudModel : GenericModel {
     }
     
     func checkNotificationRequired() {
-        if(!(self.headVersion == self.currentVersion) && (self.updateAvailable == 0)) {
+        if((self.headVersion != self.currentVersion) && (self.updateAvailable == 0)) {
             self.updateAvailable = 1
             incrementBadgeNumber()
             sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), self.name)))

@@ -52,7 +52,6 @@ class JoomlaModel : GenericModel, XMLParserDelegate {
         dict.setObject(self.phpVersion, forKey: "phpVersion")
         dict.setObject(self.serverType, forKey: "serverType")
         dict.setObject("Joomla", forKey: "type")
-        
         let fileManager = NSFileManager.defaultManager()
         if (!(fileManager.fileExistsAtPath(path)))
         {
@@ -72,7 +71,7 @@ class JoomlaModel : GenericModel, XMLParserDelegate {
         let headVersion = self.getInstanceVersion(joomlaAPIUrl.stringByAppendingString(joomlapath))
         let currentVersion = self.getInstanceVersion((self.hosturl).stringByAppendingString(joomlapath))
         self.phpVersionRequest(self.phpReturnHandler)
-        if(headVersion != "" && currentVersion != "" && self.phpVersion != "") {
+        if(headVersion != "" && currentVersion != "") {
             self.headVersion = headVersion
             self.currentVersion = currentVersion
             return true

@@ -131,83 +131,88 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
         self.spinner.startAnimation(self)
         if(checkInternetConnection()) {
             let selectedRow = tableView.selectedRow
-            let instanceName = outdatedInstances[selectedRow]
-            if((systemInstances[instanceName] as? JoomlaModel) != nil) {
-                let joomlamodel = systemInstances[instanceName] as? JoomlaModel
-                //Remote Version url
-                if(joomlamodel!.getVersions()) {
-                    //Check Version
-                    self.errorLabel.hidden = true
-                    joomlamodel!.checkNotificationRequired()
-                } else {
-                    print(NSLocalizedString("errorfetchingVersions", comment: ""))
-                    self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                    self.errorLabel.hidden = false
+            if(selectedRow != -1) {
+                let instanceName = outdatedInstances[selectedRow]
+                if((systemInstances[instanceName] as? JoomlaModel) != nil) {
+                    let joomlamodel = systemInstances[instanceName] as? JoomlaModel
+                    //Remote Version url
+                    if(joomlamodel!.getVersions()) {
+                        //Check Version
+                        self.errorLabel.hidden = true
+                        joomlamodel!.checkNotificationRequired()
+                    } else {
+                        print(NSLocalizedString("errorfetchingVersions", comment: ""))
+                        self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                        self.errorLabel.hidden = false
+                    }
+                    //Date
+                    joomlamodel!.updateDate()
+                    if(!(joomlamodel!.saveConfigfile())) {
+                        print("Error saving plist File.")
+                    }
+                    self.tableView.deselectAll(self)
+                    self.tableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+                } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
+                    let owncloudmodel = systemInstances[instanceName] as? OwncloudModel
+                    //Remote Version url
+                    if(owncloudmodel!.getVersions()) {
+                        //Check Version
+                        self.errorLabel.hidden = true
+                        owncloudmodel!.checkNotificationRequired()
+                    } else {
+                        print(NSLocalizedString("errorfetchingVersions", comment: ""))
+                        self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                        self.errorLabel.hidden = false
+                    }
+                    //Date
+                    owncloudmodel!.updateDate()
+                    if(!(owncloudmodel!.saveConfigfile())) {
+                        print("Error saving plist File.")
+                    }
+                    self.tableView.deselectAll(self)
+                    self.tableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+                } else if((systemInstances[instanceName] as? PiwikModel) != nil) {
+                    let piwikmodel = systemInstances[instanceName] as? PiwikModel
+                    //Remote Version url
+                    if(piwikmodel!.getVersions()) {
+                        //Check Version
+                        self.errorLabel.hidden = true
+                        piwikmodel!.checkNotificationRequired()
+                    } else {
+                        print(NSLocalizedString("errorfetchingVersions", comment: ""))
+                        self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                        self.errorLabel.hidden = false
+                    }
+                    //Date
+                    piwikmodel!.updateDate()
+                    if(!(piwikmodel!.saveConfigfile())) {
+                        print("Error saving plist File.")
+                    }
+                    self.tableView.deselectAll(self)
+                    self.tableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+                } else if((systemInstances[instanceName] as? WordpressModel) != nil) {
+                    let wordpressmodel = systemInstances[instanceName] as? WordpressModel
+                    //Remote Version url
+                    if(wordpressmodel!.getVersions()) {
+                        //Check Version
+                        self.errorLabel.hidden = true
+                        wordpressmodel!.checkNotificationRequired()
+                    } else {
+                        print(NSLocalizedString("errorfetchingVersions", comment: ""))
+                        self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                        self.errorLabel.hidden = false
+                    }
+                    //Date
+                    wordpressmodel!.updateDate()
+                    if(!(wordpressmodel!.saveConfigfile())) {
+                        print("Error saving plist File.")
+                    }
+                    self.tableView.deselectAll(self)
+                    self.tableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
                 }
-                //Date
-                joomlamodel!.updateDate()
-                if(!(joomlamodel!.saveConfigfile())) {
-                    print("Error saving plist File.")
-                }
-                self.tableView.deselectAll(self)
-                self.tableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
-            } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
-                let owncloudmodel = systemInstances[instanceName] as? OwncloudModel
-                //Remote Version url
-                if(owncloudmodel!.getVersions()) {
-                    //Check Version
-                    self.errorLabel.hidden = true
-                    owncloudmodel!.checkNotificationRequired()
-                } else {
-                    print(NSLocalizedString("errorfetchingVersions", comment: ""))
-                    self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                    self.errorLabel.hidden = false
-                }
-                //Date
-                owncloudmodel!.updateDate()
-                if(!(owncloudmodel!.saveConfigfile())) {
-                    print("Error saving plist File.")
-                }
-                self.tableView.deselectAll(self)
-                self.tableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
-            } else if((systemInstances[instanceName] as? PiwikModel) != nil) {
-                let piwikmodel = systemInstances[instanceName] as? PiwikModel
-                //Remote Version url
-                if(piwikmodel!.getVersions()) {
-                    //Check Version
-                    self.errorLabel.hidden = true
-                    piwikmodel!.checkNotificationRequired()
-                } else {
-                    print(NSLocalizedString("errorfetchingVersions", comment: ""))
-                    self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                    self.errorLabel.hidden = false
-                }
-                //Date
-                piwikmodel!.updateDate()
-                if(!(piwikmodel!.saveConfigfile())) {
-                    print("Error saving plist File.")
-                }
-                self.tableView.deselectAll(self)
-                self.tableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
-            } else if((systemInstances[instanceName] as? WordpressModel) != nil) {
-                let wordpressmodel = systemInstances[instanceName] as? WordpressModel
-                //Remote Version url
-                if(wordpressmodel!.getVersions()) {
-                    //Check Version
-                    self.errorLabel.hidden = true
-                    wordpressmodel!.checkNotificationRequired()
-                } else {
-                    print(NSLocalizedString("errorfetchingVersions", comment: ""))
-                    self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                    self.errorLabel.hidden = false
-                }
-                //Date
-                wordpressmodel!.updateDate()
-                if(!(wordpressmodel!.saveConfigfile())) {
-                    print("Error saving plist File.")
-                }
-                self.tableView.deselectAll(self)
-                self.tableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+            } else {
+                self.errorLabel.stringValue = NSLocalizedString("noSelectionMade", comment: "")
+                self.errorLabel.hidden = false
             }
         } else {
             self.errorLabel.hidden = false

@@ -29,6 +29,8 @@ class SummaryViewController: NSViewController {
     @IBOutlet weak var noOfInstancesLabel: NSTextField!
     @IBOutlet var summaryViewController: NSView!
     @IBOutlet weak var refreshActiveSpinner: NSProgressIndicator!
+    @IBOutlet weak var webserver: NSTextField!
+    @IBOutlet weak var webserverLabel: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,9 +61,8 @@ class SummaryViewController: NSViewController {
             }
         }
         
-        //Todo Implement http header php version search
-        self.phpVersions.stringValue = SystemInstancesModel().checkAllInstancesPHPVersions()
-        
+/*        self.phpVersions.stringValue = SystemInstancesModel().checkAllInstancesPHPVersions()
+        self.webserver.stringValue = SystemInstancesModel().checkAllInstancesWebserverVersions()*/
         self.amountInstancesOutofdate.stringValue = String(SystemInstancesModel().getAmountOfOutdateInstances())
         self.amountInstancesUptodate.stringValue = String(SystemInstancesModel().getAmountOfUptodateInstances())
     }
@@ -69,6 +70,8 @@ class SummaryViewController: NSViewController {
     func checksFinished() {
         self.refreshActiveSpinner.stopAnimation(self)
         self.refreshActiveSpinner.hidden = true
+        systemInstances.removeAll()
+        SystemInstancesModel().loadConfigfiles()
     }
     
     @IBAction func checkAllInstances(sender: AnyObject) {

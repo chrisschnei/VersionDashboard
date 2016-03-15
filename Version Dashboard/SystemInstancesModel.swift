@@ -47,10 +47,49 @@ class SystemInstancesModel : NSObject {
         }
     }
     
-    //Todo implement php check functionality
-    func checkAllInstancesPHPVersions() -> String {
-        return "5.3"
+    /*func checkAllInstancesWebserverVersions() -> String {
+        var webserverVersions = ""
+        for instance in systemInstances.keys {
+            var newWebserver = ""
+            if((systemInstances[instance] as? JoomlaModel) != nil) {
+                newWebserver = (systemInstances[instance] as! JoomlaModel).serverType
+            } else if((systemInstances[instance] as? WordpressModel) != nil) {
+                newWebserver = (systemInstances[instance] as! WordpressModel).serverType
+            } else if((systemInstances[instance] as? PiwikModel) != nil) {
+                newWebserver = (systemInstances[instance] as! PiwikModel).serverType
+            } else if((systemInstances[instance] as? OwncloudModel) != nil) {
+                newWebserver = (systemInstances[instance] as! OwncloudModel).serverType
+            }
+            if((webserverVersions.rangeOfString(newWebserver)) == nil) {
+                webserverVersions = webserverVersions.stringByAppendingString(newWebserver).stringByAppendingString(", ")
+            }
+        }
+        return webserverVersions
     }
+    
+    func checkAllInstancesPHPVersions() -> String {
+        var phpVersions = ""
+        for (index, element) in (systemInstances.keys).enumerate() {
+            var newVersion = ""
+            if((systemInstances[element] as? JoomlaModel) != nil) {
+                newVersion = (systemInstances[element] as! JoomlaModel).phpVersion
+            } else if((systemInstances[element] as? WordpressModel) != nil) {
+                newVersion = (systemInstances[element] as! WordpressModel).phpVersion
+            } else if((systemInstances[element] as? PiwikModel) != nil) {
+                newVersion = (systemInstances[element] as! PiwikModel).phpVersion
+            } else if((systemInstances[element] as? OwncloudModel) != nil) {
+                newVersion = (systemInstances[element] as! OwncloudModel).phpVersion
+            }
+            if((phpVersions.rangeOfString(newVersion)) == nil) {
+                if((systemInstances.count > (index + (systemInstances.count - 1))) && (newVersion != "")) {
+                    phpVersions = phpVersions.stringByAppendingString(newVersion).stringByAppendingString(", ")
+                } else {
+                    phpVersions = phpVersions.stringByAppendingString(newVersion)
+                }
+            }
+        }
+        return phpVersions
+    }*/
     
     func checkAllInstancesTypes() -> Dictionary<String, Int> {
         var wordpressInstances = 0
@@ -106,6 +145,7 @@ class SystemInstancesModel : NSObject {
     func loadConfigfiles() {
         let fileManager = NSFileManager.defaultManager()
         let enumerator:NSDirectoryEnumerator = fileManager.enumeratorAtPath(appurl)!
+        zeroBadgeNumber()
         
         while let element = enumerator.nextObject() as? String {
             if element.hasSuffix("plist") {

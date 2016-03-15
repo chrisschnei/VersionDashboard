@@ -38,7 +38,7 @@ class PiwikModel : GenericModel, XMLParserDelegate {
     }
     
     func checkNotificationRequired() {
-        if(!(self.headVersion == self.currentVersion) && (self.updateAvailable == 0)) {
+        if((self.headVersion != self.currentVersion) && (self.updateAvailable == 0)) {
             self.updateAvailable = 1
             incrementBadgeNumber()
             sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), self.name)))
@@ -59,7 +59,7 @@ class PiwikModel : GenericModel, XMLParserDelegate {
         let headVersion = self.getInstanceVersion(piwikLatestVersionURL)
         let currentVersion = self.getInstanceVersionXML((self.hosturl).stringByAppendingString(piwikAPIUrl).stringByAppendingString(self.apiToken))
         self.phpVersionRequest(self.phpReturnHandler)
-        if(headVersion != "" && currentVersion != "" && self.phpVersion != "") {
+        if(headVersion != "" && currentVersion != "") {
             self.headVersion = headVersion
             self.currentVersion = currentVersion
             return true
