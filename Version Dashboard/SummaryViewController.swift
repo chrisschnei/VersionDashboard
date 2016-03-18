@@ -61,8 +61,6 @@ class SummaryViewController: NSViewController {
             }
         }
         
-/*        self.phpVersions.stringValue = SystemInstancesModel().checkAllInstancesPHPVersions()
-        self.webserver.stringValue = SystemInstancesModel().checkAllInstancesWebserverVersions()*/
         self.amountInstancesOutofdate.stringValue = String(SystemInstancesModel().getAmountOfOutdateInstances())
         self.amountInstancesUptodate.stringValue = String(SystemInstancesModel().getAmountOfUptodateInstances())
     }

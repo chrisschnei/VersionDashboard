@@ -81,12 +81,12 @@ class OwncloudModel : GenericModel {
     }
     
     func checkNotificationRequired() {
-        if((self.headVersion != self.currentVersion) && (self.updateAvailable == 0)) {
+        if((self.headVersion.rangeOfString(self.currentVersion) == nil) && (self.updateAvailable == 0)) {
             self.updateAvailable = 1
             incrementBadgeNumber()
             sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), self.name)))
             self.saveConfigfile()
-        } else if((self.headVersion == self.currentVersion) && (self.updateAvailable == 1)) {
+        } else if((self.headVersion.rangeOfString(self.currentVersion) != nil) && (self.updateAvailable == 1)) {
             self.updateAvailable = 0
             decrementBadgeNumber()
         }

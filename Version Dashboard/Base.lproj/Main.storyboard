@@ -137,11 +137,11 @@
                 <windowController id="B8D-0N-5wS" customClass="MainWindow" customModule="Version_Dashboard" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Version Dashboard" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="117" y="428" width="680" height="480"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES"/>
+                        <rect key="contentRect" x="77" y="605" width="680" height="380"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="680" height="480"/>
-                        <value key="maxSize" type="size" width="680" height="480"/>
+                        <value key="minSize" type="size" width="680" height="380"/>
+                        <value key="maxSize" type="size" width="680" height="380"/>
                         <toolbar key="toolbar" implicitIdentifier="A6443199-AC4D-4202-9444-A3EDAE6F940F" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="H4y-30-MH0">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="7D9AF1CE-1242-4C09-810A-37D5A199BD6E" label="Detailed View" paletteLabel="Detailed View" toolTip="Show detailed informations" tag="-1" image="Detailed view" id="E4i-Mv-nM7">
@@ -321,8 +321,8 @@ Gw
         <scene sceneID="hxu-Gl-8Bg">
             <objects>
                 <viewController title="Summary View Controller" storyboardIdentifier="summaryviewcontroller" id="X2f-d4-1Xq" customClass="SummaryViewController" customModule="Version_Dashboard" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="LeM-NU-AWq">
-                        <rect key="frame" x="0.0" y="0.0" width="680" height="468"/>
+                    <view key="view" autoresizesSubviews="NO" id="LeM-NU-AWq">
+                        <rect key="frame" x="0.0" y="0.0" width="680" height="480"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xmr-rM-mPs">
@@ -397,22 +397,6 @@ Gw
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VpC-3R-Ecc">
-                                <rect key="frame" x="358" y="226" width="86" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PHP Versions" id="eIB-eA-dgS">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField hidden="YES" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="750" preferredMaxLayoutWidth="131" translatesAutoresizingMaskIntoConstraints="NO" id="PhD-Lk-Ssm">
-                                <rect key="frame" x="527" y="226" width="135" height="17"/>
-                                <textFieldCell key="cell" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" title="Label" id="VXF-M5-l3I">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kRI-9U-YnH">
                                 <rect key="frame" x="358" y="307" width="128" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Instances up to date" id="zdU-SP-7pM">
@@ -472,69 +456,42 @@ Gw
                             <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Chi-F0-rb0">
                                 <rect key="frame" x="487" y="22" width="16" height="16"/>
                             </progressIndicator>
-                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7XS-bn-WvQ">
-                                <rect key="frame" x="358" y="193" width="70" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Webserver" id="pBg-S9-j8B">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField hidden="YES" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="750" preferredMaxLayoutWidth="131" translatesAutoresizingMaskIntoConstraints="NO" id="7az-PS-hDm">
-                                <rect key="frame" x="527" y="193" width="135" height="17"/>
-                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Label" id="ETp-yE-PwK">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="aEm-St-Vcm" firstAttribute="top" secondItem="2qE-zo-Cbq" secondAttribute="bottom" constant="25" id="2Tf-Bb-7Yn"/>
-                            <constraint firstAttribute="bottom" secondItem="0C2-LV-LAx" secondAttribute="bottom" constant="20" symbolic="YES" id="2Vn-2p-BSt"/>
+                            <constraint firstAttribute="bottom" secondItem="0C2-LV-LAx" secondAttribute="bottom" constant="20" id="2Vn-2p-BSt"/>
                             <constraint firstItem="Sz6-J5-V9f" firstAttribute="baseline" secondItem="hAw-Vm-QJT" secondAttribute="baseline" id="3Xf-IW-ZJe"/>
                             <constraint firstItem="2qE-zo-Cbq" firstAttribute="leading" secondItem="aEm-St-Vcm" secondAttribute="leading" id="4mD-3J-pld"/>
                             <constraint firstItem="nya-5D-GD6" firstAttribute="leading" secondItem="608-eK-l3G" secondAttribute="leading" id="66C-Tw-wVj"/>
                             <constraint firstItem="aEm-St-Vcm" firstAttribute="leading" secondItem="XDx-cm-9TT" secondAttribute="leading" id="6RN-lA-edn"/>
-                            <constraint firstItem="8Kj-6H-Ff5" firstAttribute="baseline" secondItem="VpC-3R-Ecc" secondAttribute="baseline" id="8xU-t4-roA"/>
-                            <constraint firstItem="PhD-Lk-Ssm" firstAttribute="baseline" secondItem="VpC-3R-Ecc" secondAttribute="baseline" id="9Oa-7D-mdD"/>
                             <constraint firstItem="kRI-9U-YnH" firstAttribute="leading" secondItem="amO-TI-BHH" secondAttribute="trailing" constant="20" id="9RG-j2-2Uc"/>
                             <constraint firstItem="XDx-cm-9TT" firstAttribute="baseline" secondItem="N1r-8c-FYF" secondAttribute="baseline" id="BiM-aE-rFX"/>
                             <constraint firstItem="zqC-cR-iIy" firstAttribute="baseline" secondItem="Xmr-rM-mPs" secondAttribute="baseline" id="BnZ-DV-K2N"/>
-                            <constraint firstItem="8Kj-6H-Ff5" firstAttribute="centerY" secondItem="LeM-NU-AWq" secondAttribute="centerY" id="Bry-eg-hLY"/>
+                            <constraint firstItem="8Kj-6H-Ff5" firstAttribute="centerY" secondItem="LeM-NU-AWq" secondAttribute="centerY" constant="5.5" id="Bry-eg-hLY"/>
                             <constraint firstItem="nya-5D-GD6" firstAttribute="leading" secondItem="DLS-Sq-3Mn" secondAttribute="trailing" constant="41" id="CnK-YS-s7M"/>
-                            <constraint firstItem="7XS-bn-WvQ" firstAttribute="top" secondItem="VpC-3R-Ecc" secondAttribute="bottom" constant="16" id="FvF-CJ-gCl"/>
-                            <constraint firstItem="7XS-bn-WvQ" firstAttribute="leading" secondItem="VpC-3R-Ecc" secondAttribute="leading" id="HUe-17-UzH"/>
                             <constraint firstItem="XDx-cm-9TT" firstAttribute="leading" secondItem="Sz6-J5-V9f" secondAttribute="leading" id="I99-Y1-uqH"/>
-                            <constraint firstItem="PhD-Lk-Ssm" firstAttribute="leading" secondItem="VpC-3R-Ecc" secondAttribute="trailing" constant="87" id="IjQ-BF-NMh"/>
                             <constraint firstItem="CWB-kv-xPz" firstAttribute="baseline" secondItem="2qE-zo-Cbq" secondAttribute="baseline" id="KnL-S4-6RF"/>
                             <constraint firstItem="Xmr-rM-mPs" firstAttribute="leading" secondItem="2qE-zo-Cbq" secondAttribute="leading" id="KwC-du-skq"/>
                             <constraint firstItem="nya-5D-GD6" firstAttribute="baseline" secondItem="DLS-Sq-3Mn" secondAttribute="baseline" id="MVm-4R-iBz"/>
                             <constraint firstItem="2qE-zo-Cbq" firstAttribute="top" secondItem="Xmr-rM-mPs" secondAttribute="bottom" constant="22" id="NWK-qE-3Q4"/>
                             <constraint firstItem="zqC-cR-iIy" firstAttribute="leading" secondItem="CWB-kv-xPz" secondAttribute="leading" id="NlO-xK-qTw"/>
-                            <constraint firstAttribute="trailing" secondItem="PhD-Lk-Ssm" secondAttribute="trailing" constant="20" symbolic="YES" id="Nwb-86-onj"/>
                             <constraint firstItem="XDx-cm-9TT" firstAttribute="top" secondItem="aEm-St-Vcm" secondAttribute="bottom" constant="27" id="QJO-MM-KP8"/>
                             <constraint firstItem="amO-TI-BHH" firstAttribute="leading" secondItem="zqC-cR-iIy" secondAttribute="trailing" constant="18" id="R1D-Eu-fZ0"/>
                             <constraint firstItem="608-eK-l3G" firstAttribute="leading" secondItem="kRI-9U-YnH" secondAttribute="trailing" constant="45" id="RCh-Nm-dAe"/>
                             <constraint firstAttribute="bottom" secondItem="amO-TI-BHH" secondAttribute="bottom" constant="123" id="RhZ-dP-oo5"/>
                             <constraint firstItem="kRI-9U-YnH" firstAttribute="leading" secondItem="DLS-Sq-3Mn" secondAttribute="leading" id="S2z-qZ-iZL"/>
                             <constraint firstItem="8Kj-6H-Ff5" firstAttribute="leading" secondItem="CWB-kv-xPz" secondAttribute="leading" id="SdC-Me-iJL"/>
-                            <constraint firstItem="PhD-Lk-Ssm" firstAttribute="leading" secondItem="7az-PS-hDm" secondAttribute="leading" id="VSZ-vJ-L3D"/>
                             <constraint firstItem="0C2-LV-LAx" firstAttribute="centerY" secondItem="Chi-F0-rb0" secondAttribute="centerY" id="WjO-aA-luV"/>
                             <constraint firstItem="kRI-9U-YnH" firstAttribute="baseline" secondItem="zqC-cR-iIy" secondAttribute="baseline" id="aDP-jQ-fdr"/>
                             <constraint firstItem="Sz6-J5-V9f" firstAttribute="top" secondItem="XDx-cm-9TT" secondAttribute="bottom" constant="25" id="agI-mx-axQ"/>
                             <constraint firstItem="amO-TI-BHH" firstAttribute="centerX" secondItem="LeM-NU-AWq" secondAttribute="centerX" id="d7J-g6-1JH"/>
                             <constraint firstItem="608-eK-l3G" firstAttribute="baseline" secondItem="kRI-9U-YnH" secondAttribute="baseline" id="edH-pI-d7J"/>
-                            <constraint firstItem="PhD-Lk-Ssm" firstAttribute="trailing" secondItem="7az-PS-hDm" secondAttribute="trailing" id="g1J-3O-Agy"/>
                             <constraint firstItem="hAw-Vm-QJT" firstAttribute="leading" secondItem="N1r-8c-FYF" secondAttribute="leading" id="hCd-FQ-TNu"/>
                             <constraint firstItem="hAw-Vm-QJT" firstAttribute="leading" secondItem="Sz6-J5-V9f" secondAttribute="trailing" constant="42" id="jvX-Eh-ino"/>
-                            <constraint firstItem="7az-PS-hDm" firstAttribute="baseline" secondItem="7XS-bn-WvQ" secondAttribute="baseline" id="lOJ-f4-ARG"/>
                             <constraint firstItem="8Kj-6H-Ff5" firstAttribute="leading" secondItem="N1r-8c-FYF" secondAttribute="leading" id="pb6-kK-9l4"/>
-                            <constraint firstItem="amO-TI-BHH" firstAttribute="top" secondItem="LeM-NU-AWq" secondAttribute="top" constant="135" id="qC6-SU-3Jl"/>
-                            <constraint firstItem="0C2-LV-LAx" firstAttribute="trailing" secondItem="7az-PS-hDm" secondAttribute="trailing" id="sDv-Lh-bW4"/>
-                            <constraint firstItem="VpC-3R-Ecc" firstAttribute="leading" secondItem="DLS-Sq-3Mn" secondAttribute="leading" id="tMK-V9-Mgc"/>
+                            <constraint firstItem="amO-TI-BHH" firstAttribute="top" secondItem="LeM-NU-AWq" secondAttribute="top" constant="147" id="qC6-SU-3Jl"/>
+                            <constraint firstAttribute="trailing" secondItem="0C2-LV-LAx" secondAttribute="trailing" constant="20" symbolic="YES" id="qDC-Gf-l25"/>
                             <constraint firstItem="0C2-LV-LAx" firstAttribute="leading" secondItem="Chi-F0-rb0" secondAttribute="trailing" constant="12" id="tYh-GF-jID"/>
-                            <constraint firstItem="nya-5D-GD6" firstAttribute="leading" secondItem="PhD-Lk-Ssm" secondAttribute="leading" id="uTF-9O-KJF"/>
                             <constraint firstItem="8Kj-6H-Ff5" firstAttribute="baseline" secondItem="aEm-St-Vcm" secondAttribute="baseline" id="vzB-ui-hY1"/>
                             <constraint firstItem="DLS-Sq-3Mn" firstAttribute="baseline" secondItem="CWB-kv-xPz" secondAttribute="baseline" id="x11-Ie-Jwr"/>
                         </constraints>
@@ -553,25 +510,21 @@ Gw
                         <outlet property="joomlaInstancesLabel" destination="XDx-cm-9TT" id="jWe-Ht-hcS"/>
                         <outlet property="noOfInstancesLabel" destination="Xmr-rM-mPs" id="3Ti-ss-Bae"/>
                         <outlet property="owncloudInstancesLabel" destination="2qE-zo-Cbq" id="Qo8-nc-DyO"/>
-                        <outlet property="phpVersions" destination="PhD-Lk-Ssm" id="Xj4-yZ-qIN"/>
-                        <outlet property="phpVersionsLabel" destination="VpC-3R-Ecc" id="Vve-Tk-qj9"/>
                         <outlet property="piwikInstancesLabel" destination="aEm-St-Vcm" id="D1e-11-dR3"/>
                         <outlet property="refreshActiveSpinner" destination="Chi-F0-rb0" id="aWY-xW-Lg8"/>
                         <outlet property="summaryViewController" destination="LeM-NU-AWq" id="SSV-Kp-m5W"/>
-                        <outlet property="webserver" destination="7az-PS-hDm" id="t3i-oa-oKg"/>
-                        <outlet property="webserverLabel" destination="7XS-bn-WvQ" id="YZm-M4-cdo"/>
                         <outlet property="wordpressInstancesLabel" destination="Sz6-J5-V9f" id="wtJ-Yn-By8"/>
                     </connections>
                 </viewController>
                 <customObject id="2g3-6X-tPi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-790" y="696"/>
+            <point key="canvasLocation" x="-781" y="702"/>
         </scene>
         <!--Detailed View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController storyboardIdentifier="detailedviewcontroller" id="XfG-lQ-9wD" customClass="DetailedViewController" customModule="Version_Dashboard" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
+                    <view key="view" autoresizesSubviews="NO" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="680" height="480"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -955,7 +908,7 @@ DQ
         <scene sceneID="mKG-yP-sXb">
             <objects>
                 <viewController title="Outdated instances" storyboardIdentifier="outdatedviewcontroller" id="SKc-0J-o2d" customClass="OutdatedViewController" customModule="Version_Dashboard" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="l61-2m-qjy">
+                    <view key="view" autoresizesSubviews="NO" id="l61-2m-qjy">
                         <rect key="frame" x="0.0" y="0.0" width="680" height="480"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>

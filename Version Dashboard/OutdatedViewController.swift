@@ -236,8 +236,7 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     {
         self.tableView.rowHeight = 30.0
         let cellView = tableView.makeViewWithIdentifier("InstanceName", owner: self) as! NSTableCellView
-        let instancesArray = Array(systemInstances.keys)
-        let name = instancesArray[row]
+        let name = outdatedInstances[row]
         if((systemInstances[name] as? OwncloudModel) != nil) {
             cellView.imageView!.image = NSImage(named: "owncloud_dots.png")!
         } else if((systemInstances[name] as? PiwikModel) != nil) {
