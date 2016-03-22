@@ -81,6 +81,11 @@ class JoomlaModel : GenericModel, XMLParserDelegate {
     
     func checkNotificationRequired() {
         if((self.headVersion != self.currentVersion) && (self.updateAvailable == 0)) {
+            print("check notification joomla")
+            print(self.hosturl)
+            print(self.updateAvailable)
+            print(self.headVersion)
+            print(self.currentVersion)
             self.updateAvailable = 1
             incrementBadgeNumber()
             sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), self.name)))

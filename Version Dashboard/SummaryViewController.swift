@@ -76,7 +76,7 @@ class SummaryViewController: NSViewController {
         self.refreshActiveSpinner.hidden = false
         self.refreshActiveSpinner.startAnimation(self)
         SystemInstancesModel().checkAllInstancesVersions() { result in
-            self.performSelectorOnMainThread("checksFinished", withObject: self, waitUntilDone: true)
+            self.performSelectorOnMainThread(#selector(SummaryViewController.checksFinished), withObject: self, waitUntilDone: true)
         }
     }
 }

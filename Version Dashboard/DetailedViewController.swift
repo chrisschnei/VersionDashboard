@@ -31,7 +31,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTable:", name: "load", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DetailedViewController.reloadTable(_:)), name: "load", object: nil)
         systemTableView.setDelegate(self)
         systemTableView.setDataSource(self)
         self.addInstancesToTable()

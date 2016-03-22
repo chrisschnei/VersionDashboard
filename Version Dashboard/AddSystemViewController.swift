@@ -12,7 +12,7 @@ class AddSystemViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "cancelClicked:", name: "load", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AddSystemViewController.cancelClicked(_:)), name: "load", object: nil)
         // Do view setup here.
     }
     

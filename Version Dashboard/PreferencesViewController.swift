@@ -85,6 +85,6 @@ class PreferencesViewController: NSViewController {
     
     func automaticRefresh() {
         let seconds = Double(configurationSettings["interval"] as! String)!*(60.0*60.0)
-        timer = NSTimer.scheduledTimerWithTimeInterval(seconds, target: self, selector: Selector("checkInstancesAutomatic"), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(seconds, target: self, selector: #selector(PreferencesViewController.checkInstancesAutomatic), userInfo: nil, repeats: true)
     }
 }
