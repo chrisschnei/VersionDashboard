@@ -31,13 +31,21 @@ class PreferencesViewController: NSViewController {
     }
     
     func loadConfigurationFile() {
-        var myDict: NSDictionary?
-        if let path = configurationFilePath {
-            myDict = NSDictionary(contentsOfFile: path)
-        }
-        if let dict = myDict {
-            configurationSettings["interval"] = dict["interval"]!
-            configurationSettings["automaticRefreshActive"] = dict["automaticRefreshActive"]!
+        let fileManager = NSFileManager.defaultManager()
+        if fileManager.fileExistsAtPath(configurationFilePath) {
+            var myDict: NSDictionary?
+            myDict = NSDictionary(contentsOfFile: configurationFilePath)
+            if let dict = myDict {
+                configurationSettings["interval"] = dict["interval"]!
+                configurationSettings["automaticRefreshActive"] = dict["automaticRefreshActive"]!
+            }
+        } else {
+            do {
+                try fileManager.copyItemAtPath(appBundleConfigurationPath, toPath: configurationFilePath)
+            }
+            catch let error as NSError {
+                NSLog("Error copying configuration.plist file to Application Support: \(error)")
+            }
         }
     }
     
@@ -50,11 +58,11 @@ class PreferencesViewController: NSViewController {
         dict.setObject(configurationSettings["automaticRefreshActive"] as! Bool, forKey: "automaticRefreshActive")
         
         let fileManager = NSFileManager.defaultManager()
-        if (!(fileManager.fileExistsAtPath(configurationFilePath!)))
+        if (!(fileManager.fileExistsAtPath(configurationFilePath)))
         {
-            fileManager.createFileAtPath(configurationFilePath!, contents: nil, attributes: nil)
+            fileManager.createFileAtPath(configurationFilePath, contents: nil, attributes: nil)
         }
-        dict.writeToFile(configurationFilePath!, atomically: true)
+        dict.writeToFile(configurationFilePath, atomically: true)
     }
     
     @IBAction func savePreferences(sender: AnyObject) {

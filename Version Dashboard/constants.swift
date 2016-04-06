@@ -8,7 +8,12 @@
 
 import Foundation
 
-let appurl = NSBundle.mainBundle().bundlePath.stringByAppendingString("/Contents/Resources/config/")
+let appurl = NSBundle.mainBundle().bundlePath
+let applicationSupportURL = NSSearchPathForDirectoriesInDomains(.ApplicationSupportDirectory, .UserDomainMask, true)
+let applicationSupportAppNameURL = applicationSupportURL[0].stringByAppendingString("/Version Dashboard")
+let plistFilesPath = applicationSupportURL[0].stringByAppendingString("/Version Dashboard/config/")
+let configurationFilePath = applicationSupportAppNameURL.stringByAppendingString("/configuration.plist")
+let appBundleConfigurationPath = appurl.stringByAppendingString("/Contents/Resources/configuration.plist")
 
 let dateformat = "dd-MM-yyyy"
 
@@ -26,7 +31,6 @@ let piwikLatestVersionURL = "https://api.piwik.org/1.0/getLatestVersion/"
 let owncloudAPIUrl = "https://demo.owncloud.org/"
 let owncloudVersionURL = "index.php/core/js/oc.js"
 
-let configurationFilePath = NSBundle.mainBundle().pathForResource("configuration", ofType: "plist")
 let refreshIntervals = ["6", "12", "24", "48"]
 
 var timer: NSTimer = NSTimer()

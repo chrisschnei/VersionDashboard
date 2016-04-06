@@ -98,26 +98,45 @@ class SystemInstancesModel : NSObject {
         return instancesOutOfDate
     }
     
+    func checkInstanceNameAlreadyPresent(newName: String) -> Bool {
+        if(systemInstances[newName] != nil) {
+            return true
+        }
+        return false
+    }
+    
     func loadConfigfiles() {
         let fileManager = NSFileManager.defaultManager()
-        let enumerator:NSDirectoryEnumerator = fileManager.enumeratorAtPath(appurl)!
-        zeroBadgeNumber()
-        
-        while let element = enumerator.nextObject() as? String {
-            if element.hasSuffix("plist") {
-                let myDict = NSDictionary(contentsOfFile: appurl.stringByAppendingString(element))
-                if myDict!["type"] as! String == "Joomla" {
-                    systemInstances[myDict!["name"] as! String] = JoomlaModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
-                } else if myDict!["type"] as! String == "Wordpress" {
-                    systemInstances[myDict!["name"] as! String] = WordpressModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
-                } else if myDict!["type"] as! String == "Owncloud" {
-                    systemInstances[myDict!["name"] as! String] = OwncloudModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
-                } else if myDict!["type"] as! String == "Piwik" {
-                    systemInstances[myDict!["name"] as! String] = PiwikModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, apiToken: myDict!["apiToken"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
+        var isDir : ObjCBool = false
+        if fileManager.fileExistsAtPath(plistFilesPath, isDirectory:&isDir) {
+            if isDir {
+                let enumerator:NSDirectoryEnumerator = fileManager.enumeratorAtPath(plistFilesPath)!
+                zeroBadgeNumber()
+                
+                while let element = enumerator.nextObject() as? String {
+                    if element.hasSuffix("plist") {
+                        let myDict = NSDictionary(contentsOfFile: plistFilesPath.stringByAppendingString(element))
+                        if myDict!["type"] as! String == "Joomla" {
+                            systemInstances[myDict!["name"] as! String] = JoomlaModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
+                        } else if myDict!["type"] as! String == "Wordpress" {
+                            systemInstances[myDict!["name"] as! String] = WordpressModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
+                        } else if myDict!["type"] as! String == "Owncloud" {
+                            systemInstances[myDict!["name"] as! String] = OwncloudModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
+                        } else if myDict!["type"] as! String == "Piwik" {
+                            systemInstances[myDict!["name"] as! String] = PiwikModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, apiToken: myDict!["apiToken"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
+                        }
+                        if((myDict!["updateAvailable"] as! Int) == 1) {
+                            incrementBadgeNumber()
+                        }
+                    }
                 }
-                if((myDict!["updateAvailable"] as! Int) == 1) {
-                    incrementBadgeNumber()
-                }
+            }
+        } else {
+            do {
+                try NSFileManager.defaultManager().createDirectoryAtPath(applicationSupportAppNameURL, withIntermediateDirectories: false, attributes: nil)
+                try NSFileManager.defaultManager().createDirectoryAtPath(plistFilesPath, withIntermediateDirectories: false, attributes: nil)
+            } catch _ as NSError {
+                NSLog("plist folder Application Support creation failed")
             }
         }
     }

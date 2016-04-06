@@ -26,25 +26,13 @@ class PiwikController: NSViewController {
         if(self.checkURLTextfields()) {
             return
         }
-        if(self.checkInstanceNameAlreadyPresent()) {
+        if(SystemInstancesModel().checkInstanceNameAlreadyPresent(self.instanceName.stringValue)) {
             return
         }
         let piwikinstance = PiwikModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, apiToken : tokenField.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Piwik", headVersion: "", updateAvailable: 0, phpVersion: "", serverType: "")
         piwikinstance.saveConfigfile()
         NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
         self.dismissController(self)
-    }
-    
-    func checkInstanceNameAlreadyPresent() -> Bool {
-        var alreadyPresent = false
-        let fileManager = NSFileManager.defaultManager()
-        if (fileManager.fileExistsAtPath(appurl.stringByAppendingString(self.instanceName.stringValue).stringByAppendingString(".plist")))
-        {
-            alreadyPresent = true
-            self.errorMessage.hidden = false
-            self.errorMessage.stringValue = NSLocalizedString("instanceDuplicate", comment: "")
-        }
-        return alreadyPresent
     }
     
     @IBAction func cancelAction(sender: AnyObject) {

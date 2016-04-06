@@ -20,6 +20,9 @@ class MainWindow: NSWindowController {
         super.windowDidLoad()
         self.mainwindow.titleVisibility = NSWindowTitleVisibility.Visible
         self.mainwindow.styleMask |= NSFullSizeContentViewWindowMask
+        //Reopen windows when closed
+        let appDelegate = NSApp.delegate as! AppDelegate
+        appDelegate.mainWindowController = self
     }
 
     @IBAction func detailedViewClicked(sender: AnyObject) {

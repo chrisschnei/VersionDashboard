@@ -87,7 +87,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         if(self.systemTableView.selectedRow != -1) {
             let instances = Array(systemInstances.keys)
             let filename = instances[self.systemTableView.selectedRow]
-            let path = appurl.stringByAppendingString(filename).stringByAppendingString(".plist")
+            let path = plistFilesPath.stringByAppendingString(filename).stringByAppendingString(".plist")
             self.deleteFile(path)
             zeroBadgeNumber()
             systemInstances.removeAll()

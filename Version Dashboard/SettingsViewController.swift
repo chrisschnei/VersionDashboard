@@ -14,7 +14,10 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var hostTextbox: NSTextField!
     @IBOutlet weak var lastcheckLabel: NSTextField!
     @IBOutlet weak var saveButton: NSButton!
+    @IBOutlet weak var apiToken: NSTextField!
+    @IBOutlet weak var apiTokenLabel: NSTextField!
     @IBOutlet weak var cancelButton: NSButton!
+    @IBOutlet weak var errorLabel: NSTextField!
     var instanceName: String = ""
     
     override func viewDidLoad() {
@@ -40,6 +43,10 @@ class SettingsViewController: NSViewController {
             self.settingsLabel.stringValue = instanceName
             self.lastcheckLabel.stringValue = instanceObject.lastRefresh
             self.hostTextbox.stringValue = instanceObject.hosturl
+            self.apiToken.hidden = false
+            self.apiTokenLabel.hidden = false
+            
+            self.apiToken.stringValue = instanceObject.apiToken
         } else if((instance as? WordpressModel) != nil) {
             let instanceObject = systemInstances[instanceName] as! WordpressModel
             self.settingsLabel.stringValue = instanceName
@@ -52,73 +59,61 @@ class SettingsViewController: NSViewController {
         let instance = systemInstances[instanceName]
         if((instance as? JoomlaModel) != nil) {
             let instanceObject = systemInstances[instanceName] as! JoomlaModel
-            let path = appurl.stringByAppendingString(self.instanceName).stringByAppendingString(".plist")
-            let dict: NSMutableDictionary = NSMutableDictionary()
+            instanceObject.hosturl = self.hostTextbox.stringValue
+            instanceObject.name = self.settingsLabel.stringValue
             
-            dict.setObject(self.hostTextbox.stringValue, forKey: "hosturl")
-            dict.setObject(instanceObject.name, forKey: "name")
-            dict.setObject(instanceObject.currentVersion, forKey: "currentVersion")
-            dict.setObject(instanceObject.lastRefresh, forKey: "lastRefresh")
-            dict.setObject(instanceObject.headVersion, forKey: "headVersion")
-            dict.setObject(instanceObject.creationDate, forKey: "creationDate")
-            dict.setObject("Joomla", forKey: "type")
-            
-            return dict.writeToFile(path, atomically: true)
+            if(SystemInstancesModel().checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
+                return instanceObject.saveConfigfile()
+            } else {
+                instanceObject.renamePlistFile(instanceName)
+                return instanceObject.saveConfigfile()
+            }
         } else if((instance as? OwncloudModel) != nil) {
             let instanceObject = systemInstances[instanceName] as! OwncloudModel
-            let path = appurl.stringByAppendingString(self.instanceName).stringByAppendingString(".plist")
-            let dict: NSMutableDictionary = NSMutableDictionary()
+            instanceObject.hosturl = self.hostTextbox.stringValue
+            instanceObject.name = self.settingsLabel.stringValue
             
-            dict.setObject(self.hostTextbox.stringValue, forKey: "hosturl")
-            dict.setObject(instanceObject.name, forKey: "name")
-            dict.setObject(instanceObject.currentVersion, forKey: "currentVersion")
-            dict.setObject(instanceObject.lastRefresh, forKey: "lastRefresh")
-            dict.setObject(instanceObject.headVersion, forKey: "headVersion")
-            dict.setObject(instanceObject.creationDate, forKey: "creationDate")
-            dict.setObject("Owncloud", forKey: "type")
-            
-            return dict.writeToFile(path, atomically: true)
-        } else if((instance as? OwncloudModel) != nil) {
+            if(SystemInstancesModel().checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
+                return instanceObject.saveConfigfile()
+            } else {
+                instanceObject.renamePlistFile(instanceName)
+                return instanceObject.saveConfigfile()
+            }
+        } else if((instance as? PiwikModel) != nil) {
             let instanceObject = systemInstances[instanceName] as! PiwikModel
-            let path = appurl.stringByAppendingString(self.instanceName).stringByAppendingString(".plist")
-            let dict: NSMutableDictionary = NSMutableDictionary()
+            instanceObject.hosturl = self.hostTextbox.stringValue
+            instanceObject.name = self.settingsLabel.stringValue
+            instanceObject.apiToken = self.apiToken.stringValue
             
-            dict.setObject(self.hostTextbox.stringValue, forKey: "hosturl")
-            dict.setObject(instanceObject.name, forKey: "name")
-            dict.setObject(instanceObject.currentVersion, forKey: "currentVersion")
-            dict.setObject(instanceObject.lastRefresh, forKey: "lastRefresh")
-            dict.setObject(instanceObject.headVersion, forKey: "headVersion")
-            dict.setObject(instanceObject.creationDate, forKey: "creationDate")
-            dict.setObject(instanceObject.apiToken, forKey: "apiToken")
-            dict.setObject("Piwik", forKey: "type")
-            
-            return dict.writeToFile(path, atomically: true)
+            if(SystemInstancesModel().checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
+                return instanceObject.saveConfigfile()
+            } else {
+                instanceObject.renamePlistFile(instanceName)
+                return instanceObject.saveConfigfile()
+            }
         } else if((instance as? WordpressModel) != nil) {
             let instanceObject = systemInstances[instanceName] as! WordpressModel
-            let path = appurl.stringByAppendingString(self.instanceName).stringByAppendingString(".plist")
-            let dict: NSMutableDictionary = NSMutableDictionary()
+            instanceObject.hosturl = self.hostTextbox.stringValue
+            instanceObject.name = self.settingsLabel.stringValue
             
-            dict.setObject(self.hostTextbox.stringValue, forKey: "hosturl")
-            dict.setObject(instanceObject.name, forKey: "name")
-            dict.setObject(instanceObject.currentVersion, forKey: "currentVersion")
-            dict.setObject(instanceObject.lastRefresh, forKey: "lastRefresh")
-            dict.setObject(instanceObject.headVersion, forKey: "headVersion")
-            dict.setObject(instanceObject.creationDate, forKey: "creationDate")
-            dict.setObject("Wordpress", forKey: "type")
-            
-            return dict.writeToFile(path, atomically: true)
-        } else {
-            return false
+            if(SystemInstancesModel().checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
+                return instanceObject.saveConfigfile()
+            } else {
+                instanceObject.renamePlistFile(instanceName)
+                return instanceObject.saveConfigfile()
+            }
         }
+        return false
     }
-
     
     @IBAction func cancelButton(sender: AnyObject) {
         self.dismissController(self)
     }
     
     @IBAction func saveButton(sender: AnyObject) {
-        self.updateConfigfile()
+        if(!self.updateConfigfile()) {
+            return
+        }
         NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
         self.dismissController(self)
     }

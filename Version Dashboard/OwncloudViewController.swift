@@ -29,25 +29,13 @@ class OwncloudViewController: NSViewController {
         if(self.checkURLTextfields()) {
             return
         }
-        if(self.checkInstanceNameAlreadyPresent()) {
+        if(SystemInstancesModel().checkInstanceNameAlreadyPresent(self.instanceName.stringValue)) {
             return
         }
         let owncloudinstance = OwncloudModel(creationDate: "", currentVersion: "", hosturl: urlField.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Owncloud", headVersion: "", updateAvailable: 0, phpVersion: "", serverType: "")
         owncloudinstance.saveConfigfile()
         NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
         self.dismissController(self)
-    }
-    
-    func checkInstanceNameAlreadyPresent() -> Bool {
-        var alreadyPresent = false
-        let fileManager = NSFileManager.defaultManager()
-        if (fileManager.fileExistsAtPath(appurl.stringByAppendingString(self.instanceName.stringValue).stringByAppendingString(".plist")))
-        {
-            alreadyPresent = true
-            self.errorMessage.hidden = false
-            self.errorMessage.stringValue = NSLocalizedString("instanceDuplicate", comment: "")
-        }
-        return alreadyPresent
     }
     
     func checkURLTextfields() -> Bool {
