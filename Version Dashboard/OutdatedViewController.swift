@@ -122,6 +122,26 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 } else {
                     self.status.stringValue = ""
                 }
+            } else if((modelclass as? Typo3Model) != nil) {
+                let typo3model = modelclass as? Typo3Model
+                self.hostName.stringValue = typo3model!.hosturl
+                self.systemName.stringValue = typo3model!.name
+                self.lastcheck.stringValue = typo3model!.lastRefresh
+                self.latestVersion.stringValue = typo3model!.headVersion
+                self.currentVersion.stringValue = typo3model!.currentVersion
+                self.phpVersion.stringValue = typo3model!.phpVersion
+                self.webserver.stringValue = typo3model!.serverType
+                if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
+                    if(typo3model!.updateAvailable == 0) {
+                        self.status.stringValue = NSLocalizedString("ok", comment: "")
+                    } else if(typo3model?.updateAvailable == -1) {
+                        self.status.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                    } else {
+                        self.status.stringValue = NSLocalizedString("updateavailable", comment: "")
+                    }
+                } else {
+                    self.status.stringValue = ""
+                }
             }
         }
     }
@@ -209,6 +229,25 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     }
                     self.tableView.deselectAll(self)
                     self.tableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+                } else if((systemInstances[instanceName] as? Typo3Model) != nil) {
+                    let typo3model = systemInstances[instanceName] as? Typo3Model
+                    //Remote Version url
+                    if(typo3model!.getVersions()) {
+                        //Check Version
+                        self.errorLabel.hidden = true
+                        typo3model!.checkNotificationRequired()
+                    } else {
+                        print(NSLocalizedString("errorfetchingVersions", comment: ""))
+                        self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                        self.errorLabel.hidden = false
+                    }
+                    //Date
+                    typo3model!.updateDate()
+                    if(!(typo3model!.saveConfigfile())) {
+                        print("Error saving plist File.")
+                    }
+                    self.tableView.deselectAll(self)
+                    self.tableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
                 }
             } else {
                 self.errorLabel.stringValue = NSLocalizedString("noSelectionMade", comment: "")
@@ -245,6 +284,8 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
             cellView.imageView!.image = NSImage(named: "wordpress_dots.png")!
         } else if((systemInstances[name] as? JoomlaModel) != nil) {
             cellView.imageView!.image = NSImage(named: "joomla_dots.png")!
+        } else if((systemInstances[name] as? Typo3Model) != nil) {
+            cellView.imageView!.image = NSImage(named: "typo3_dots.png")!
         }
         cellView.textField?.stringValue = name
         return cellView
@@ -270,6 +311,10 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 }
             } else if((systemInstances[instance] as? OwncloudModel) != nil) {
                 if((systemInstances[instance] as! OwncloudModel).updateAvailable == 1) {
+                    outdatedInstances.append(instance)
+                }
+            } else if((systemInstances[instance] as? Typo3Model) != nil) {
+                if((systemInstances[instance] as! Typo3Model).updateAvailable == 1) {
                     outdatedInstances.append(instance)
                 }
             }

@@ -41,6 +41,13 @@ class SystemInstancesModel : NSObject {
                     wordpressmodel!.updateDate()
                     wordpressmodel!.checkNotificationRequired()
                     wordpressmodel!.saveConfigfile()
+                } else if((systemInstances[instance] as? Typo3Model) != nil) {
+                    let typo3model = systemInstances[instance] as? Typo3Model
+                    //Remote Version url
+                    typo3model!.getVersions()
+                    typo3model!.updateDate()
+                    typo3model!.checkNotificationRequired()
+                    typo3model!.saveConfigfile()
                 }
             }
             completionHandler(true)
@@ -52,6 +59,7 @@ class SystemInstancesModel : NSObject {
         var piwikInstances = 0
         var owncloudInstances = 0
         var joomlaInstances = 0
+        var typo3Instances = 0
         
         let keys = systemInstances.keys
         for instanceName in keys {
@@ -63,9 +71,11 @@ class SystemInstancesModel : NSObject {
                 piwikInstances = piwikInstances + 1
             } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
                 owncloudInstances = owncloudInstances + 1
+            } else if((systemInstances[instanceName] as? Typo3Model) != nil) {
+                typo3Instances = typo3Instances + 1
             }
         }
-        return ["Wordpress" : wordpressInstances, "Joomla" : joomlaInstances, "Owncloud" : owncloudInstances, "Piwik" : piwikInstances]
+        return ["Wordpress" : wordpressInstances, "Joomla" : joomlaInstances, "Owncloud" : owncloudInstances, "Piwik" : piwikInstances, "Typo3" : typo3Instances]
     }
     
     func getAmountOfInstances() -> String {
@@ -91,6 +101,10 @@ class SystemInstancesModel : NSObject {
                 }
             } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
                 if(((systemInstances[instanceName] as! OwncloudModel).updateAvailable) != 0) {
+                    instancesOutOfDate = instancesOutOfDate + 1
+                }
+            } else if((systemInstances[instanceName] as? Typo3Model) != nil) {
+                if(((systemInstances[instanceName] as! Typo3Model).updateAvailable) != 0) {
                     instancesOutOfDate = instancesOutOfDate + 1
                 }
             }
@@ -124,6 +138,8 @@ class SystemInstancesModel : NSObject {
                             systemInstances[myDict!["name"] as! String] = OwncloudModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
                         } else if myDict!["type"] as! String == "Piwik" {
                             systemInstances[myDict!["name"] as! String] = PiwikModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, apiToken: myDict!["apiToken"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
+                        } else if myDict!["type"] as! String == "Typo3" {
+                            systemInstances[myDict!["name"] as! String] = Typo3Model(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
                         }
                         if((myDict!["updateAvailable"] as! Int) == 1) {
                             incrementBadgeNumber()
@@ -160,6 +176,10 @@ class SystemInstancesModel : NSObject {
                 }
             } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
                 if(((systemInstances[instanceName] as! OwncloudModel).updateAvailable) == 0) {
+                    instancesUptoDate = instancesUptoDate + 1
+                }
+            } else if((systemInstances[instanceName] as? Typo3Model) != nil) {
+                if(((systemInstances[instanceName] as! Typo3Model).updateAvailable) == 0) {
                     instancesUptoDate = instancesUptoDate + 1
                 }
             }

@@ -44,6 +44,9 @@
 		AAA563271C8302A300E1199A /* OutdatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA563261C8302A300E1199A /* OutdatedViewController.swift */; };
 		AAA563291C83567300E1199A /* NotificationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA563281C83567300E1199A /* NotificationFunctions.swift */; };
 		AAA5632D1C83837A00E1199A /* InternetConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA5632C1C83837A00E1199A /* InternetConnectivity.swift */; };
+		AAC787BC1CB9719C00068863 /* Typo3Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC787BB1CB9719C00068863 /* Typo3Model.swift */; };
+		AAC787BE1CB971E000068863 /* Typo3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC787BD1CB971E000068863 /* Typo3ViewController.swift */; };
+		AAC787C01CB9752000068863 /* typo3.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC787BF1CB9752000068863 /* typo3.png */; };
 		AAEB2B2B1C9730B0001FD134 /* wordpress.png in Resources */ = {isa = PBXBuildFile; fileRef = AAEB2B2A1C9730B0001FD134 /* wordpress.png */; };
 		AAEB2B341C97347A001FD134 /* joomla_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AAEB2B301C97347A001FD134 /* joomla_dots.png */; };
 		AAEB2B351C97347A001FD134 /* owncloud_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AAEB2B311C97347A001FD134 /* owncloud_dots.png */; };
@@ -115,6 +118,9 @@
 		AAA563261C8302A300E1199A /* OutdatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutdatedViewController.swift; sourceTree = "<group>"; };
 		AAA563281C83567300E1199A /* NotificationFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationFunctions.swift; path = "Version Dashboard/NotificationFunctions.swift"; sourceTree = "<group>"; };
 		AAA5632C1C83837A00E1199A /* InternetConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InternetConnectivity.swift; path = "Version Dashboard/InternetConnectivity.swift"; sourceTree = "<group>"; };
+		AAC787BB1CB9719C00068863 /* Typo3Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typo3Model.swift; sourceTree = "<group>"; };
+		AAC787BD1CB971E000068863 /* Typo3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typo3ViewController.swift; sourceTree = "<group>"; };
+		AAC787BF1CB9752000068863 /* typo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = typo3.png; sourceTree = "<group>"; };
 		AAEB2B2A1C9730B0001FD134 /* wordpress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wordpress.png; sourceTree = "<group>"; };
 		AAEB2B301C97347A001FD134 /* joomla_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joomla_dots.png; sourceTree = "<group>"; };
 		AAEB2B311C97347A001FD134 /* owncloud_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = owncloud_dots.png; sourceTree = "<group>"; };
@@ -218,6 +224,7 @@
 		AA6AD7F81C6B81190097CD9A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AAC787BF1CB9752000068863 /* typo3.png */,
 				AAEB2B301C97347A001FD134 /* joomla_dots.png */,
 				AAEB2B311C97347A001FD134 /* owncloud_dots.png */,
 				AAEB2B321C97347A001FD134 /* piwik_dots.png */,
@@ -241,6 +248,7 @@
 				AA6AD8011C6BC93B0097CD9A /* WordpressModel.swift */,
 				AA6AD8031C6BC9450097CD9A /* JoomlaModel.swift */,
 				AA6AD7FD1C6BC9210097CD9A /* PiwikModel.swift */,
+				AAC787BB1CB9719C00068863 /* Typo3Model.swift */,
 				AA6AD8071C6BCB800097CD9A /* GenericModelProtocol.swift */,
 				AA4CB3A71CB1A09900FD442A /* GenericModel.swift */,
 				AA6AD8131C6CE7B60097CD9A /* InstanceRepositories.swift */,
@@ -264,6 +272,7 @@
 				AA6AD7F41C6B77C00097CD9A /* WordpressViewController.swift */,
 				AA7FB8431C88CEBD009FC40B /* PreferencesWindowController.swift */,
 				AA7FB8451C88CEF1009FC40B /* PreferencesViewController.swift */,
+				AAC787BD1CB971E000068863 /* Typo3ViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -384,6 +393,7 @@
 				AAA5631F1C81E09600E1199A /* Detailed view.png in Resources */,
 				AA6AD7B41C6B4BD90097CD9A /* Assets.xcassets in Resources */,
 				AAEB2B371C97347A001FD134 /* wordpress_dots.png in Resources */,
+				AAC787C01CB9752000068863 /* typo3.png in Resources */,
 				AA6AD7B71C6B4BD90097CD9A /* Main.storyboard in Resources */,
 				AA6AD7E91C6B75ED0097CD9A /* joomla.png in Resources */,
 				AAEB2B361C97347A001FD134 /* piwik_dots.png in Resources */,
@@ -426,6 +436,8 @@
 				AA6AD7FE1C6BC9210097CD9A /* PiwikModel.swift in Sources */,
 				AA6AD7E21C6B73AC0097CD9A /* AddSystemViewController.swift in Sources */,
 				AAA563291C83567300E1199A /* NotificationFunctions.swift in Sources */,
+				AAC787BE1CB971E000068863 /* Typo3ViewController.swift in Sources */,
+				AAC787BC1CB9719C00068863 /* Typo3Model.swift in Sources */,
 				AA6AD8141C6CE7B60097CD9A /* InstanceRepositories.swift in Sources */,
 				AAA5631D1C81E01200E1199A /* MainWindow.swift in Sources */,
 				AA6AD8121C6CDA890097CD9A /* constants.swift in Sources */,

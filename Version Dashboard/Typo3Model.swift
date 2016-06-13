@@ -1,18 +1,19 @@
 //
-//  OwncloudModel.swift
+//  Typo3Model.swift
 //  Version Dashboard
 //
-//  Created by Christian Schneider on 10.02.16.
+//  Created by Christian Schneider on 09.04.16.
 //  Copyright © 2016 NonameCompany. All rights reserved.
 //
 
 import Foundation
 
-class OwncloudModel : GenericModel {
+class Typo3Model : GenericModel {
     
     func getVersions() -> Bool {
-        let headVersion = self.getLatestVersion(owncloudAPIUrl)
-        let currentVersion = self.getInstanceVersion((self.hosturl).stringByAppendingString(owncloudStatusFile))
+        //let headVersion = self.getLatestVersion(typo3JSONUrl)
+        let currentVersion = self.getInstanceVersion(self.hosturl)
+        let headVersion = currentVersion
         self.phpVersionRequest(self.phpReturnHandler)
         if(headVersion != "" && currentVersion != "") {
             self.headVersion = headVersion
@@ -38,22 +39,17 @@ class OwncloudModel : GenericModel {
         }
         return ""
     }
-
+    
     
     func getInstanceVersion(url: String) -> String {
         if let version = NSData(contentsOfURL: NSURL(string: url)!) {
             let version = String(data: version, encoding: NSUTF8StringEncoding)
             let lines = version?.componentsSeparatedByString("\n")
             for part in lines! {
-                if(part.rangeOfString("versionstring") != nil) {
-                    let part2 = part.componentsSeparatedByString(",")
-                    for element in part2 {
-                        if((element.rangeOfString("versionstring")) != nil) {
-                            let element2 = element.componentsSeparatedByString(":")
-                            let version = (element2[1].stringByReplacingOccurrencesOfString("\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil))
-                            return version
-                        }
-                    }
+                if(part.rangeOfString("generator") != nil) {
+                    let part2 = part.componentsSeparatedByString("TYPO3 CMS ")
+                    let part3 = part2[1].componentsSeparatedByString("\" />")
+                    return part3[0]
                 }
             }
         }

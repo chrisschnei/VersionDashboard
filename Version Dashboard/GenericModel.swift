@@ -102,8 +102,12 @@ class GenericModel: GenericModelProtocol {
                 if(line.rangeOfString("Server") != nil) {
                     let phpArray = line.componentsSeparatedByString("=")
                     let phpString = phpArray[1].componentsSeparatedByString("\"")
-                    let server = phpString[1].componentsSeparatedByString("\"")[0]
-                    self.serverType = server
+                    if(phpString.indices.contains(1)) {
+                        let server = phpString[1].componentsSeparatedByString("\"")[0]
+                        self.serverType = server
+                    } else {
+                        self.serverType = ""
+                    }
                 }
             }
         } else {

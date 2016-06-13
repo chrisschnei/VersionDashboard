@@ -68,6 +68,8 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 url = (instance as! PiwikModel).hosturl
             } else if((instance as? OwncloudModel) != nil) {
                 url = (instance as! OwncloudModel).hosturl
+            } else if((instance as? Typo3Model) != nil) {
+                url = (instance as! Typo3Model).hosturl
             }
             NSWorkspace.sharedWorkspace().openURL(NSURL(string: url)!)
         }
@@ -188,6 +190,24 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     }
                     self.systemTableView.deselectAll(self)
                     self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+                } else if((systemInstances[instanceName] as? Typo3Model) != nil) {
+                    let typo3model = systemInstances[instanceName] as? Typo3Model
+                    //Remote Version url
+                    if(typo3model!.getVersions()) {
+                        //Check Version
+                        self.noInternetConnection.hidden = true
+                        typo3model!.checkNotificationRequired()
+                    } else {
+                        self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                        self.noInternetConnection.hidden = false
+                    }
+                    //Date
+                    typo3model!.updateDate()
+                    if(!(typo3model!.saveConfigfile())) {
+                        print("Error saving plist File.")
+                    }
+                    self.systemTableView.deselectAll(self)
+                    self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
                 }
             } else {
                 self.noInternetConnection.stringValue = NSLocalizedString("noSelectionMade", comment: "")
@@ -281,6 +301,26 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 } else {
                     self.statusLabel.stringValue = ""
                 }
+            } else if((modelclass as? Typo3Model) != nil) {
+                let typo3model = modelclass as? Typo3Model
+                self.hostLabel.stringValue = typo3model!.hosturl
+                self.systemLabel.stringValue = typo3model!.name
+                self.lastcheckLabel.stringValue = typo3model!.lastRefresh
+                self.latestsversionLabel.stringValue = typo3model!.headVersion
+                self.deployedversionLabel.stringValue = typo3model!.currentVersion
+                self.phpVersion.stringValue = typo3model!.phpVersion
+                self.webserver.stringValue = typo3model!.serverType
+                if(self.latestsversionLabel.stringValue != "" || self.deployedversionLabel.stringValue != "") {
+                    if(typo3model!.updateAvailable == 0) {
+                        self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")
+                    } else if(typo3model?.updateAvailable == -1) {
+                        self.statusLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                    } else {
+                        self.statusLabel.stringValue = NSLocalizedString("updateavailable", comment: "")
+                    }
+                } else {
+                    self.statusLabel.stringValue = ""
+                }
             }
         } else {
             self.takeMeToMyInstance.enabled = false
@@ -300,6 +340,8 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         } else if((systemInstances[name] as? WordpressModel) != nil) {
             cellView.imageView!.image = NSImage(named: "wordpress_dots.png")!
         } else if((systemInstances[name] as? JoomlaModel) != nil) {
+            cellView.imageView!.image = NSImage(named: "joomla_dots.png")!
+        } else if((systemInstances[name] as? Typo3Model) != nil) {
             cellView.imageView!.image = NSImage(named: "joomla_dots.png")!
         }
         cellView.textField?.stringValue = name

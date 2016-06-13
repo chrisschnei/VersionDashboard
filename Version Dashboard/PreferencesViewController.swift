@@ -32,20 +32,21 @@ class PreferencesViewController: NSViewController {
     
     func loadConfigurationFile() {
         let fileManager = NSFileManager.defaultManager()
-        if fileManager.fileExistsAtPath(configurationFilePath) {
-            var myDict: NSDictionary?
-            myDict = NSDictionary(contentsOfFile: configurationFilePath)
-            if let dict = myDict {
-                configurationSettings["interval"] = dict["interval"]!
-                configurationSettings["automaticRefreshActive"] = dict["automaticRefreshActive"]!
-            }
-        } else {
+        if !fileManager.fileExistsAtPath(configurationFilePath) {
             do {
+                try fileManager.createDirectoryAtPath(applicationSupportAppNameURL, withIntermediateDirectories: true, attributes: nil)
+                try fileManager.createDirectoryAtPath(plistFilesPath, withIntermediateDirectories: true, attributes: nil)
                 try fileManager.copyItemAtPath(appBundleConfigurationPath, toPath: configurationFilePath)
             }
             catch let error as NSError {
                 NSLog("Error copying configuration.plist file to Application Support: \(error)")
             }
+        }
+        var myDict: NSDictionary?
+        myDict = NSDictionary(contentsOfFile: configurationFilePath)
+        if let dict = myDict {
+            configurationSettings["interval"] = dict["interval"]!
+            configurationSettings["automaticRefreshActive"] = dict["automaticRefreshActive"]!
         }
     }
     

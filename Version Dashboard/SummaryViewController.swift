@@ -11,26 +11,24 @@ import Cocoa
 class SummaryViewController: NSViewController {
 
     @IBOutlet weak var checkAllInstancesButton: NSButton!
-    @IBOutlet weak var phpVersions: NSTextField!
     @IBOutlet weak var amountInstancesOutofdate: NSTextField!
     @IBOutlet weak var amountInstancesUptodate: NSTextField!
     @IBOutlet weak var amountWordpressInstances: NSTextField!
     @IBOutlet weak var amountJoomlaInstances: NSTextField!
     @IBOutlet weak var amountPiwikInstances: NSTextField!
+    @IBOutlet weak var amountTypo3Instances: NSTextField!
     @IBOutlet weak var amountOwncloudInstances: NSTextField!
     @IBOutlet weak var amountNoInstances: NSTextField!
-    @IBOutlet weak var phpVersionsLabel: NSTextField!
     @IBOutlet weak var instancesOutofdateLabel: NSTextField!
     @IBOutlet weak var instancesUptodateLabel: NSTextField!
     @IBOutlet weak var wordpressInstancesLabel: NSTextField!
     @IBOutlet weak var joomlaInstancesLabel: NSTextField!
     @IBOutlet weak var piwikInstancesLabel: NSTextField!
+    @IBOutlet weak var typo3InstancesLabel: NSTextField!
     @IBOutlet weak var owncloudInstancesLabel: NSTextField!
     @IBOutlet weak var noOfInstancesLabel: NSTextField!
     @IBOutlet var summaryViewController: NSView!
     @IBOutlet weak var refreshActiveSpinner: NSProgressIndicator!
-    @IBOutlet weak var webserver: NSTextField!
-    @IBOutlet weak var webserverLabel: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +56,8 @@ class SummaryViewController: NSViewController {
                 self.amountPiwikInstances.stringValue = String(instances[type]!)
             } else if(type == "Owncloud") {
                 self.amountOwncloudInstances.stringValue = String(instances[type]!)
+            } else if(type == "Typo3") {
+                self.amountTypo3Instances.stringValue = String(instances[type]!)
             }
         }
         

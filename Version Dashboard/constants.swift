@@ -28,8 +28,10 @@ let wordpressBackendURL = "wp-admin/"
 let piwikAPIUrl = "index.php?module=API&method=API.getPiwikVersion&token_auth="
 let piwikLatestVersionURL = "https://api.piwik.org/1.0/getLatestVersion/"
 
-let owncloudAPIUrl = "https://demo.owncloud.org/"
-let owncloudVersionURL = "index.php/core/js/oc.js"
+let owncloudAPIUrl = "https://owncloud.org/install/#instructions-server"
+let owncloudStatusFile = "status.php"
+
+let typo3JSONUrl = "https://get.typo3.org/json"
 
 let refreshIntervals = ["6", "12", "24", "48"]
 
