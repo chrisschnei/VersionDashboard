@@ -8,12 +8,12 @@
 
 import Foundation
 
-let appurl = NSBundle.mainBundle().bundlePath
-let applicationSupportURL = NSSearchPathForDirectoriesInDomains(.ApplicationSupportDirectory, .UserDomainMask, true)
-let applicationSupportAppNameURL = applicationSupportURL[0].stringByAppendingString("/Version Dashboard")
-let plistFilesPath = applicationSupportURL[0].stringByAppendingString("/Version Dashboard/config/")
-let configurationFilePath = applicationSupportAppNameURL.stringByAppendingString("/configuration.plist")
-let appBundleConfigurationPath = appurl.stringByAppendingString("/Contents/Resources/configuration.plist")
+let appurl = Bundle.main.bundlePath
+let applicationSupportURL = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
+let applicationSupportAppNameURL = applicationSupportURL[0] + "/Version Dashboard"
+let plistFilesPath = applicationSupportURL[0] + "/Version Dashboard/config/"
+let configurationFilePath = applicationSupportAppNameURL + "/configuration.plist"
+let appBundleConfigurationPath = appurl + "/Contents/Resources/configuration.plist"
 
 let dateformat = "dd-MM-yyyy"
 
@@ -28,11 +28,11 @@ let wordpressBackendURL = "wp-admin/"
 let piwikAPIUrl = "index.php?module=API&method=API.getPiwikVersion&token_auth="
 let piwikLatestVersionURL = "https://api.piwik.org/1.0/getLatestVersion/"
 
-let owncloudAPIUrl = "https://owncloud.org/install/#instructions-server"
+let owncloudAPIUrl = "https://owncloud.org/install/#edition"
 let owncloudStatusFile = "status.php"
 
 let typo3JSONUrl = "https://get.typo3.org/json"
 
 let refreshIntervals = ["6", "12", "24", "48"]
 
-var timer: NSTimer = NSTimer()
+var timer: Timer = Timer()

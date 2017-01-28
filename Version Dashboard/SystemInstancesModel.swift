@@ -10,44 +10,37 @@ import Foundation
 
 class SystemInstancesModel : NSObject {
     
-    func checkAllInstancesVersions(completionHandler: (Bool) -> ()) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+    func checkAllInstancesVersions(_ completionHandler: @escaping (Bool) -> ()) {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             for instance in systemInstances.keys {
                 if((systemInstances[instance] as? JoomlaModel) != nil) {
                     let joomlamodel = systemInstances[instance] as? JoomlaModel
                     //Remote Version url
-                    joomlamodel!.getVersions()
-                    joomlamodel!.updateDate()
-                    joomlamodel!.checkNotificationRequired()
-                    joomlamodel!.saveConfigfile()
+                    _ = joomlamodel!.getVersions()
+                    _ = joomlamodel!.updateDate()
+                    _ = joomlamodel!.checkNotificationRequired()
+                    _ = joomlamodel!.saveConfigfile()
                 } else if((systemInstances[instance] as? PiwikModel) != nil) {
                     let piwikmodel = systemInstances[instance] as? PiwikModel
                     //Remote Version url
-                    piwikmodel!.getVersions()
-                    piwikmodel!.updateDate()
-                    piwikmodel!.checkNotificationRequired()
-                    piwikmodel!.saveConfigfile()
+                    _ = piwikmodel!.getVersions()
+                    _ = piwikmodel!.updateDate()
+                    _ = piwikmodel!.checkNotificationRequired()
+                    _ = piwikmodel!.saveConfigfile()
                 } else if((systemInstances[instance] as? OwncloudModel) != nil) {
                     let owncloudmodel = systemInstances[instance] as? OwncloudModel
                     //Remote Version url
-                    owncloudmodel!.getVersions()
-                    owncloudmodel!.updateDate()
-                    owncloudmodel!.checkNotificationRequired()
-                    owncloudmodel!.saveConfigfile()
+                    _ = owncloudmodel!.getVersions()
+                    _ = owncloudmodel!.updateDate()
+                    _ = owncloudmodel!.checkNotificationRequired()
+                    _ = owncloudmodel!.saveConfigfile()
                 } else if((systemInstances[instance] as? WordpressModel) != nil) {
                     let wordpressmodel = systemInstances[instance] as? WordpressModel
                     //Remote Version url
-                    wordpressmodel!.getVersions()
-                    wordpressmodel!.updateDate()
-                    wordpressmodel!.checkNotificationRequired()
-                    wordpressmodel!.saveConfigfile()
-                } else if((systemInstances[instance] as? Typo3Model) != nil) {
-                    let typo3model = systemInstances[instance] as? Typo3Model
-                    //Remote Version url
-                    typo3model!.getVersions()
-                    typo3model!.updateDate()
-                    typo3model!.checkNotificationRequired()
-                    typo3model!.saveConfigfile()
+                    _ = wordpressmodel!.getVersions()
+                    _ = wordpressmodel!.updateDate()
+                    _ = wordpressmodel!.checkNotificationRequired()
+                    _ = wordpressmodel!.saveConfigfile()
                 }
             }
             completionHandler(true)
@@ -59,7 +52,6 @@ class SystemInstancesModel : NSObject {
         var piwikInstances = 0
         var owncloudInstances = 0
         var joomlaInstances = 0
-        var typo3Instances = 0
         
         let keys = systemInstances.keys
         for instanceName in keys {
@@ -71,11 +63,9 @@ class SystemInstancesModel : NSObject {
                 piwikInstances = piwikInstances + 1
             } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
                 owncloudInstances = owncloudInstances + 1
-            } else if((systemInstances[instanceName] as? Typo3Model) != nil) {
-                typo3Instances = typo3Instances + 1
             }
         }
-        return ["Wordpress" : wordpressInstances, "Joomla" : joomlaInstances, "Owncloud" : owncloudInstances, "Piwik" : piwikInstances, "Typo3" : typo3Instances]
+        return ["Wordpress" : wordpressInstances, "Joomla" : joomlaInstances, "Owncloud" : owncloudInstances, "Piwik" : piwikInstances]
     }
     
     func getAmountOfInstances() -> String {
@@ -103,16 +93,12 @@ class SystemInstancesModel : NSObject {
                 if(((systemInstances[instanceName] as! OwncloudModel).updateAvailable) != 0) {
                     instancesOutOfDate = instancesOutOfDate + 1
                 }
-            } else if((systemInstances[instanceName] as? Typo3Model) != nil) {
-                if(((systemInstances[instanceName] as! Typo3Model).updateAvailable) != 0) {
-                    instancesOutOfDate = instancesOutOfDate + 1
-                }
             }
         }
         return instancesOutOfDate
     }
     
-    func checkInstanceNameAlreadyPresent(newName: String) -> Bool {
+    func checkInstanceNameAlreadyPresent(_ newName: String) -> Bool {
         if(systemInstances[newName] != nil) {
             return true
         }
@@ -120,16 +106,16 @@ class SystemInstancesModel : NSObject {
     }
     
     func loadConfigfiles() {
-        let fileManager = NSFileManager.defaultManager()
+        let fileManager = FileManager.default
         var isDir : ObjCBool = false
-        if fileManager.fileExistsAtPath(plistFilesPath, isDirectory:&isDir) {
-            if isDir {
-                let enumerator:NSDirectoryEnumerator = fileManager.enumeratorAtPath(plistFilesPath)!
+        if fileManager.fileExists(atPath: plistFilesPath, isDirectory:&isDir) {
+            if isDir.boolValue {
+                let enumerator:FileManager.DirectoryEnumerator = fileManager.enumerator(atPath: plistFilesPath)!
                 zeroBadgeNumber()
                 
                 while let element = enumerator.nextObject() as? String {
                     if element.hasSuffix("plist") {
-                        let myDict = NSDictionary(contentsOfFile: plistFilesPath.stringByAppendingString(element))
+                        let myDict = NSDictionary(contentsOfFile: plistFilesPath + element)
                         if myDict!["type"] as! String == "Joomla" {
                             systemInstances[myDict!["name"] as! String] = JoomlaModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
                         } else if myDict!["type"] as! String == "Wordpress" {
@@ -138,8 +124,6 @@ class SystemInstancesModel : NSObject {
                             systemInstances[myDict!["name"] as! String] = OwncloudModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
                         } else if myDict!["type"] as! String == "Piwik" {
                             systemInstances[myDict!["name"] as! String] = PiwikModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, apiToken: myDict!["apiToken"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
-                        } else if myDict!["type"] as! String == "Typo3" {
-                            systemInstances[myDict!["name"] as! String] = Typo3Model(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
                         }
                         if((myDict!["updateAvailable"] as! Int) == 1) {
                             incrementBadgeNumber()
@@ -149,8 +133,8 @@ class SystemInstancesModel : NSObject {
             }
         } else {
             do {
-                try NSFileManager.defaultManager().createDirectoryAtPath(applicationSupportAppNameURL, withIntermediateDirectories: false, attributes: nil)
-                try NSFileManager.defaultManager().createDirectoryAtPath(plistFilesPath, withIntermediateDirectories: false, attributes: nil)
+                try FileManager.default.createDirectory(atPath: applicationSupportAppNameURL, withIntermediateDirectories: false, attributes: nil)
+                try FileManager.default.createDirectory(atPath: plistFilesPath, withIntermediateDirectories: false, attributes: nil)
             } catch _ as NSError {
                 NSLog("plist folder Application Support creation failed")
             }
@@ -176,10 +160,6 @@ class SystemInstancesModel : NSObject {
                 }
             } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
                 if(((systemInstances[instanceName] as! OwncloudModel).updateAvailable) == 0) {
-                    instancesUptoDate = instancesUptoDate + 1
-                }
-            } else if((systemInstances[instanceName] as? Typo3Model) != nil) {
-                if(((systemInstances[instanceName] as! Typo3Model).updateAvailable) == 0) {
                     instancesUptoDate = instancesUptoDate + 1
                 }
             }

@@ -56,8 +56,6 @@ class SummaryViewController: NSViewController {
                 self.amountPiwikInstances.stringValue = String(instances[type]!)
             } else if(type == "Owncloud") {
                 self.amountOwncloudInstances.stringValue = String(instances[type]!)
-            } else if(type == "Typo3") {
-                self.amountTypo3Instances.stringValue = String(instances[type]!)
             }
         }
         
@@ -67,16 +65,16 @@ class SummaryViewController: NSViewController {
     
     func checksFinished() {
         self.refreshActiveSpinner.stopAnimation(self)
-        self.refreshActiveSpinner.hidden = true
+        self.refreshActiveSpinner.isHidden = true
         systemInstances.removeAll()
         SystemInstancesModel().loadConfigfiles()
     }
     
-    @IBAction func checkAllInstances(sender: AnyObject) {
-        self.refreshActiveSpinner.hidden = false
+    @IBAction func checkAllInstances(_ sender: AnyObject) {
+        self.refreshActiveSpinner.isHidden = false
         self.refreshActiveSpinner.startAnimation(self)
         SystemInstancesModel().checkAllInstancesVersions() { result in
-            self.performSelectorOnMainThread(#selector(SummaryViewController.checksFinished), withObject: self, waitUntilDone: true)
+            self.performSelector(onMainThread: #selector(SummaryViewController.checksFinished), with: self, waitUntilDone: true)
         }
     }
 }

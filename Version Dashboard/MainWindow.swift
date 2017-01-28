@@ -18,25 +18,24 @@ class MainWindow: NSWindowController {
     
     override func windowDidLoad() {
         super.windowDidLoad()
-        self.mainwindow.titleVisibility = NSWindowTitleVisibility.Visible
-        self.mainwindow.styleMask |= NSFullSizeContentViewWindowMask
-        //Reopen windows when closed
+        self.mainwindow.titleVisibility = NSWindowTitleVisibility.visible
+        //Reopen window when closed
         let appDelegate = NSApp.delegate as! AppDelegate
         appDelegate.mainWindowController = self
     }
 
-    @IBAction func detailedViewClicked(sender: AnyObject) {
-        let viewController = storyboard?.instantiateControllerWithIdentifier("detailedviewcontroller") as! NSViewController
+    @IBAction func detailedViewClicked(_ sender: AnyObject) {
+        let viewController = storyboard?.instantiateController(withIdentifier: "detailedviewcontroller") as! NSViewController
         self.mainwindow?.contentViewController = viewController
     }
     
-    @IBAction func summaryViewClicked(sender: AnyObject) {
-        let viewController = storyboard?.instantiateControllerWithIdentifier("summaryviewcontroller") as! NSViewController
+    @IBAction func summaryViewClicked(_ sender: AnyObject) {
+        let viewController = storyboard?.instantiateController(withIdentifier: "summaryviewcontroller") as! NSViewController
         self.window?.contentViewController = viewController
     }
     
-    @IBAction func outdatedViewClicked(sender: AnyObject) {
-        let viewController = storyboard?.instantiateControllerWithIdentifier("outdatedviewcontroller") as! NSViewController
+    @IBAction func outdatedViewClicked(_ sender: AnyObject) {
+        let viewController = storyboard?.instantiateController(withIdentifier: "outdatedviewcontroller") as! NSViewController
         self.window?.contentViewController = viewController
     }
 }

@@ -11,8 +11,8 @@ import Foundation
 class JoomlaModel : GenericModel, XMLParserDelegate {
     
     func getVersions() -> Bool {
-        let headVersion = self.getInstanceVersion(joomlaAPIUrl.stringByAppendingString(joomlapath))
-        let currentVersion = self.getInstanceVersion((self.hosturl).stringByAppendingString(joomlapath))
+        let headVersion = self.getInstanceVersion(joomlaAPIUrl + joomlapath)
+        let currentVersion = self.getInstanceVersion((self.hosturl) + joomlapath)
         self.phpVersionRequest(self.phpReturnHandler)
         if(headVersion != "" && currentVersion != "") {
             self.headVersion = headVersion
@@ -22,13 +22,13 @@ class JoomlaModel : GenericModel, XMLParserDelegate {
         return false
     }
     
-    func XMLParserError(parser: XMLParser, error: String) {
+    func XMLParserError(_ parser: XMLParser, error: String) {
         print(error);
     }
     
-    func getInstanceVersion(url: String) -> String {
-        let pathToXml = NSURL(string: url)
-        let parser = XMLParser(url: pathToXml!);
+    func getInstanceVersion(_ url: String) -> String {
+        let pathToXml = URL(string: url)
+        let parser = MyXMLParser(url: pathToXml!);
         
         parser.delegate = self;
         let s = parser.parse {

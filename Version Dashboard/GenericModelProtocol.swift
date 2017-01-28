@@ -12,9 +12,8 @@ protocol GenericModelProtocol {
     
     func saveConfigfile() -> Bool
     func updateDate()
-    func renamePlistFile(oldName: String)
+    func renamePlistFile(_ oldName: String)
     func checkNotificationRequired()
-    func phpVersionRequest(completionHandler: ((NSURLResponse!) -> Void)?)
-    func phpReturnHandler(data: NSURLResponse!)
-    
+    func phpVersionRequest(_ completionHandler: ((URLResponse?) -> Void)?)
+    func phpReturnHandler(_ data: URLResponse?) -> Void
 }

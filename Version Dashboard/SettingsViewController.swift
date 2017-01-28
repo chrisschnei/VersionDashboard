@@ -43,8 +43,8 @@ class SettingsViewController: NSViewController {
             self.settingsLabel.stringValue = instanceName
             self.lastcheckLabel.stringValue = instanceObject.lastRefresh
             self.hostTextbox.stringValue = instanceObject.hosturl
-            self.apiToken.hidden = false
-            self.apiTokenLabel.hidden = false
+            self.apiToken.isHidden = false
+            self.apiTokenLabel.isHidden = false
             
             self.apiToken.stringValue = instanceObject.apiToken
         } else if((instance as? WordpressModel) != nil) {
@@ -106,15 +106,15 @@ class SettingsViewController: NSViewController {
         return false
     }
     
-    @IBAction func cancelButton(sender: AnyObject) {
-        self.dismissController(self)
+    @IBAction func cancelButton(_ sender: AnyObject) {
+        self.dismiss(self)
     }
     
-    @IBAction func saveButton(sender: AnyObject) {
+    @IBAction func saveButton(_ sender: AnyObject) {
         if(!self.updateConfigfile()) {
             return
         }
-        NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
-        self.dismissController(self)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "load"), object: nil)
+        self.dismiss(self)
     }
 }

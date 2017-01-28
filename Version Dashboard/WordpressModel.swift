@@ -22,14 +22,14 @@ class WordpressModel : GenericModel {
         return false
     }
     
-    func checkVersionViaJavascript(url: String) -> String {
-        if let version = NSData(contentsOfURL: NSURL(string: url)!) {
-            let version = String(data: version, encoding: NSUTF8StringEncoding)
-            let lines = version?.componentsSeparatedByString("\n")
+    func checkVersionViaJavascript(_ url: String) -> String {
+        if let version = try? Data(contentsOf: URL(string: url)!) {
+            let version = String(data: version, encoding: String.Encoding.utf8)
+            let lines = version?.components(separatedBy: "\n")
             for part in lines! {
-                if(part.rangeOfString("wp-embed.min.js?ver=") != nil) {
-                    let part2 = part.componentsSeparatedByString("wp-embed.min.js?ver=")
-                    let part3 = part2[1].componentsSeparatedByString("'")
+                if(part.range(of: "wp-embed.min.js?ver=") != nil) {
+                    let part2 = part.components(separatedBy: "wp-embed.min.js?ver=")
+                    let part3 = part2[1].components(separatedBy: "'")
                     return part3[0]
                 }
             }
@@ -37,13 +37,13 @@ class WordpressModel : GenericModel {
         return ""
     }
     
-    func checkVersionViaReadmeHtml(url: String) -> String {
-        if let version = NSData(contentsOfURL: NSURL(string: url)!) {
-            let version = String(data: version, encoding: NSUTF8StringEncoding)
-            let lines = version?.componentsSeparatedByString("\n")
+    func checkVersionViaReadmeHtml(_ url: String) -> String {
+        if let version = try? Data(contentsOf: URL(string: url)!) {
+            let version = String(data: version, encoding: String.Encoding.utf8)
+            let lines = version?.components(separatedBy: "\n")
             for part in lines! {
-                if(part.rangeOfString("Version") != nil) {
-                    let part2 = part.componentsSeparatedByString(" ")
+                if(part.range(of: "Version") != nil) {
+                    let part2 = part.components(separatedBy: " ")
                     return part2.last!
                 }
             }
@@ -51,14 +51,14 @@ class WordpressModel : GenericModel {
         return ""
     }
     
-    func checkVersionViaRSSFeed(url: String) -> String {
-        if let version = NSData(contentsOfURL: NSURL(string: url)!) {
-            let version = String(data: version, encoding: NSUTF8StringEncoding)
-            let lines = version?.componentsSeparatedByString("\n")
+    func checkVersionViaRSSFeed(_ url: String) -> String {
+        if let version = try? Data(contentsOf: URL(string: url)!) {
+            let version = String(data: version, encoding: String.Encoding.utf8)
+            let lines = version?.components(separatedBy: "\n")
             for part in lines! {
-                if(part.rangeOfString("<generator>") != nil) {
-                    let part2 = part.componentsSeparatedByString("=")
-                    let part3 = part2[1].componentsSeparatedByString("</")
+                if(part.range(of: "<generator>") != nil) {
+                    let part2 = part.components(separatedBy: "=")
+                    let part3 = part2[1].components(separatedBy: "</")
                     return part3[0]
                 }
             }
@@ -66,18 +66,18 @@ class WordpressModel : GenericModel {
         return ""
     }
     
-    func getInstanceVersion(url: String) -> String {
+    func getInstanceVersion(_ url: String) -> String {
         if(url != "") {
             var result = ""
             result = self.checkVersionViaJavascript(url)
             if(result != "") {
                 return result
             }
-            result = self.checkVersionViaReadmeHtml(url.stringByAppendingString("readme.html"))
+            result = self.checkVersionViaReadmeHtml(url + "readme.html")
             if(result != "") {
                 return result
             }
-            result = self.checkVersionViaRSSFeed(url.stringByAppendingString("feed"))
+            result = self.checkVersionViaRSSFeed(url + "feed")
             if(result != "") {
                 return result
             }
@@ -86,12 +86,14 @@ class WordpressModel : GenericModel {
         return ""
     }
     
-    func getInstanceVersionJSON(url: String) -> String {
-        if let version = NSData(contentsOfURL: NSURL(string: url)!) {
+    func getInstanceVersionJSON(_ url: String) -> String {
+        if let version = try? Data(contentsOf: URL(string: url)!) {
             do {
-                let json = try NSJSONSerialization.JSONObjectWithData(version, options: .AllowFragments)
-                if let version2 = json["offers"]!![0]["current"] {
-                    return (version2 as! String)
+                let json = try JSONSerialization.jsonObject(with: version, options: .allowFragments) as! [String:Any]
+                if json["offers"] != nil {
+                    let versionarray = (json["offers"]! as! NSArray).mutableCopy() as! NSMutableArray
+                    let versionarrayobject = versionarray[0] as AnyObject
+                    return versionarrayobject["current"] as! String
                 }
             } catch {
                 

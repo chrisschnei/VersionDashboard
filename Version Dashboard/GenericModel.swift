@@ -34,10 +34,10 @@ class GenericModel: GenericModelProtocol {
         self.serverType = serverType
     }
 
-    func renamePlistFile(oldName: String) {
-        let fileManager = NSFileManager.defaultManager()
+    func renamePlistFile(_ oldName: String) {
+        let fileManager = FileManager.default
         do {
-            try fileManager.moveItemAtPath(plistFilesPath.stringByAppendingString(oldName).stringByAppendingString(".plist"), toPath: plistFilesPath.stringByAppendingString(self.name).stringByAppendingString(".plist"))
+            try fileManager.moveItem(atPath: (plistFilesPath + oldName) + ".plist", toPath: (plistFilesPath + self.name) + ".plist")
         }
         catch let error as NSError {
             print("Ooops! Something went wrong: \(error)")
@@ -45,37 +45,37 @@ class GenericModel: GenericModelProtocol {
     }
     
     func saveConfigfile() -> Bool {
-        let path = plistFilesPath.stringByAppendingString(self.name).stringByAppendingString(".plist")
+        let path = (plistFilesPath + self.name) + ".plist"
         let dict: NSMutableDictionary = NSMutableDictionary()
         
         if(self.creationDate == "") {
-            let dateFormatter = NSDateFormatter()
+            let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = dateformat
-            self.creationDate = dateFormatter.stringFromDate(NSDate())
+            self.creationDate = dateFormatter.string(from: Date())
         }
-        dict.setObject(self.hosturl, forKey: "hosturl")
-        dict.setObject(self.name, forKey: "name")
-        dict.setObject(self.currentVersion, forKey: "currentVersion")
-        dict.setObject(self.lastRefresh, forKey: "lastRefresh")
-        dict.setObject(self.headVersion, forKey: "headVersion")
-        dict.setObject(self.creationDate, forKey: "creationDate")
-        dict.setObject(self.updateAvailable, forKey: "updateAvailable")
-        dict.setObject(self.phpVersion, forKey: "phpVersion")
-        dict.setObject(self.serverType, forKey: "serverType")
-        dict.setObject(self.type, forKey: "type")
-        let fileManager = NSFileManager.defaultManager()
-        if (!(fileManager.fileExistsAtPath(path)))
+        dict.setObject(self.hosturl, forKey: "hosturl" as NSCopying)
+        dict.setObject(self.name, forKey: "name" as NSCopying)
+        dict.setObject(self.currentVersion, forKey: "currentVersion" as NSCopying)
+        dict.setObject(self.lastRefresh, forKey: "lastRefresh" as NSCopying)
+        dict.setObject(self.headVersion, forKey: "headVersion" as NSCopying)
+        dict.setObject(self.creationDate, forKey: "creationDate" as NSCopying)
+        dict.setObject(self.updateAvailable, forKey: "updateAvailable" as NSCopying)
+        dict.setObject(self.phpVersion, forKey: "phpVersion" as NSCopying)
+        dict.setObject(self.serverType, forKey: "serverType" as NSCopying)
+        dict.setObject(self.type, forKey: "type" as NSCopying)
+        let fileManager = FileManager.default
+        if (!(fileManager.fileExists(atPath: path)))
         {
-            fileManager.createFileAtPath(path, contents: nil, attributes: nil)
+            fileManager.createFile(atPath: path, contents: nil, attributes: nil)
         }
-        return dict.writeToFile(path, atomically: true)
+        return dict.write(toFile: path, atomically: true)
     }
     
     func updateDate() {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        self.lastRefresh = dateFormatter.stringFromDate(NSDate())
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.medium
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        self.lastRefresh = dateFormatter.string(from: Date())
     }
     
     func checkNotificationRequired() {
@@ -89,21 +89,21 @@ class GenericModel: GenericModelProtocol {
         }
     }
 
-    func phpReturnHandler(data: NSURLResponse!) {
-        let lines = (String(data!)).componentsSeparatedByString("\n")
+    func phpReturnHandler(_ data: URLResponse?) -> Void {
+        let lines = (String(describing: data)).components(separatedBy: "\n")
         if(lines.count > 0) {
             for line in lines {
-                if(line.rangeOfString("X-Powered-By") != nil) {
-                    let phpArray = line.componentsSeparatedByString("=")
-                    let phpString = phpArray[1].componentsSeparatedByString("PHP/")
-                    let number = phpString[1].componentsSeparatedByString("\"")[0]
+                if(line.range(of: "X-Powered-By") != nil) {
+                    let phpArray = line.components(separatedBy: "=")
+                    let phpString = phpArray[1].components(separatedBy: "PHP/")
+                    let number = phpString[1].components(separatedBy: "\"")[0]
                     self.phpVersion = number
                 }
-                if(line.rangeOfString("Server") != nil) {
-                    let phpArray = line.componentsSeparatedByString("=")
-                    let phpString = phpArray[1].componentsSeparatedByString("\"")
+                if(line.range(of: "Server") != nil) {
+                    let phpArray = line.components(separatedBy: "=")
+                    let phpString = phpArray[1].components(separatedBy: "\"")
                     if(phpString.indices.contains(1)) {
-                        let server = phpString[1].componentsSeparatedByString("\"")[0]
+                        let server = phpString[1].components(separatedBy: "\"")[0]
                         self.serverType = server
                     } else {
                         self.serverType = ""
@@ -116,20 +116,20 @@ class GenericModel: GenericModelProtocol {
         }
     }
     
-    func phpVersionRequest(completionHandler: ((NSURLResponse!) -> Void)?)
+    func phpVersionRequest(_ completionHandler: ((URLResponse?) -> Void)?)
     {
-        let semaphore = dispatch_semaphore_create(0)
-        let url : NSURL! = NSURL(string:self.hosturl)
-        let request: NSURLRequest = NSURLRequest(URL:url)
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let session = NSURLSession(configuration: config)
+        let semaphore = DispatchSemaphore(value: 0)
+        let url : URL! = URL(string:self.hosturl)
+        let request: URLRequest = URLRequest(url:url)
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
         
-        let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
+        let task : URLSessionDataTask = session.dataTask(with: request, completionHandler: {(data, response, error) in
             completionHandler?(response);
-            dispatch_semaphore_signal(semaphore)
+            semaphore.signal()
         });
         task.resume()
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
+        _ = semaphore.wait(timeout: DispatchTime.distantFuture)
     }
     
 }

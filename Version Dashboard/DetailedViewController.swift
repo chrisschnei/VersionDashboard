@@ -31,14 +31,14 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DetailedViewController.reloadTable(_:)), name: "load", object: nil)
-        systemTableView.setDelegate(self)
-        systemTableView.setDataSource(self)
+        NotificationCenter.default.addObserver(self, selector: #selector(DetailedViewController.reloadTable(_:)), name: NSNotification.Name(rawValue: "load"), object: nil)
+        systemTableView.delegate = self
+        systemTableView.dataSource = self
         self.addInstancesToTable()
-        self.takeMeToMyInstance.enabled = false
+        self.takeMeToMyInstance.isEnabled = false
     }
     
-    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if(self.systemTableView.selectedRow != -1) {
             let button = sender as! NSButton
             if (((button.title) == NSLocalizedString("edit", comment:"")) || ((button.title) == NSLocalizedString("edit", comment:""))) {
@@ -50,46 +50,44 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         }
     }
     
-    override var representedObject: AnyObject? {
+    override var representedObject: Any? {
         didSet {
         }
     }
     
-    @IBAction func takeMeToMyInstance(sender: AnyObject) {
+    @IBAction func takeMeToMyInstance(_ sender: AnyObject) {
         if(self.systemTableView.selectedRow != -1) {
             let instancename = Array(systemInstances.keys)[self.systemTableView.selectedRow]
             let instance = systemInstances[instancename]
             var url = ""
             if((instance as? JoomlaModel) != nil) {
-                url = (instance as! JoomlaModel).hosturl.stringByAppendingString(joomlaBackendURL)
+                url = (instance as! JoomlaModel).hosturl + joomlaBackendURL
             } else if((instance as? WordpressModel) != nil) {
-                url = (instance as! WordpressModel).hosturl.stringByAppendingString(wordpressBackendURL)
+                url = (instance as! WordpressModel).hosturl + wordpressBackendURL
             } else if((instance as? PiwikModel) != nil) {
                 url = (instance as! PiwikModel).hosturl
             } else if((instance as? OwncloudModel) != nil) {
                 url = (instance as! OwncloudModel).hosturl
-            } else if((instance as? Typo3Model) != nil) {
-                url = (instance as! Typo3Model).hosturl
             }
-            NSWorkspace.sharedWorkspace().openURL(NSURL(string: url)!)
+            NSWorkspace.shared().open(URL(string: url)!)
         }
     }
     
-    func deleteFile(path: String) {
-        let fileManager = NSFileManager.defaultManager()
+    func deleteFile(_ path: String) {
+        let fileManager = FileManager.default
         do {
-            try fileManager.removeItemAtPath(path)
+            try fileManager.removeItem(atPath: path)
         }
         catch let error as NSError {
             print("Error deleting plist file: \(error)")
         }
     }
     
-    @IBAction func removeInstance(sender: AnyObject) {
+    @IBAction func removeInstance(_ sender: AnyObject) {
         if(self.systemTableView.selectedRow != -1) {
             let instances = Array(systemInstances.keys)
             let filename = instances[self.systemTableView.selectedRow]
-            let path = plistFilesPath.stringByAppendingString(filename).stringByAppendingString(".plist")
+            let path = (plistFilesPath + filename) + ".plist"
             self.deleteFile(path)
             zeroBadgeNumber()
             systemInstances.removeAll()
@@ -102,17 +100,17 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         self.systemTableView.reloadData()
     }
     
-    func reloadTable(notification: NSNotification) {
+    func reloadTable(_ notification: Notification) {
         let selectedRow = self.systemTableView.selectedRow
         self.systemTableView.deselectAll(self)
         systemInstances.removeAll()
         SystemInstancesModel().loadConfigfiles()
         self.systemTableView.reloadData()
-        self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+        self.systemTableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
     }
     
-    @IBAction func refreshInstance(sender: AnyObject) {
-        self.checkActiveSpinner.hidden = false
+    @IBAction func refreshInstance(_ sender: AnyObject) {
+        self.checkActiveSpinner.isHidden = false
         self.checkActiveSpinner.startAnimation(self)
         if(checkInternetConnection()) {
             let selectedRow = systemTableView.selectedRow
@@ -123,11 +121,11 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     //Remote Version url
                     if(joomlamodel!.getVersions()) {
                         //Check Version
-                        self.noInternetConnection.hidden = true
+                        self.noInternetConnection.isHidden = true
                         joomlamodel!.checkNotificationRequired()
                     } else {
                         self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                        self.noInternetConnection.hidden = false
+                        self.noInternetConnection.isHidden = false
                     }
                     //Date
                     joomlamodel!.updateDate()
@@ -135,17 +133,17 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                         print("Error saving plist File.")
                     }
                     self.systemTableView.deselectAll(self)
-                    self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+                    self.systemTableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
                 } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
                     let owncloudmodel = systemInstances[instanceName] as? OwncloudModel
                     //Remote Version url
                     if(owncloudmodel!.getVersions()) {
                         //Check Version
-                        self.noInternetConnection.hidden = true
+                        self.noInternetConnection.isHidden = true
                         owncloudmodel!.checkNotificationRequired()
                     } else {
                         self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                        self.noInternetConnection.hidden = false
+                        self.noInternetConnection.isHidden = false
                     }
                     //Date
                     owncloudmodel!.updateDate()
@@ -153,17 +151,17 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                         print("Error saving plist File.")
                     }
                     self.systemTableView.deselectAll(self)
-                    self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+                    self.systemTableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
                 } else if((systemInstances[instanceName] as? PiwikModel) != nil) {
                     let piwikmodel = systemInstances[instanceName] as? PiwikModel
                     //Remote Version url
                     if(piwikmodel!.getVersions()) {
                         //Check Version
-                        self.noInternetConnection.hidden = true
+                        self.noInternetConnection.isHidden = true
                         piwikmodel!.checkNotificationRequired()
                     } else {
                         self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                        self.noInternetConnection.hidden = false
+                        self.noInternetConnection.isHidden = false
                     }
                     //Date
                     piwikmodel!.updateDate()
@@ -171,17 +169,17 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                         print("Error saving plist File.")
                     }
                     self.systemTableView.deselectAll(self)
-                    self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+                    self.systemTableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
                 } else if((systemInstances[instanceName] as? WordpressModel) != nil) {
                     let wordpressmodel = systemInstances[instanceName] as? WordpressModel
                     //Remote Version url
                     if(wordpressmodel!.getVersions()) {
                         //Check Version
-                        self.noInternetConnection.hidden = true
+                        self.noInternetConnection.isHidden = true
                         wordpressmodel!.checkNotificationRequired()
                     } else {
                         self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                        self.noInternetConnection.hidden = false
+                        self.noInternetConnection.isHidden = false
                     }
                     //Date
                     wordpressmodel!.updateDate()
@@ -189,42 +187,24 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                         print("Error saving plist File.")
                     }
                     self.systemTableView.deselectAll(self)
-                    self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
-                } else if((systemInstances[instanceName] as? Typo3Model) != nil) {
-                    let typo3model = systemInstances[instanceName] as? Typo3Model
-                    //Remote Version url
-                    if(typo3model!.getVersions()) {
-                        //Check Version
-                        self.noInternetConnection.hidden = true
-                        typo3model!.checkNotificationRequired()
-                    } else {
-                        self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                        self.noInternetConnection.hidden = false
-                    }
-                    //Date
-                    typo3model!.updateDate()
-                    if(!(typo3model!.saveConfigfile())) {
-                        print("Error saving plist File.")
-                    }
-                    self.systemTableView.deselectAll(self)
-                    self.systemTableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+                    self.systemTableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
                 }
             } else {
                 self.noInternetConnection.stringValue = NSLocalizedString("noSelectionMade", comment: "")
-                self.noInternetConnection.hidden = false
+                self.noInternetConnection.isHidden = false
             }
         } else {
             self.noInternetConnection.stringValue = NSLocalizedString("errorInternetConnection", comment: "")
-            self.noInternetConnection.hidden = false
+            self.noInternetConnection.isHidden = false
             self.refreshButton.stringValue = NSLocalizedString("retry", comment: "")
         }
         self.checkActiveSpinner.stopAnimation(self)
-        self.checkActiveSpinner.hidden = true
+        self.checkActiveSpinner.isHidden = true
     }
     
-    func updateInstanceDetails(index: Int) {
+    func updateInstanceDetails(_ index: Int) {
         if((index) != -1) {
-            self.takeMeToMyInstance.enabled = true
+            self.takeMeToMyInstance.isEnabled = true
             let key = Array(systemInstances.keys)[index]
             let modelclass = systemInstances[key].self!
             if((modelclass as? JoomlaModel) != nil) {
@@ -301,36 +281,16 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 } else {
                     self.statusLabel.stringValue = ""
                 }
-            } else if((modelclass as? Typo3Model) != nil) {
-                let typo3model = modelclass as? Typo3Model
-                self.hostLabel.stringValue = typo3model!.hosturl
-                self.systemLabel.stringValue = typo3model!.name
-                self.lastcheckLabel.stringValue = typo3model!.lastRefresh
-                self.latestsversionLabel.stringValue = typo3model!.headVersion
-                self.deployedversionLabel.stringValue = typo3model!.currentVersion
-                self.phpVersion.stringValue = typo3model!.phpVersion
-                self.webserver.stringValue = typo3model!.serverType
-                if(self.latestsversionLabel.stringValue != "" || self.deployedversionLabel.stringValue != "") {
-                    if(typo3model!.updateAvailable == 0) {
-                        self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")
-                    } else if(typo3model?.updateAvailable == -1) {
-                        self.statusLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                    } else {
-                        self.statusLabel.stringValue = NSLocalizedString("updateavailable", comment: "")
-                    }
-                } else {
-                    self.statusLabel.stringValue = ""
-                }
             }
         } else {
-            self.takeMeToMyInstance.enabled = false
+            self.takeMeToMyInstance.isEnabled = false
         }
     }
     
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView?
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?
     {
         self.systemTableView.rowHeight = 30.0
-        let cellView = tableView.makeViewWithIdentifier("InstanceName", owner: self) as! NSTableCellView
+        let cellView = tableView.make(withIdentifier: "InstanceName", owner: self) as! NSTableCellView
         let instancesArray = Array(systemInstances.keys)
         let name = instancesArray[row]
         if((systemInstances[name] as? OwncloudModel) != nil) {
@@ -341,18 +301,16 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             cellView.imageView!.image = NSImage(named: "wordpress_dots.png")!
         } else if((systemInstances[name] as? JoomlaModel) != nil) {
             cellView.imageView!.image = NSImage(named: "joomla_dots.png")!
-        } else if((systemInstances[name] as? Typo3Model) != nil) {
-            cellView.imageView!.image = NSImage(named: "joomla_dots.png")!
         }
         cellView.textField?.stringValue = name
         return cellView
     }
     
-    func tableViewSelectionDidChange(notification: NSNotification) {
+    func tableViewSelectionDidChange(_ notification: Notification) {
         self.updateInstanceDetails(systemTableView.selectedRow)
     }
     
-    func numberOfRowsInTableView(aTableView: NSTableView) -> Int {
+    func numberOfRows(in aTableView: NSTableView) -> Int {
         return systemInstances.count
     }
     

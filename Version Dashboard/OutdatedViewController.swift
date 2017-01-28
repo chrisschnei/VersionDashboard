@@ -34,11 +34,11 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     
     override func viewDidLoad() {
         outdatedInstances.removeAll()
-        tableView.setDelegate(self)
-        tableView.setDataSource(self)
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
-    func updateInstanceDetails(index: Int) {
+    func updateInstanceDetails(_ index: Int) {
         if((index) != -1) {
             let key = outdatedInstances[index]
             let modelclass = systemInstances[key].self!
@@ -122,32 +122,12 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 } else {
                     self.status.stringValue = ""
                 }
-            } else if((modelclass as? Typo3Model) != nil) {
-                let typo3model = modelclass as? Typo3Model
-                self.hostName.stringValue = typo3model!.hosturl
-                self.systemName.stringValue = typo3model!.name
-                self.lastcheck.stringValue = typo3model!.lastRefresh
-                self.latestVersion.stringValue = typo3model!.headVersion
-                self.currentVersion.stringValue = typo3model!.currentVersion
-                self.phpVersion.stringValue = typo3model!.phpVersion
-                self.webserver.stringValue = typo3model!.serverType
-                if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
-                    if(typo3model!.updateAvailable == 0) {
-                        self.status.stringValue = NSLocalizedString("ok", comment: "")
-                    } else if(typo3model?.updateAvailable == -1) {
-                        self.status.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                    } else {
-                        self.status.stringValue = NSLocalizedString("updateavailable", comment: "")
-                    }
-                } else {
-                    self.status.stringValue = ""
-                }
             }
         }
     }
     
-    @IBAction func refreshInstance(sender: AnyObject) {
-        self.spinner.hidden = false
+    @IBAction func refreshInstance(_ sender: AnyObject) {
+        self.spinner.isHidden = false
         self.spinner.startAnimation(self)
         if(checkInternetConnection()) {
             let selectedRow = tableView.selectedRow
@@ -158,12 +138,12 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     //Remote Version url
                     if(joomlamodel!.getVersions()) {
                         //Check Version
-                        self.errorLabel.hidden = true
+                        self.errorLabel.isHidden = true
                         joomlamodel!.checkNotificationRequired()
                     } else {
                         print(NSLocalizedString("errorfetchingVersions", comment: ""))
                         self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                        self.errorLabel.hidden = false
+                        self.errorLabel.isHidden = false
                     }
                     //Date
                     joomlamodel!.updateDate()
@@ -171,18 +151,18 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                         print("Error saving plist File.")
                     }
                     self.tableView.deselectAll(self)
-                    self.tableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+                    self.tableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
                 } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
                     let owncloudmodel = systemInstances[instanceName] as? OwncloudModel
                     //Remote Version url
                     if(owncloudmodel!.getVersions()) {
                         //Check Version
-                        self.errorLabel.hidden = true
+                        self.errorLabel.isHidden = true
                         owncloudmodel!.checkNotificationRequired()
                     } else {
                         print(NSLocalizedString("errorfetchingVersions", comment: ""))
                         self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                        self.errorLabel.hidden = false
+                        self.errorLabel.isHidden = false
                     }
                     //Date
                     owncloudmodel!.updateDate()
@@ -190,18 +170,18 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                         print("Error saving plist File.")
                     }
                     self.tableView.deselectAll(self)
-                    self.tableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+                    self.tableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
                 } else if((systemInstances[instanceName] as? PiwikModel) != nil) {
                     let piwikmodel = systemInstances[instanceName] as? PiwikModel
                     //Remote Version url
                     if(piwikmodel!.getVersions()) {
                         //Check Version
-                        self.errorLabel.hidden = true
+                        self.errorLabel.isHidden = true
                         piwikmodel!.checkNotificationRequired()
                     } else {
                         print(NSLocalizedString("errorfetchingVersions", comment: ""))
                         self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                        self.errorLabel.hidden = false
+                        self.errorLabel.isHidden = false
                     }
                     //Date
                     piwikmodel!.updateDate()
@@ -209,18 +189,18 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                         print("Error saving plist File.")
                     }
                     self.tableView.deselectAll(self)
-                    self.tableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+                    self.tableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
                 } else if((systemInstances[instanceName] as? WordpressModel) != nil) {
                     let wordpressmodel = systemInstances[instanceName] as? WordpressModel
                     //Remote Version url
                     if(wordpressmodel!.getVersions()) {
                         //Check Version
-                        self.errorLabel.hidden = true
+                        self.errorLabel.isHidden = true
                         wordpressmodel!.checkNotificationRequired()
                     } else {
                         print(NSLocalizedString("errorfetchingVersions", comment: ""))
                         self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                        self.errorLabel.hidden = false
+                        self.errorLabel.isHidden = false
                     }
                     //Date
                     wordpressmodel!.updateDate()
@@ -228,37 +208,18 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                         print("Error saving plist File.")
                     }
                     self.tableView.deselectAll(self)
-                    self.tableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
-                } else if((systemInstances[instanceName] as? Typo3Model) != nil) {
-                    let typo3model = systemInstances[instanceName] as? Typo3Model
-                    //Remote Version url
-                    if(typo3model!.getVersions()) {
-                        //Check Version
-                        self.errorLabel.hidden = true
-                        typo3model!.checkNotificationRequired()
-                    } else {
-                        print(NSLocalizedString("errorfetchingVersions", comment: ""))
-                        self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                        self.errorLabel.hidden = false
-                    }
-                    //Date
-                    typo3model!.updateDate()
-                    if(!(typo3model!.saveConfigfile())) {
-                        print("Error saving plist File.")
-                    }
-                    self.tableView.deselectAll(self)
-                    self.tableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+                    self.tableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
                 }
             } else {
                 self.errorLabel.stringValue = NSLocalizedString("noSelectionMade", comment: "")
-                self.errorLabel.hidden = false
+                self.errorLabel.isHidden = false
             }
         } else {
-            self.errorLabel.hidden = false
+            self.errorLabel.isHidden = false
             self.refreshButton.stringValue = NSLocalizedString("retry", comment: "")
         }
         self.spinner.stopAnimation(self)
-        self.spinner.hidden = true
+        self.spinner.isHidden = true
         self.reloadTable()
     }
     
@@ -268,13 +229,13 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
         outdatedInstances.removeAll()
         self.loadOutdatedInstances()
         self.tableView.reloadData()
-        self.tableView.selectRowIndexes((NSIndexSet(index:selectedRow)), byExtendingSelection: false)
+        self.tableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
     }
     
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView?
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?
     {
         self.tableView.rowHeight = 30.0
-        let cellView = tableView.makeViewWithIdentifier("InstanceName", owner: self) as! NSTableCellView
+        let cellView = tableView.make(withIdentifier: "InstanceName", owner: self) as! NSTableCellView
         let name = outdatedInstances[row]
         if((systemInstances[name] as? OwncloudModel) != nil) {
             cellView.imageView!.image = NSImage(named: "owncloud_dots.png")!
@@ -284,14 +245,12 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
             cellView.imageView!.image = NSImage(named: "wordpress_dots.png")!
         } else if((systemInstances[name] as? JoomlaModel) != nil) {
             cellView.imageView!.image = NSImage(named: "joomla_dots.png")!
-        } else if((systemInstances[name] as? Typo3Model) != nil) {
-            cellView.imageView!.image = NSImage(named: "typo3_dots.png")!
         }
         cellView.textField?.stringValue = name
         return cellView
     }
     
-    func tableViewSelectionDidChange(notification: NSNotification) {
+    func tableViewSelectionDidChange(_ notification: Notification) {
         self.updateInstanceDetails(tableView.selectedRow)
     }
     
@@ -313,15 +272,11 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 if((systemInstances[instance] as! OwncloudModel).updateAvailable == 1) {
                     outdatedInstances.append(instance)
                 }
-            } else if((systemInstances[instance] as? Typo3Model) != nil) {
-                if((systemInstances[instance] as! Typo3Model).updateAvailable == 1) {
-                    outdatedInstances.append(instance)
-                }
             }
         }
     }
     
-    func numberOfRowsInTableView(aTableView: NSTableView) -> Int {
+    func numberOfRows(in aTableView: NSTableView) -> Int {
         outdatedInstances.removeAll()
         self.loadOutdatedInstances()
         return outdatedInstances.count

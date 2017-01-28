@@ -21,11 +21,11 @@ class OwncloudViewController: NSViewController {
         // Do view setup here.
     }
     
-    @IBAction func cancelAction(sender: AnyObject) {
-        self.dismissController(self)
+    @IBAction func cancelAction(_ sender: AnyObject) {
+        self.dismiss(self)
     }
     
-    @IBAction func saveAction(sender: AnyObject) {
+    @IBAction func saveAction(_ sender: AnyObject) {
         if(self.checkURLTextfields()) {
             return
         }
@@ -33,21 +33,21 @@ class OwncloudViewController: NSViewController {
             return
         }
         let owncloudinstance = OwncloudModel(creationDate: "", currentVersion: "", hosturl: urlField.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Owncloud", headVersion: "", updateAvailable: 0, phpVersion: "", serverType: "")
-        owncloudinstance.saveConfigfile()
-        NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
-        self.dismissController(self)
+        _ = owncloudinstance.saveConfigfile()
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "load"), object: nil)
+        self.dismiss(self)
     }
     
     func checkURLTextfields() -> Bool {
         var error = false
         if(!(self.urlField.stringValue.hasSuffix("/"))) {
             self.errorMessage.stringValue = NSLocalizedString("urlEnding", comment: "")
-            self.errorMessage.hidden = false
+            self.errorMessage.isHidden = false
             error = true
         }
         if(!(self.urlField.stringValue.hasPrefix("http"))) {
             self.errorMessage.stringValue = NSLocalizedString("protocolMissing", comment: "")
-            self.errorMessage.hidden = false
+            self.errorMessage.isHidden = false
             error = true
         }
         return error

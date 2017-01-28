@@ -13,15 +13,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     
     var mainWindowController: MainWindow? = nil
 
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
-        NSUserNotificationCenter.defaultUserNotificationCenter().delegate = self
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        NSUserNotificationCenter.default.delegate = self
     }
     
-    func userNotificationCenter(center: NSUserNotificationCenter, shouldPresentNotification notification: NSUserNotification) -> Bool {
+    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
         return true
     }
     
-    func applicationShouldHandleReopen(sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
         mainWindowController?.window?.makeKeyAndOrderFront(self)
         return false
     }

@@ -19,35 +19,35 @@ class JoomlaViewController: NSViewController {
         // Do view setup here.
     }
     
-    @IBAction func cancelAction(sender: AnyObject) {
-        self.dismissController(self)
+    @IBAction func cancelAction(_ sender: AnyObject) {
+        self.dismiss(self)
     }
     
-    @IBAction func saveAction(sender: AnyObject) {
+    @IBAction func saveAction(_ sender: AnyObject) {
         if(self.checkURLTextfields()) {
             return
         }
         if(SystemInstancesModel().checkInstanceNameAlreadyPresent(self.instanceName.stringValue)) {
-            self.errorMessage.hidden = false
+            self.errorMessage.isHidden = false
             self.errorMessage.stringValue = NSLocalizedString("instanceDuplicate", comment: "")
             return
         }
         let joomlainstance = JoomlaModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Joomla", headVersion: "", updateAvailable: 0, phpVersion: "", serverType: "")
-        joomlainstance.saveConfigfile()
-        NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
-        self.dismissController(self)
+        _ = joomlainstance.saveConfigfile()
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "load"), object: nil)
+        self.dismiss(self)
     }
     
     func checkURLTextfields() -> Bool {
         var error = false
         if(!(self.hostUrl.stringValue.hasSuffix("/"))) {
             self.errorMessage.stringValue = NSLocalizedString("urlEnding", comment: "")
-            self.errorMessage.hidden = false
+            self.errorMessage.isHidden = false
             error = true
         }
         if(!(self.hostUrl.stringValue.hasPrefix("http"))) {
             self.errorMessage.stringValue = NSLocalizedString("protocolMissing", comment: "")
-            self.errorMessage.hidden = false
+            self.errorMessage.isHidden = false
             error = true
         }
         return error

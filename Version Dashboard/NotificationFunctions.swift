@@ -9,9 +9,9 @@
 import Foundation
 import Cocoa
 
-func sendNotification(title: String, informativeText: String) {
+func sendNotification(_ title: String, informativeText: String) {
     let notification = NSUserNotification()
     notification.title = title
     notification.informativeText = informativeText
-    NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
+    NSUserNotificationCenter.default.deliver(notification)
 }

@@ -20,7 +20,7 @@ class PiwikModel : GenericModel, XMLParserDelegate {
     
     func getVersions() -> Bool {
         let headVersion = self.getInstanceVersion(piwikLatestVersionURL)
-        let currentVersion = self.getInstanceVersionXML((self.hosturl).stringByAppendingString(piwikAPIUrl).stringByAppendingString(self.apiToken))
+        let currentVersion = self.getInstanceVersionXML(((self.hosturl) + piwikAPIUrl) + self.apiToken)
         self.phpVersionRequest(self.phpReturnHandler)
         if(headVersion != "" && !currentVersion.isEmpty) {
             self.headVersion = headVersion
@@ -31,49 +31,49 @@ class PiwikModel : GenericModel, XMLParserDelegate {
     }
     
     override func saveConfigfile() -> Bool {
-        let path = plistFilesPath.stringByAppendingString(self.name).stringByAppendingString(".plist")
+        let path = (plistFilesPath + self.name) + ".plist"
         let dict: NSMutableDictionary = NSMutableDictionary()
         
         if(self.creationDate == "") {
-            let dateFormatter = NSDateFormatter()
+            let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = dateformat
-            self.creationDate = dateFormatter.stringFromDate(NSDate())
+            self.creationDate = dateFormatter.string(from: Date())
         }
-        dict.setObject(self.hosturl, forKey: "hosturl")
-        dict.setObject(self.name, forKey: "name")
-        dict.setObject(self.currentVersion, forKey: "currentVersion")
-        dict.setObject(self.lastRefresh, forKey: "lastRefresh")
-        dict.setObject(self.headVersion, forKey: "headVersion")
-        dict.setObject(self.creationDate, forKey: "creationDate")
-        dict.setObject(self.apiToken, forKey: "apiToken")
-        dict.setObject(self.updateAvailable, forKey: "updateAvailable")
-        dict.setObject(self.phpVersion, forKey: "phpVersion")
-        dict.setObject(self.serverType, forKey: "serverType")
-        dict.setObject("Piwik", forKey: "type")
+        dict.setObject(self.hosturl, forKey: "hosturl" as NSCopying)
+        dict.setObject(self.name, forKey: "name" as NSCopying)
+        dict.setObject(self.currentVersion, forKey: "currentVersion" as NSCopying)
+        dict.setObject(self.lastRefresh, forKey: "lastRefresh" as NSCopying)
+        dict.setObject(self.headVersion, forKey: "headVersion" as NSCopying)
+        dict.setObject(self.creationDate, forKey: "creationDate" as NSCopying)
+        dict.setObject(self.apiToken, forKey: "apiToken" as NSCopying)
+        dict.setObject(self.updateAvailable, forKey: "updateAvailable" as NSCopying)
+        dict.setObject(self.phpVersion, forKey: "phpVersion" as NSCopying)
+        dict.setObject(self.serverType, forKey: "serverType" as NSCopying)
+        dict.setObject("Piwik", forKey: "type" as NSCopying)
         
-        let fileManager = NSFileManager.defaultManager()
-        if (!(fileManager.fileExistsAtPath(path)))
+        let fileManager = FileManager.default
+        if (!(fileManager.fileExists(atPath: path)))
         {
-            fileManager.createFileAtPath(path, contents: nil, attributes: nil)
+            fileManager.createFile(atPath: path, contents: nil, attributes: nil)
         }
-        return dict.writeToFile(path, atomically: true)
+        return dict.write(toFile: path, atomically: true)
     }
     
-    func getInstanceVersion(url: String) -> String {
-        if let version = NSData(contentsOfURL: NSURL(string: url)!) {
-            let version = String(data: version, encoding: NSUTF8StringEncoding)
-            return version!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    func getInstanceVersion(_ url: String) -> String {
+        if let version = try? Data(contentsOf: URL(string: url)!) {
+            let version = String(data: version, encoding: String.Encoding.utf8)
+            return version!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
         return ""
     }
     
-    func XMLParserError(parser: XMLParser, error: String) {
+    func XMLParserError(_ parser: XMLParser, error: String) {
         print(error);
     }
     
-    func getInstanceVersionXML(url: String) -> String {
-        let pathToXml = NSURL(string: url)
-        let parser = XMLParser(url: pathToXml!);
+    func getInstanceVersionXML(_ url: String) -> String {
+        let pathToXml = URL(string: url)
+        let parser = MyXMLParser(url: pathToXml!);
         
         parser.delegate = self;
         let s = parser.parse {
