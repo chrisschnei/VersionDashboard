@@ -6,29 +6,17 @@
 //  Copyright © 2016 NonameCompany. All rights reserved.
 //
 
+import Foundation
 import Cocoa
+import Charts
 
 class SummaryViewController: NSViewController {
 
     @IBOutlet weak var checkAllInstancesButton: NSButton!
-    @IBOutlet weak var amountInstancesOutofdate: NSTextField!
-    @IBOutlet weak var amountInstancesUptodate: NSTextField!
-    @IBOutlet weak var amountWordpressInstances: NSTextField!
-    @IBOutlet weak var amountJoomlaInstances: NSTextField!
-    @IBOutlet weak var amountPiwikInstances: NSTextField!
-    @IBOutlet weak var amountTypo3Instances: NSTextField!
-    @IBOutlet weak var amountOwncloudInstances: NSTextField!
-    @IBOutlet weak var amountNoInstances: NSTextField!
-    @IBOutlet weak var instancesOutofdateLabel: NSTextField!
-    @IBOutlet weak var instancesUptodateLabel: NSTextField!
-    @IBOutlet weak var wordpressInstancesLabel: NSTextField!
-    @IBOutlet weak var joomlaInstancesLabel: NSTextField!
-    @IBOutlet weak var piwikInstancesLabel: NSTextField!
-    @IBOutlet weak var typo3InstancesLabel: NSTextField!
-    @IBOutlet weak var owncloudInstancesLabel: NSTextField!
-    @IBOutlet weak var noOfInstancesLabel: NSTextField!
     @IBOutlet var summaryViewController: NSView!
     @IBOutlet weak var refreshActiveSpinner: NSProgressIndicator!
+    @IBOutlet weak var pieChartInstanceSummary: PieChartView!
+    @IBOutlet weak var pieChartInstanceOutdated: PieChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,31 +24,38 @@ class SummaryViewController: NSViewController {
         if(systemInstances.count == 0) {
             SystemInstancesModel().loadConfigfiles()
         }
-        self.initLabels()
         if((configurationSettings["automaticRefreshActive"] as! Bool) == true) {
             PreferencesViewController().automaticRefresh()
         }
+        self.drawPieChartInstances()
+        self.drawPieChartOutdated()
     }
     
-    func initLabels() {
-        let amount = SystemInstancesModel().getAmountOfInstances()
-        self.amountNoInstances.stringValue = amount
-        
-        let instances = SystemInstancesModel().checkAllInstancesTypes()
-        for type in instances.keys {
-            if(type == "Wordpress") {
-                self.amountWordpressInstances.stringValue = String(instances[type]!)
-            } else if(type == "Joomla") {
-                self.amountJoomlaInstances.stringValue = String(instances[type]!)
-            } else if(type == "Piwik") {
-                self.amountPiwikInstances.stringValue = String(instances[type]!)
-            } else if(type == "Owncloud") {
-                self.amountOwncloudInstances.stringValue = String(instances[type]!)
-            }
+    func drawPieChartInstances() {
+        var chartdata = Array<PieChartDataEntry>()
+        for (instancename, amount) in SystemInstancesModel().checkAllInstancesTypes() {
+            chartdata.append(PieChartDataEntry(value: Double(amount), label:instancename))
         }
         
-        self.amountInstancesOutofdate.stringValue = String(SystemInstancesModel().getAmountOfOutdateInstances())
-        self.amountInstancesUptodate.stringValue = String(SystemInstancesModel().getAmountOfUptodateInstances())
+        let data = PieChartData()
+        let ds1 = PieChartDataSet(values: chartdata, label:"")
+        ds1.colors = ChartColorTemplates.material()
+        data.addDataSet(ds1)
+        self.pieChartInstanceSummary.data = data
+        self.pieChartInstanceSummary.chartDescription?.text = ""
+    }
+    
+    func drawPieChartOutdated() {
+        var chartdata = Array<PieChartDataEntry>()
+        chartdata.append(PieChartDataEntry(value: Double(SystemInstancesModel().getAmountOfOutdateInstances()), label:"Outdated"))
+        chartdata.append(PieChartDataEntry(value: Double(SystemInstancesModel().getAmountOfUptodateInstances()), label:"Up to Date"))
+        
+        let data = PieChartData()
+        let ds1 = PieChartDataSet(values: chartdata, label:"")
+        ds1.colors = ChartColorTemplates.colorful()
+        data.addDataSet(ds1)
+        self.pieChartInstanceOutdated.data = data
+        self.pieChartInstanceOutdated.chartDescription?.text = ""
     }
     
     func checksFinished() {
