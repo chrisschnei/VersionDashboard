@@ -37,6 +37,21 @@ class WordpressModel : GenericModel {
         return ""
     }
     
+    func checkVersionViaJavascriptEmoji(_ url: String) -> String {
+        if let version = try? Data(contentsOf: URL(string: url)!) {
+            let version = String(data: version, encoding: String.Encoding.utf8)
+            let lines = version?.components(separatedBy: "\n")
+            for part in lines! {
+                if(part.range(of: "wp-emoji-release.min.js?ver=") != nil) {
+                    let part2 = part.components(separatedBy: "wp-emoji-release.min.js?ver=")
+                    let part3 = part2[1].components(separatedBy: "\"")
+                    return part3[0]
+                }
+            }
+        }
+        return ""
+    }
+    
     func checkVersionViaReadmeHtml(_ url: String) -> String {
         if let version = try? Data(contentsOf: URL(string: url)!) {
             let version = String(data: version, encoding: String.Encoding.utf8)
@@ -69,11 +84,11 @@ class WordpressModel : GenericModel {
     func getInstanceVersion(_ url: String) -> String {
         if(url != "") {
             var result = ""
-            result = self.checkVersionViaJavascript(url)
+            result = checkVersionViaJavascriptEmoji(url)
             if(result != "") {
                 return result
             }
-            result = self.checkVersionViaReadmeHtml(url + "readme.html")
+            result = self.checkVersionViaJavascript(url)
             if(result != "") {
                 return result
             }
