@@ -63,6 +63,8 @@ class SummaryViewController: NSViewController {
         self.refreshActiveSpinner.isHidden = true
         systemInstances.removeAll()
         SystemInstancesModel().loadConfigfiles()
+        self.drawPieChartInstances()
+        self.drawPieChartOutdated()
     }
     
     @IBAction func checkAllInstances(_ sender: AnyObject) {

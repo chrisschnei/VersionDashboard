@@ -44,14 +44,13 @@
 		AAA563271C8302A300E1199A /* OutdatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA563261C8302A300E1199A /* OutdatedViewController.swift */; };
 		AAA563291C83567300E1199A /* NotificationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA563281C83567300E1199A /* NotificationFunctions.swift */; };
 		AAA5632D1C83837A00E1199A /* InternetConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA5632C1C83837A00E1199A /* InternetConnectivity.swift */; };
-		AAADAF571E4C65570073B238 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAADAF541E4C635B0073B238 /* Charts.framework */; };
-		AAADAF581E4C65570073B238 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AAADAF541E4C635B0073B238 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AAC787C01CB9752000068863 /* typo3.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC787BF1CB9752000068863 /* typo3.png */; };
 		AAEB2B2B1C9730B0001FD134 /* wordpress.png in Resources */ = {isa = PBXBuildFile; fileRef = AAEB2B2A1C9730B0001FD134 /* wordpress.png */; };
 		AAEB2B341C97347A001FD134 /* joomla_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AAEB2B301C97347A001FD134 /* joomla_dots.png */; };
 		AAEB2B351C97347A001FD134 /* owncloud_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AAEB2B311C97347A001FD134 /* owncloud_dots.png */; };
 		AAEB2B361C97347A001FD134 /* piwik_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AAEB2B321C97347A001FD134 /* piwik_dots.png */; };
 		AAEB2B371C97347A001FD134 /* wordpress_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AAEB2B331C97347A001FD134 /* wordpress_dots.png */; };
+		AAF165301EA9530500E6B7CF /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AAADAF611E4C68070073B238 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,7 +98,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AAADAF581E4C65570073B238 /* Charts.framework in Embed Frameworks */,
+				AAF165301EA9530500E6B7CF /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,7 +167,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAADAF571E4C65570073B238 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
