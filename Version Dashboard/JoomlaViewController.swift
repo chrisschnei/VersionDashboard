@@ -32,7 +32,7 @@ class JoomlaViewController: NSViewController {
             self.errorMessage.stringValue = NSLocalizedString("instanceDuplicate", comment: "")
             return
         }
-        let joomlainstance = JoomlaModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Joomla", headVersion: "", updateAvailable: 0, phpVersion: "", serverType: "")
+        let joomlainstance = JoomlaModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, headVersion: "", lastRefresh: "", name: instanceName.stringValue, type: "Joomla", updateAvailable: 0, phpVersion: "", serverType: "")
         _ = joomlainstance.saveConfigfile()
         NotificationCenter.default.post(name: Notification.Name(rawValue: "load"), object: nil)
         self.dismiss(self)

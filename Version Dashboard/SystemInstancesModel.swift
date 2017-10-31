@@ -10,34 +10,34 @@ import Foundation
 
 class SystemInstancesModel : NSObject {
     
-    func checkAllInstancesVersions(_ completionHandler: @escaping (Bool) -> ()) {
+    func checkAllInstancesVersions(force: Bool, _ completionHandler: @escaping (Bool) -> ()) {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             for instance in systemInstances.keys {
                 if((systemInstances[instance] as? JoomlaModel) != nil) {
                     let joomlamodel = systemInstances[instance] as? JoomlaModel
                     //Remote Version url
-                    _ = joomlamodel!.getVersions()
+                    _ = joomlamodel!.getVersions(forceUpdate: force)
                     _ = joomlamodel!.updateDate()
                     _ = joomlamodel!.checkNotificationRequired()
                     _ = joomlamodel!.saveConfigfile()
                 } else if((systemInstances[instance] as? PiwikModel) != nil) {
                     let piwikmodel = systemInstances[instance] as? PiwikModel
                     //Remote Version url
-                    _ = piwikmodel!.getVersions()
+                    _ = piwikmodel!.getVersions(forceUpdate: force)
                     _ = piwikmodel!.updateDate()
                     _ = piwikmodel!.checkNotificationRequired()
                     _ = piwikmodel!.saveConfigfile()
                 } else if((systemInstances[instance] as? OwncloudModel) != nil) {
                     let owncloudmodel = systemInstances[instance] as? OwncloudModel
                     //Remote Version url
-                    _ = owncloudmodel!.getVersions()
+                    _ = owncloudmodel!.getVersions(forceUpdate: force)
                     _ = owncloudmodel!.updateDate()
                     _ = owncloudmodel!.checkNotificationRequired()
                     _ = owncloudmodel!.saveConfigfile()
                 } else if((systemInstances[instance] as? WordpressModel) != nil) {
                     let wordpressmodel = systemInstances[instance] as? WordpressModel
                     //Remote Version url
-                    _ = wordpressmodel!.getVersions()
+                    _ = wordpressmodel!.getVersions(forceUpdate: force)
                     _ = wordpressmodel!.updateDate()
                     _ = wordpressmodel!.checkNotificationRequired()
                     _ = wordpressmodel!.saveConfigfile()
@@ -117,13 +117,17 @@ class SystemInstancesModel : NSObject {
                     if element.hasSuffix("plist") {
                         let myDict = NSDictionary(contentsOfFile: plistFilesPath + element)
                         if myDict!["type"] as! String == "Joomla" {
-                            systemInstances[myDict!["name"] as! String] = JoomlaModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
+                            let joomlahead = headInstances["Joomla"].self! as! JoomlaHeadModel
+                            systemInstances[myDict!["name"] as! String] = JoomlaModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, headVersion: joomlahead.headVersion, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
                         } else if myDict!["type"] as! String == "Wordpress" {
-                            systemInstances[myDict!["name"] as! String] = WordpressModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
+                            let wordpresshead = headInstances["Wordpress"].self! as! WordpressHeadModel
+                            systemInstances[myDict!["name"] as! String] = WordpressModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, headVersion: wordpresshead.headVersion, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
                         } else if myDict!["type"] as! String == "Owncloud" {
-                            systemInstances[myDict!["name"] as! String] = OwncloudModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
+                            let owncloudhead = headInstances["Owncloud"].self! as! OwncloudHeadModel
+                            systemInstances[myDict!["name"] as! String] = OwncloudModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, headVersion: owncloudhead.headVersion, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
                         } else if myDict!["type"] as! String == "Piwik" {
-                            systemInstances[myDict!["name"] as! String] = PiwikModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, apiToken: myDict!["apiToken"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: myDict!["headVersion"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
+                            let piwikhead = headInstances["Piwik"].self! as! PiwikHeadModel
+                            systemInstances[myDict!["name"] as! String] = PiwikModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, apiToken: myDict!["apiToken"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: piwikhead.headVersion, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
                         }
                         if((myDict!["updateAvailable"] as! Int) == 1) {
                             incrementBadgeNumber()
@@ -133,8 +137,8 @@ class SystemInstancesModel : NSObject {
             }
         } else {
             do {
-                try FileManager.default.createDirectory(atPath: applicationSupportAppNameURL, withIntermediateDirectories: false, attributes: nil)
                 try FileManager.default.createDirectory(atPath: plistFilesPath, withIntermediateDirectories: false, attributes: nil)
+                try FileManager.default.createDirectory(atPath: configurationFilePath, withIntermediateDirectories: false, attributes: nil)
             } catch _ as NSError {
                 NSLog("plist folder Application Support creation failed")
             }

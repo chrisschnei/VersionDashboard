@@ -21,6 +21,9 @@ class SummaryViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         PreferencesViewController().loadConfigurationFile()
+        if(headInstances.count == 0) {
+            HeadInstancesModel().loadConfigfiles()
+        }
         if(systemInstances.count == 0) {
             SystemInstancesModel().loadConfigfiles()
         }
@@ -58,7 +61,7 @@ class SummaryViewController: NSViewController {
         self.pieChartInstanceOutdated.chartDescription?.text = ""
     }
     
-    func checksFinished() {
+    @objc func checksFinished() {
         self.refreshActiveSpinner.stopAnimation(self)
         self.refreshActiveSpinner.isHidden = true
         systemInstances.removeAll()
@@ -70,7 +73,7 @@ class SummaryViewController: NSViewController {
     @IBAction func checkAllInstances(_ sender: AnyObject) {
         self.refreshActiveSpinner.isHidden = false
         self.refreshActiveSpinner.startAnimation(self)
-        SystemInstancesModel().checkAllInstancesVersions() { result in
+        SystemInstancesModel().checkAllInstancesVersions(force: false) { result in
             self.performSelector(onMainThread: #selector(SummaryViewController.checksFinished), with: self, waitUntilDone: true)
         }
     }

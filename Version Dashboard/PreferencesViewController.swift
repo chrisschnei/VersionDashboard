@@ -27,16 +27,15 @@ class PreferencesViewController: NSViewController {
     func setConfigurationValues() {
         self.dropdownInterval.addItems(withObjectValues: refreshIntervals)
         self.dropdownInterval.selectItem(withObjectValue: configurationSettings["interval"] as! String)
-        self.activatedCheckbox.state = Int((configurationSettings["automaticRefreshActive"] as! Bool) as NSNumber)
+        self.activatedCheckbox.state = NSControl.StateValue(rawValue: configurationSettings["automaticRefreshActive"] as! Int)
     }
     
     func loadConfigurationFile() {
         let fileManager = FileManager.default
         if !fileManager.fileExists(atPath: configurationFilePath) {
             do {
-                try fileManager.createDirectory(atPath: applicationSupportAppNameURL, withIntermediateDirectories: true, attributes: nil)
                 try fileManager.createDirectory(atPath: plistFilesPath, withIntermediateDirectories: true, attributes: nil)
-                try fileManager.copyItem(atPath: appBundleConfigurationPath, toPath: configurationFilePath)
+                try fileManager.copyItem(atPath: appBundleConfigationPath, toPath: configurationFilePath)
             }
             catch let error as NSError {
                 NSLog("Error copying configuration.plist file to Application Support: \(error)")
@@ -52,7 +51,7 @@ class PreferencesViewController: NSViewController {
     
     func saveConfigurationFile() {
         configurationSettings["interval"] = self.dropdownInterval.selectedCell()?.stringValue as AnyObject?
-        configurationSettings["automaticRefreshActive"] = Bool((self.activatedCheckbox.state as AnyObject?)as! NSNumber)
+        configurationSettings["automaticRefreshActive"] = Bool(truncating: (self.activatedCheckbox.state as AnyObject?)as! NSNumber)
         
         let dict: NSMutableDictionary = NSMutableDictionary()
         dict.setObject(configurationSettings["interval"] as! String, forKey: "interval" as NSCopying)
@@ -68,10 +67,10 @@ class PreferencesViewController: NSViewController {
     
     @IBAction func savePreferences(_ sender: AnyObject) {
         self.saveConfigurationFile()
-        if(self.activatedCheckbox.state == 1) {
+        if(self.activatedCheckbox.state.rawValue == 1) {
             self.stopTimer()
             self.automaticRefresh()
-        } else if(self.activatedCheckbox.state == 0) {
+        } else if(self.activatedCheckbox.state.rawValue == 0) {
             self.stopTimer()
         }
         self.dismiss(self)
@@ -81,9 +80,9 @@ class PreferencesViewController: NSViewController {
         self.dismiss(self)
     }
     
-    func checkInstancesAutomatic() {
+    @objc func checkInstancesAutomatic() {
         if(checkInternetConnection()) {
-            SystemInstancesModel().checkAllInstancesVersions() { result in
+            SystemInstancesModel().checkAllInstancesVersions(force: false) { result in
             }
         }
     }

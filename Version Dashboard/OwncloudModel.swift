@@ -10,13 +10,14 @@ import Foundation
 
 class OwncloudModel : GenericModel {
     
-    func getVersions() -> Bool {
-        let headVersion = self.getLatestVersion(owncloudAPIUrl)
+    func getVersions(forceUpdate: Bool) -> Bool {
+        let owncloudheadobject = headInstances["Owncloud"] as! OwncloudHeadModel
+        owncloudheadobject.getVersion(forceUpdate: forceUpdate)
         let currentVersion = self.getInstanceVersion((self.hosturl) + owncloudStatusFile)
         self.phpVersionRequest(self.phpReturnHandler)
-        if(headVersion != "" && currentVersion != "") {
-            self.headVersion = headVersion
+        if(currentVersion != "") {
             self.currentVersion = currentVersion
+            self.headVersion = owncloudheadobject.headVersion
             return true
         }
         return false

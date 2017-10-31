@@ -9,11 +9,26 @@
 import Foundation
 
 let appurl = Bundle.main.bundlePath
-let applicationSupportURL = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
-let applicationSupportAppNameURL = applicationSupportURL[0] + "/Version Dashboard"
-let plistFilesPath = applicationSupportURL[0] + "/Version Dashboard/config/"
-let configurationFilePath = applicationSupportAppNameURL + "/configuration.plist"
-let appBundleConfigurationPath = appurl + "/Contents/Resources/configuration.plist"
+let applicationSupportPath = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true).first!
+let applicationSupportAppname = applicationSupportPath + "/Version Dashboard"
+let plistFilesPath = applicationSupportAppname + "/config/"
+let headPlistFilesPath = applicationSupportAppname + "/head/"
+
+let appBundleConfigationPath = appurl + "/Contents/Resources/configuration.plist"
+let configurationFilePath = applicationSupportAppname + "/configuration.plist"
+
+let appBundleJoomlaPath = appurl + "/Contents/Resources/joomla.plist"
+let appBundlewordpressPath = appurl + "/Contents/Resources/wordpress.plist"
+let appBundleOwncloudPath = appurl + "/Contents/Resources/owncloud.plist"
+let appBundlePiwikPath = appurl + "/Contents/Resources/piwik.plist"
+let joomlaHead = "joomla.plist"
+let joomlaFilePath = headPlistFilesPath + joomlaHead
+let wordpressHead = "wordpress.plist"
+let wordpressFilePath = headPlistFilesPath + wordpressHead
+let owncloudHead = "owncloud.plist"
+let owncloudFilePath = headPlistFilesPath + owncloudHead
+let piwikHead = "piwik.plist"
+let piwikFilePath = headPlistFilesPath + piwikHead
 
 let dateformat = "dd-MM-yyyy"
 
@@ -31,8 +46,8 @@ let piwikLatestVersionURL = "https://api.piwik.org/1.0/getLatestVersion/"
 let owncloudAPIUrl = "https://owncloud.org/install/#edition"
 let owncloudStatusFile = "status.php"
 
-let typo3JSONUrl = "https://get.typo3.org/json"
-
 let refreshIntervals = ["6", "12", "24", "48"]
+
+let refreshHeadInstances = 10800
 
 var timer: Timer = Timer()

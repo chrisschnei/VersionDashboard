@@ -10,13 +10,14 @@ import Foundation
 
 class WordpressModel : GenericModel {
     
-    func getVersions() -> Bool {
-        let headVersion = self.getInstanceVersionJSON(wordpressAPIUrl)
+    func getVersions(forceUpdate: Bool) -> Bool {
+        let wordpressheadobject = headInstances["Wordpress"] as! WordpressHeadModel
+        wordpressheadobject.getVersion(forceUpdate: forceUpdate)
         let currentVersion = self.getInstanceVersion(self.hosturl)
         self.phpVersionRequest(self.phpReturnHandler)
-        if(headVersion != "" && currentVersion != "") {
-            self.headVersion = headVersion
+        if(currentVersion != "") {
             self.currentVersion = currentVersion
+            self.headVersion = wordpressheadobject.headVersion
             return true
         }
         return false

@@ -26,7 +26,7 @@ class WordpressViewController: NSViewController {
         if(SystemInstancesModel().checkInstanceNameAlreadyPresent(self.instanceName.stringValue)) {
             return
         }
-        let wordpressinstance = WordpressModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Wordpress", headVersion: "", updateAvailable: 0, phpVersion: "", serverType: "")
+        let wordpressinstance = WordpressModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, headVersion: "", lastRefresh: "", name: instanceName.stringValue, type: "Wordpress", updateAvailable: 0, phpVersion: "", serverType: "")
         _ = wordpressinstance.saveConfigfile()
         NotificationCenter.default.post(name: Notification.Name(rawValue: "load"), object: nil)
         self.dismiss(self)

@@ -12,8 +12,8 @@ class GenericModel: GenericModelProtocol {
     
     var hosturl = String()
     var currentVersion = String()
-    var lastRefresh = String()
     var headVersion = String()
+    var lastRefresh = String()
     var creationDate = String()
     var updateAvailable = Int()
     var name = String()
@@ -21,11 +21,11 @@ class GenericModel: GenericModelProtocol {
     var phpVersion = String()
     var serverType = String()
     
-    init(creationDate: String, currentVersion: String, hosturl: String, lastRefresh: String, name: String, type: String, headVersion: String, updateAvailable: Int, phpVersion: String, serverType: String) {
+    init(creationDate: String, currentVersion: String, hosturl: String, headVersion: String, lastRefresh: String, name: String, type: String, updateAvailable: Int, phpVersion: String, serverType: String) {
         self.hosturl = hosturl
         self.currentVersion = currentVersion
-        self.lastRefresh = lastRefresh
         self.headVersion = headVersion
+        self.lastRefresh = lastRefresh
         self.creationDate = creationDate
         self.name = name
         self.updateAvailable = updateAvailable
@@ -56,8 +56,8 @@ class GenericModel: GenericModelProtocol {
         dict.setObject(self.hosturl, forKey: "hosturl" as NSCopying)
         dict.setObject(self.name, forKey: "name" as NSCopying)
         dict.setObject(self.currentVersion, forKey: "currentVersion" as NSCopying)
-        dict.setObject(self.lastRefresh, forKey: "lastRefresh" as NSCopying)
         dict.setObject(self.headVersion, forKey: "headVersion" as NSCopying)
+        dict.setObject(self.lastRefresh, forKey: "lastRefresh" as NSCopying)
         dict.setObject(self.creationDate, forKey: "creationDate" as NSCopying)
         dict.setObject(self.updateAvailable, forKey: "updateAvailable" as NSCopying)
         dict.setObject(self.phpVersion, forKey: "phpVersion" as NSCopying)

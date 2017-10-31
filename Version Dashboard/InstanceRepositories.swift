@@ -10,6 +10,8 @@ import Foundation
 
 var systemInstances = Dictionary<String, AnyObject>()
 
+var headInstances = Dictionary<String, AnyObject>()
+
 var outdatedInstances : [String] = []
 
 var configurationSettings = Dictionary<String, Any>()

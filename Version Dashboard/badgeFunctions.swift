@@ -6,10 +6,11 @@
 //  Copyright © 2016 NonameCompany. All rights reserved.
 //
 
-import Cocoa
+import Foundation
+import AppKit
 
 func incrementBadgeNumber() {
-    let doc = NSApp.dockTile as NSDockTile
+    let doc = NSApplication.shared.dockTile
     if(doc.badgeLabel == nil || doc.badgeLabel == "") {
         doc.badgeLabel = "0"
     }
@@ -18,7 +19,7 @@ func incrementBadgeNumber() {
 }
 
 func decrementBadgeNumber() {
-    let doc = NSApp.dockTile as NSDockTile
+    let doc = NSApplication.shared.dockTile
     let batchnumber = Int(doc.badgeLabel!)!
     if(batchnumber > 1) {
         doc.badgeLabel = String(batchnumber - 1)
@@ -28,6 +29,6 @@ func decrementBadgeNumber() {
 }
 
 func zeroBadgeNumber() {
-    let doc = NSApp.dockTile as NSDockTile
+    let doc = NSApplication.shared.dockTile
     doc.badgeLabel = ""
 }

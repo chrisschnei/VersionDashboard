@@ -14,17 +14,18 @@ class PiwikModel : GenericModel, XMLParserDelegate {
     var version = String()
     
     init(creationDate: String, currentVersion: String, hosturl: String, apiToken: String, lastRefresh: String, name: String, type: String, headVersion: String, updateAvailable: Int, phpVersion: String, serverType: String) {
-        super.init(creationDate: creationDate, currentVersion: currentVersion, hosturl: hosturl, lastRefresh: lastRefresh, name: name, type: type, headVersion: headVersion, updateAvailable: updateAvailable, phpVersion: phpVersion, serverType: serverType)
+        super.init(creationDate: creationDate, currentVersion: currentVersion, hosturl: hosturl, headVersion: headVersion, lastRefresh: lastRefresh, name: name, type: type, updateAvailable: updateAvailable, phpVersion: phpVersion, serverType: serverType)
         self.apiToken = apiToken
     }
     
-    func getVersions() -> Bool {
-        let headVersion = self.getInstanceVersion(piwikLatestVersionURL)
+    func getVersions(forceUpdate: Bool) -> Bool {
+        let piwikheadobject = headInstances["Piwik"] as! PiwikHeadModel
+        piwikheadobject.getVersion(forceUpdate: forceUpdate)
         let currentVersion = self.getInstanceVersionXML(((self.hosturl) + piwikAPIUrl) + self.apiToken)
         self.phpVersionRequest(self.phpReturnHandler)
-        if(headVersion != "" && !currentVersion.isEmpty) {
-            self.headVersion = headVersion
+        if(!currentVersion.isEmpty) {
             self.currentVersion = currentVersion
+            self.headVersion = piwikheadobject.headVersion
             return true
         }
         return false
@@ -43,7 +44,6 @@ class PiwikModel : GenericModel, XMLParserDelegate {
         dict.setObject(self.name, forKey: "name" as NSCopying)
         dict.setObject(self.currentVersion, forKey: "currentVersion" as NSCopying)
         dict.setObject(self.lastRefresh, forKey: "lastRefresh" as NSCopying)
-        dict.setObject(self.headVersion, forKey: "headVersion" as NSCopying)
         dict.setObject(self.creationDate, forKey: "creationDate" as NSCopying)
         dict.setObject(self.apiToken, forKey: "apiToken" as NSCopying)
         dict.setObject(self.updateAvailable, forKey: "updateAvailable" as NSCopying)

@@ -126,6 +126,74 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
         }
     }
     
+    func updateSingleInstance(instanceName: String, completion: @escaping (Bool) -> ()) {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
+            var returnValue = true
+            if((systemInstances[instanceName] as? JoomlaModel) != nil) {
+                let joomlaHeadModel = headInstances["Joomla"].self as! JoomlaHeadModel
+                if(!(joomlaHeadModel.saveConfigfile(filename: joomlaHead))) {
+                    print("Error saving Joomla headversion plist File.")
+                }
+                let joomlamodel = systemInstances[instanceName] as? JoomlaModel
+                if(joomlamodel!.getVersions(forceUpdate: false)) {
+                    joomlamodel!.checkNotificationRequired()
+                } else {
+                    returnValue = false
+                }
+                joomlamodel!.updateDate()
+                if(!(joomlamodel!.saveConfigfile())) {
+                    print("Error saving plist File.")
+                }
+            } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
+                let owncloudHeadModel = headInstances["Owncloud"].self as! OwncloudHeadModel
+                if(!(owncloudHeadModel.saveConfigfile(filename: owncloudHead))) {
+                    print("Error saving Owncloud headversion plist File.")
+                }
+                let owncloudmodel = systemInstances[instanceName] as? OwncloudModel
+                if(owncloudmodel!.getVersions(forceUpdate: false)) {
+                    owncloudmodel!.checkNotificationRequired()
+                } else {
+                    returnValue = false
+                }
+                owncloudmodel!.updateDate()
+                if(!(owncloudmodel!.saveConfigfile())) {
+                    print("Error saving plist File.")
+                }
+            } else if((systemInstances[instanceName] as? PiwikModel) != nil) {
+                let piwikHeadModel = headInstances["Piwik"].self as! PiwikHeadModel
+                if(!(piwikHeadModel.saveConfigfile(filename: piwikHead))) {
+                    print("Error saving Piwik headversion plist File.")
+                }
+                let piwikmodel = systemInstances[instanceName] as? PiwikModel
+                if(piwikmodel!.getVersions(forceUpdate: false)) {
+                    piwikmodel!.checkNotificationRequired()
+                } else {
+                    returnValue = false
+                }
+                piwikmodel!.updateDate()
+                if(!(piwikmodel!.saveConfigfile())) {
+                    print("Error saving plist File.")
+                }
+            } else if((systemInstances[instanceName] as? WordpressModel) != nil) {
+                let wordpressHeadModel = headInstances["Wordpress"].self as! WordpressHeadModel
+                if(!(wordpressHeadModel.saveConfigfile(filename: wordpressHead))) {
+                    print("Error saving Wordpress headversion plist File.")
+                }
+                let wordpressmodel = systemInstances[instanceName] as? WordpressModel
+                if(wordpressmodel!.getVersions(forceUpdate: false)) {
+                    wordpressmodel!.checkNotificationRequired()
+                } else {
+                    returnValue = false
+                }
+                wordpressmodel!.updateDate()
+                if(!(wordpressmodel!.saveConfigfile())) {
+                    print("Error saving plist File.")
+                }
+            }
+            completion(returnValue)
+        }
+    }
+    
     @IBAction func refreshInstance(_ sender: AnyObject) {
         self.spinner.isHidden = false
         self.spinner.startAnimation(self)
@@ -133,95 +201,35 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
             let selectedRow = tableView.selectedRow
             if(selectedRow != -1) {
                 let instanceName = outdatedInstances[selectedRow]
-                if((systemInstances[instanceName] as? JoomlaModel) != nil) {
-                    let joomlamodel = systemInstances[instanceName] as? JoomlaModel
-                    //Remote Version url
-                    if(joomlamodel!.getVersions()) {
-                        //Check Version
-                        self.errorLabel.isHidden = true
-                        joomlamodel!.checkNotificationRequired()
-                    } else {
-                        print(NSLocalizedString("errorfetchingVersions", comment: ""))
-                        self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                        self.errorLabel.isHidden = false
-                    }
-                    //Date
-                    joomlamodel!.updateDate()
-                    if(!(joomlamodel!.saveConfigfile())) {
-                        print("Error saving plist File.")
-                    }
-                    self.tableView.deselectAll(self)
-                    self.tableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
-                } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
-                    let owncloudmodel = systemInstances[instanceName] as? OwncloudModel
-                    //Remote Version url
-                    if(owncloudmodel!.getVersions()) {
-                        //Check Version
-                        self.errorLabel.isHidden = true
-                        owncloudmodel!.checkNotificationRequired()
-                    } else {
-                        print(NSLocalizedString("errorfetchingVersions", comment: ""))
-                        self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                        self.errorLabel.isHidden = false
-                    }
-                    //Date
-                    owncloudmodel!.updateDate()
-                    if(!(owncloudmodel!.saveConfigfile())) {
-                        print("Error saving plist File.")
-                    }
-                    self.tableView.deselectAll(self)
-                    self.tableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
-                } else if((systemInstances[instanceName] as? PiwikModel) != nil) {
-                    let piwikmodel = systemInstances[instanceName] as? PiwikModel
-                    //Remote Version url
-                    if(piwikmodel!.getVersions()) {
-                        //Check Version
-                        self.errorLabel.isHidden = true
-                        piwikmodel!.checkNotificationRequired()
-                    } else {
-                        print(NSLocalizedString("errorfetchingVersions", comment: ""))
-                        self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                        self.errorLabel.isHidden = false
-                    }
-                    //Date
-                    piwikmodel!.updateDate()
-                    if(!(piwikmodel!.saveConfigfile())) {
-                        print("Error saving plist File.")
-                    }
-                    self.tableView.deselectAll(self)
-                    self.tableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
-                } else if((systemInstances[instanceName] as? WordpressModel) != nil) {
-                    let wordpressmodel = systemInstances[instanceName] as? WordpressModel
-                    //Remote Version url
-                    if(wordpressmodel!.getVersions()) {
-                        //Check Version
-                        self.errorLabel.isHidden = true
-                        wordpressmodel!.checkNotificationRequired()
-                    } else {
-                        print(NSLocalizedString("errorfetchingVersions", comment: ""))
-                        self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                        self.errorLabel.isHidden = false
-                    }
-                    //Date
-                    wordpressmodel!.updateDate()
-                    if(!(wordpressmodel!.saveConfigfile())) {
-                        print("Error saving plist File.")
-                    }
-                    self.tableView.deselectAll(self)
-                    self.tableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
+                self.updateSingleInstance(instanceName: instanceName) { completion in
+                    let parameters = ["self": self, "completion" : completion, "selectedRow" : selectedRow] as [String : Any]
+                    self.performSelector(onMainThread: #selector(self.checksFinished), with: parameters, waitUntilDone: true)
                 }
             } else {
                 self.errorLabel.stringValue = NSLocalizedString("noSelectionMade", comment: "")
                 self.errorLabel.isHidden = false
+                self.spinner.stopAnimation(self)
+                self.spinner.isHidden = true
             }
         } else {
             self.errorLabel.isHidden = false
             self.refreshButton.stringValue = NSLocalizedString("retry", comment: "")
         }
-        self.spinner.stopAnimation(self)
-        self.spinner.isHidden = true
         self.reloadTable()
     }
+
+@objc func checksFinished(_ parameters: [String: Any]) {
+    self.spinner.stopAnimation(parameters["self"])
+    self.spinner.isHidden = true
+    if (!(parameters["completion"] as! Bool)) {
+        self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+        self.errorLabel.isHidden = false
+    } else {
+        self.errorLabel.isHidden = true
+    }
+    self.tableView.deselectAll(parameters["self"])
+    self.tableView.selectRowIndexes((IndexSet(integer:parameters["selectedRow"] as! Int)), byExtendingSelection: false)
+}
     
     func reloadTable() {
         let selectedRow = self.tableView.selectedRow
@@ -235,16 +243,16 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?
     {
         self.tableView.rowHeight = 30.0
-        let cellView = tableView.make(withIdentifier: "InstanceName", owner: self) as! NSTableCellView
+        let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "InstanceName"), owner: self) as! NSTableCellView
         let name = outdatedInstances[row]
         if((systemInstances[name] as? OwncloudModel) != nil) {
-            cellView.imageView!.image = NSImage(named: "owncloud_dots.png")!
+            cellView.imageView!.image = NSImage(named: NSImage.Name(rawValue: "owncloud_dots.png"))!
         } else if((systemInstances[name] as? PiwikModel) != nil) {
-            cellView.imageView!.image = NSImage(named: "piwik_dots.png")!
+            cellView.imageView!.image = NSImage(named: NSImage.Name(rawValue: "piwik_dots.png"))!
         } else if((systemInstances[name] as? WordpressModel) != nil) {
-            cellView.imageView!.image = NSImage(named: "wordpress_dots.png")!
+            cellView.imageView!.image = NSImage(named: NSImage.Name(rawValue: "wordpress_dots.png"))!
         } else if((systemInstances[name] as? JoomlaModel) != nil) {
-            cellView.imageView!.image = NSImage(named: "joomla_dots.png")!
+            cellView.imageView!.image = NSImage(named: NSImage.Name(rawValue: "joomla_dots.png"))!
         }
         cellView.textField?.stringValue = name
         return cellView

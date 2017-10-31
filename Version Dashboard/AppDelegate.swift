@@ -21,6 +21,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         return true
     }
     
+    @IBAction func forceUpdateHeadVersion(_ sender: Any) {
+        SystemInstancesModel().checkAllInstancesVersions(force: true) { result in
+        }
+    }
+    
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
         mainWindowController?.window?.makeKeyAndOrderFront(self)
         return false

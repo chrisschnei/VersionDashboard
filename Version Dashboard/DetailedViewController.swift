@@ -23,6 +23,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     @IBOutlet weak var systemTableView: NSTableView!
     @IBOutlet weak var noInternetConnection: NSTextField!
     @IBOutlet weak var checkActiveSpinner: NSProgressIndicator!
+    @IBOutlet weak var activeSpinnter: NSProgressIndicator!
     @IBOutlet weak var takeMeToMyInstance: NSButton!
     @IBOutlet weak var phpVersionLabel: NSTextField!
     @IBOutlet weak var phpVersion: NSTextField!
@@ -69,7 +70,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             } else if((instance as? OwncloudModel) != nil) {
                 url = (instance as! OwncloudModel).hosturl
             }
-            NSWorkspace.shared().open(URL(string: url)!)
+            NSWorkspace.shared.open(URL(string: url)!)
         }
     }
     
@@ -100,7 +101,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         self.systemTableView.reloadData()
     }
     
-    func reloadTable(_ notification: Notification) {
+    @objc func reloadTable(_ notification: Notification) {
         let selectedRow = self.systemTableView.selectedRow
         self.systemTableView.deselectAll(self)
         systemInstances.removeAll()
@@ -109,97 +110,109 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         self.systemTableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
     }
     
+    func updateSingleInstance(instanceName: String, completion: @escaping (Bool) -> ()) {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
+            var returnValue = true
+            if((systemInstances[instanceName] as? JoomlaModel) != nil) {
+                let joomlaHeadModel = headInstances["Joomla"].self as! JoomlaHeadModel
+                if(!(joomlaHeadModel.saveConfigfile(filename: joomlaHead))) {
+                    print("Error saving Joomla headversion plist File.")
+                }
+                let joomlamodel = systemInstances[instanceName] as? JoomlaModel
+                if(joomlamodel!.getVersions(forceUpdate: false)) {
+                    joomlamodel!.checkNotificationRequired()
+                } else {
+                    returnValue = false
+                }
+                joomlamodel!.updateDate()
+                if(!(joomlamodel!.saveConfigfile())) {
+                    print("Error saving plist File.")
+                }
+            } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
+                let owncloudHeadModel = headInstances["Owncloud"].self as! OwncloudHeadModel
+                if(!(owncloudHeadModel.saveConfigfile(filename: owncloudHead))) {
+                    print("Error saving Owncloud headversion plist File.")
+                }
+                let owncloudmodel = systemInstances[instanceName] as? OwncloudModel
+                if(owncloudmodel!.getVersions(forceUpdate: false)) {
+                    owncloudmodel!.checkNotificationRequired()
+                } else {
+                    returnValue = false
+                }
+                owncloudmodel!.updateDate()
+                if(!(owncloudmodel!.saveConfigfile())) {
+                    print("Error saving plist File.")
+                }
+            } else if((systemInstances[instanceName] as? PiwikModel) != nil) {
+                let piwikHeadModel = headInstances["Piwik"].self as! PiwikHeadModel
+                if(!(piwikHeadModel.saveConfigfile(filename: piwikHead))) {
+                    print("Error saving Piwik headversion plist File.")
+                }
+                let piwikmodel = systemInstances[instanceName] as? PiwikModel
+                if(piwikmodel!.getVersions(forceUpdate: false)) {
+                    piwikmodel!.checkNotificationRequired()
+                } else {
+                    returnValue = false
+                }
+                piwikmodel!.updateDate()
+                if(!(piwikmodel!.saveConfigfile())) {
+                    print("Error saving plist File.")
+                }
+            } else if((systemInstances[instanceName] as? WordpressModel) != nil) {
+                let wordpressHeadModel = headInstances["Wordpress"].self as! WordpressHeadModel
+                if(!(wordpressHeadModel.saveConfigfile(filename: wordpressHead))) {
+                    print("Error saving Wordpress headversion plist File.")
+                }
+                let wordpressmodel = systemInstances[instanceName] as? WordpressModel
+                if(wordpressmodel!.getVersions(forceUpdate: false)) {
+                    wordpressmodel!.checkNotificationRequired()
+                } else {
+                    returnValue = false
+                }
+                wordpressmodel!.updateDate()
+                if(!(wordpressmodel!.saveConfigfile())) {
+                    print("Error saving plist File.")
+                }
+            }
+            completion(returnValue)
+        }
+    }
+    
     @IBAction func refreshInstance(_ sender: AnyObject) {
         self.checkActiveSpinner.isHidden = false
         self.checkActiveSpinner.startAnimation(self)
         if(checkInternetConnection()) {
-            let selectedRow = systemTableView.selectedRow
+            let selectedRow = self.systemTableView.selectedRow
             if(selectedRow != -1) {
                 let instanceName = Array(systemInstances.keys)[selectedRow]
-                if((systemInstances[instanceName] as? JoomlaModel) != nil) {
-                    let joomlamodel = systemInstances[instanceName] as? JoomlaModel
-                    //Remote Version url
-                    if(joomlamodel!.getVersions()) {
-                        //Check Version
-                        self.noInternetConnection.isHidden = true
-                        joomlamodel!.checkNotificationRequired()
-                    } else {
-                        self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                        self.noInternetConnection.isHidden = false
-                    }
-                    //Date
-                    joomlamodel!.updateDate()
-                    if(!(joomlamodel!.saveConfigfile())) {
-                        print("Error saving plist File.")
-                    }
-                    self.systemTableView.deselectAll(self)
-                    self.systemTableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
-                } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
-                    let owncloudmodel = systemInstances[instanceName] as? OwncloudModel
-                    //Remote Version url
-                    if(owncloudmodel!.getVersions()) {
-                        //Check Version
-                        self.noInternetConnection.isHidden = true
-                        owncloudmodel!.checkNotificationRequired()
-                    } else {
-                        self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                        self.noInternetConnection.isHidden = false
-                    }
-                    //Date
-                    owncloudmodel!.updateDate()
-                    if(!(owncloudmodel!.saveConfigfile())) {
-                        print("Error saving plist File.")
-                    }
-                    self.systemTableView.deselectAll(self)
-                    self.systemTableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
-                } else if((systemInstances[instanceName] as? PiwikModel) != nil) {
-                    let piwikmodel = systemInstances[instanceName] as? PiwikModel
-                    //Remote Version url
-                    if(piwikmodel!.getVersions()) {
-                        //Check Version
-                        self.noInternetConnection.isHidden = true
-                        piwikmodel!.checkNotificationRequired()
-                    } else {
-                        self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                        self.noInternetConnection.isHidden = false
-                    }
-                    //Date
-                    piwikmodel!.updateDate()
-                    if(!(piwikmodel!.saveConfigfile())) {
-                        print("Error saving plist File.")
-                    }
-                    self.systemTableView.deselectAll(self)
-                    self.systemTableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
-                } else if((systemInstances[instanceName] as? WordpressModel) != nil) {
-                    let wordpressmodel = systemInstances[instanceName] as? WordpressModel
-                    //Remote Version url
-                    if(wordpressmodel!.getVersions()) {
-                        //Check Version
-                        self.noInternetConnection.isHidden = true
-                        wordpressmodel!.checkNotificationRequired()
-                    } else {
-                        self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-                        self.noInternetConnection.isHidden = false
-                    }
-                    //Date
-                    wordpressmodel!.updateDate()
-                    if(!(wordpressmodel!.saveConfigfile())) {
-                        print("Error saving plist File.")
-                    }
-                    self.systemTableView.deselectAll(self)
-                    self.systemTableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
+                self.updateSingleInstance(instanceName: instanceName) { completion in
+                    let parameters = ["self": self, "completion" : completion, "selectedRow" : selectedRow] as [String : Any]
+                    self.performSelector(onMainThread: #selector(self.checksFinished), with: parameters, waitUntilDone: true)
                 }
             } else {
                 self.noInternetConnection.stringValue = NSLocalizedString("noSelectionMade", comment: "")
                 self.noInternetConnection.isHidden = false
+                self.checkActiveSpinner.stopAnimation(self)
+                self.checkActiveSpinner.isHidden = true
             }
         } else {
             self.noInternetConnection.stringValue = NSLocalizedString("errorInternetConnection", comment: "")
             self.noInternetConnection.isHidden = false
             self.refreshButton.stringValue = NSLocalizedString("retry", comment: "")
         }
-        self.checkActiveSpinner.stopAnimation(self)
+    }
+    
+    @objc func checksFinished(_ parameters: [String: Any]) {
+        self.checkActiveSpinner.stopAnimation(parameters["self"])
         self.checkActiveSpinner.isHidden = true
+        if (!(parameters["completion"] as! Bool)) {
+            self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+            self.noInternetConnection.isHidden = false
+        } else {
+            self.noInternetConnection.isHidden = true
+        }
+        self.systemTableView.deselectAll(parameters["self"])
+        self.systemTableView.selectRowIndexes((IndexSet(integer:parameters["selectedRow"] as! Int)), byExtendingSelection: false)
     }
     
     func updateInstanceDetails(_ index: Int) {
@@ -209,10 +222,11 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             let modelclass = systemInstances[key].self!
             if((modelclass as? JoomlaModel) != nil) {
                 let joomlaobject = modelclass as? JoomlaModel
+                let joomlahead = headInstances["Joomla"].self! as? JoomlaHeadModel
                 self.hostLabel.stringValue = joomlaobject!.hosturl
                 self.systemLabel.stringValue = joomlaobject!.name
                 self.lastcheckLabel.stringValue = joomlaobject!.lastRefresh
-                self.latestsversionLabel.stringValue = joomlaobject!.headVersion
+                self.latestsversionLabel.stringValue = (joomlahead?.headVersion)!
                 self.deployedversionLabel.stringValue = joomlaobject!.currentVersion
                 self.phpVersion.stringValue = joomlaobject!.phpVersion
                 self.webserver.stringValue = joomlaobject!.serverType
@@ -227,10 +241,11 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 }
             } else if((modelclass as? OwncloudModel) != nil) {
                 let owncloudmodel = modelclass as? OwncloudModel
+                let owncloudhead = headInstances["Owncloud"] as! OwncloudHeadModel
                 self.hostLabel.stringValue = owncloudmodel!.hosturl
                 self.systemLabel.stringValue = owncloudmodel!.name
                 self.lastcheckLabel.stringValue = owncloudmodel!.lastRefresh
-                self.latestsversionLabel.stringValue = owncloudmodel!.headVersion
+                self.latestsversionLabel.stringValue = owncloudhead.headVersion
                 self.deployedversionLabel.stringValue = owncloudmodel!.currentVersion
                 self.phpVersion.stringValue = owncloudmodel!.phpVersion
                 self.webserver.stringValue = owncloudmodel!.serverType
@@ -245,10 +260,11 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 }
             } else if((modelclass as? PiwikModel) != nil) {
                 let piwikmodel = modelclass as? PiwikModel
+                let piwikhead = headInstances["Piwik"] as! PiwikHeadModel
                 self.hostLabel.stringValue = piwikmodel!.hosturl
                 self.systemLabel.stringValue = piwikmodel!.name
                 self.lastcheckLabel.stringValue = piwikmodel!.lastRefresh
-                self.latestsversionLabel.stringValue = piwikmodel!.headVersion
+                self.latestsversionLabel.stringValue = piwikhead.headVersion
                 self.deployedversionLabel.stringValue = piwikmodel!.currentVersion
                 self.phpVersion.stringValue = piwikmodel!.phpVersion
                 self.webserver.stringValue = piwikmodel!.serverType
@@ -263,10 +279,11 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 }
             } else if((modelclass as? WordpressModel) != nil) {
                 let wordpressmodel = modelclass as? WordpressModel
+                let wordpresshead = headInstances["Wordpress"] as! WordpressHeadModel
                 self.hostLabel.stringValue = wordpressmodel!.hosturl
                 self.systemLabel.stringValue = wordpressmodel!.name
                 self.lastcheckLabel.stringValue = wordpressmodel!.lastRefresh
-                self.latestsversionLabel.stringValue = wordpressmodel!.headVersion
+                self.latestsversionLabel.stringValue = wordpresshead.headVersion
                 self.deployedversionLabel.stringValue = wordpressmodel!.currentVersion
                 self.phpVersion.stringValue = wordpressmodel!.phpVersion
                 self.webserver.stringValue = wordpressmodel!.serverType
@@ -290,17 +307,17 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?
     {
         self.systemTableView.rowHeight = 30.0
-        let cellView = tableView.make(withIdentifier: "InstanceName", owner: self) as! NSTableCellView
+        let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "InstanceName"), owner: self) as! NSTableCellView
         let instancesArray = Array(systemInstances.keys)
         let name = instancesArray[row]
         if((systemInstances[name] as? OwncloudModel) != nil) {
-            cellView.imageView!.image = NSImage(named: "owncloud_dots.png")!
+            cellView.imageView!.image = NSImage(named: NSImage.Name(rawValue: "owncloud_dots.png"))!
         } else if((systemInstances[name] as? PiwikModel) != nil) {
-            cellView.imageView!.image = NSImage(named: "piwik_dots.png")!
+            cellView.imageView!.image = NSImage(named: NSImage.Name(rawValue: "piwik_dots.png"))!
         } else if((systemInstances[name] as? WordpressModel) != nil) {
-            cellView.imageView!.image = NSImage(named: "wordpress_dots.png")!
+            cellView.imageView!.image = NSImage(named: NSImage.Name(rawValue: "wordpress_dots.png"))!
         } else if((systemInstances[name] as? JoomlaModel) != nil) {
-            cellView.imageView!.image = NSImage(named: "joomla_dots.png")!
+            cellView.imageView!.image = NSImage(named: NSImage.Name(rawValue: "joomla_dots.png"))!
         }
         cellView.textField?.stringValue = name
         return cellView
