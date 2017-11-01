@@ -93,18 +93,14 @@ class GenericModel: GenericModelProtocol {
         let lines = (String(describing: data)).components(separatedBy: "\n")
         if(lines.count > 0) {
             for line in lines {
-                if(line.range(of: "X-Powered-By") != nil) {
-                    let phpArray = line.components(separatedBy: "=")
-                    let phpString = phpArray[1].components(separatedBy: "PHP/")
+                if(line.range(of: "PHP/") != nil) {
+                    let phpString = line.components(separatedBy: "PHP/")
                     let number = phpString[1].components(separatedBy: "\"")[0]
                     self.phpVersion = number
                 }
-                if(line.range(of: "Server") != nil) {
-                    let phpArray = line.components(separatedBy: "=")
-                    let phpString = phpArray[1].components(separatedBy: "\"")
-                    if(phpString.indices.contains(1)) {
-                        let server = phpString[1].components(separatedBy: "\"")[0]
-                        self.serverType = server
+                if(line.range(of: "Apache") != nil || line.range(of: "nginx") != nil) {
+                    if(line != "") {
+                        self.serverType = line.trimmingCharacters(in: .whitespaces).replacingOccurrences(of: "\"", with: "")
                     } else {
                         self.serverType = ""
                     }
