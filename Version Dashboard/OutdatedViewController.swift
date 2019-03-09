@@ -230,13 +230,13 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
         let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "InstanceName"), owner: self) as! NSTableCellView
         let name = outdatedInstances[row]
         if((systemInstances[name] as? OwncloudModel) != nil) {
-            cellView.imageView!.image = NSImage(named: NSImage.Name(rawValue: "owncloud_dots.png"))!
+            cellView.imageView!.image = NSImage(named: NSImage.Name("owncloud_dots.png"))!
         } else if((systemInstances[name] as? PiwikModel) != nil) {
-            cellView.imageView!.image = NSImage(named: NSImage.Name(rawValue: "piwik_dots.png"))!
+            cellView.imageView!.image = NSImage(named: NSImage.Name("piwik_dots.png"))!
         } else if((systemInstances[name] as? WordpressModel) != nil) {
-            cellView.imageView!.image = NSImage(named: NSImage.Name(rawValue: "wordpress_dots.png"))!
+            cellView.imageView!.image = NSImage(named: NSImage.Name("wordpress_dots.png"))!
         } else if((systemInstances[name] as? JoomlaModel) != nil) {
-            cellView.imageView!.image = NSImage(named: NSImage.Name(rawValue: "joomla_dots.png"))!
+            cellView.imageView!.image = NSImage(named: NSImage.Name("joomla_dots.png"))!
         }
         cellView.textField?.stringValue = name
         return cellView
