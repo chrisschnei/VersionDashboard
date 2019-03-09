@@ -48,6 +48,7 @@ let owncloudStatusFile = "status.php"
 
 let refreshIntervals = ["6", "12", "24", "48"]
 
+/* 3h */
 let refreshHeadInstances = 10800
 
 var timer: Timer = Timer()

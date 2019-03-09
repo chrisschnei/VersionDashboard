@@ -18,7 +18,6 @@ class OwncloudViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
     }
     
     @IBAction func cancelAction(_ sender: AnyObject) {

@@ -20,6 +20,9 @@ class WordpressModel : GenericModel {
             self.headVersion = wordpressheadobject.headVersion
             return true
         }
+        
+        self.currentVersion = "0.0"
+        self.headVersion = "0.0"
         return false
     }
     

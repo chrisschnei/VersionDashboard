@@ -35,9 +35,6 @@ class GenericHeadModel: GenericHeadModelProtocol {
     }
     
     func saveConfigfile(filename: String) -> Bool {
-        if(self.lastRefresh >= Date().addingTimeInterval(TimeInterval(-refreshHeadInstances))) {
-            return true
-        }
         let path = headPlistFilesPath + filename
         let dict: NSMutableDictionary = NSMutableDictionary()
         

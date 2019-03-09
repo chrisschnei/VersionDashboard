@@ -79,7 +79,9 @@ class GenericModel: GenericModelProtocol {
     }
     
     func checkNotificationRequired() {
-        if((self.headVersion != self.currentVersion) && (self.updateAvailable == 0)) {
+        if (self.headVersion == "0.0" || self.currentVersion == "0.0") {
+            sendNotification(NSLocalizedString("errorfetchingVersions", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseCheck", comment: ""), self.name)))
+        } else if((self.headVersion > self.currentVersion) && (self.updateAvailable == 0)) {
             self.updateAvailable = 1
             incrementBadgeNumber()
             sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), self.name)))

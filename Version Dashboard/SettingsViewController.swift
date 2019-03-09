@@ -22,7 +22,6 @@ class SettingsViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
         self.loadInstanceDetails()
     }
     

@@ -16,7 +16,6 @@ class WordpressViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
     }
     
     @IBAction func saveAction(_ sender: AnyObject) {

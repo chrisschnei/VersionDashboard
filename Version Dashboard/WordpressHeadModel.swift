@@ -15,6 +15,11 @@ class WordpressHeadModel: GenericHeadModel {
             let headVersion = self.getInstanceVersionJSON(wordpressAPIUrl)
             if(headVersion != "") {
                 self.headVersion = headVersion
+            } else {
+                self.headVersion = "0.0"
+            }
+            if (self.saveConfigfile(filename: wordpressHead)) {
+                print("Error saving wordpress head plist file.")
             }
         }
     }

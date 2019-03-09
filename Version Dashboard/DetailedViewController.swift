@@ -114,10 +114,6 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             var returnValue = true
             if((systemInstances[instanceName] as? JoomlaModel) != nil) {
-                let joomlaHeadModel = headInstances["Joomla"].self as! JoomlaHeadModel
-                if(!(joomlaHeadModel.saveConfigfile(filename: joomlaHead))) {
-                    print("Error saving Joomla headversion plist File.")
-                }
                 let joomlamodel = systemInstances[instanceName] as? JoomlaModel
                 if(joomlamodel!.getVersions(forceUpdate: false)) {
                     joomlamodel!.checkNotificationRequired()
@@ -129,10 +125,6 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     print("Error saving plist File.")
                 }
             } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
-                let owncloudHeadModel = headInstances["Owncloud"].self as! OwncloudHeadModel
-                if(!(owncloudHeadModel.saveConfigfile(filename: owncloudHead))) {
-                    print("Error saving Owncloud headversion plist File.")
-                }
                 let owncloudmodel = systemInstances[instanceName] as? OwncloudModel
                 if(owncloudmodel!.getVersions(forceUpdate: false)) {
                     owncloudmodel!.checkNotificationRequired()
@@ -144,10 +136,6 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     print("Error saving plist File.")
                 }
             } else if((systemInstances[instanceName] as? PiwikModel) != nil) {
-                let piwikHeadModel = headInstances["Piwik"].self as! PiwikHeadModel
-                if(!(piwikHeadModel.saveConfigfile(filename: piwikHead))) {
-                    print("Error saving Piwik headversion plist File.")
-                }
                 let piwikmodel = systemInstances[instanceName] as? PiwikModel
                 if(piwikmodel!.getVersions(forceUpdate: false)) {
                     piwikmodel!.checkNotificationRequired()
@@ -159,10 +147,6 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     print("Error saving plist File.")
                 }
             } else if((systemInstances[instanceName] as? WordpressModel) != nil) {
-                let wordpressHeadModel = headInstances["Wordpress"].self as! WordpressHeadModel
-                if(!(wordpressHeadModel.saveConfigfile(filename: wordpressHead))) {
-                    print("Error saving Wordpress headversion plist File.")
-                }
                 let wordpressmodel = systemInstances[instanceName] as? WordpressModel
                 if(wordpressmodel!.getVersions(forceUpdate: false)) {
                     wordpressmodel!.checkNotificationRequired()

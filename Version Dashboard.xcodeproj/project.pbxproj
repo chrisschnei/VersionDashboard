@@ -12,7 +12,6 @@
 		AA3A1D1F1F9237070094D856 /* owncloud.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA3A1D1B1F9235210094D856 /* owncloud.plist */; };
 		AA3A1D201F9237090094D856 /* piwik.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA3A1D1C1F9235210094D856 /* piwik.plist */; };
 		AA3A1D211F92370B0094D856 /* wordpress.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA3A1D1A1F9235210094D856 /* wordpress.plist */; };
-		AA4256E11FA52EA00046CC7D /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE8B5D41F83EFB4004E4AF3 /* Charts.framework */; };
 		AA4CB3A81CB1A09900FD442A /* GenericModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4CB3A71CB1A09900FD442A /* GenericModel.swift */; };
 		AA6AD7B01C6B4BD90097CD9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD7AF1C6B4BD90097CD9A /* AppDelegate.swift */; };
 		AA6AD7B21C6B4BD90097CD9A /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD7B11C6B4BD90097CD9A /* DetailedViewController.swift */; };
@@ -55,8 +54,8 @@
 		AAA563271C8302A300E1199A /* OutdatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA563261C8302A300E1199A /* OutdatedViewController.swift */; };
 		AAA563291C83567300E1199A /* NotificationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA563281C83567300E1199A /* NotificationFunctions.swift */; };
 		AAA5632D1C83837A00E1199A /* InternetConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA5632C1C83837A00E1199A /* InternetConnectivity.swift */; };
-		AAC787C01CB9752000068863 /* typo3.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC787BF1CB9752000068863 /* typo3.png */; };
-		AAE8B5D81F840C68004E4AF3 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AAE8B5D41F83EFB4004E4AF3 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AAB91328223437AA006D1EE7 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; };
+		AAB91329223437FA006D1EE7 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AAE8B6511F87F2C5004E4AF3 /* Version_DashboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8B6501F87F2C5004E4AF3 /* Version_DashboardTests.swift */; };
 		AAEB2B2B1C9730B0001FD134 /* wordpress.png in Resources */ = {isa = PBXBuildFile; fileRef = AAEB2B2A1C9730B0001FD134 /* wordpress.png */; };
 		AAEB2B341C97347A001FD134 /* joomla_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AAEB2B301C97347A001FD134 /* joomla_dots.png */; };
@@ -72,6 +71,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = AA6AD7AB1C6B4BD90097CD9A;
 			remoteInfo = "Version Dashboard";
+		};
+		AAB913212234371E006D1EE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAB9131C2234371E006D1EE7 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
+			remoteInfo = Charts;
+		};
+		AAB913232234371E006D1EE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAB9131C2234371E006D1EE7 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
+			remoteInfo = ChartsTests;
+		};
+		AAB9132522343734006D1EE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAB9131C2234371E006D1EE7 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A58A4ED274A941CA248EA921;
+			remoteInfo = Charts;
 		};
 		AAE8B6531F87F2C6004E4AF3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -89,7 +109,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AAE8B5D81F840C68004E4AF3 /* Charts.framework in Embed Frameworks */,
+				AAB91329223437FA006D1EE7 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,7 +124,6 @@
 		AA3A1D1B1F9235210094D856 /* owncloud.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = owncloud.plist; sourceTree = "<group>"; };
 		AA3A1D1C1F9235210094D856 /* piwik.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = piwik.plist; sourceTree = "<group>"; };
 		AA3A1D1D1F92366C0094D856 /* joomla.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = joomla.plist; sourceTree = "<group>"; };
-		AA4256DE1FA52C010046CC7D /* ChartsCompiled.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ChartsCompiled.framework; sourceTree = "<group>"; };
 		AA4CB3A71CB1A09900FD442A /* GenericModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericModel.swift; sourceTree = "<group>"; };
 		AA6AD7AC1C6B4BD90097CD9A /* Version Dashboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Version Dashboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA6AD7AF1C6B4BD90097CD9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,8 +171,7 @@
 		AAA563261C8302A300E1199A /* OutdatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutdatedViewController.swift; sourceTree = "<group>"; };
 		AAA563281C83567300E1199A /* NotificationFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationFunctions.swift; path = "Version Dashboard/NotificationFunctions.swift"; sourceTree = "<group>"; };
 		AAA5632C1C83837A00E1199A /* InternetConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InternetConnectivity.swift; path = "Version Dashboard/InternetConnectivity.swift"; sourceTree = "<group>"; };
-		AAC787BF1CB9752000068863 /* typo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = typo3.png; sourceTree = "<group>"; };
-		AAE8B5D41F83EFB4004E4AF3 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Charts.framework; sourceTree = "<group>"; };
+		AAB9131C2234371E006D1EE7 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts.framework/Charts.xcodeproj; sourceTree = "<group>"; };
 		AAE8B64E1F87F2C5004E4AF3 /* Version DashboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Version DashboardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE8B6501F87F2C5004E4AF3 /* Version_DashboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version_DashboardTests.swift; sourceTree = "<group>"; };
 		AAE8B6521F87F2C6004E4AF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -169,7 +187,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA4256E11FA52EA00046CC7D /* Charts.framework in Frameworks */,
+				AAB91328223437AA006D1EE7 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +239,7 @@
 				AAE8B64F1F87F2C5004E4AF3 /* Version DashboardTests */,
 				AA6AD7CB1C6B4BD90097CD9A /* Version DashboardUITests */,
 				AA6AD7AD1C6B4BD90097CD9A /* Products */,
+				AAB9131C2234371E006D1EE7 /* Charts.xcodeproj */,
 				AAADAF531E4C635B0073B238 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -265,7 +284,6 @@
 		AA6AD7F81C6B81190097CD9A /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				AAC787BF1CB9752000068863 /* typo3.png */,
 				AAEB2B301C97347A001FD134 /* joomla_dots.png */,
 				AAEB2B311C97347A001FD134 /* owncloud_dots.png */,
 				AAEB2B321C97347A001FD134 /* piwik_dots.png */,
@@ -326,10 +344,17 @@
 		AAADAF531E4C635B0073B238 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AA4256DE1FA52C010046CC7D /* ChartsCompiled.framework */,
-				AAE8B5D41F83EFB4004E4AF3 /* Charts.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AAB9131D2234371E006D1EE7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAB913222234371E006D1EE7 /* Charts.framework */,
+				AAB913242234371E006D1EE7 /* ChartsTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		AAE8B64F1F87F2C5004E4AF3 /* Version DashboardTests */ = {
@@ -356,6 +381,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				AAB9132622343734006D1EE7 /* PBXTargetDependency */,
 			);
 			name = "Version Dashboard";
 			productName = "Version Dashboard";
@@ -405,7 +431,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = NonameCompany;
 				TargetAttributes = {
 					AA6AD7AB1C6B4BD90097CD9A = {
@@ -435,6 +461,12 @@
 			mainGroup = AA6AD7A31C6B4BD90097CD9A;
 			productRefGroup = AA6AD7AD1C6B4BD90097CD9A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AAB9131D2234371E006D1EE7 /* Products */;
+					ProjectRef = AAB9131C2234371E006D1EE7 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				AA6AD7AB1C6B4BD90097CD9A /* Version Dashboard */,
@@ -443,6 +475,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AAB913222234371E006D1EE7 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = AAB913212234371E006D1EE7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AAB913242234371E006D1EE7 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = AAB913232234371E006D1EE7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AA6AD7AA1C6B4BD90097CD9A /* Resources */ = {
@@ -464,7 +513,6 @@
 				AAA5631F1C81E09600E1199A /* Detailed view.png in Resources */,
 				AA6AD7B41C6B4BD90097CD9A /* Assets.xcassets in Resources */,
 				AAEB2B371C97347A001FD134 /* wordpress_dots.png in Resources */,
-				AAC787C01CB9752000068863 /* typo3.png in Resources */,
 				AA6AD7B71C6B4BD90097CD9A /* Main.storyboard in Resources */,
 				AA6AD7E91C6B75ED0097CD9A /* joomla.png in Resources */,
 				AAEB2B361C97347A001FD134 /* piwik_dots.png in Resources */,
@@ -552,6 +600,11 @@
 			target = AA6AD7AB1C6B4BD90097CD9A /* Version Dashboard */;
 			targetProxy = AA6AD7C91C6B4BD90097CD9A /* PBXContainerItemProxy */;
 		};
+		AAB9132622343734006D1EE7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = AAB9132522343734006D1EE7 /* PBXContainerItemProxy */;
+		};
 		AAE8B6541F87F2C6004E4AF3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = AA6AD7AB1C6B4BD90097CD9A /* Version Dashboard */;
@@ -595,12 +648,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -650,12 +705,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

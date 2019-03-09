@@ -20,6 +20,9 @@ class JoomlaModel : GenericModel, XMLParserDelegate {
             self.headVersion = joomlaheadobject.headVersion
             return true
         }
+        
+        self.currentVersion = "0.0"
+        self.headVersion = "0.0"
         return false
     }
     

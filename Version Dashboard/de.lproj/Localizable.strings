@@ -18,3 +18,4 @@
 "newerVersion" = "Aktuellere Version verfügbar";
 "pleaseUpdate" = "Bitte aktualisieren Sie Ihre %@ Instanz";
 "noSelectionMade" = "Keine Instanz markiert.";
+"pleaseCheck" = "Bitte Instanz %@ überprüfen";

@@ -15,6 +15,11 @@ class PiwikHeadModel: GenericHeadModel, XMLParserDelegate {
             let headVersion = self.getInstanceVersion(piwikLatestVersionURL)
             if(headVersion != "") {
                 self.headVersion = headVersion
+            } else {
+                self.headVersion = "0.0"
+            }
+            if (self.saveConfigfile(filename: piwikHead)) {
+                print("Error saving piwik head plist file.")
             }
         }
     }

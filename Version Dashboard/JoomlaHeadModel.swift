@@ -15,6 +15,11 @@ class JoomlaHeadModel: GenericHeadModel, XMLParserDelegate {
             let headVersion = self.getInstanceVersion(joomlaAPIUrl + joomlapath)
             if(headVersion != "") {
                 self.headVersion = headVersion
+            } else {
+                self.headVersion = "0.0"
+            }
+            if (self.saveConfigfile(filename: joomlaHead)) {
+                print("Error saving Joomla head plist file.")
             }
         }
     }

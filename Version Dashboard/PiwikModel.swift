@@ -28,6 +28,9 @@ class PiwikModel : GenericModel, XMLParserDelegate {
             self.headVersion = piwikheadobject.headVersion
             return true
         }
+        
+        self.currentVersion = "0.0"
+        self.headVersion = "0.0"
         return false
     }
     
