@@ -8,7 +8,7 @@
 
 import Foundation
 
-class WordpressHeadModel: GenericHeadModel {
+open class WordpressHeadModel: GenericHeadModel {
     
     func getVersion(forceUpdate: Bool = false) {
         if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-refreshHeadInstances)))) {

@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import VersionDashboardSDK
 
 class SettingsViewController: NSViewController {
 
@@ -26,19 +27,19 @@ class SettingsViewController: NSViewController {
     }
     
     func loadInstanceDetails() {
-        let instance = systemInstances[instanceName]
+        let instance = SystemInstances.systemInstances[instanceName]
         if((instance as? JoomlaModel) != nil) {
-            let instanceObject = systemInstances[instanceName] as! JoomlaModel
+            let instanceObject = SystemInstances.systemInstances[instanceName] as! JoomlaModel
             self.settingsLabel.stringValue = instanceName
             self.lastcheckLabel.stringValue = instanceObject.lastRefresh
             self.hostTextbox.stringValue = instanceObject.hosturl
         } else if((instance as? OwncloudModel) != nil) {
-            let instanceObject = systemInstances[instanceName] as! OwncloudModel
+            let instanceObject = SystemInstances.systemInstances[instanceName] as! OwncloudModel
             self.settingsLabel.stringValue = instanceName
             self.lastcheckLabel.stringValue = instanceObject.lastRefresh
             self.hostTextbox.stringValue = instanceObject.hosturl
         } else if((instance as? PiwikModel) != nil) {
-            let instanceObject = systemInstances[instanceName] as! PiwikModel
+            let instanceObject = SystemInstances.systemInstances[instanceName] as! PiwikModel
             self.settingsLabel.stringValue = instanceName
             self.lastcheckLabel.stringValue = instanceObject.lastRefresh
             self.hostTextbox.stringValue = instanceObject.hosturl
@@ -47,7 +48,7 @@ class SettingsViewController: NSViewController {
             
             self.apiToken.stringValue = instanceObject.apiToken
         } else if((instance as? WordpressModel) != nil) {
-            let instanceObject = systemInstances[instanceName] as! WordpressModel
+            let instanceObject = SystemInstances.systemInstances[instanceName] as! WordpressModel
             self.settingsLabel.stringValue = instanceName
             self.lastcheckLabel.stringValue = instanceObject.lastRefresh
             self.hostTextbox.stringValue = instanceObject.hosturl
@@ -55,9 +56,9 @@ class SettingsViewController: NSViewController {
     }
     
     func updateConfigfile() -> Bool {
-        let instance = systemInstances[instanceName]
+        let instance = SystemInstances.systemInstances[instanceName]
         if((instance as? JoomlaModel) != nil) {
-            let instanceObject = systemInstances[instanceName] as! JoomlaModel
+            let instanceObject = SystemInstances.systemInstances[instanceName] as! JoomlaModel
             instanceObject.hosturl = self.hostTextbox.stringValue
             instanceObject.name = self.settingsLabel.stringValue
             
@@ -68,7 +69,7 @@ class SettingsViewController: NSViewController {
                 return instanceObject.saveConfigfile()
             }
         } else if((instance as? OwncloudModel) != nil) {
-            let instanceObject = systemInstances[instanceName] as! OwncloudModel
+            let instanceObject = SystemInstances.systemInstances[instanceName] as! OwncloudModel
             instanceObject.hosturl = self.hostTextbox.stringValue
             instanceObject.name = self.settingsLabel.stringValue
             
@@ -79,7 +80,7 @@ class SettingsViewController: NSViewController {
                 return instanceObject.saveConfigfile()
             }
         } else if((instance as? PiwikModel) != nil) {
-            let instanceObject = systemInstances[instanceName] as! PiwikModel
+            let instanceObject = SystemInstances.systemInstances[instanceName] as! PiwikModel
             instanceObject.hosturl = self.hostTextbox.stringValue
             instanceObject.name = self.settingsLabel.stringValue
             instanceObject.apiToken = self.apiToken.stringValue
@@ -91,7 +92,7 @@ class SettingsViewController: NSViewController {
                 return instanceObject.saveConfigfile()
             }
         } else if((instance as? WordpressModel) != nil) {
-            let instanceObject = systemInstances[instanceName] as! WordpressModel
+            let instanceObject = SystemInstances.systemInstances[instanceName] as! WordpressModel
             instanceObject.hosturl = self.hostTextbox.stringValue
             instanceObject.name = self.settingsLabel.stringValue
             

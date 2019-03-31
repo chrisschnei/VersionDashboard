@@ -8,20 +8,20 @@
 
 import Foundation
 
-class GenericModel: GenericModelProtocol {
+open class GenericModel: GenericModelProtocol {
     
-    var hosturl = String()
-    var currentVersion = String()
-    var headVersion = String()
-    var lastRefresh = String()
-    var creationDate = String()
-    var updateAvailable = Int()
-    var name = String()
-    var type = String()
-    var phpVersion = String()
-    var serverType = String()
+    public var hosturl = String()
+    public var currentVersion = String()
+    public var headVersion = String()
+    public var lastRefresh = String()
+    public var creationDate = String()
+    public var updateAvailable = Int()
+    public var name = String()
+    public var type = String()
+    public var phpVersion = String()
+    public var serverType = String()
     
-    init(creationDate: String, currentVersion: String, hosturl: String, headVersion: String, lastRefresh: String, name: String, type: String, updateAvailable: Int, phpVersion: String, serverType: String) {
+    public init(creationDate: String, currentVersion: String, hosturl: String, headVersion: String, lastRefresh: String, name: String, type: String, updateAvailable: Int, phpVersion: String, serverType: String) {
         self.hosturl = hosturl
         self.currentVersion = currentVersion
         self.headVersion = headVersion
@@ -34,7 +34,7 @@ class GenericModel: GenericModelProtocol {
         self.serverType = serverType
     }
 
-    func renamePlistFile(_ oldName: String) {
+    open func renamePlistFile(_ oldName: String) {
         let fileManager = FileManager.default
         do {
             try fileManager.moveItem(atPath: (plistFilesPath + oldName) + ".plist", toPath: (plistFilesPath + self.name) + ".plist")
@@ -44,7 +44,7 @@ class GenericModel: GenericModelProtocol {
         }
     }
     
-    func saveConfigfile() -> Bool {
+    public func saveConfigfile() -> Bool {
         let path = (plistFilesPath + self.name) + ".plist"
         let dict: NSMutableDictionary = NSMutableDictionary()
         
@@ -71,27 +71,23 @@ class GenericModel: GenericModelProtocol {
         return dict.write(toFile: path, atomically: true)
     }
     
-    func updateDate() {
+    open func updateDate() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.medium
         dateFormatter.timeStyle = DateFormatter.Style.short
         self.lastRefresh = dateFormatter.string(from: Date())
     }
     
-    func checkNotificationRequired() {
+    open func checkNotificationRequired() {
         if (self.headVersion == "0.0" || self.currentVersion == "0.0") {
-            sendNotification(NSLocalizedString("errorfetchingVersions", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseCheck", comment: ""), self.name)))
         } else if((self.headVersion > self.currentVersion) && (self.updateAvailable == 0)) {
             self.updateAvailable = 1
-            incrementBadgeNumber()
-            sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), self.name)))
         } else if((self.headVersion == self.currentVersion) && (self.updateAvailable == 1)) {
             self.updateAvailable = 0
-            decrementBadgeNumber()
         }
     }
 
-    func phpReturnHandler(_ data: URLResponse?) -> Void {
+    open func phpReturnHandler(_ data: URLResponse?) -> Void {
         let lines = (String(describing: data)).components(separatedBy: "\n")
         if(lines.count > 0) {
             for line in lines {
@@ -114,7 +110,7 @@ class GenericModel: GenericModelProtocol {
         }
     }
     
-    func phpVersionRequest(_ completionHandler: ((URLResponse?) -> Void)?)
+    open func phpVersionRequest(_ completionHandler: ((URLResponse?) -> Void)?)
     {
         let semaphore = DispatchSemaphore(value: 0)
         let url : URL! = URL(string:self.hosturl)

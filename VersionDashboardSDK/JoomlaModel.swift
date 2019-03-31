@@ -8,10 +8,10 @@
 
 import Foundation
 
-class JoomlaModel : GenericModel, XMLParserDelegate {
+open class JoomlaModel : GenericModel, XMLParserDelegate {
     
-    func getVersions(forceUpdate: Bool) -> Bool {
-        let joomlaheadobject = headInstances["Joomla"] as! JoomlaHeadModel
+    open func getVersions(forceUpdate: Bool) -> Bool {
+        let joomlaheadobject = HeadInstances.headInstances["Joomla"] as! JoomlaHeadModel
         joomlaheadobject.getVersion(forceUpdate: forceUpdate)
         let currentVersion = self.getInstanceVersion((self.hosturl) + joomlapath)
         self.phpVersionRequest(self.phpReturnHandler)

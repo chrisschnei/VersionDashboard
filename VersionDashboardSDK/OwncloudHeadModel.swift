@@ -8,7 +8,7 @@
 
 import Foundation
 
-class OwncloudHeadModel: GenericHeadModel {
+open class OwncloudHeadModel: GenericHeadModel {
     
     func getVersion(forceUpdate: Bool = false) {
         if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-refreshHeadInstances)))) {

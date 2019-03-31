@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import VersionDashboardSDK
 
 class PreferencesViewController: NSViewController {
 
@@ -26,8 +27,8 @@ class PreferencesViewController: NSViewController {
     
     func setConfigurationValues() {
         self.dropdownInterval.addItems(withObjectValues: refreshIntervals)
-        self.dropdownInterval.selectItem(withObjectValue: configurationSettings["interval"] as! String)
-        self.activatedCheckbox.state = NSControl.StateValue(rawValue: configurationSettings["automaticRefreshActive"] as! Int)
+        self.dropdownInterval.selectItem(withObjectValue: ConfigurationSettings.configurationSettings["interval"] as! String)
+        self.activatedCheckbox.state = NSControl.StateValue(rawValue: ConfigurationSettings.configurationSettings["automaticRefreshActive"] as! Int)
     }
     
     func loadConfigurationFile() {
@@ -44,18 +45,18 @@ class PreferencesViewController: NSViewController {
         var myDict: NSDictionary?
         myDict = NSDictionary(contentsOfFile: configurationFilePath)
         if let dict = myDict {
-            configurationSettings["interval"] = dict["interval"]! as AnyObject?
-            configurationSettings["automaticRefreshActive"] = dict["automaticRefreshActive"]! as AnyObject?
+            ConfigurationSettings.configurationSettings["interval"] = dict["interval"]! as AnyObject?
+            ConfigurationSettings.configurationSettings["automaticRefreshActive"] = dict["automaticRefreshActive"]! as AnyObject?
         }
     }
     
     func saveConfigurationFile() {
-        configurationSettings["interval"] = self.dropdownInterval.selectedCell()?.stringValue as AnyObject?
-        configurationSettings["automaticRefreshActive"] = Bool(truncating: (self.activatedCheckbox.state as AnyObject?)as! NSNumber)
+        ConfigurationSettings.configurationSettings["interval"] = self.dropdownInterval.selectedCell()?.stringValue as AnyObject?
+        ConfigurationSettings.configurationSettings["automaticRefreshActive"] = Bool(truncating: (self.activatedCheckbox.state as AnyObject?)as! NSNumber)
         
         let dict: NSMutableDictionary = NSMutableDictionary()
-        dict.setObject(configurationSettings["interval"] as! String, forKey: "interval" as NSCopying)
-        dict.setObject(configurationSettings["automaticRefreshActive"] as! Bool, forKey: "automaticRefreshActive" as NSCopying)
+        dict.setObject(ConfigurationSettings.configurationSettings["interval"] as! String, forKey: "interval" as NSCopying)
+        dict.setObject(ConfigurationSettings.configurationSettings["automaticRefreshActive"] as! Bool, forKey: "automaticRefreshActive" as NSCopying)
         
         let fileManager = FileManager.default
         if (!(fileManager.fileExists(atPath: configurationFilePath)))
@@ -92,7 +93,7 @@ class PreferencesViewController: NSViewController {
     }
     
     func automaticRefresh() {
-        let seconds = Double(configurationSettings["interval"] as! String)!*(60.0*60.0)
+        let seconds = Double(ConfigurationSettings.configurationSettings["interval"] as! String)!*(60.0*60.0)
         timer = Timer.scheduledTimer(timeInterval: seconds, target: self, selector: #selector(PreferencesViewController.checkInstancesAutomatic), userInfo: nil, repeats: true)
     }
 }

@@ -8,13 +8,13 @@
 
 import Foundation
 
-class GenericHeadModel: GenericHeadModelProtocol {
+open class GenericHeadModel: GenericHeadModelProtocol {
     
-    var headVersion = String()
-    var name = String()
-    var type = String()
-    var creationDate = Date()
-    var lastRefresh = Date()
+    open var headVersion = String()
+    open var name = String()
+    open var type = String()
+    open var creationDate = Date()
+    open var lastRefresh = Date()
     
     init(headVersion: String, name: String, type: String, creationDate: Date, lastRefresh: Date) {
         self.headVersion = headVersion
@@ -24,7 +24,7 @@ class GenericHeadModel: GenericHeadModelProtocol {
         self.lastRefresh = lastRefresh
     }
 
-    func renamePlistFile(_ oldName: String) {
+    open func renamePlistFile(_ oldName: String) {
         let fileManager = FileManager.default
         do {
             try fileManager.moveItem(atPath: (plistFilesPath + oldName) + ".plist", toPath: (plistFilesPath + self.name) + ".plist")
@@ -34,7 +34,7 @@ class GenericHeadModel: GenericHeadModelProtocol {
         }
     }
     
-    func saveConfigfile(filename: String) -> Bool {
+    open func saveConfigfile(filename: String) -> Bool {
         let path = headPlistFilesPath + filename
         let dict: NSMutableDictionary = NSMutableDictionary()
         
@@ -53,7 +53,7 @@ class GenericHeadModel: GenericHeadModelProtocol {
         return dict.write(toFile: path, atomically: true)
     }
     
-    func updateDate() {
+    open func updateDate() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.medium
         dateFormatter.timeStyle = DateFormatter.Style.short

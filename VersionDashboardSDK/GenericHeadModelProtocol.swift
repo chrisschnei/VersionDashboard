@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol GenericHeadModelProtocol {
+public protocol GenericHeadModelProtocol {
     
     func saveConfigfile(filename: String) -> Bool
     func updateDate()
