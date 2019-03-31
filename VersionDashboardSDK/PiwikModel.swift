@@ -8,18 +8,18 @@
 
 import Foundation
 
-class PiwikModel : GenericModel, XMLParserDelegate {
-    var apiToken = String()
+open class PiwikModel : GenericModel, XMLParserDelegate {
+    open var apiToken = String()
     
-    var version = String()
+    open var version = String()
     
-    init(creationDate: String, currentVersion: String, hosturl: String, apiToken: String, lastRefresh: String, name: String, type: String, headVersion: String, updateAvailable: Int, phpVersion: String, serverType: String) {
+    public init(creationDate: String, currentVersion: String, hosturl: String, apiToken: String, lastRefresh: String, name: String, type: String, headVersion: String, updateAvailable: Int, phpVersion: String, serverType: String) {
         super.init(creationDate: creationDate, currentVersion: currentVersion, hosturl: hosturl, headVersion: headVersion, lastRefresh: lastRefresh, name: name, type: type, updateAvailable: updateAvailable, phpVersion: phpVersion, serverType: serverType)
         self.apiToken = apiToken
     }
     
-    func getVersions(forceUpdate: Bool) -> Bool {
-        let piwikheadobject = headInstances["Piwik"] as! PiwikHeadModel
+    open func getVersions(forceUpdate: Bool) -> Bool {
+        let piwikheadobject = HeadInstances.headInstances["Piwik"] as! PiwikHeadModel
         piwikheadobject.getVersion(forceUpdate: forceUpdate)
         let currentVersion = self.getInstanceVersionXML(((self.hosturl) + piwikAPIUrl) + self.apiToken)
         self.phpVersionRequest(self.phpReturnHandler)
@@ -34,7 +34,7 @@ class PiwikModel : GenericModel, XMLParserDelegate {
         return false
     }
     
-    override func saveConfigfile() -> Bool {
+    override open func saveConfigfile() -> Bool {
         let path = (plistFilesPath + self.name) + ".plist"
         let dict: NSMutableDictionary = NSMutableDictionary()
         

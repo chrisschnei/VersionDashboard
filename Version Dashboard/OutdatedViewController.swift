@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import VersionDashboardSDK
 
 class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
     
@@ -33,15 +34,15 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     @IBOutlet weak var webserver: NSTextField!
     
     override func viewDidLoad() {
-        outdatedInstances.removeAll()
+        OutdatedInstances.outdatedInstances.removeAll()
         tableView.delegate = self
         tableView.dataSource = self
     }
     
     func updateInstanceDetails(_ index: Int) {
         if((index) != -1) {
-            let key = outdatedInstances[index]
-            let modelclass = systemInstances[key].self!
+            let key = OutdatedInstances.outdatedInstances[index]
+            let modelclass = SystemInstances.systemInstances[key].self!
             if((modelclass as? JoomlaModel) != nil) {
                 let joomlaobject = modelclass as? JoomlaModel
                 self.hostName.stringValue = joomlaobject!.hosturl
@@ -129,8 +130,8 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     func updateSingleInstance(instanceName: String, completion: @escaping (Bool) -> ()) {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             var returnValue = true
-            if((systemInstances[instanceName] as? JoomlaModel) != nil) {
-                let joomlamodel = systemInstances[instanceName] as? JoomlaModel
+            if((SystemInstances.systemInstances[instanceName] as? JoomlaModel) != nil) {
+                let joomlamodel = SystemInstances.systemInstances[instanceName] as? JoomlaModel
                 if(joomlamodel!.getVersions(forceUpdate: false)) {
                     joomlamodel!.checkNotificationRequired()
                 } else {
@@ -140,8 +141,8 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 if(!(joomlamodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
-            } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
-                let owncloudmodel = systemInstances[instanceName] as? OwncloudModel
+            } else if((SystemInstances.systemInstances[instanceName] as? OwncloudModel) != nil) {
+                let owncloudmodel = SystemInstances.systemInstances[instanceName] as? OwncloudModel
                 if(owncloudmodel!.getVersions(forceUpdate: false)) {
                     owncloudmodel!.checkNotificationRequired()
                 } else {
@@ -151,8 +152,8 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 if(!(owncloudmodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
-            } else if((systemInstances[instanceName] as? PiwikModel) != nil) {
-                let piwikmodel = systemInstances[instanceName] as? PiwikModel
+            } else if((SystemInstances.systemInstances[instanceName] as? PiwikModel) != nil) {
+                let piwikmodel = SystemInstances.systemInstances[instanceName] as? PiwikModel
                 if(piwikmodel!.getVersions(forceUpdate: false)) {
                     piwikmodel!.checkNotificationRequired()
                 } else {
@@ -162,8 +163,8 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 if(!(piwikmodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
-            } else if((systemInstances[instanceName] as? WordpressModel) != nil) {
-                let wordpressmodel = systemInstances[instanceName] as? WordpressModel
+            } else if((SystemInstances.systemInstances[instanceName] as? WordpressModel) != nil) {
+                let wordpressmodel = SystemInstances.systemInstances[instanceName] as? WordpressModel
                 if(wordpressmodel!.getVersions(forceUpdate: false)) {
                     wordpressmodel!.checkNotificationRequired()
                 } else {
@@ -184,7 +185,7 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
         if(checkInternetConnection()) {
             let selectedRow = tableView.selectedRow
             if(selectedRow != -1) {
-                let instanceName = outdatedInstances[selectedRow]
+                let instanceName = OutdatedInstances.outdatedInstances[selectedRow]
                 self.updateSingleInstance(instanceName: instanceName) { completion in
                     let parameters = ["self": self, "completion" : completion, "selectedRow" : selectedRow] as [String : Any]
                     self.performSelector(onMainThread: #selector(self.checksFinished), with: parameters, waitUntilDone: true)
@@ -218,7 +219,7 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     func reloadTable() {
         let selectedRow = self.tableView.selectedRow
         self.tableView.deselectAll(self)
-        outdatedInstances.removeAll()
+        OutdatedInstances.outdatedInstances.removeAll()
         self.loadOutdatedInstances()
         self.tableView.reloadData()
         self.tableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
@@ -228,14 +229,14 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     {
         self.tableView.rowHeight = 30.0
         let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "InstanceName"), owner: self) as! NSTableCellView
-        let name = outdatedInstances[row]
-        if((systemInstances[name] as? OwncloudModel) != nil) {
+        let name = OutdatedInstances.outdatedInstances[row]
+        if((SystemInstances.systemInstances[name] as? OwncloudModel) != nil) {
             cellView.imageView!.image = NSImage(named: NSImage.Name("owncloud_dots.png"))!
-        } else if((systemInstances[name] as? PiwikModel) != nil) {
+        } else if((SystemInstances.systemInstances[name] as? PiwikModel) != nil) {
             cellView.imageView!.image = NSImage(named: NSImage.Name("piwik_dots.png"))!
-        } else if((systemInstances[name] as? WordpressModel) != nil) {
+        } else if((SystemInstances.systemInstances[name] as? WordpressModel) != nil) {
             cellView.imageView!.image = NSImage(named: NSImage.Name("wordpress_dots.png"))!
-        } else if((systemInstances[name] as? JoomlaModel) != nil) {
+        } else if((SystemInstances.systemInstances[name] as? JoomlaModel) != nil) {
             cellView.imageView!.image = NSImage(named: NSImage.Name("joomla_dots.png"))!
         }
         cellView.textField?.stringValue = name
@@ -247,30 +248,30 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     }
     
     func loadOutdatedInstances() {
-        for instance in systemInstances.keys {
-            if((systemInstances[instance] as? JoomlaModel) != nil) {
-                if((systemInstances[instance] as! JoomlaModel).updateAvailable == 1) {
-                    outdatedInstances.append(instance)
+        for instance in SystemInstances.systemInstances.keys {
+            if((SystemInstances.systemInstances[instance] as? JoomlaModel) != nil) {
+                if((SystemInstances.systemInstances[instance] as! JoomlaModel).updateAvailable == 1) {
+                    OutdatedInstances.outdatedInstances.append(instance)
                 }
-            } else if((systemInstances[instance] as? WordpressModel) != nil) {
-                if((systemInstances[instance] as! WordpressModel).updateAvailable == 1) {
-                    outdatedInstances.append(instance)
+            } else if((SystemInstances.systemInstances[instance] as? WordpressModel) != nil) {
+                if((SystemInstances.systemInstances[instance] as! WordpressModel).updateAvailable == 1) {
+                    OutdatedInstances.outdatedInstances.append(instance)
                 }
-            } else if((systemInstances[instance] as? PiwikModel) != nil) {
-                if((systemInstances[instance] as! PiwikModel).updateAvailable == 1) {
-                    outdatedInstances.append(instance)
+            } else if((SystemInstances.systemInstances[instance] as? PiwikModel) != nil) {
+                if((SystemInstances.systemInstances[instance] as! PiwikModel).updateAvailable == 1) {
+                    OutdatedInstances.outdatedInstances.append(instance)
                 }
-            } else if((systemInstances[instance] as? OwncloudModel) != nil) {
-                if((systemInstances[instance] as! OwncloudModel).updateAvailable == 1) {
-                    outdatedInstances.append(instance)
+            } else if((SystemInstances.systemInstances[instance] as? OwncloudModel) != nil) {
+                if((SystemInstances.systemInstances[instance] as! OwncloudModel).updateAvailable == 1) {
+                    OutdatedInstances.outdatedInstances.append(instance)
                 }
             }
         }
     }
     
     func numberOfRows(in aTableView: NSTableView) -> Int {
-        outdatedInstances.removeAll()
+        OutdatedInstances.outdatedInstances.removeAll()
         self.loadOutdatedInstances()
-        return outdatedInstances.count
+        return OutdatedInstances.outdatedInstances.count
     }
 }

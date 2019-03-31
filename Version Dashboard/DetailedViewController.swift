@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import VersionDashboardSDK
 
 class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
     
@@ -43,7 +44,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         if(self.systemTableView.selectedRow != -1) {
             let button = sender as! NSButton
             if (((button.title) == NSLocalizedString("edit", comment:"")) || ((button.title) == NSLocalizedString("edit", comment:""))) {
-                let instances = Array(systemInstances.keys)
+                let instances = Array(SystemInstances.systemInstances.keys)
                 let instanceNa = instances[self.systemTableView.selectedRow]
                 let destination = segue.destinationController as! SettingsViewController
                 destination.instanceName = instanceNa
@@ -58,8 +59,8 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     
     @IBAction func takeMeToMyInstance(_ sender: AnyObject) {
         if(self.systemTableView.selectedRow != -1) {
-            let instancename = Array(systemInstances.keys)[self.systemTableView.selectedRow]
-            let instance = systemInstances[instancename]
+            let instancename = Array(SystemInstances.systemInstances.keys)[self.systemTableView.selectedRow]
+            let instance = SystemInstances.systemInstances[instancename]
             var url = ""
             if((instance as? JoomlaModel) != nil) {
                 url = (instance as! JoomlaModel).hosturl + joomlaBackendURL
@@ -86,12 +87,12 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     
     @IBAction func removeInstance(_ sender: AnyObject) {
         if(self.systemTableView.selectedRow != -1) {
-            let instances = Array(systemInstances.keys)
+            let instances = Array(SystemInstances.systemInstances.keys)
             let filename = instances[self.systemTableView.selectedRow]
             let path = (plistFilesPath + filename) + ".plist"
             self.deleteFile(path)
             zeroBadgeNumber()
-            systemInstances.removeAll()
+            SystemInstances.systemInstances.removeAll()
             SystemInstancesModel().loadConfigfiles()
             self.addInstancesToTable()
         }
@@ -104,7 +105,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     @objc func reloadTable(_ notification: Notification) {
         let selectedRow = self.systemTableView.selectedRow
         self.systemTableView.deselectAll(self)
-        systemInstances.removeAll()
+        SystemInstances.systemInstances.removeAll()
         SystemInstancesModel().loadConfigfiles()
         self.systemTableView.reloadData()
         self.systemTableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
@@ -113,8 +114,8 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     func updateSingleInstance(instanceName: String, completion: @escaping (Bool) -> ()) {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             var returnValue = true
-            if((systemInstances[instanceName] as? JoomlaModel) != nil) {
-                let joomlamodel = systemInstances[instanceName] as? JoomlaModel
+            if((SystemInstances.systemInstances[instanceName] as? JoomlaModel) != nil) {
+                let joomlamodel = SystemInstances.systemInstances[instanceName] as? JoomlaModel
                 if(joomlamodel!.getVersions(forceUpdate: false)) {
                     joomlamodel!.checkNotificationRequired()
                 } else {
@@ -124,8 +125,8 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 if(!(joomlamodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
-            } else if((systemInstances[instanceName] as? OwncloudModel) != nil) {
-                let owncloudmodel = systemInstances[instanceName] as? OwncloudModel
+            } else if((SystemInstances.systemInstances[instanceName] as? OwncloudModel) != nil) {
+                let owncloudmodel = SystemInstances.systemInstances[instanceName] as? OwncloudModel
                 if(owncloudmodel!.getVersions(forceUpdate: false)) {
                     owncloudmodel!.checkNotificationRequired()
                 } else {
@@ -135,8 +136,8 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 if(!(owncloudmodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
-            } else if((systemInstances[instanceName] as? PiwikModel) != nil) {
-                let piwikmodel = systemInstances[instanceName] as? PiwikModel
+            } else if((SystemInstances.systemInstances[instanceName] as? PiwikModel) != nil) {
+                let piwikmodel = SystemInstances.systemInstances[instanceName] as? PiwikModel
                 if(piwikmodel!.getVersions(forceUpdate: false)) {
                     piwikmodel!.checkNotificationRequired()
                 } else {
@@ -146,8 +147,8 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 if(!(piwikmodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
-            } else if((systemInstances[instanceName] as? WordpressModel) != nil) {
-                let wordpressmodel = systemInstances[instanceName] as? WordpressModel
+            } else if((SystemInstances.systemInstances[instanceName] as? WordpressModel) != nil) {
+                let wordpressmodel = SystemInstances.systemInstances[instanceName] as? WordpressModel
                 if(wordpressmodel!.getVersions(forceUpdate: false)) {
                     wordpressmodel!.checkNotificationRequired()
                 } else {
@@ -168,7 +169,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         if(checkInternetConnection()) {
             let selectedRow = self.systemTableView.selectedRow
             if(selectedRow != -1) {
-                let instanceName = Array(systemInstances.keys)[selectedRow]
+                let instanceName = Array(SystemInstances.systemInstances.keys)[selectedRow]
                 self.updateSingleInstance(instanceName: instanceName) { completion in
                     let parameters = ["self": self, "completion" : completion, "selectedRow" : selectedRow] as [String : Any]
                     self.performSelector(onMainThread: #selector(self.checksFinished), with: parameters, waitUntilDone: true)
@@ -202,11 +203,11 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     func updateInstanceDetails(_ index: Int) {
         if((index) != -1) {
             self.takeMeToMyInstance.isEnabled = true
-            let key = Array(systemInstances.keys)[index]
-            let modelclass = systemInstances[key].self!
+            let key = Array(SystemInstances.systemInstances.keys)[index]
+            let modelclass = SystemInstances.systemInstances[key].self!
             if((modelclass as? JoomlaModel) != nil) {
                 let joomlaobject = modelclass as? JoomlaModel
-                let joomlahead = headInstances["Joomla"].self! as? JoomlaHeadModel
+                let joomlahead = HeadInstances.headInstances["Joomla"].self! as? JoomlaHeadModel
                 self.hostLabel.stringValue = joomlaobject!.hosturl
                 self.systemLabel.stringValue = joomlaobject!.name
                 self.lastcheckLabel.stringValue = joomlaobject!.lastRefresh
@@ -225,7 +226,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 }
             } else if((modelclass as? OwncloudModel) != nil) {
                 let owncloudmodel = modelclass as? OwncloudModel
-                let owncloudhead = headInstances["Owncloud"] as! OwncloudHeadModel
+                let owncloudhead = HeadInstances.headInstances["Owncloud"] as! OwncloudHeadModel
                 self.hostLabel.stringValue = owncloudmodel!.hosturl
                 self.systemLabel.stringValue = owncloudmodel!.name
                 self.lastcheckLabel.stringValue = owncloudmodel!.lastRefresh
@@ -244,7 +245,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 }
             } else if((modelclass as? PiwikModel) != nil) {
                 let piwikmodel = modelclass as? PiwikModel
-                let piwikhead = headInstances["Piwik"] as! PiwikHeadModel
+                let piwikhead = HeadInstances.headInstances["Piwik"] as! PiwikHeadModel
                 self.hostLabel.stringValue = piwikmodel!.hosturl
                 self.systemLabel.stringValue = piwikmodel!.name
                 self.lastcheckLabel.stringValue = piwikmodel!.lastRefresh
@@ -263,7 +264,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 }
             } else if((modelclass as? WordpressModel) != nil) {
                 let wordpressmodel = modelclass as? WordpressModel
-                let wordpresshead = headInstances["Wordpress"] as! WordpressHeadModel
+                let wordpresshead = HeadInstances.headInstances["Wordpress"] as! WordpressHeadModel
                 self.hostLabel.stringValue = wordpressmodel!.hosturl
                 self.systemLabel.stringValue = wordpressmodel!.name
                 self.lastcheckLabel.stringValue = wordpressmodel!.lastRefresh
@@ -292,15 +293,15 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     {
         self.systemTableView.rowHeight = 30.0
         let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "InstanceName"), owner: self) as! NSTableCellView
-        let instancesArray = Array(systemInstances.keys)
+        let instancesArray = Array(SystemInstances.systemInstances.keys)
         let name = instancesArray[row]
-        if((systemInstances[name] as? OwncloudModel) != nil) {
+        if((SystemInstances.systemInstances[name] as? OwncloudModel) != nil) {
             cellView.imageView!.image = NSImage(named: NSImage.Name("owncloud_dots.png"))!
-        } else if((systemInstances[name] as? PiwikModel) != nil) {
+        } else if((SystemInstances.systemInstances[name] as? PiwikModel) != nil) {
             cellView.imageView!.image = NSImage(named: NSImage.Name("piwik_dots.png"))!
-        } else if((systemInstances[name] as? WordpressModel) != nil) {
+        } else if((SystemInstances.systemInstances[name] as? WordpressModel) != nil) {
             cellView.imageView!.image = NSImage(named: NSImage.Name("wordpress_dots.png"))!
-        } else if((systemInstances[name] as? JoomlaModel) != nil) {
+        } else if((SystemInstances.systemInstances[name] as? JoomlaModel) != nil) {
             cellView.imageView!.image = NSImage(named: NSImage.Name("joomla_dots.png"))!
         }
         cellView.textField?.stringValue = name
@@ -312,7 +313,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     }
     
     func numberOfRows(in aTableView: NSTableView) -> Int {
-        return systemInstances.count
+        return SystemInstances.systemInstances.count
     }
     
 }

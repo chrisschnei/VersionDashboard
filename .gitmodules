@@ -1,6 +1,3 @@
 [submodule "Charts.framework"]
 	path = Charts.framework
 	url = https://github.com/danielgindi/Charts.git
-[submodule "VersionDashboardSDK"]
-	path = VersionDashboardSDK
-	url = git@github.com:chrisschnei/VersionDashboardSDK.git

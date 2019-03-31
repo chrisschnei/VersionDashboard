@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import VersionDashboardSDK
 
 class JoomlaViewController: NSViewController {
 

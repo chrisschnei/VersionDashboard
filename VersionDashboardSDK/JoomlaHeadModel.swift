@@ -8,7 +8,7 @@
 
 import Foundation
 
-class JoomlaHeadModel: GenericHeadModel, XMLParserDelegate {
+open class JoomlaHeadModel: GenericHeadModel, XMLParserDelegate {
     
     func getVersion(forceUpdate: Bool = false) {
         if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-refreshHeadInstances)))) {

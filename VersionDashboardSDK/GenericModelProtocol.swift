@@ -8,8 +8,7 @@
 
 import Foundation
 
-protocol GenericModelProtocol {
-    
+public protocol GenericModelProtocol {
     func saveConfigfile() -> Bool
     func updateDate()
     func renamePlistFile(_ oldName: String)

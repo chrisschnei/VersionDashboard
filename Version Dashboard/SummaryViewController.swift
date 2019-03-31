@@ -9,6 +9,7 @@
 import Foundation
 import Cocoa
 import Charts
+import VersionDashboardSDK
 
 class SummaryViewController: NSViewController {
 
@@ -21,13 +22,13 @@ class SummaryViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         PreferencesViewController().loadConfigurationFile()
-        if(headInstances.count == 0) {
+        if(HeadInstances.headInstances.count == 0) {
             HeadInstancesModel().loadConfigfiles()
         }
-        if(systemInstances.count == 0) {
+        if(SystemInstances.systemInstances.count == 0) {
             SystemInstancesModel().loadConfigfiles()
         }
-        if((configurationSettings["automaticRefreshActive"] as! Bool) == true) {
+        if((ConfigurationSettings.configurationSettings["automaticRefreshActive"] as! Bool) == true) {
             PreferencesViewController().automaticRefresh()
         }
         self.drawPieChartInstances()
@@ -64,7 +65,7 @@ class SummaryViewController: NSViewController {
     @objc func checksFinished() {
         self.refreshActiveSpinner.stopAnimation(self)
         self.refreshActiveSpinner.isHidden = true
-        systemInstances.removeAll()
+        SystemInstances.systemInstances.removeAll()
         SystemInstancesModel().loadConfigfiles()
         self.drawPieChartInstances()
         self.drawPieChartOutdated()

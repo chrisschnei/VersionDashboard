@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PiwikHeadModel: GenericHeadModel, XMLParserDelegate {
+open class PiwikHeadModel: GenericHeadModel, XMLParserDelegate {
     
     func getVersion(forceUpdate: Bool = false) {
         if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-refreshHeadInstances)))) {
