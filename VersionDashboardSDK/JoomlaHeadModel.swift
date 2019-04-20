@@ -11,14 +11,14 @@ import Foundation
 open class JoomlaHeadModel: GenericHeadModel, XMLParserDelegate {
     
     func getVersion(forceUpdate: Bool = false) {
-        if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-refreshHeadInstances)))) {
-            let headVersion = self.getInstanceVersion(joomlaAPIUrl + joomlapath)
+        if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-Constants.refreshHeadInstances)))) {
+            let headVersion = self.getInstanceVersion(Constants.joomlaAPIUrl + Constants.joomlapath)
             if(headVersion != "") {
                 self.headVersion = headVersion
             } else {
                 self.headVersion = "0.0"
             }
-            if (self.saveConfigfile(filename: joomlaHead)) {
+            if (self.saveConfigfile(filename: Constants.joomlaHead)) {
                 print("Error saving Joomla head plist file.")
             }
         }

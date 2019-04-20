@@ -23,7 +23,7 @@ class WordpressViewController: NSViewController {
         if(self.checkURLTextfields()) {
             return
         }
-        if(SystemInstancesModel().checkInstanceNameAlreadyPresent(self.instanceName.stringValue)) {
+        if(SystemInstancesModel.checkInstanceNameAlreadyPresent(self.instanceName.stringValue)) {
             return
         }
         let wordpressinstance = WordpressModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, headVersion: "", lastRefresh: "", name: instanceName.stringValue, type: "Wordpress", updateAvailable: 0, phpVersion: "", serverType: "")

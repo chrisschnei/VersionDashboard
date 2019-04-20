@@ -1,0 +1,165 @@
+
+/* Class = "UIButton"; normalTitle = "Refresh"; ObjectID = "0JI-zX-a1P"; */
+"0JI-zX-a1P.normalTitle" = "Refresh";
+
+/* Class = "UIViewController"; title = "Wordpress instance"; ObjectID = "0ky-I9-IUs"; */
+"0ky-I9-IUs.title" = "Wordpress instance";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "30M-1M-2IR"; */
+"30M-1M-2IR.title" = "Cancel";
+
+/* Class = "UIBarButtonItem"; title = "Add instance"; ObjectID = "4SY-QC-ErI"; */
+"4SY-QC-ErI.title" = "Add instance";
+
+/* Class = "UITextField"; text = "API Token"; ObjectID = "51h-FX-OBl"; */
+"51h-FX-OBl.text" = "API Token";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "62W-7u-92t"; */
+"62W-7u-92t.title" = "Save";
+
+/* Class = "UIViewController"; title = "Joomla instance"; ObjectID = "8a8-A2-dc1"; */
+"8a8-A2-dc1.title" = "Joomla instance";
+
+/* Class = "UIViewController"; title = "Instance Details"; ObjectID = "8rJ-Kc-sve"; */
+"8rJ-Kc-sve.title" = "Instance Details";
+
+/* Class = "UIViewController"; title = "Summary"; ObjectID = "9pv-A4-QxB"; */
+"9pv-A4-QxB.title" = "Summary";
+
+/* Class = "UITextField"; text = "URL must begin with http:// and end with /"; ObjectID = "CQQ-ko-MiJ"; */
+"CQQ-ko-MiJ.text" = "URL must begin with http:// and end with /";
+
+/* Class = "UINavigationItem"; title = "Joomla instance"; ObjectID = "D1C-I7-wra"; */
+"D1C-I7-wra.title" = "Joomla instance";
+
+/* Class = "UITextField"; text = "Name"; ObjectID = "FF7-3x-Q5e"; */
+"FF7-3x-Q5e.text" = "Name";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "HNn-J8-ENS"; */
+"HNn-J8-ENS.title" = "Cancel";
+
+/* Class = "UITextField"; text = "URL must begin with http:// and end with /"; ObjectID = "Ieg-ef-Jqu"; */
+"Ieg-ef-Jqu.text" = "URL must begin with http:// and end with /";
+
+/* Class = "UINavigationItem"; title = "Instance details"; ObjectID = "JeE-xj-jLB"; */
+"JeE-xj-jLB.title" = "Instance details";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "JkJ-wW-Ld5"; */
+"JkJ-wW-Ld5.title" = "Save";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "Jsy-Ga-amO"; */
+"Jsy-Ga-amO.title" = "Save";
+
+/* Class = "UITextField"; text = "Name"; ObjectID = "K8j-rc-x8H"; */
+"K8j-rc-x8H.text" = "Name";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "Nj1-S9-v7S"; */
+"Nj1-S9-v7S.title" = "Cancel";
+
+/* Class = "UITextField"; text = "Name"; ObjectID = "R3W-7U-qmR"; */
+"R3W-7U-qmR.text" = "Name";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "ULM-1r-5Op"; */
+"ULM-1r-5Op.title" = "Save";
+
+/* Class = "UITextField"; text = "Type"; ObjectID = "Y83-Bj-IVf"; */
+"Y83-Bj-IVf.text" = "Type";
+
+/* Class = "UITextField"; text = "Instance version"; ObjectID = "Yi5-Dw-59e"; */
+"Yi5-Dw-59e.text" = "Instance version";
+
+/* Class = "UITabBarItem"; title = "Outdated"; ObjectID = "YiT-TW-Zp6"; */
+"YiT-TW-Zp6.title" = "Outdated";
+
+/* Class = "UITextField"; text = "Host URL"; ObjectID = "ZoN-Qq-eRe"; */
+"ZoN-Qq-eRe.text" = "Host URL";
+
+/* Class = "UITabBarItem"; title = "Summary"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "Summary";
+
+/* Class = "UITextField"; text = "Webserver"; ObjectID = "bH6-r8-qUc"; */
+"bH6-r8-qUc.text" = "Webserver";
+
+/* Class = "UITabBarItem"; title = "Detailed"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "Detailed";
+
+/* Class = "UINavigationItem"; title = "Instance type"; ObjectID = "cPi-Gg-wgG"; */
+"cPi-Gg-wgG.title" = "Instance type";
+
+/* Class = "UINavigationItem"; title = "Instances"; ObjectID = "dgL-yA-5WU"; */
+"dgL-yA-5WU.title" = "Instances";
+
+"JUN-WU-qN3.title" = "Overview";
+
+/* Class = "UINavigationItem"; title = "Outdated instances"; ObjectID = "eDi-a2-4b6"; */
+"eDi-a2-4b6.title" = "Outdated instances";
+
+/* Class = "UITextField"; text = "PHP Version"; ObjectID = "egZ-dw-rsn"; */
+"egZ-dw-rsn.text" = "PHP Version";
+
+/* Class = "UITextField"; text = "Host URL"; ObjectID = "ehx-6e-U1t"; */
+"ehx-6e-U1t.text" = "Host URL";
+
+"fi4-JC-4TL.title" = "Charts";
+
+"XED-WA-hk1.title" = "Refresh all";
+
+/* Class = "UITextField"; text = "Name"; ObjectID = "gam-YO-Bne"; */
+"gam-YO-Bne.text" = "Name";
+
+/* Class = "UIViewController"; title = "Owncloud instance"; ObjectID = "gui-Px-GSp"; */
+"gui-Px-GSp.title" = "Owncloud instance";
+
+/* Class = "UITextField"; text = "URL must begin with http:// and end with /"; ObjectID = "hfx-fG-eHX"; */
+"hfx-fG-eHX.text" = "URL must begin with http:// and end with /";
+
+/* Class = "UIButton"; normalTitle = "Delete instance"; ObjectID = "mBi-xf-VTc"; */
+"mBi-xf-VTc.normalTitle" = "Delete instance";
+
+/* Class = "UITextField"; text = "Host URL"; ObjectID = "mkM-2m-OyH"; */
+"mkM-2m-OyH.text" = "Host URL";
+
+/* Class = "UIBarButtonItem"; title = "Refresh all"; ObjectID = "nES-1h-48X"; */
+"nES-1h-48X.title" = "Refresh all";
+
+/* Class = "UITextField"; text = "Host URL"; ObjectID = "pCZ-fX-6nO"; */
+"pCZ-fX-6nO.text" = "Host URL";
+
+/* Class = "UITextField"; text = "Asana24 Owncloud"; ObjectID = "rOS-4c-Y5e"; */
+"rOS-4c-Y5e.text" = "Asana24 Owncloud";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "s4c-6R-tmy"; */
+"s4c-6R-tmy.title" = "Cancel";
+
+/* Class = "UITextField"; text = "Head version"; ObjectID = "uvT-Pp-Ka9"; */
+"uvT-Pp-Ka9.text" = "Head version";
+
+/* Class = "UITextField"; text = "Host URL"; ObjectID = "vE8-CP-gae"; */
+"vE8-CP-gae.text" = "Host URL";
+
+/* Class = "UIViewController"; title = "Piwik instance"; ObjectID = "vjA-5G-CWc"; */
+"vjA-5G-CWc.title" = "Piwik instance";
+
+/* Class = "UITextField"; text = "Tap on image below to select instance type"; ObjectID = "y9E-gn-D8K"; */
+"y9E-gn-D8K.text" = "Tap on image below to select instance type";
+
+/* Class = "UINavigationItem"; title = "Owncloud instance"; ObjectID = "yFF-kA-aRL"; */
+"yFF-kA-aRL.title" = "Owncloud instance";
+
+/* Class = "UITextField"; text = "URL must begin with http:// and end with /"; ObjectID = "yhV-zH-a9h"; */
+"yhV-zH-a9h.text" = "URL must begin with http:// and end with /";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "yq8-6Y-spf"; */
+"yq8-6Y-spf.title" = "Cancel";
+
+/* Class = "UINavigationItem"; title = "Piwik instance"; ObjectID = "yzy-QX-mdH"; */
+"yzy-QX-mdH.title" = "Piwik instance";
+
+/* Class = "UINavigationItem"; title = "Wordpress instance"; ObjectID = "z6j-WS-9e5"; */
+"z6j-WS-9e5.title" = "Wordpress instance";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "zAy-MK-sML"; */
+"zAy-MK-sML.title" = "Save";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "zXK-cj-yLL"; */
+"zXK-cj-yLL.title" = "Cancel";

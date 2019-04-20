@@ -62,7 +62,7 @@ class SettingsViewController: NSViewController {
             instanceObject.hosturl = self.hostTextbox.stringValue
             instanceObject.name = self.settingsLabel.stringValue
             
-            if(SystemInstancesModel().checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
+            if(SystemInstancesModel.checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
                 return instanceObject.saveConfigfile()
             } else {
                 instanceObject.renamePlistFile(instanceName)
@@ -73,7 +73,7 @@ class SettingsViewController: NSViewController {
             instanceObject.hosturl = self.hostTextbox.stringValue
             instanceObject.name = self.settingsLabel.stringValue
             
-            if(SystemInstancesModel().checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
+            if(SystemInstancesModel.checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
                 return instanceObject.saveConfigfile()
             } else {
                 instanceObject.renamePlistFile(instanceName)
@@ -85,7 +85,7 @@ class SettingsViewController: NSViewController {
             instanceObject.name = self.settingsLabel.stringValue
             instanceObject.apiToken = self.apiToken.stringValue
             
-            if(SystemInstancesModel().checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
+            if(SystemInstancesModel.checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
                 return instanceObject.saveConfigfile()
             } else {
                 instanceObject.renamePlistFile(instanceName)
@@ -96,7 +96,7 @@ class SettingsViewController: NSViewController {
             instanceObject.hosturl = self.hostTextbox.stringValue
             instanceObject.name = self.settingsLabel.stringValue
             
-            if(SystemInstancesModel().checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
+            if(SystemInstancesModel.checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
                 return instanceObject.saveConfigfile()
             } else {
                 instanceObject.renamePlistFile(instanceName)

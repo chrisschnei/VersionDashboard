@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  VersionDashboardiOS
+
+  Created by Christian Schneider on 28.12.17.
+  Copyright © 2017 NonameCompany. All rights reserved.
+*/
+
+"instanceDuplicate" = "Instanzname bereits vergeben.";
+"deleteInstance" = "Löschen";
+"takeMeToMyInstance" = "Zu meiner Instanz";
+"urlEnding" = "URL muss mit / enden.";
+"protocolMissing" = "Protokolltyp fehlt.";
+"errorInternetConnection" = "Keine Internetverbindung.";
+"retry" = "Versioncheck wiederholen.";
+"errorfetchingVersions" = "Versionscheck fehlgeschlagen.";
+"newerVersion" = "Neuere Version verfügbar";
+"pleaseUpdate" = "Bitte aktualisieren Sie die Instanz %@.";
+"uptodate" = "Aktuell";
+"outdated" = "Veraltet";
+"refresh" = "Aktualisieren";

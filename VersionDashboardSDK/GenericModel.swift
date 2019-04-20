@@ -37,20 +37,20 @@ open class GenericModel: GenericModelProtocol {
     open func renamePlistFile(_ oldName: String) {
         let fileManager = FileManager.default
         do {
-            try fileManager.moveItem(atPath: (plistFilesPath + oldName) + ".plist", toPath: (plistFilesPath + self.name) + ".plist")
+            try fileManager.moveItem(atPath: (Constants.plistFilesPath + oldName) + ".plist", toPath: (Constants.plistFilesPath + self.name) + ".plist")
         }
         catch let error as NSError {
             print("Ooops! Something went wrong: \(error)")
         }
     }
     
-    public func saveConfigfile() -> Bool {
-        let path = (plistFilesPath + self.name) + ".plist"
+    open func saveConfigfile() -> Bool {
+        let path = (Constants.plistFilesPath + self.name) + ".plist"
         let dict: NSMutableDictionary = NSMutableDictionary()
         
         if(self.creationDate == "") {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = dateformat
+            dateFormatter.dateFormat = Constants.dateformat
             self.creationDate = dateFormatter.string(from: Date())
         }
         dict.setObject(self.hosturl, forKey: "hosturl" as NSCopying)

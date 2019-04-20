@@ -26,24 +26,24 @@ class PreferencesViewController: NSViewController {
     }
     
     func setConfigurationValues() {
-        self.dropdownInterval.addItems(withObjectValues: refreshIntervals)
+        self.dropdownInterval.addItems(withObjectValues: Constants.refreshIntervals)
         self.dropdownInterval.selectItem(withObjectValue: ConfigurationSettings.configurationSettings["interval"] as! String)
         self.activatedCheckbox.state = NSControl.StateValue(rawValue: ConfigurationSettings.configurationSettings["automaticRefreshActive"] as! Int)
     }
     
     func loadConfigurationFile() {
         let fileManager = FileManager.default
-        if !fileManager.fileExists(atPath: configurationFilePath) {
+        if !fileManager.fileExists(atPath: Constants.configurationFilePath) {
             do {
-                try fileManager.createDirectory(atPath: plistFilesPath, withIntermediateDirectories: true, attributes: nil)
-                try fileManager.copyItem(atPath: appBundleConfigationPath, toPath: configurationFilePath)
+                try fileManager.createDirectory(atPath: Constants.plistFilesPath, withIntermediateDirectories: true, attributes: nil)
+                try fileManager.copyItem(atPath: Constants.appBundleConfigationPath, toPath: Constants.configurationFilePath)
             }
             catch let error as NSError {
                 NSLog("Error copying configuration.plist file to Application Support: \(error)")
             }
         }
         var myDict: NSDictionary?
-        myDict = NSDictionary(contentsOfFile: configurationFilePath)
+        myDict = NSDictionary(contentsOfFile: Constants.configurationFilePath)
         if let dict = myDict {
             ConfigurationSettings.configurationSettings["interval"] = dict["interval"]! as AnyObject?
             ConfigurationSettings.configurationSettings["automaticRefreshActive"] = dict["automaticRefreshActive"]! as AnyObject?
@@ -59,11 +59,11 @@ class PreferencesViewController: NSViewController {
         dict.setObject(ConfigurationSettings.configurationSettings["automaticRefreshActive"] as! Bool, forKey: "automaticRefreshActive" as NSCopying)
         
         let fileManager = FileManager.default
-        if (!(fileManager.fileExists(atPath: configurationFilePath)))
+        if (!(fileManager.fileExists(atPath: Constants.configurationFilePath)))
         {
-            fileManager.createFile(atPath: configurationFilePath, contents: nil, attributes: nil)
+            fileManager.createFile(atPath: Constants.configurationFilePath, contents: nil, attributes: nil)
         }
-        dict.write(toFile: configurationFilePath, atomically: true)
+        dict.write(toFile: Constants.configurationFilePath, atomically: true)
     }
     
     @IBAction func savePreferences(_ sender: AnyObject) {
@@ -83,17 +83,17 @@ class PreferencesViewController: NSViewController {
     
     @objc func checkInstancesAutomatic() {
         if(checkInternetConnection()) {
-            SystemInstancesModel().checkAllInstancesVersions(force: false) { result in
+            SystemInstancesModel.checkAllInstancesVersions(force: false) { result in
             }
         }
     }
     
     func stopTimer() {
-        timer.invalidate()
+        Constants.timer.invalidate()
     }
     
     func automaticRefresh() {
         let seconds = Double(ConfigurationSettings.configurationSettings["interval"] as! String)!*(60.0*60.0)
-        timer = Timer.scheduledTimer(timeInterval: seconds, target: self, selector: #selector(PreferencesViewController.checkInstancesAutomatic), userInfo: nil, repeats: true)
+        Constants.timer = Timer.scheduledTimer(timeInterval: seconds, target: self, selector: #selector(PreferencesViewController.checkInstancesAutomatic), userInfo: nil, repeats: true)
     }
 }

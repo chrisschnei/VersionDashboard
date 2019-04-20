@@ -10,16 +10,16 @@ import Foundation
 
 open class HeadInstancesModel : NSObject {
     
-    open func loadConfigfiles() {
+    public static func loadConfigfiles() {
         let fileManager = FileManager.default
         var isDir : ObjCBool = false
-        if fileManager.fileExists(atPath: headPlistFilesPath, isDirectory:&isDir) {
+        if fileManager.fileExists(atPath: Constants.headPlistFilesPath, isDirectory:&isDir) {
             if isDir.boolValue {
-                let enumerator:FileManager.DirectoryEnumerator = fileManager.enumerator(atPath: headPlistFilesPath)!
+                let enumerator:FileManager.DirectoryEnumerator = fileManager.enumerator(atPath: Constants.headPlistFilesPath)!
                 
                 while let element = enumerator.nextObject() as? String {
                     if element.hasSuffix("plist") {
-                        let myDict = NSDictionary(contentsOfFile: headPlistFilesPath + element)
+                        let myDict = NSDictionary(contentsOfFile: Constants.headPlistFilesPath + element)
                         if myDict!["type"] as! String == "Joomla" {
                             HeadInstances.headInstances[myDict!["name"] as! String] = JoomlaHeadModel(headVersion: myDict!["headVersion"] as! String, name: myDict!["name"] as! String, type: "Joomla", creationDate: myDict!["creationDate"] as! Date, lastRefresh: myDict!["lastRefresh"] as! Date)
                         } else if myDict!["type"] as! String == "Wordpress" {
@@ -34,11 +34,11 @@ open class HeadInstancesModel : NSObject {
             }
         } else {
             do {
-                try FileManager.default.createDirectory(atPath: headPlistFilesPath, withIntermediateDirectories: false, attributes: nil)
-                try fileManager.copyItem(atPath: appBundleJoomlaPath, toPath: joomlaFilePath)
-                try fileManager.copyItem(atPath: appBundlewordpressPath, toPath: wordpressFilePath)
-                try fileManager.copyItem(atPath: appBundleOwncloudPath, toPath: owncloudFilePath)
-                try fileManager.copyItem(atPath: appBundlePiwikPath, toPath: piwikFilePath)
+                try FileManager.default.createDirectory(atPath: Constants.headPlistFilesPath, withIntermediateDirectories: false, attributes: nil)
+                try fileManager.copyItem(atPath: Constants.appBundleJoomlaPath, toPath: Constants.joomlaFilePath)
+                try fileManager.copyItem(atPath: Constants.appBundlewordpressPath, toPath: Constants.wordpressFilePath)
+                try fileManager.copyItem(atPath: Constants.appBundleOwncloudPath, toPath: Constants.owncloudFilePath)
+                try fileManager.copyItem(atPath: Constants.appBundlePiwikPath, toPath: Constants.piwikFilePath)
             } catch _ as NSError {
                 NSLog("plist folder Application Support headPlistFolder creation failed")
             }

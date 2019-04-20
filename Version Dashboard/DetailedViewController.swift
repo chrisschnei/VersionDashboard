@@ -63,9 +63,9 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             let instance = SystemInstances.systemInstances[instancename]
             var url = ""
             if((instance as? JoomlaModel) != nil) {
-                url = (instance as! JoomlaModel).hosturl + joomlaBackendURL
+                url = (instance as! JoomlaModel).hosturl + Constants.joomlaBackendURL
             } else if((instance as? WordpressModel) != nil) {
-                url = (instance as! WordpressModel).hosturl + wordpressBackendURL
+                url = (instance as! WordpressModel).hosturl + Constants.wordpressBackendURL
             } else if((instance as? PiwikModel) != nil) {
                 url = (instance as! PiwikModel).hosturl
             } else if((instance as? OwncloudModel) != nil) {
@@ -89,11 +89,11 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         if(self.systemTableView.selectedRow != -1) {
             let instances = Array(SystemInstances.systemInstances.keys)
             let filename = instances[self.systemTableView.selectedRow]
-            let path = (plistFilesPath + filename) + ".plist"
+            let path = (Constants.plistFilesPath + filename) + ".plist"
             self.deleteFile(path)
             zeroBadgeNumber()
             SystemInstances.systemInstances.removeAll()
-            SystemInstancesModel().loadConfigfiles()
+            SystemInstancesModel.loadConfigfiles()
             self.addInstancesToTable()
         }
     }
@@ -106,7 +106,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         let selectedRow = self.systemTableView.selectedRow
         self.systemTableView.deselectAll(self)
         SystemInstances.systemInstances.removeAll()
-        SystemInstancesModel().loadConfigfiles()
+        SystemInstancesModel.loadConfigfiles()
         self.systemTableView.reloadData()
         self.systemTableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
     }

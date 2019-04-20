@@ -27,7 +27,7 @@ open class GenericHeadModel: GenericHeadModelProtocol {
     open func renamePlistFile(_ oldName: String) {
         let fileManager = FileManager.default
         do {
-            try fileManager.moveItem(atPath: (plistFilesPath + oldName) + ".plist", toPath: (plistFilesPath + self.name) + ".plist")
+            try fileManager.moveItem(atPath: (Constants.plistFilesPath + oldName) + ".plist", toPath: (Constants.plistFilesPath + self.name) + ".plist")
         }
         catch let error as NSError {
             print("Ooops! Something went wrong: \(error)")
@@ -35,7 +35,7 @@ open class GenericHeadModel: GenericHeadModelProtocol {
     }
     
     open func saveConfigfile(filename: String) -> Bool {
-        let path = headPlistFilesPath + filename
+        let path = Constants.headPlistFilesPath + filename
         let dict: NSMutableDictionary = NSMutableDictionary()
         
         self.lastRefresh = Date()

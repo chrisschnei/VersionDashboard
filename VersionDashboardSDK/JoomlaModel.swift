@@ -13,7 +13,7 @@ open class JoomlaModel : GenericModel, XMLParserDelegate {
     open func getVersions(forceUpdate: Bool) -> Bool {
         let joomlaheadobject = HeadInstances.headInstances["Joomla"] as! JoomlaHeadModel
         joomlaheadobject.getVersion(forceUpdate: forceUpdate)
-        let currentVersion = self.getInstanceVersion((self.hosturl) + joomlapath)
+        let currentVersion = self.getInstanceVersion((self.hosturl) + Constants.joomlapath)
         self.phpVersionRequest(self.phpReturnHandler)
         if(currentVersion != "") {
             self.currentVersion = currentVersion

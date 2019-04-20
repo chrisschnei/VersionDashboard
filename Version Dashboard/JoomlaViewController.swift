@@ -27,7 +27,7 @@ class JoomlaViewController: NSViewController {
         if(self.checkURLTextfields()) {
             return
         }
-        if(SystemInstancesModel().checkInstanceNameAlreadyPresent(self.instanceName.stringValue)) {
+        if(SystemInstancesModel.checkInstanceNameAlreadyPresent(self.instanceName.stringValue)) {
             self.errorMessage.isHidden = false
             self.errorMessage.stringValue = NSLocalizedString("instanceDuplicate", comment: "")
             return

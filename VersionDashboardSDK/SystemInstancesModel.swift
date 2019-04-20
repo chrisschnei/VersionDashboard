@@ -10,7 +10,7 @@ import Foundation
 
 open class SystemInstancesModel : NSObject {
     
-    open func checkAllInstancesVersions(force: Bool, _ completionHandler: @escaping (Bool) -> ()) {
+    public static func checkAllInstancesVersions(force: Bool, _ completionHandler: @escaping (Bool) -> ()) {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             for instance in SystemInstances.systemInstances.keys {
                 if((SystemInstances.systemInstances[instance] as? JoomlaModel) != nil) {
@@ -47,7 +47,7 @@ open class SystemInstancesModel : NSObject {
         }
     }
     
-    open func checkAllInstancesTypes() -> Dictionary<String, Int> {
+    public static func checkAllInstancesTypes() -> Dictionary<String, Int> {
         var wordpressInstances = 0
         var piwikInstances = 0
         var owncloudInstances = 0
@@ -68,11 +68,11 @@ open class SystemInstancesModel : NSObject {
         return ["Wordpress" : wordpressInstances, "Joomla" : joomlaInstances, "Owncloud" : owncloudInstances, "Piwik" : piwikInstances]
     }
     
-    func getAmountOfInstances() -> String {
+    public static func getAmountOfInstances() -> String {
        return String(SystemInstances.systemInstances.count)
     }
     
-    open func getAmountOfOutdateInstances() -> Int {
+    public static func getAmountOfOutdateInstances() -> Int {
         var instancesOutOfDate = 0
         
         let keys = SystemInstances.systemInstances.keys
@@ -98,23 +98,23 @@ open class SystemInstancesModel : NSObject {
         return instancesOutOfDate
     }
     
-    public func checkInstanceNameAlreadyPresent(_ newName: String) -> Bool {
+    public static func checkInstanceNameAlreadyPresent(_ newName: String) -> Bool {
         if(SystemInstances.systemInstances[newName] != nil) {
             return true
         }
         return false
     }
     
-    public func loadConfigfiles() {
+    public static func loadConfigfiles() {
         let fileManager = FileManager.default
         var isDir : ObjCBool = false
-        if fileManager.fileExists(atPath: plistFilesPath, isDirectory:&isDir) {
+        if fileManager.fileExists(atPath: Constants.plistFilesPath, isDirectory:&isDir) {
             if isDir.boolValue {
-                let enumerator:FileManager.DirectoryEnumerator = fileManager.enumerator(atPath: plistFilesPath)!
+                let enumerator:FileManager.DirectoryEnumerator = fileManager.enumerator(atPath: Constants.plistFilesPath)!
                 
                 while let element = enumerator.nextObject() as? String {
                     if element.hasSuffix("plist") {
-                        let myDict = NSDictionary(contentsOfFile: plistFilesPath + element)
+                        let myDict = NSDictionary(contentsOfFile: Constants.plistFilesPath + element)
                         if myDict!["type"] as! String == "Joomla" {
                             let joomlahead = HeadInstances.headInstances["Joomla"].self! as! JoomlaHeadModel
                             SystemInstances.systemInstances[myDict!["name"] as! String] = JoomlaModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, headVersion: joomlahead.headVersion, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
@@ -136,15 +136,15 @@ open class SystemInstancesModel : NSObject {
             }
         } else {
             do {
-                try FileManager.default.createDirectory(atPath: plistFilesPath, withIntermediateDirectories: false, attributes: nil)
-                try FileManager.default.createDirectory(atPath: configurationFilePath, withIntermediateDirectories: false, attributes: nil)
+                try FileManager.default.createDirectory(atPath: Constants.plistFilesPath, withIntermediateDirectories: false, attributes: nil)
+                try FileManager.default.createDirectory(atPath: Constants.configurationFilePath, withIntermediateDirectories: false, attributes: nil)
             } catch _ as NSError {
                 NSLog("plist folder Application Support creation failed")
             }
         }
     }
     
-    open func getAmountOfUptodateInstances() -> Int {
+    public static func getAmountOfUptodateInstances() -> Int {
         var instancesUptoDate = 0
         
         let keys = SystemInstances.systemInstances.keys
@@ -168,5 +168,31 @@ open class SystemInstancesModel : NSObject {
             }
         }
         return instancesUptoDate
+    }
+    
+    public static func getOutdatedInstances() -> Dictionary<String, AnyObject> {
+        var outdatedInstances = Dictionary<String, AnyObject>()
+        
+        let keys = SystemInstances.systemInstances.keys
+        for instanceName in keys {
+            if((SystemInstances.systemInstances[instanceName] as? WordpressModel) != nil) {
+                if(((SystemInstances.systemInstances[instanceName] as! WordpressModel).updateAvailable) == 1) {
+                    outdatedInstances[instanceName] = SystemInstances.systemInstances[instanceName]
+                }
+            } else if((SystemInstances.systemInstances[instanceName] as? JoomlaModel) != nil) {
+                if(((SystemInstances.systemInstances[instanceName] as! JoomlaModel).updateAvailable) == 1) {
+                    outdatedInstances[instanceName] = SystemInstances.systemInstances[instanceName]
+                }
+            } else if((SystemInstances.systemInstances[instanceName] as? PiwikModel) != nil) {
+                if(((SystemInstances.systemInstances[instanceName] as! PiwikModel).updateAvailable) == 1) {
+                    outdatedInstances[instanceName] = SystemInstances.systemInstances[instanceName]
+                }
+            } else if((SystemInstances.systemInstances[instanceName] as? OwncloudModel) != nil) {
+                if(((SystemInstances.systemInstances[instanceName] as! OwncloudModel).updateAvailable) == 1) {
+                    outdatedInstances[instanceName] = SystemInstances.systemInstances[instanceName]
+                }
+            }
+        }
+        return outdatedInstances
     }
 }

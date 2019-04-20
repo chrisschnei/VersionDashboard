@@ -11,14 +11,14 @@ import Foundation
 open class OwncloudHeadModel: GenericHeadModel {
     
     func getVersion(forceUpdate: Bool = false) {
-        if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-refreshHeadInstances)))) {
-            let headVersion = self.getLatestVersion(owncloudAPIUrl)
+        if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-Constants.refreshHeadInstances)))) {
+            let headVersion = self.getLatestVersion(Constants.owncloudAPIUrl)
             if(headVersion != "") {
                 self.headVersion = headVersion
             } else {
                 self.headVersion = "0.0"
             }
-            if (self.saveConfigfile(filename: owncloudHead)) {
+            if (self.saveConfigfile(filename: Constants.owncloudHead)) {
                 print("Error saving owncloud head plist file.")
             }
         }

@@ -26,7 +26,7 @@ class PiwikController: NSViewController {
         if(self.checkURLTextfields()) {
             return
         }
-        if(SystemInstancesModel().checkInstanceNameAlreadyPresent(self.instanceName.stringValue)) {
+        if(SystemInstancesModel.checkInstanceNameAlreadyPresent(self.instanceName.stringValue)) {
             return
         }
         let piwikinstance = PiwikModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, apiToken : tokenField.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Piwik", headVersion: "", updateAvailable: 0, phpVersion: "", serverType: "")

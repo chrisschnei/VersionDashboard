@@ -29,7 +29,7 @@ class OwncloudViewController: NSViewController {
         if(self.checkURLTextfields()) {
             return
         }
-        if(SystemInstancesModel().checkInstanceNameAlreadyPresent(self.instanceName.stringValue)) {
+        if(SystemInstancesModel.checkInstanceNameAlreadyPresent(self.instanceName.stringValue)) {
             return
         }
         let owncloudinstance = OwncloudModel(creationDate: "", currentVersion: "", hosturl: urlField.stringValue, headVersion: "", lastRefresh: "", name: instanceName.stringValue, type: "Owncloud", updateAvailable: 0, phpVersion: "", serverType: "")

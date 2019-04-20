@@ -11,14 +11,14 @@ import Foundation
 open class PiwikHeadModel: GenericHeadModel, XMLParserDelegate {
     
     func getVersion(forceUpdate: Bool = false) {
-        if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-refreshHeadInstances)))) {
-            let headVersion = self.getInstanceVersion(piwikLatestVersionURL)
+        if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-Constants.refreshHeadInstances)))) {
+            let headVersion = self.getInstanceVersion(Constants.piwikLatestVersionURL)
             if(headVersion != "") {
                 self.headVersion = headVersion
             } else {
                 self.headVersion = "0.0"
             }
-            if (self.saveConfigfile(filename: piwikHead)) {
+            if (self.saveConfigfile(filename: Constants.piwikHead)) {
                 print("Error saving piwik head plist file.")
             }
         }

@@ -21,7 +21,7 @@ open class PiwikModel : GenericModel, XMLParserDelegate {
     open func getVersions(forceUpdate: Bool) -> Bool {
         let piwikheadobject = HeadInstances.headInstances["Piwik"] as! PiwikHeadModel
         piwikheadobject.getVersion(forceUpdate: forceUpdate)
-        let currentVersion = self.getInstanceVersionXML(((self.hosturl) + piwikAPIUrl) + self.apiToken)
+        let currentVersion = self.getInstanceVersionXML(((self.hosturl) + Constants.piwikAPIUrl) + self.apiToken)
         self.phpVersionRequest(self.phpReturnHandler)
         if(!currentVersion.isEmpty) {
             self.currentVersion = currentVersion
@@ -35,12 +35,12 @@ open class PiwikModel : GenericModel, XMLParserDelegate {
     }
     
     override open func saveConfigfile() -> Bool {
-        let path = (plistFilesPath + self.name) + ".plist"
+        let path = (Constants.plistFilesPath + self.name) + ".plist"
         let dict: NSMutableDictionary = NSMutableDictionary()
         
         if(self.creationDate == "") {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = dateformat
+            dateFormatter.dateFormat = Constants.dateformat
             self.creationDate = dateFormatter.string(from: Date())
         }
         dict.setObject(self.hosturl, forKey: "hosturl" as NSCopying)

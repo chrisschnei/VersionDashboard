@@ -23,10 +23,10 @@ class SummaryViewController: NSViewController {
         super.viewDidLoad()
         PreferencesViewController().loadConfigurationFile()
         if(HeadInstances.headInstances.count == 0) {
-            HeadInstancesModel().loadConfigfiles()
+            HeadInstancesModel.loadConfigfiles()
         }
         if(SystemInstances.systemInstances.count == 0) {
-            SystemInstancesModel().loadConfigfiles()
+            SystemInstancesModel.loadConfigfiles()
         }
         if((ConfigurationSettings.configurationSettings["automaticRefreshActive"] as! Bool) == true) {
             PreferencesViewController().automaticRefresh()
@@ -37,7 +37,7 @@ class SummaryViewController: NSViewController {
     
     func drawPieChartInstances() {
         var chartdata = Array<PieChartDataEntry>()
-        for (instancename, amount) in SystemInstancesModel().checkAllInstancesTypes() {
+        for (instancename, amount) in SystemInstancesModel.checkAllInstancesTypes() {
             chartdata.append(PieChartDataEntry(value: Double(amount), label:instancename))
         }
         
@@ -51,8 +51,8 @@ class SummaryViewController: NSViewController {
     
     func drawPieChartOutdated() {
         var chartdata = Array<PieChartDataEntry>()
-        chartdata.append(PieChartDataEntry(value: Double(SystemInstancesModel().getAmountOfOutdateInstances()), label:"Outdated"))
-        chartdata.append(PieChartDataEntry(value: Double(SystemInstancesModel().getAmountOfUptodateInstances()), label:"Up to Date"))
+        chartdata.append(PieChartDataEntry(value: Double(SystemInstancesModel.getAmountOfOutdateInstances()), label:"Outdated"))
+        chartdata.append(PieChartDataEntry(value: Double(SystemInstancesModel.getAmountOfUptodateInstances()), label:"Up to Date"))
         
         let data = PieChartData()
         let ds1 = PieChartDataSet(entries: chartdata, label:"")
@@ -66,7 +66,7 @@ class SummaryViewController: NSViewController {
         self.refreshActiveSpinner.stopAnimation(self)
         self.refreshActiveSpinner.isHidden = true
         SystemInstances.systemInstances.removeAll()
-        SystemInstancesModel().loadConfigfiles()
+        SystemInstancesModel.loadConfigfiles()
         self.drawPieChartInstances()
         self.drawPieChartOutdated()
     }
@@ -74,7 +74,7 @@ class SummaryViewController: NSViewController {
     @IBAction func checkAllInstances(_ sender: AnyObject) {
         self.refreshActiveSpinner.isHidden = false
         self.refreshActiveSpinner.startAnimation(self)
-        SystemInstancesModel().checkAllInstancesVersions(force: false) { result in
+        SystemInstancesModel.checkAllInstancesVersions(force: false) { result in
             self.performSelector(onMainThread: #selector(SummaryViewController.checksFinished), with: self, waitUntilDone: true)
         }
     }

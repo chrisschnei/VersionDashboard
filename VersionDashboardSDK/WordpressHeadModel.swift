@@ -11,14 +11,14 @@ import Foundation
 open class WordpressHeadModel: GenericHeadModel {
     
     func getVersion(forceUpdate: Bool = false) {
-        if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-refreshHeadInstances)))) {
-            let headVersion = self.getInstanceVersionJSON(wordpressAPIUrl)
+        if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-Constants.refreshHeadInstances)))) {
+            let headVersion = self.getInstanceVersionJSON(Constants.wordpressAPIUrl)
             if(headVersion != "") {
                 self.headVersion = headVersion
             } else {
                 self.headVersion = "0.0"
             }
-            if (self.saveConfigfile(filename: wordpressHead)) {
+            if (self.saveConfigfile(filename: Constants.wordpressHead)) {
                 print("Error saving wordpress head plist file.")
             }
         }
