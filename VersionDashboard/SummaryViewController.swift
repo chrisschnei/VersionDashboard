@@ -21,6 +21,9 @@ class SummaryViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Constants.initialize(Bundle.main.bundlePath)
+        
         PreferencesViewController().loadConfigurationFile()
         if(HeadInstances.headInstances.count == 0) {
             HeadInstancesModel.loadConfigfiles()

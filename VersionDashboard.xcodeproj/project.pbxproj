@@ -8,21 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		AA288CD41C8B64120026A172 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA288CD61C8B64120026A172 /* Localizable.strings */; };
-		AA3A1D1E1F9237050094D856 /* joomla.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA3A1D1D1F92366C0094D856 /* joomla.plist */; };
-		AA3A1D1F1F9237070094D856 /* owncloud.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA3A1D1B1F9235210094D856 /* owncloud.plist */; };
-		AA3A1D201F9237090094D856 /* piwik.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA3A1D1C1F9235210094D856 /* piwik.plist */; };
-		AA3A1D211F92370B0094D856 /* wordpress.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA3A1D1A1F9235210094D856 /* wordpress.plist */; };
-		AA62EDF02250E9D300757106 /* owncloud.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA62EDEC2250E9D200757106 /* owncloud.tiff */; };
-		AA62EDF12250E9D300757106 /* joomla.png in Resources */ = {isa = PBXBuildFile; fileRef = AA62EDED2250E9D300757106 /* joomla.png */; };
-		AA62EDF22250E9D300757106 /* wordpress.png in Resources */ = {isa = PBXBuildFile; fileRef = AA62EDEE2250E9D300757106 /* wordpress.png */; };
-		AA62EDF32250E9D300757106 /* piwik.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA62EDEF2250E9D300757106 /* piwik.tiff */; };
 		AA62EDF52250E9E400757106 /* Outdated item.png in Resources */ = {isa = PBXBuildFile; fileRef = AA62EDF42250E9E400757106 /* Outdated item.png */; };
 		AA62EDF72250E9EC00757106 /* Detailed view.png in Resources */ = {isa = PBXBuildFile; fileRef = AA62EDF62250E9EB00757106 /* Detailed view.png */; };
 		AA62EDF92250E9F300757106 /* Summarize.png in Resources */ = {isa = PBXBuildFile; fileRef = AA62EDF82250E9F300757106 /* Summarize.png */; };
-		AA62EDFE2250EA1000757106 /* owncloud_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA62EDFA2250EA1000757106 /* owncloud_dots.png */; };
-		AA62EDFF2250EA1000757106 /* piwik_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA62EDFB2250EA1000757106 /* piwik_dots.png */; };
-		AA62EE002250EA1000757106 /* wordpress_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA62EDFC2250EA1000757106 /* wordpress_dots.png */; };
-		AA62EE012250EA1000757106 /* joomla_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA62EDFD2250EA1000757106 /* joomla_dots.png */; };
 		AA62EE692251393F00757106 /* SystemInstancesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE572251393800757106 /* SystemInstancesModel.swift */; };
 		AA62EE6A2251393F00757106 /* GenericModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE582251393800757106 /* GenericModelProtocol.swift */; };
 		AA62EE6B2251393F00757106 /* InternetConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE592251393900757106 /* InternetConnectivity.swift */; };
@@ -76,21 +64,6 @@
 		AA62F5602251508B00757106 /* InstanceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5032251508B00757106 /* InstanceDetailsViewController.swift */; };
 		AA62F5612251508B00757106 /* InstanceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5032251508B00757106 /* InstanceDetailsViewController.swift */; };
 		AA62F5622251508B00757106 /* InstanceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5032251508B00757106 /* InstanceDetailsViewController.swift */; };
-		AA62F5632251508B00757106 /* owncloud.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5052251508B00757106 /* owncloud.plist */; };
-		AA62F5642251508B00757106 /* owncloud.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5052251508B00757106 /* owncloud.plist */; };
-		AA62F5652251508B00757106 /* owncloud.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5052251508B00757106 /* owncloud.plist */; };
-		AA62F5662251508B00757106 /* configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5062251508B00757106 /* configuration.plist */; };
-		AA62F5672251508B00757106 /* configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5062251508B00757106 /* configuration.plist */; };
-		AA62F5682251508B00757106 /* configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5062251508B00757106 /* configuration.plist */; };
-		AA62F5692251508B00757106 /* piwik.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5072251508B00757106 /* piwik.plist */; };
-		AA62F56A2251508B00757106 /* piwik.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5072251508B00757106 /* piwik.plist */; };
-		AA62F56B2251508B00757106 /* piwik.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5072251508B00757106 /* piwik.plist */; };
-		AA62F56C2251508B00757106 /* joomla.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5082251508B00757106 /* joomla.plist */; };
-		AA62F56D2251508B00757106 /* joomla.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5082251508B00757106 /* joomla.plist */; };
-		AA62F56E2251508B00757106 /* joomla.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5082251508B00757106 /* joomla.plist */; };
-		AA62F56F2251508B00757106 /* wordpress.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5092251508B00757106 /* wordpress.plist */; };
-		AA62F5702251508B00757106 /* wordpress.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5092251508B00757106 /* wordpress.plist */; };
-		AA62F5712251508B00757106 /* wordpress.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5092251508B00757106 /* wordpress.plist */; };
 		AA62F5752251508B00757106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA62F50B2251508B00757106 /* Assets.xcassets */; };
 		AA62F5762251508B00757106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA62F50B2251508B00757106 /* Assets.xcassets */; };
 		AA62F5772251508B00757106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA62F50B2251508B00757106 /* Assets.xcassets */; };
@@ -166,15 +139,10 @@
 		AA62F76E2258AE9D00757106 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4FC2251508B00757106 /* SummaryViewController.swift */; };
 		AA62F76F2258AE9D00757106 /* OwncloudInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5222251508B00757106 /* OwncloudInstanceViewController.swift */; };
 		AA62F7702258AE9D00757106 /* JoomlaInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F51F2251508B00757106 /* JoomlaInstanceViewController.swift */; };
-		AA62F7722258AE9D00757106 /* configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5062251508B00757106 /* configuration.plist */; };
-		AA62F7732258AE9D00757106 /* piwik.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5072251508B00757106 /* piwik.plist */; };
 		AA62F7742258AE9D00757106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA62F50B2251508B00757106 /* Assets.xcassets */; };
-		AA62F7752258AE9D00757106 /* wordpress.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5092251508B00757106 /* wordpress.plist */; };
 		AA62F7762258AE9D00757106 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4F32251508B00757106 /* Localizable.strings */; };
 		AA62F7772258AE9D00757106 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4F12251508B00757106 /* Main.strings */; };
 		AA62F7782258AE9D00757106 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5102251508B00757106 /* Main.storyboard */; };
-		AA62F7792258AE9D00757106 /* owncloud.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5052251508B00757106 /* owncloud.plist */; };
-		AA62F77A2258AE9D00757106 /* joomla.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5082251508B00757106 /* joomla.plist */; };
 		AA62F77B2258AE9D00757106 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA62F50E2251508B00757106 /* LaunchScreen.storyboard */; };
 		AA62F77C2258AE9D00757106 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4EF2251508B00757106 /* LaunchScreen.strings */; };
 		AA62F77F2258AE9D00757106 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; };
@@ -190,7 +158,6 @@
 		AA6AD7F11C6B779D0097CD9A /* OwncloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD7F01C6B779D0097CD9A /* OwncloudViewController.swift */; };
 		AA6AD7F31C6B77AE0097CD9A /* JoomlaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD7F21C6B77AE0097CD9A /* JoomlaViewController.swift */; };
 		AA6AD7F51C6B77C00097CD9A /* WordpressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD7F41C6B77C00097CD9A /* WordpressViewController.swift */; };
-		AA6AD7FA1C6B8F220097CD9A /* MyXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD7F91C6B8F220097CD9A /* MyXMLParser.swift */; };
 		AA6AD8511C7E397B0097CD9A /* badgeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD8501C7E397B0097CD9A /* badgeFunctions.swift */; };
 		AA71A740226A3E8C00BEB4C3 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; };
 		AA71A741226A3E8C00BEB4C3 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -202,44 +169,6 @@
 		AA71A7FD226B00EF00BEB4C3 /* summary.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7D3226B00EE00BEB4C3 /* summary.png */; };
 		AA71A7FE226B00EF00BEB4C3 /* summary@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7D4226B00EE00BEB4C3 /* summary@3x.png */; };
 		AA71A7FF226B00EF00BEB4C3 /* summary@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7D4226B00EE00BEB4C3 /* summary@3x.png */; };
-		AA71A800226B00EF00BEB4C3 /* 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7D6226B00EE00BEB4C3 /* 1024.png */; };
-		AA71A801226B00EF00BEB4C3 /* 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7D6226B00EE00BEB4C3 /* 1024.png */; };
-		AA71A802226B00EF00BEB4C3 /* 76.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7D7226B00EE00BEB4C3 /* 76.png */; };
-		AA71A803226B00EF00BEB4C3 /* 76.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7D7226B00EE00BEB4C3 /* 76.png */; };
-		AA71A804226B00EF00BEB4C3 /* 60.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7D8226B00EE00BEB4C3 /* 60.png */; };
-		AA71A805226B00EF00BEB4C3 /* 60.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7D8226B00EE00BEB4C3 /* 60.png */; };
-		AA71A806226B00EF00BEB4C3 /* 58.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7D9226B00EE00BEB4C3 /* 58.png */; };
-		AA71A807226B00EF00BEB4C3 /* 58.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7D9226B00EE00BEB4C3 /* 58.png */; };
-		AA71A808226B00EF00BEB4C3 /* 167.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7DA226B00EE00BEB4C3 /* 167.png */; };
-		AA71A809226B00EF00BEB4C3 /* 167.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7DA226B00EE00BEB4C3 /* 167.png */; };
-		AA71A80A226B00EF00BEB4C3 /* 72.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7DB226B00EE00BEB4C3 /* 72.png */; };
-		AA71A80B226B00EF00BEB4C3 /* 72.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7DB226B00EE00BEB4C3 /* 72.png */; };
-		AA71A80C226B00EF00BEB4C3 /* 29.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7DC226B00EE00BEB4C3 /* 29.png */; };
-		AA71A80D226B00EF00BEB4C3 /* 29.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7DC226B00EE00BEB4C3 /* 29.png */; };
-		AA71A80E226B00EF00BEB4C3 /* 100.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7DD226B00EE00BEB4C3 /* 100.png */; };
-		AA71A80F226B00EF00BEB4C3 /* 100.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7DD226B00EE00BEB4C3 /* 100.png */; };
-		AA71A810226B00EF00BEB4C3 /* 114.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7DE226B00EE00BEB4C3 /* 114.png */; };
-		AA71A811226B00EF00BEB4C3 /* 114.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7DE226B00EE00BEB4C3 /* 114.png */; };
-		AA71A812226B00EF00BEB4C3 /* 120.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7DF226B00EE00BEB4C3 /* 120.png */; };
-		AA71A813226B00EF00BEB4C3 /* 120.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7DF226B00EE00BEB4C3 /* 120.png */; };
-		AA71A814226B00EF00BEB4C3 /* 20.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7E0226B00EE00BEB4C3 /* 20.png */; };
-		AA71A815226B00EF00BEB4C3 /* 20.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7E0226B00EE00BEB4C3 /* 20.png */; };
-		AA71A816226B00EF00BEB4C3 /* 180.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7E1226B00EE00BEB4C3 /* 180.png */; };
-		AA71A817226B00EF00BEB4C3 /* 180.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7E1226B00EE00BEB4C3 /* 180.png */; };
-		AA71A81A226B00EF00BEB4C3 /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7E3226B00EE00BEB4C3 /* 57.png */; };
-		AA71A81B226B00EF00BEB4C3 /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7E3226B00EE00BEB4C3 /* 57.png */; };
-		AA71A81C226B00EF00BEB4C3 /* 80.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7E4226B00EE00BEB4C3 /* 80.png */; };
-		AA71A81D226B00EF00BEB4C3 /* 80.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7E4226B00EE00BEB4C3 /* 80.png */; };
-		AA71A81E226B00EF00BEB4C3 /* 40.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7E5226B00EE00BEB4C3 /* 40.png */; };
-		AA71A81F226B00EF00BEB4C3 /* 40.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7E5226B00EE00BEB4C3 /* 40.png */; };
-		AA71A820226B00EF00BEB4C3 /* 87.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7E6226B00EE00BEB4C3 /* 87.png */; };
-		AA71A821226B00EF00BEB4C3 /* 87.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7E6226B00EE00BEB4C3 /* 87.png */; };
-		AA71A822226B00EF00BEB4C3 /* 50.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7E7226B00EE00BEB4C3 /* 50.png */; };
-		AA71A823226B00EF00BEB4C3 /* 50.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7E7226B00EE00BEB4C3 /* 50.png */; };
-		AA71A824226B00EF00BEB4C3 /* 144.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7E8226B00EE00BEB4C3 /* 144.png */; };
-		AA71A825226B00EF00BEB4C3 /* 144.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7E8226B00EE00BEB4C3 /* 144.png */; };
-		AA71A826226B00EF00BEB4C3 /* 152.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7E9226B00EE00BEB4C3 /* 152.png */; };
-		AA71A827226B00EF00BEB4C3 /* 152.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7E9226B00EE00BEB4C3 /* 152.png */; };
 		AA71A828226B00EF00BEB4C3 /* chart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7EB226B00EE00BEB4C3 /* chart@2x.png */; };
 		AA71A829226B00EF00BEB4C3 /* chart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7EB226B00EE00BEB4C3 /* chart@2x.png */; };
 		AA71A82A226B00EF00BEB4C3 /* chart.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7EC226B00EE00BEB4C3 /* chart.png */; };
@@ -252,9 +181,22 @@
 		AA71A833226B00EF00BEB4C3 /* outdated@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7F1226B00EE00BEB4C3 /* outdated@2x.png */; };
 		AA71A834226B00EF00BEB4C3 /* outdated.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7F2226B00EE00BEB4C3 /* outdated.png */; };
 		AA71A835226B00EF00BEB4C3 /* outdated.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7F2226B00EE00BEB4C3 /* outdated.png */; };
+		AA71A903226CC56E00BEB4C3 /* owncloud.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F0226CBDDD00BEB4C3 /* owncloud.plist */; };
+		AA71A904226CC56E00BEB4C3 /* configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F2226CBDDD00BEB4C3 /* configuration.plist */; };
+		AA71A905226CC56E00BEB4C3 /* piwik.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F9226CBDDD00BEB4C3 /* piwik.plist */; };
+		AA71A906226CC56E00BEB4C3 /* joomla.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8FB226CBDDD00BEB4C3 /* joomla.plist */; };
+		AA71A907226CC56E00BEB4C3 /* wordpress.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8FC226CBDDD00BEB4C3 /* wordpress.plist */; };
+		AA71A908226CC5F300BEB4C3 /* owncloud.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F0226CBDDD00BEB4C3 /* owncloud.plist */; };
+		AA71A909226CC5F300BEB4C3 /* configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F2226CBDDD00BEB4C3 /* configuration.plist */; };
+		AA71A90A226CC5F300BEB4C3 /* piwik.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F9226CBDDD00BEB4C3 /* piwik.plist */; };
+		AA71A90B226CC5F300BEB4C3 /* joomla.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8FB226CBDDD00BEB4C3 /* joomla.plist */; };
+		AA71A90C226CC5F300BEB4C3 /* wordpress.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8FC226CBDDD00BEB4C3 /* wordpress.plist */; };
+		AA71A90E227D74CC00BEB4C3 /* piwik_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F3226CBDDD00BEB4C3 /* piwik_dots.png */; };
+		AA71A90F227D74CC00BEB4C3 /* joomla_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F7226CBDDD00BEB4C3 /* joomla_dots.png */; };
+		AA71A910227D74CC00BEB4C3 /* owncloud_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F8226CBDDD00BEB4C3 /* owncloud_dots.png */; };
+		AA71A911227D74CC00BEB4C3 /* wordpress_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8FA226CBDDD00BEB4C3 /* wordpress_dots.png */; };
 		AA7FB8441C88CEBD009FC40B /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7FB8431C88CEBD009FC40B /* PreferencesWindowController.swift */; };
 		AA7FB8461C88CEF1009FC40B /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7FB8451C88CEF1009FC40B /* PreferencesViewController.swift */; };
-		AA7FB8481C88DE94009FC40B /* configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA7FB8471C88DE94009FC40B /* configuration.plist */; };
 		AA93435E22594D78005D8C1C /* libVersionDashboardSDKARM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62F75C2258ADE300757106 /* libVersionDashboardSDKARM.a */; };
 		AAA5631B1C81DFE700E1199A /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA5631A1C81DFE700E1199A /* SummaryViewController.swift */; };
 		AAA5631D1C81E01200E1199A /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA5631C1C81E01200E1199A /* MainWindow.swift */; };
@@ -394,21 +336,9 @@
 		AA288CCA1C8B0C300026A172 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		AA288CD51C8B64120026A172 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AA288CD71C8B641A0026A172 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		AA3A1D1A1F9235210094D856 /* wordpress.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = wordpress.plist; sourceTree = "<group>"; };
-		AA3A1D1B1F9235210094D856 /* owncloud.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = owncloud.plist; sourceTree = "<group>"; };
-		AA3A1D1C1F9235210094D856 /* piwik.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = piwik.plist; sourceTree = "<group>"; };
-		AA3A1D1D1F92366C0094D856 /* joomla.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = joomla.plist; sourceTree = "<group>"; };
-		AA62EDEC2250E9D200757106 /* owncloud.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = owncloud.tiff; path = "Version Dashboard/graphics/webservicesGraphics/owncloud.tiff"; sourceTree = "<group>"; };
-		AA62EDED2250E9D300757106 /* joomla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = joomla.png; path = "Version Dashboard/graphics/webservicesGraphics/joomla.png"; sourceTree = "<group>"; };
-		AA62EDEE2250E9D300757106 /* wordpress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wordpress.png; path = "Version Dashboard/graphics/webservicesGraphics/wordpress.png"; sourceTree = "<group>"; };
-		AA62EDEF2250E9D300757106 /* piwik.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = piwik.tiff; path = "Version Dashboard/graphics/webservicesGraphics/piwik.tiff"; sourceTree = "<group>"; };
 		AA62EDF42250E9E400757106 /* Outdated item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Outdated item.png"; path = "Version Dashboard/graphics/outdated_item/Outdated item.png"; sourceTree = "<group>"; };
 		AA62EDF62250E9EB00757106 /* Detailed view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Detailed view.png"; path = "Version Dashboard/graphics/detailedview_item/Detailed view.png"; sourceTree = "<group>"; };
 		AA62EDF82250E9F300757106 /* Summarize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Summarize.png; path = "Version Dashboard/graphics/summarize_item/Summarize.png"; sourceTree = "<group>"; };
-		AA62EDFA2250EA1000757106 /* owncloud_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = owncloud_dots.png; path = "Version Dashboard/graphics/tableViewDots/owncloud_dots.png"; sourceTree = "<group>"; };
-		AA62EDFB2250EA1000757106 /* piwik_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = piwik_dots.png; path = "Version Dashboard/graphics/tableViewDots/piwik_dots.png"; sourceTree = "<group>"; };
-		AA62EDFC2250EA1000757106 /* wordpress_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wordpress_dots.png; path = "Version Dashboard/graphics/tableViewDots/wordpress_dots.png"; sourceTree = "<group>"; };
-		AA62EDFD2250EA1000757106 /* joomla_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = joomla_dots.png; path = "Version Dashboard/graphics/tableViewDots/joomla_dots.png"; sourceTree = "<group>"; };
 		AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVersionDashboardSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA62EE572251393800757106 /* SystemInstancesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemInstancesModel.swift; sourceTree = "<group>"; };
 		AA62EE582251393800757106 /* GenericModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericModelProtocol.swift; sourceTree = "<group>"; };
@@ -444,11 +374,6 @@
 		AA62F5012251508B00757106 /* PiwikInstanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PiwikInstanceViewController.swift; sourceTree = "<group>"; };
 		AA62F5022251508B00757106 /* GenericTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericTableViewController.swift; sourceTree = "<group>"; };
 		AA62F5032251508B00757106 /* InstanceDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstanceDetailsViewController.swift; sourceTree = "<group>"; };
-		AA62F5052251508B00757106 /* owncloud.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = owncloud.plist; sourceTree = "<group>"; };
-		AA62F5062251508B00757106 /* configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = configuration.plist; sourceTree = "<group>"; };
-		AA62F5072251508B00757106 /* piwik.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = piwik.plist; sourceTree = "<group>"; };
-		AA62F5082251508B00757106 /* joomla.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = joomla.plist; sourceTree = "<group>"; };
-		AA62F5092251508B00757106 /* wordpress.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = wordpress.plist; sourceTree = "<group>"; };
 		AA62F50B2251508B00757106 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA62F50C2251508B00757106 /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
 		AA62F50F2251508B00757106 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -484,7 +409,6 @@
 		AA6AD7F01C6B779D0097CD9A /* OwncloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwncloudViewController.swift; sourceTree = "<group>"; };
 		AA6AD7F21C6B77AE0097CD9A /* JoomlaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoomlaViewController.swift; sourceTree = "<group>"; };
 		AA6AD7F41C6B77C00097CD9A /* WordpressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordpressViewController.swift; sourceTree = "<group>"; };
-		AA6AD7F91C6B8F220097CD9A /* MyXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyXMLParser.swift; path = "Version Dashboard/MyXMLParser.swift"; sourceTree = "<group>"; };
 		AA6AD8501C7E397B0097CD9A /* badgeFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = badgeFunctions.swift; path = "Version Dashboard/badgeFunctions.swift"; sourceTree = "<group>"; };
 		AA71A7CE226B00EE00BEB4C3 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
 		AA71A7CF226B00EE00BEB4C3 /* LaunchScreen.afdesign */ = {isa = PBXFileReference; lastKnownFileType = file; path = LaunchScreen.afdesign; sourceTree = "<group>"; };
@@ -520,9 +444,22 @@
 		AA71A7F1226B00EE00BEB4C3 /* outdated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "outdated@2x.png"; sourceTree = "<group>"; };
 		AA71A7F2226B00EE00BEB4C3 /* outdated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = outdated.png; sourceTree = "<group>"; };
 		AA71A7F3226B00EE00BEB4C3 /* outdated.afdesign */ = {isa = PBXFileReference; lastKnownFileType = file; path = outdated.afdesign; sourceTree = "<group>"; };
+		AA71A8EF226CBDDD00BEB4C3 /* piwik.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = piwik.tiff; sourceTree = "<group>"; };
+		AA71A8F0226CBDDD00BEB4C3 /* owncloud.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = owncloud.plist; sourceTree = "<group>"; };
+		AA71A8F1226CBDDD00BEB4C3 /* joomla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joomla.png; sourceTree = "<group>"; };
+		AA71A8F2226CBDDD00BEB4C3 /* configuration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = configuration.plist; sourceTree = "<group>"; };
+		AA71A8F3226CBDDD00BEB4C3 /* piwik_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = piwik_dots.png; sourceTree = "<group>"; };
+		AA71A8F4226CBDDD00BEB4C3 /* wordpress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wordpress.png; sourceTree = "<group>"; };
+		AA71A8F5226CBDDD00BEB4C3 /* buttons.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = buttons.psd; sourceTree = "<group>"; };
+		AA71A8F6226CBDDD00BEB4C3 /* owncloud.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = owncloud.tiff; sourceTree = "<group>"; };
+		AA71A8F7226CBDDD00BEB4C3 /* joomla_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joomla_dots.png; sourceTree = "<group>"; };
+		AA71A8F8226CBDDD00BEB4C3 /* owncloud_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = owncloud_dots.png; sourceTree = "<group>"; };
+		AA71A8F9226CBDDD00BEB4C3 /* piwik.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = piwik.plist; sourceTree = "<group>"; };
+		AA71A8FA226CBDDD00BEB4C3 /* wordpress_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wordpress_dots.png; sourceTree = "<group>"; };
+		AA71A8FB226CBDDD00BEB4C3 /* joomla.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = joomla.plist; sourceTree = "<group>"; };
+		AA71A8FC226CBDDD00BEB4C3 /* wordpress.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = wordpress.plist; sourceTree = "<group>"; };
 		AA7FB8431C88CEBD009FC40B /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		AA7FB8451C88CEF1009FC40B /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
-		AA7FB8471C88DE94009FC40B /* configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = configuration.plist; sourceTree = "<group>"; };
 		AAA5631A1C81DFE700E1199A /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		AAA5631C1C81E01200E1199A /* MainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		AAA563261C8302A300E1199A /* OutdatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutdatedViewController.swift; sourceTree = "<group>"; };
@@ -612,25 +549,12 @@
 		AA288CD21C8B62490026A172 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				AA6AD7F91C6B8F220097CD9A /* MyXMLParser.swift */,
 				AA6AD8501C7E397B0097CD9A /* badgeFunctions.swift */,
 				AAA563281C83567300E1199A /* NotificationFunctions.swift */,
 				AAA5632C1C83837A00E1199A /* InternetConnectivity.swift */,
 			);
 			name = Helper;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		AA3A1D181F921CD70094D856 /* Plists */ = {
-			isa = PBXGroup;
-			children = (
-				AA7FB8471C88DE94009FC40B /* configuration.plist */,
-				AA3A1D1D1F92366C0094D856 /* joomla.plist */,
-				AA3A1D1B1F9235210094D856 /* owncloud.plist */,
-				AA3A1D1C1F9235210094D856 /* piwik.plist */,
-				AA3A1D1A1F9235210094D856 /* wordpress.plist */,
-			);
-			path = Plists;
 			sourceTree = "<group>";
 		};
 		AA62EE4F2251391000757106 /* VersionDashboardSDK */ = {
@@ -688,7 +612,6 @@
 				AA62F4EF2251508B00757106 /* LaunchScreen.strings */,
 				AA62F4F12251508B00757106 /* Main.strings */,
 				AA62F4F32251508B00757106 /* Localizable.strings */,
-				AA62F5042251508B00757106 /* Plists */,
 				AA62F50B2251508B00757106 /* Assets.xcassets */,
 				AA62F50E2251508B00757106 /* LaunchScreen.storyboard */,
 				AA62F5102251508B00757106 /* Main.storyboard */,
@@ -696,18 +619,6 @@
 				AA62F5202251508B00757106 /* Info.plist */,
 			);
 			path = VersionDashboardiOS;
-			sourceTree = "<group>";
-		};
-		AA62F5042251508B00757106 /* Plists */ = {
-			isa = PBXGroup;
-			children = (
-				AA62F5052251508B00757106 /* owncloud.plist */,
-				AA62F5062251508B00757106 /* configuration.plist */,
-				AA62F5072251508B00757106 /* piwik.plist */,
-				AA62F5082251508B00757106 /* joomla.plist */,
-				AA62F5092251508B00757106 /* wordpress.plist */,
-			);
-			path = Plists;
 			sourceTree = "<group>";
 		};
 		AA62F6EC2255380C00757106 /* Controllers */ = {
@@ -740,6 +651,7 @@
 		AA6AD7A31C6B4BD90097CD9A = {
 			isa = PBXGroup;
 			children = (
+				AA71A8EE226CBDDD00BEB4C3 /* GenericResources */,
 				AA6AD7AE1C6B4BD90097CD9A /* Version Dashboard */,
 				AAE8B64F1F87F2C5004E4AF3 /* Version DashboardTests */,
 				AA6AD7CB1C6B4BD90097CD9A /* Version DashboardUITests */,
@@ -772,7 +684,6 @@
 		AA6AD7AE1C6B4BD90097CD9A /* Version Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				AA3A1D181F921CD70094D856 /* Plists */,
 				AA6AD7F81C6B81190097CD9A /* Images */,
 				AA6AD7B31C6B4BD90097CD9A /* Assets.xcassets */,
 				AA6AD7B81C6B4BD90097CD9A /* Info.plist */,
@@ -797,17 +708,9 @@
 		AA6AD7F81C6B81190097CD9A /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				AA62EDFD2250EA1000757106 /* joomla_dots.png */,
-				AA62EDFA2250EA1000757106 /* owncloud_dots.png */,
-				AA62EDFB2250EA1000757106 /* piwik_dots.png */,
-				AA62EDFC2250EA1000757106 /* wordpress_dots.png */,
-				AA62EDEF2250E9D300757106 /* piwik.tiff */,
 				AA62EDF42250E9E400757106 /* Outdated item.png */,
 				AA62EDF62250E9EB00757106 /* Detailed view.png */,
 				AA62EDF82250E9F300757106 /* Summarize.png */,
-				AA62EDED2250E9D300757106 /* joomla.png */,
-				AA62EDEC2250E9D200757106 /* owncloud.tiff */,
-				AA62EDEE2250E9D300757106 /* wordpress.png */,
 			);
 			name = Images;
 			path = ..;
@@ -911,6 +814,27 @@
 				AA71A7F3226B00EE00BEB4C3 /* outdated.afdesign */,
 			);
 			path = outdated_item;
+			sourceTree = "<group>";
+		};
+		AA71A8EE226CBDDD00BEB4C3 /* GenericResources */ = {
+			isa = PBXGroup;
+			children = (
+				AA71A8EF226CBDDD00BEB4C3 /* piwik.tiff */,
+				AA71A8F0226CBDDD00BEB4C3 /* owncloud.plist */,
+				AA71A8F1226CBDDD00BEB4C3 /* joomla.png */,
+				AA71A8F2226CBDDD00BEB4C3 /* configuration.plist */,
+				AA71A8F3226CBDDD00BEB4C3 /* piwik_dots.png */,
+				AA71A8F4226CBDDD00BEB4C3 /* wordpress.png */,
+				AA71A8F5226CBDDD00BEB4C3 /* buttons.psd */,
+				AA71A8F6226CBDDD00BEB4C3 /* owncloud.tiff */,
+				AA71A8F7226CBDDD00BEB4C3 /* joomla_dots.png */,
+				AA71A8F8226CBDDD00BEB4C3 /* owncloud_dots.png */,
+				AA71A8F9226CBDDD00BEB4C3 /* piwik.plist */,
+				AA71A8FA226CBDDD00BEB4C3 /* wordpress_dots.png */,
+				AA71A8FB226CBDDD00BEB4C3 /* joomla.plist */,
+				AA71A8FC226CBDDD00BEB4C3 /* wordpress.plist */,
+			);
+			path = GenericResources;
 			sourceTree = "<group>";
 		};
 		AAADAF531E4C635B0073B238 /* Frameworks */ = {
@@ -1232,42 +1156,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA71A800226B00EF00BEB4C3 /* 1024.png in Resources */,
-				AA71A81C226B00EF00BEB4C3 /* 80.png in Resources */,
-				AA71A806226B00EF00BEB4C3 /* 58.png in Resources */,
-				AA62F5662251508B00757106 /* configuration.plist in Resources */,
-				AA71A812226B00EF00BEB4C3 /* 120.png in Resources */,
-				AA71A81A226B00EF00BEB4C3 /* 57.png in Resources */,
-				AA71A816226B00EF00BEB4C3 /* 180.png in Resources */,
-				AA62F5692251508B00757106 /* piwik.plist in Resources */,
 				AA62F5752251508B00757106 /* Assets.xcassets in Resources */,
-				AA62F56F2251508B00757106 /* wordpress.plist in Resources */,
-				AA71A814226B00EF00BEB4C3 /* 20.png in Resources */,
-				AA71A81E226B00EF00BEB4C3 /* 40.png in Resources */,
 				AA62F5362251508B00757106 /* Localizable.strings in Resources */,
-				AA71A80A226B00EF00BEB4C3 /* 72.png in Resources */,
 				AA62F5332251508B00757106 /* Main.strings in Resources */,
 				AA71A828226B00EF00BEB4C3 /* chart@2x.png in Resources */,
 				AA71A7F4226B00EF00BEB4C3 /* LaunchScreen.png in Resources */,
-				AA71A820226B00EF00BEB4C3 /* 87.png in Resources */,
 				AA62F5812251508B00757106 /* Main.storyboard in Resources */,
 				AA71A7FA226B00EF00BEB4C3 /* summary@2x.png in Resources */,
-				AA71A80C226B00EF00BEB4C3 /* 29.png in Resources */,
-				AA71A826226B00EF00BEB4C3 /* 152.png in Resources */,
-				AA62F5632251508B00757106 /* owncloud.plist in Resources */,
 				AA71A82A226B00EF00BEB4C3 /* chart.png in Resources */,
-				AA71A802226B00EF00BEB4C3 /* 76.png in Resources */,
-				AA71A80E226B00EF00BEB4C3 /* 100.png in Resources */,
-				AA71A808226B00EF00BEB4C3 /* 167.png in Resources */,
 				AA71A82C226B00EF00BEB4C3 /* chart@3x.png in Resources */,
-				AA71A822226B00EF00BEB4C3 /* 50.png in Resources */,
-				AA71A810226B00EF00BEB4C3 /* 114.png in Resources */,
-				AA71A824226B00EF00BEB4C3 /* 144.png in Resources */,
 				AA71A834226B00EF00BEB4C3 /* outdated.png in Resources */,
 				AA71A830226B00EF00BEB4C3 /* outdated@3x.png in Resources */,
 				AA71A7FC226B00EF00BEB4C3 /* summary.png in Resources */,
-				AA71A804226B00EF00BEB4C3 /* 60.png in Resources */,
-				AA62F56C2251508B00757106 /* joomla.plist in Resources */,
 				AA62F57E2251508B00757106 /* LaunchScreen.storyboard in Resources */,
 				AA71A7FE226B00EF00BEB4C3 /* summary@3x.png in Resources */,
 				AA71A832226B00EF00BEB4C3 /* outdated@2x.png in Resources */,
@@ -1279,17 +1179,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA62F5672251508B00757106 /* configuration.plist in Resources */,
-				AA62F56A2251508B00757106 /* piwik.plist in Resources */,
 				AA62F5762251508B00757106 /* Assets.xcassets in Resources */,
-				AA62F5702251508B00757106 /* wordpress.plist in Resources */,
 				AA62F5372251508B00757106 /* Localizable.strings in Resources */,
 				AA62F52E2251508B00757106 /* Info.plist in Resources */,
 				AA62F5AC2251508B00757106 /* Info.plist in Resources */,
 				AA62F5342251508B00757106 /* Main.strings in Resources */,
 				AA62F5822251508B00757106 /* Main.storyboard in Resources */,
-				AA62F5642251508B00757106 /* owncloud.plist in Resources */,
-				AA62F56D2251508B00757106 /* joomla.plist in Resources */,
 				AA62F57F2251508B00757106 /* LaunchScreen.storyboard in Resources */,
 				AA62F5312251508B00757106 /* LaunchScreen.strings in Resources */,
 				AA62F5282251508B00757106 /* Info.plist in Resources */,
@@ -1300,17 +1195,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA62F5682251508B00757106 /* configuration.plist in Resources */,
-				AA62F56B2251508B00757106 /* piwik.plist in Resources */,
 				AA62F5772251508B00757106 /* Assets.xcassets in Resources */,
-				AA62F5712251508B00757106 /* wordpress.plist in Resources */,
 				AA62F5382251508B00757106 /* Localizable.strings in Resources */,
 				AA62F52F2251508B00757106 /* Info.plist in Resources */,
 				AA62F5AD2251508B00757106 /* Info.plist in Resources */,
 				AA62F5352251508B00757106 /* Main.strings in Resources */,
 				AA62F5832251508B00757106 /* Main.storyboard in Resources */,
-				AA62F5652251508B00757106 /* owncloud.plist in Resources */,
-				AA62F56E2251508B00757106 /* joomla.plist in Resources */,
 				AA62F5802251508B00757106 /* LaunchScreen.storyboard in Resources */,
 				AA62F5322251508B00757106 /* LaunchScreen.strings in Resources */,
 				AA62F5292251508B00757106 /* Info.plist in Resources */,
@@ -1321,42 +1211,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA71A801226B00EF00BEB4C3 /* 1024.png in Resources */,
-				AA71A81D226B00EF00BEB4C3 /* 80.png in Resources */,
-				AA71A807226B00EF00BEB4C3 /* 58.png in Resources */,
-				AA62F7722258AE9D00757106 /* configuration.plist in Resources */,
-				AA71A813226B00EF00BEB4C3 /* 120.png in Resources */,
-				AA71A81B226B00EF00BEB4C3 /* 57.png in Resources */,
-				AA71A817226B00EF00BEB4C3 /* 180.png in Resources */,
-				AA62F7732258AE9D00757106 /* piwik.plist in Resources */,
+				AA71A908226CC5F300BEB4C3 /* owncloud.plist in Resources */,
+				AA71A909226CC5F300BEB4C3 /* configuration.plist in Resources */,
+				AA71A90A226CC5F300BEB4C3 /* piwik.plist in Resources */,
+				AA71A90B226CC5F300BEB4C3 /* joomla.plist in Resources */,
+				AA71A90C226CC5F300BEB4C3 /* wordpress.plist in Resources */,
 				AA62F7742258AE9D00757106 /* Assets.xcassets in Resources */,
-				AA62F7752258AE9D00757106 /* wordpress.plist in Resources */,
-				AA71A815226B00EF00BEB4C3 /* 20.png in Resources */,
-				AA71A81F226B00EF00BEB4C3 /* 40.png in Resources */,
 				AA62F7762258AE9D00757106 /* Localizable.strings in Resources */,
-				AA71A80B226B00EF00BEB4C3 /* 72.png in Resources */,
 				AA62F7772258AE9D00757106 /* Main.strings in Resources */,
 				AA71A829226B00EF00BEB4C3 /* chart@2x.png in Resources */,
 				AA71A7F5226B00EF00BEB4C3 /* LaunchScreen.png in Resources */,
-				AA71A821226B00EF00BEB4C3 /* 87.png in Resources */,
 				AA62F7782258AE9D00757106 /* Main.storyboard in Resources */,
 				AA71A7FB226B00EF00BEB4C3 /* summary@2x.png in Resources */,
-				AA71A80D226B00EF00BEB4C3 /* 29.png in Resources */,
-				AA71A827226B00EF00BEB4C3 /* 152.png in Resources */,
-				AA62F7792258AE9D00757106 /* owncloud.plist in Resources */,
 				AA71A82B226B00EF00BEB4C3 /* chart.png in Resources */,
-				AA71A803226B00EF00BEB4C3 /* 76.png in Resources */,
-				AA71A80F226B00EF00BEB4C3 /* 100.png in Resources */,
-				AA71A809226B00EF00BEB4C3 /* 167.png in Resources */,
 				AA71A82D226B00EF00BEB4C3 /* chart@3x.png in Resources */,
-				AA71A823226B00EF00BEB4C3 /* 50.png in Resources */,
-				AA71A811226B00EF00BEB4C3 /* 114.png in Resources */,
-				AA71A825226B00EF00BEB4C3 /* 144.png in Resources */,
 				AA71A835226B00EF00BEB4C3 /* outdated.png in Resources */,
 				AA71A831226B00EF00BEB4C3 /* outdated@3x.png in Resources */,
 				AA71A7FD226B00EF00BEB4C3 /* summary.png in Resources */,
-				AA71A805226B00EF00BEB4C3 /* 60.png in Resources */,
-				AA62F77A2258AE9D00757106 /* joomla.plist in Resources */,
 				AA62F77B2258AE9D00757106 /* LaunchScreen.storyboard in Resources */,
 				AA71A7FF226B00EF00BEB4C3 /* summary@3x.png in Resources */,
 				AA71A833226B00EF00BEB4C3 /* outdated@2x.png in Resources */,
@@ -1368,25 +1239,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA71A90E227D74CC00BEB4C3 /* piwik_dots.png in Resources */,
+				AA71A90F227D74CC00BEB4C3 /* joomla_dots.png in Resources */,
+				AA71A910227D74CC00BEB4C3 /* owncloud_dots.png in Resources */,
+				AA71A911227D74CC00BEB4C3 /* wordpress_dots.png in Resources */,
+				AA71A903226CC56E00BEB4C3 /* owncloud.plist in Resources */,
+				AA71A904226CC56E00BEB4C3 /* configuration.plist in Resources */,
+				AA71A905226CC56E00BEB4C3 /* piwik.plist in Resources */,
+				AA71A906226CC56E00BEB4C3 /* joomla.plist in Resources */,
+				AA71A907226CC56E00BEB4C3 /* wordpress.plist in Resources */,
 				AA288CD41C8B64120026A172 /* Localizable.strings in Resources */,
 				AA62EDF52250E9E400757106 /* Outdated item.png in Resources */,
 				AA62EDF92250E9F300757106 /* Summarize.png in Resources */,
-				AA3A1D1F1F9237070094D856 /* owncloud.plist in Resources */,
-				AA3A1D211F92370B0094D856 /* wordpress.plist in Resources */,
-				AA3A1D1E1F9237050094D856 /* joomla.plist in Resources */,
-				AA3A1D201F9237090094D856 /* piwik.plist in Resources */,
-				AA7FB8481C88DE94009FC40B /* configuration.plist in Resources */,
-				AA62EDF12250E9D300757106 /* joomla.png in Resources */,
 				AA62EDF72250E9EC00757106 /* Detailed view.png in Resources */,
-				AA62EE002250EA1000757106 /* wordpress_dots.png in Resources */,
 				AA6AD7B41C6B4BD90097CD9A /* Assets.xcassets in Resources */,
 				AA6AD7B71C6B4BD90097CD9A /* Main.storyboard in Resources */,
-				AA62EDF22250E9D300757106 /* wordpress.png in Resources */,
-				AA62EE012250EA1000757106 /* joomla_dots.png in Resources */,
-				AA62EDFE2250EA1000757106 /* owncloud_dots.png in Resources */,
-				AA62EDF32250E9D300757106 /* piwik.tiff in Resources */,
-				AA62EDFF2250EA1000757106 /* piwik_dots.png in Resources */,
-				AA62EDF02250E9D300757106 /* owncloud.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1560,7 +1427,6 @@
 				AA6AD7B21C6B4BD90097CD9A /* DetailedViewController.swift in Sources */,
 				AAA5632D1C83837A00E1199A /* InternetConnectivity.swift in Sources */,
 				AA7FB8441C88CEBD009FC40B /* PreferencesWindowController.swift in Sources */,
-				AA6AD7FA1C6B8F220097CD9A /* MyXMLParser.swift in Sources */,
 				AA6AD8511C7E397B0097CD9A /* badgeFunctions.swift in Sources */,
 				AA6AD7F11C6B779D0097CD9A /* OwncloudViewController.swift in Sources */,
 				AA6AD7E21C6B73AC0097CD9A /* AddSystemViewController.swift in Sources */,
@@ -2045,6 +1911,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nonamecompany.VersionDashboardiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -2090,6 +1957,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nonamecompany.VersionDashboardiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INCLUDE_PATHS = "$(SOURCE_ROOT)/**";
