@@ -7,10 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA288CD41C8B64120026A172 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA288CD61C8B64120026A172 /* Localizable.strings */; };
-		AA62EDF52250E9E400757106 /* Outdated item.png in Resources */ = {isa = PBXBuildFile; fileRef = AA62EDF42250E9E400757106 /* Outdated item.png */; };
-		AA62EDF72250E9EC00757106 /* Detailed view.png in Resources */ = {isa = PBXBuildFile; fileRef = AA62EDF62250E9EB00757106 /* Detailed view.png */; };
-		AA62EDF92250E9F300757106 /* Summarize.png in Resources */ = {isa = PBXBuildFile; fileRef = AA62EDF82250E9F300757106 /* Summarize.png */; };
+		AA36C38C22E35563008B393E /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35522E35563008B393E /* Main.strings */; };
+		AA36C38D22E35563008B393E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35722E35563008B393E /* Localizable.strings */; };
+		AA36C38E22E35563008B393E /* configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35A22E35563008B393E /* configuration.plist */; };
+		AA36C38F22E35563008B393E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35B22E35563008B393E /* Assets.xcassets */; };
+		AA36C39022E35563008B393E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35C22E35563008B393E /* Main.storyboard */; };
+		AA36C39122E35563008B393E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C35F22E35563008B393E /* AppDelegate.swift */; };
+		AA36C39222E35563008B393E /* Summarize.ai in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36222E35563008B393E /* Summarize.ai */; };
+		AA36C39322E35563008B393E /* Summarize.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36322E35563008B393E /* Summarize.png */; };
+		AA36C39422E35563008B393E /* VDDetailed.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36422E35563008B393E /* VDDetailed.tiff */; };
+		AA36C39522E35563008B393E /* Detailed view.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36622E35563008B393E /* Detailed view.png */; };
+		AA36C39622E35563008B393E /* Detailed view.ai in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36722E35563008B393E /* Detailed view.ai */; };
+		AA36C39722E35563008B393E /* Outdated item.ai in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36922E35563008B393E /* Outdated item.ai */; };
+		AA36C39822E35563008B393E /* Outdated item.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36A22E35563008B393E /* Outdated item.png */; };
+		AA36C39922E35563008B393E /* 16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36C22E35563008B393E /* 16x16.png */; };
+		AA36C39A22E35563008B393E /* 256x256.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36D22E35563008B393E /* 256x256.png */; };
+		AA36C39B22E35563008B393E /* Version Dashboard.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36E22E35563008B393E /* Version Dashboard.png */; };
+		AA36C39C22E35563008B393E /* 96x96.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36F22E35563008B393E /* 96x96.png */; };
+		AA36C39D22E35563008B393E /* Version Dashboard1024.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37022E35563008B393E /* Version Dashboard1024.png */; };
+		AA36C39E22E35563008B393E /* 128x128.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37122E35563008B393E /* 128x128.png */; };
+		AA36C39F22E35563008B393E /* 48x48.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37222E35563008B393E /* 48x48.png */; };
+		AA36C3A022E35563008B393E /* 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37322E35563008B393E /* 24x24.png */; };
+		AA36C3A122E35563008B393E /* 32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37422E35563008B393E /* 32x32.png */; };
+		AA36C3A222E35563008B393E /* 512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37522E35563008B393E /* 512x512.png */; };
+		AA36C3A322E35563008B393E /* Version Dashboard.ai in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37622E35563008B393E /* Version Dashboard.ai */; };
+		AA36C3A422E35563008B393E /* 64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37722E35563008B393E /* 64x64.png */; };
+		AA36C3A522E35563008B393E /* VDGui.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37822E35563008B393E /* VDGui.jpg */; };
+		AA36C3A622E35563008B393E /* OwncloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C37A22E35563008B393E /* OwncloudViewController.swift */; };
+		AA36C3A722E35563008B393E /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C37B22E35563008B393E /* SummaryViewController.swift */; };
+		AA36C3A822E35563008B393E /* AddSystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C37C22E35563008B393E /* AddSystemViewController.swift */; };
+		AA36C3A922E35563008B393E /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C37D22E35563008B393E /* DetailedViewController.swift */; };
+		AA36C3AA22E35563008B393E /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C37E22E35563008B393E /* PreferencesViewController.swift */; };
+		AA36C3AB22E35563008B393E /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C37F22E35563008B393E /* PreferencesWindowController.swift */; };
+		AA36C3AC22E35563008B393E /* WordpressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C38022E35563008B393E /* WordpressViewController.swift */; };
+		AA36C3AD22E35563008B393E /* OutdatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C38122E35563008B393E /* OutdatedViewController.swift */; };
+		AA36C3AE22E35563008B393E /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C38222E35563008B393E /* MainWindow.swift */; };
+		AA36C3AF22E35563008B393E /* PiwikViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C38322E35563008B393E /* PiwikViewController.swift */; };
+		AA36C3B022E35563008B393E /* JoomlaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C38422E35563008B393E /* JoomlaViewController.swift */; };
+		AA36C3B122E35563008B393E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C38522E35563008B393E /* SettingsViewController.swift */; };
+		AA36C3B222E35563008B393E /* InternetConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C38722E35563008B393E /* InternetConnectivity.swift */; };
+		AA36C3B322E35563008B393E /* badgeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C38822E35563008B393E /* badgeFunctions.swift */; };
+		AA36C3B422E35563008B393E /* NotificationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C38922E35563008B393E /* NotificationFunctions.swift */; };
+		AA36C3B522E35563008B393E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA36C38A22E35563008B393E /* Info.plist */; };
+		AA36C3BA22E3557B008B393E /* Version_DashboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C3B822E3557B008B393E /* Version_DashboardUITests.swift */; };
+		AA36C3BB22E3557B008B393E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA36C3B922E3557B008B393E /* Info.plist */; };
 		AA62EE692251393F00757106 /* SystemInstancesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE572251393800757106 /* SystemInstancesModel.swift */; };
 		AA62EE6A2251393F00757106 /* GenericModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE582251393800757106 /* GenericModelProtocol.swift */; };
 		AA62EE6B2251393F00757106 /* InternetConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE592251393900757106 /* InternetConnectivity.swift */; };
@@ -148,17 +188,6 @@
 		AA62F77F2258AE9D00757106 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; };
 		AA62F7802258AE9D00757106 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62F5B82252880200757106 /* UserNotifications.framework */; };
 		AA62F7822258AE9D00757106 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AA6AD7B01C6B4BD90097CD9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD7AF1C6B4BD90097CD9A /* AppDelegate.swift */; };
-		AA6AD7B21C6B4BD90097CD9A /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD7B11C6B4BD90097CD9A /* DetailedViewController.swift */; };
-		AA6AD7B41C6B4BD90097CD9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA6AD7B31C6B4BD90097CD9A /* Assets.xcassets */; };
-		AA6AD7B71C6B4BD90097CD9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA6AD7B51C6B4BD90097CD9A /* Main.storyboard */; };
-		AA6AD7DE1C6B60230097CD9A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD7DC1C6B60230097CD9A /* SettingsViewController.swift */; };
-		AA6AD7E21C6B73AC0097CD9A /* AddSystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD7E01C6B73AC0097CD9A /* AddSystemViewController.swift */; };
-		AA6AD7EE1C6B777B0097CD9A /* PiwikViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD7EC1C6B777B0097CD9A /* PiwikViewController.swift */; };
-		AA6AD7F11C6B779D0097CD9A /* OwncloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD7F01C6B779D0097CD9A /* OwncloudViewController.swift */; };
-		AA6AD7F31C6B77AE0097CD9A /* JoomlaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD7F21C6B77AE0097CD9A /* JoomlaViewController.swift */; };
-		AA6AD7F51C6B77C00097CD9A /* WordpressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD7F41C6B77C00097CD9A /* WordpressViewController.swift */; };
-		AA6AD8511C7E397B0097CD9A /* badgeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD8501C7E397B0097CD9A /* badgeFunctions.swift */; };
 		AA71A740226A3E8C00BEB4C3 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; };
 		AA71A741226A3E8C00BEB4C3 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA71A7F4226B00EF00BEB4C3 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7CE226B00EE00BEB4C3 /* LaunchScreen.png */; };
@@ -195,18 +224,10 @@
 		AA71A90F227D74CC00BEB4C3 /* joomla_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F7226CBDDD00BEB4C3 /* joomla_dots.png */; };
 		AA71A910227D74CC00BEB4C3 /* owncloud_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F8226CBDDD00BEB4C3 /* owncloud_dots.png */; };
 		AA71A911227D74CC00BEB4C3 /* wordpress_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8FA226CBDDD00BEB4C3 /* wordpress_dots.png */; };
-		AA7FB8441C88CEBD009FC40B /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7FB8431C88CEBD009FC40B /* PreferencesWindowController.swift */; };
-		AA7FB8461C88CEF1009FC40B /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7FB8451C88CEF1009FC40B /* PreferencesViewController.swift */; };
 		AA93435E22594D78005D8C1C /* libVersionDashboardSDKARM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62F75C2258ADE300757106 /* libVersionDashboardSDKARM.a */; };
-		AAA5631B1C81DFE700E1199A /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA5631A1C81DFE700E1199A /* SummaryViewController.swift */; };
-		AAA5631D1C81E01200E1199A /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA5631C1C81E01200E1199A /* MainWindow.swift */; };
-		AAA563271C8302A300E1199A /* OutdatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA563261C8302A300E1199A /* OutdatedViewController.swift */; };
-		AAA563291C83567300E1199A /* NotificationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA563281C83567300E1199A /* NotificationFunctions.swift */; };
-		AAA5632D1C83837A00E1199A /* InternetConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA5632C1C83837A00E1199A /* InternetConnectivity.swift */; };
 		AAB91328223437AA006D1EE7 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; };
 		AAB91329223437FA006D1EE7 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AAE626C6226256EE00398F81 /* libVersionDashboardSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */; };
-		AAE8B6511F87F2C5004E4AF3 /* Version_DashboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8B6501F87F2C5004E4AF3 /* Version_DashboardTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -333,12 +354,51 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AA288CCA1C8B0C300026A172 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
-		AA288CD51C8B64120026A172 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		AA288CD71C8B641A0026A172 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		AA62EDF42250E9E400757106 /* Outdated item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Outdated item.png"; path = "Version Dashboard/graphics/outdated_item/Outdated item.png"; sourceTree = "<group>"; };
-		AA62EDF62250E9EB00757106 /* Detailed view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Detailed view.png"; path = "Version Dashboard/graphics/detailedview_item/Detailed view.png"; sourceTree = "<group>"; };
-		AA62EDF82250E9F300757106 /* Summarize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Summarize.png; path = "Version Dashboard/graphics/summarize_item/Summarize.png"; sourceTree = "<group>"; };
+		AA36C35622E35563008B393E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		AA36C35822E35563008B393E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AA36C35A22E35563008B393E /* configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = configuration.plist; sourceTree = "<group>"; };
+		AA36C35B22E35563008B393E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA36C35D22E35563008B393E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AA36C35E22E35563008B393E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AA36C35F22E35563008B393E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AA36C36222E35563008B393E /* Summarize.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Summarize.ai; sourceTree = "<group>"; };
+		AA36C36322E35563008B393E /* Summarize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Summarize.png; sourceTree = "<group>"; };
+		AA36C36422E35563008B393E /* VDDetailed.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = VDDetailed.tiff; sourceTree = "<group>"; };
+		AA36C36622E35563008B393E /* Detailed view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Detailed view.png"; sourceTree = "<group>"; };
+		AA36C36722E35563008B393E /* Detailed view.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Detailed view.ai"; sourceTree = "<group>"; };
+		AA36C36922E35563008B393E /* Outdated item.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Outdated item.ai"; sourceTree = "<group>"; };
+		AA36C36A22E35563008B393E /* Outdated item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Outdated item.png"; sourceTree = "<group>"; };
+		AA36C36C22E35563008B393E /* 16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 16x16.png; sourceTree = "<group>"; };
+		AA36C36D22E35563008B393E /* 256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 256x256.png; sourceTree = "<group>"; };
+		AA36C36E22E35563008B393E /* Version Dashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Version Dashboard.png"; sourceTree = "<group>"; };
+		AA36C36F22E35563008B393E /* 96x96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 96x96.png; sourceTree = "<group>"; };
+		AA36C37022E35563008B393E /* Version Dashboard1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Version Dashboard1024.png"; sourceTree = "<group>"; };
+		AA36C37122E35563008B393E /* 128x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 128x128.png; sourceTree = "<group>"; };
+		AA36C37222E35563008B393E /* 48x48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 48x48.png; sourceTree = "<group>"; };
+		AA36C37322E35563008B393E /* 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 24x24.png; sourceTree = "<group>"; };
+		AA36C37422E35563008B393E /* 32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 32x32.png; sourceTree = "<group>"; };
+		AA36C37522E35563008B393E /* 512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 512x512.png; sourceTree = "<group>"; };
+		AA36C37622E35563008B393E /* Version Dashboard.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Version Dashboard.ai"; sourceTree = "<group>"; };
+		AA36C37722E35563008B393E /* 64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 64x64.png; sourceTree = "<group>"; };
+		AA36C37822E35563008B393E /* VDGui.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = VDGui.jpg; sourceTree = "<group>"; };
+		AA36C37A22E35563008B393E /* OwncloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwncloudViewController.swift; sourceTree = "<group>"; };
+		AA36C37B22E35563008B393E /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		AA36C37C22E35563008B393E /* AddSystemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSystemViewController.swift; sourceTree = "<group>"; };
+		AA36C37D22E35563008B393E /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
+		AA36C37E22E35563008B393E /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		AA36C37F22E35563008B393E /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
+		AA36C38022E35563008B393E /* WordpressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordpressViewController.swift; sourceTree = "<group>"; };
+		AA36C38122E35563008B393E /* OutdatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutdatedViewController.swift; sourceTree = "<group>"; };
+		AA36C38222E35563008B393E /* MainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
+		AA36C38322E35563008B393E /* PiwikViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PiwikViewController.swift; sourceTree = "<group>"; };
+		AA36C38422E35563008B393E /* JoomlaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoomlaViewController.swift; sourceTree = "<group>"; };
+		AA36C38522E35563008B393E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		AA36C38722E35563008B393E /* InternetConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnectivity.swift; sourceTree = "<group>"; };
+		AA36C38822E35563008B393E /* badgeFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = badgeFunctions.swift; sourceTree = "<group>"; };
+		AA36C38922E35563008B393E /* NotificationFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationFunctions.swift; sourceTree = "<group>"; };
+		AA36C38A22E35563008B393E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA36C3B822E3557B008B393E /* Version_DashboardUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version_DashboardUITests.swift; sourceTree = "<group>"; };
+		AA36C3B922E3557B008B393E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVersionDashboardSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA62EE572251393800757106 /* SystemInstancesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemInstancesModel.swift; sourceTree = "<group>"; };
 		AA62EE582251393800757106 /* GenericModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericModelProtocol.swift; sourceTree = "<group>"; };
@@ -395,21 +455,7 @@
 		AA62F75C2258ADE300757106 /* libVersionDashboardSDKARM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVersionDashboardSDKARM.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA62F7862258AE9D00757106 /* VersionDashboardiOSSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VersionDashboardiOSSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA6AD7AC1C6B4BD90097CD9A /* Version Dashboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Version Dashboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA6AD7AF1C6B4BD90097CD9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AA6AD7B11C6B4BD90097CD9A /* DetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
-		AA6AD7B31C6B4BD90097CD9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AA6AD7B61C6B4BD90097CD9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AA6AD7B81C6B4BD90097CD9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA6AD7C81C6B4BD90097CD9A /* Version DashboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Version DashboardUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA6AD7CC1C6B4BD90097CD9A /* Version_DashboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version_DashboardUITests.swift; sourceTree = "<group>"; };
-		AA6AD7CE1C6B4BD90097CD9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AA6AD7DC1C6B60230097CD9A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		AA6AD7E01C6B73AC0097CD9A /* AddSystemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSystemViewController.swift; sourceTree = "<group>"; };
-		AA6AD7EC1C6B777B0097CD9A /* PiwikViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PiwikViewController.swift; sourceTree = "<group>"; };
-		AA6AD7F01C6B779D0097CD9A /* OwncloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwncloudViewController.swift; sourceTree = "<group>"; };
-		AA6AD7F21C6B77AE0097CD9A /* JoomlaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoomlaViewController.swift; sourceTree = "<group>"; };
-		AA6AD7F41C6B77C00097CD9A /* WordpressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordpressViewController.swift; sourceTree = "<group>"; };
-		AA6AD8501C7E397B0097CD9A /* badgeFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = badgeFunctions.swift; path = "Version Dashboard/badgeFunctions.swift"; sourceTree = "<group>"; };
 		AA71A7CE226B00EE00BEB4C3 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
 		AA71A7CF226B00EE00BEB4C3 /* LaunchScreen.afdesign */ = {isa = PBXFileReference; lastKnownFileType = file; path = LaunchScreen.afdesign; sourceTree = "<group>"; };
 		AA71A7D1226B00EE00BEB4C3 /* summary.afdesign */ = {isa = PBXFileReference; lastKnownFileType = file; path = summary.afdesign; sourceTree = "<group>"; };
@@ -458,17 +504,8 @@
 		AA71A8FA226CBDDD00BEB4C3 /* wordpress_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wordpress_dots.png; sourceTree = "<group>"; };
 		AA71A8FB226CBDDD00BEB4C3 /* joomla.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = joomla.plist; sourceTree = "<group>"; };
 		AA71A8FC226CBDDD00BEB4C3 /* wordpress.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = wordpress.plist; sourceTree = "<group>"; };
-		AA7FB8431C88CEBD009FC40B /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
-		AA7FB8451C88CEF1009FC40B /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
-		AAA5631A1C81DFE700E1199A /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
-		AAA5631C1C81E01200E1199A /* MainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
-		AAA563261C8302A300E1199A /* OutdatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutdatedViewController.swift; sourceTree = "<group>"; };
-		AAA563281C83567300E1199A /* NotificationFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationFunctions.swift; path = "Version Dashboard/NotificationFunctions.swift"; sourceTree = "<group>"; };
-		AAA5632C1C83837A00E1199A /* InternetConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InternetConnectivity.swift; path = "Version Dashboard/InternetConnectivity.swift"; sourceTree = "<group>"; };
 		AAB9131C2234371E006D1EE7 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts.framework/Charts.xcodeproj; sourceTree = "<group>"; };
 		AAE8B64E1F87F2C5004E4AF3 /* Version DashboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Version DashboardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAE8B6501F87F2C5004E4AF3 /* Version_DashboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version_DashboardTests.swift; sourceTree = "<group>"; };
-		AAE8B6521F87F2C6004E4AF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -546,15 +583,133 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AA288CD21C8B62490026A172 /* Helper */ = {
+		AA36C35422E35562008B393E /* VersionDashboard */ = {
 			isa = PBXGroup;
 			children = (
-				AA6AD8501C7E397B0097CD9A /* badgeFunctions.swift */,
-				AAA563281C83567300E1199A /* NotificationFunctions.swift */,
-				AAA5632C1C83837A00E1199A /* InternetConnectivity.swift */,
+				AA36C35522E35563008B393E /* Main.strings */,
+				AA36C35722E35563008B393E /* Localizable.strings */,
+				AA36C35922E35563008B393E /* Plists */,
+				AA36C35B22E35563008B393E /* Assets.xcassets */,
+				AA36C35C22E35563008B393E /* Main.storyboard */,
+				AA36C35F22E35563008B393E /* AppDelegate.swift */,
+				AA36C36022E35563008B393E /* graphics */,
+				AA36C37922E35563008B393E /* Controllers */,
+				AA36C38622E35563008B393E /* Helper */,
+				AA36C38A22E35563008B393E /* Info.plist */,
 			);
-			name = Helper;
-			path = ..;
+			path = VersionDashboard;
+			sourceTree = "<group>";
+		};
+		AA36C35922E35563008B393E /* Plists */ = {
+			isa = PBXGroup;
+			children = (
+				AA36C35A22E35563008B393E /* configuration.plist */,
+			);
+			path = Plists;
+			sourceTree = "<group>";
+		};
+		AA36C36022E35563008B393E /* graphics */ = {
+			isa = PBXGroup;
+			children = (
+				AA36C36122E35563008B393E /* summarize_item */,
+				AA36C36422E35563008B393E /* VDDetailed.tiff */,
+				AA36C36522E35563008B393E /* detailedview_item */,
+				AA36C36822E35563008B393E /* outdated_item */,
+				AA36C36B22E35563008B393E /* applogo */,
+				AA36C37822E35563008B393E /* VDGui.jpg */,
+			);
+			path = graphics;
+			sourceTree = "<group>";
+		};
+		AA36C36122E35563008B393E /* summarize_item */ = {
+			isa = PBXGroup;
+			children = (
+				AA36C36222E35563008B393E /* Summarize.ai */,
+				AA36C36322E35563008B393E /* Summarize.png */,
+			);
+			path = summarize_item;
+			sourceTree = "<group>";
+		};
+		AA36C36522E35563008B393E /* detailedview_item */ = {
+			isa = PBXGroup;
+			children = (
+				AA36C36622E35563008B393E /* Detailed view.png */,
+				AA36C36722E35563008B393E /* Detailed view.ai */,
+			);
+			path = detailedview_item;
+			sourceTree = "<group>";
+		};
+		AA36C36822E35563008B393E /* outdated_item */ = {
+			isa = PBXGroup;
+			children = (
+				AA36C36922E35563008B393E /* Outdated item.ai */,
+				AA36C36A22E35563008B393E /* Outdated item.png */,
+			);
+			path = outdated_item;
+			sourceTree = "<group>";
+		};
+		AA36C36B22E35563008B393E /* applogo */ = {
+			isa = PBXGroup;
+			children = (
+				AA36C36C22E35563008B393E /* 16x16.png */,
+				AA36C36D22E35563008B393E /* 256x256.png */,
+				AA36C36E22E35563008B393E /* Version Dashboard.png */,
+				AA36C36F22E35563008B393E /* 96x96.png */,
+				AA36C37022E35563008B393E /* Version Dashboard1024.png */,
+				AA36C37122E35563008B393E /* 128x128.png */,
+				AA36C37222E35563008B393E /* 48x48.png */,
+				AA36C37322E35563008B393E /* 24x24.png */,
+				AA36C37422E35563008B393E /* 32x32.png */,
+				AA36C37522E35563008B393E /* 512x512.png */,
+				AA36C37622E35563008B393E /* Version Dashboard.ai */,
+				AA36C37722E35563008B393E /* 64x64.png */,
+			);
+			path = applogo;
+			sourceTree = "<group>";
+		};
+		AA36C37922E35563008B393E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AA36C37A22E35563008B393E /* OwncloudViewController.swift */,
+				AA36C37B22E35563008B393E /* SummaryViewController.swift */,
+				AA36C37C22E35563008B393E /* AddSystemViewController.swift */,
+				AA36C37D22E35563008B393E /* DetailedViewController.swift */,
+				AA36C37E22E35563008B393E /* PreferencesViewController.swift */,
+				AA36C37F22E35563008B393E /* PreferencesWindowController.swift */,
+				AA36C38022E35563008B393E /* WordpressViewController.swift */,
+				AA36C38122E35563008B393E /* OutdatedViewController.swift */,
+				AA36C38222E35563008B393E /* MainWindow.swift */,
+				AA36C38322E35563008B393E /* PiwikViewController.swift */,
+				AA36C38422E35563008B393E /* JoomlaViewController.swift */,
+				AA36C38522E35563008B393E /* SettingsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AA36C38622E35563008B393E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				AA36C38722E35563008B393E /* InternetConnectivity.swift */,
+				AA36C38822E35563008B393E /* badgeFunctions.swift */,
+				AA36C38922E35563008B393E /* NotificationFunctions.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		AA36C3B622E35571008B393E /* VersionDashboardTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VersionDashboardTests;
+			sourceTree = "<group>";
+		};
+		AA36C3B722E3557B008B393E /* VersionDashboardUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AA36C3B822E3557B008B393E /* Version_DashboardUITests.swift */,
+				AA36C3B922E3557B008B393E /* Info.plist */,
+			);
+			path = VersionDashboardUITests;
 			sourceTree = "<group>";
 		};
 		AA62EE4F2251391000757106 /* VersionDashboardSDK */ = {
@@ -652,9 +807,9 @@
 			isa = PBXGroup;
 			children = (
 				AA71A8EE226CBDDD00BEB4C3 /* GenericResources */,
-				AA6AD7AE1C6B4BD90097CD9A /* Version Dashboard */,
-				AAE8B64F1F87F2C5004E4AF3 /* Version DashboardTests */,
-				AA6AD7CB1C6B4BD90097CD9A /* Version DashboardUITests */,
+				AA36C35422E35562008B393E /* VersionDashboard */,
+				AA36C3B622E35571008B393E /* VersionDashboardTests */,
+				AA36C3B722E3557B008B393E /* VersionDashboardUITests */,
 				AA62F4EE2251508A00757106 /* VersionDashboardiOS */,
 				AA62F4E82251508A00757106 /* VersionDashboardiOSTests */,
 				AA62F4EB2251508A00757106 /* VersionDashboardiOSUITests */,
@@ -679,60 +834,6 @@
 				AA62F7862258AE9D00757106 /* VersionDashboardiOSSimulator.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		AA6AD7AE1C6B4BD90097CD9A /* Version Dashboard */ = {
-			isa = PBXGroup;
-			children = (
-				AA6AD7F81C6B81190097CD9A /* Images */,
-				AA6AD7B31C6B4BD90097CD9A /* Assets.xcassets */,
-				AA6AD7B81C6B4BD90097CD9A /* Info.plist */,
-				AA6AD7B51C6B4BD90097CD9A /* Main.storyboard */,
-				AA288CD61C8B64120026A172 /* Localizable.strings */,
-				AA6AD8061C6BC9550097CD9A /* Controllers */,
-				AA288CD21C8B62490026A172 /* Helper */,
-				AA6AD7AF1C6B4BD90097CD9A /* AppDelegate.swift */,
-			);
-			path = "Version Dashboard";
-			sourceTree = "<group>";
-		};
-		AA6AD7CB1C6B4BD90097CD9A /* Version DashboardUITests */ = {
-			isa = PBXGroup;
-			children = (
-				AA6AD7CC1C6B4BD90097CD9A /* Version_DashboardUITests.swift */,
-				AA6AD7CE1C6B4BD90097CD9A /* Info.plist */,
-			);
-			path = "Version DashboardUITests";
-			sourceTree = "<group>";
-		};
-		AA6AD7F81C6B81190097CD9A /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				AA62EDF42250E9E400757106 /* Outdated item.png */,
-				AA62EDF62250E9EB00757106 /* Detailed view.png */,
-				AA62EDF82250E9F300757106 /* Summarize.png */,
-			);
-			name = Images;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		AA6AD8061C6BC9550097CD9A /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				AAA5631C1C81E01200E1199A /* MainWindow.swift */,
-				AAA5631A1C81DFE700E1199A /* SummaryViewController.swift */,
-				AA6AD7B11C6B4BD90097CD9A /* DetailedViewController.swift */,
-				AAA563261C8302A300E1199A /* OutdatedViewController.swift */,
-				AA6AD7E01C6B73AC0097CD9A /* AddSystemViewController.swift */,
-				AA6AD7DC1C6B60230097CD9A /* SettingsViewController.swift */,
-				AA6AD7EC1C6B777B0097CD9A /* PiwikViewController.swift */,
-				AA6AD7F01C6B779D0097CD9A /* OwncloudViewController.swift */,
-				AA6AD7F21C6B77AE0097CD9A /* JoomlaViewController.swift */,
-				AA6AD7F41C6B77C00097CD9A /* WordpressViewController.swift */,
-				AA7FB8431C88CEBD009FC40B /* PreferencesWindowController.swift */,
-				AA7FB8451C88CEF1009FC40B /* PreferencesViewController.swift */,
-			);
-			name = Controllers;
 			sourceTree = "<group>";
 		};
 		AA71A7CC226B00EE00BEB4C3 /* graphics */ = {
@@ -852,15 +953,6 @@
 				AAB913242234371E006D1EE7 /* ChartsTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		AAE8B64F1F87F2C5004E4AF3 /* Version DashboardTests */ = {
-			isa = PBXGroup;
-			children = (
-				AAE8B6501F87F2C5004E4AF3 /* Version_DashboardTests.swift */,
-				AAE8B6521F87F2C6004E4AF3 /* Info.plist */,
-			);
-			path = "Version DashboardTests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1101,7 +1193,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AA6AD7A71C6B4BD90097CD9A /* Build configuration list for PBXProject "Version Dashboard" */;
+			buildConfigurationList = AA6AD7A71C6B4BD90097CD9A /* Build configuration list for PBXProject "VersionDashboard" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1239,21 +1331,41 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA36C38D22E35563008B393E /* Localizable.strings in Resources */,
+				AA36C39D22E35563008B393E /* Version Dashboard1024.png in Resources */,
+				AA36C3A122E35563008B393E /* 32x32.png in Resources */,
 				AA71A90E227D74CC00BEB4C3 /* piwik_dots.png in Resources */,
+				AA36C39E22E35563008B393E /* 128x128.png in Resources */,
+				AA36C39A22E35563008B393E /* 256x256.png in Resources */,
 				AA71A90F227D74CC00BEB4C3 /* joomla_dots.png in Resources */,
+				AA36C39522E35563008B393E /* Detailed view.png in Resources */,
+				AA36C39822E35563008B393E /* Outdated item.png in Resources */,
+				AA36C39322E35563008B393E /* Summarize.png in Resources */,
+				AA36C3A422E35563008B393E /* 64x64.png in Resources */,
+				AA36C39722E35563008B393E /* Outdated item.ai in Resources */,
+				AA36C39F22E35563008B393E /* 48x48.png in Resources */,
+				AA36C3B522E35563008B393E /* Info.plist in Resources */,
+				AA36C39422E35563008B393E /* VDDetailed.tiff in Resources */,
+				AA36C38F22E35563008B393E /* Assets.xcassets in Resources */,
 				AA71A910227D74CC00BEB4C3 /* owncloud_dots.png in Resources */,
+				AA36C39922E35563008B393E /* 16x16.png in Resources */,
+				AA36C39B22E35563008B393E /* Version Dashboard.png in Resources */,
 				AA71A911227D74CC00BEB4C3 /* wordpress_dots.png in Resources */,
 				AA71A903226CC56E00BEB4C3 /* owncloud.plist in Resources */,
 				AA71A904226CC56E00BEB4C3 /* configuration.plist in Resources */,
 				AA71A905226CC56E00BEB4C3 /* piwik.plist in Resources */,
 				AA71A906226CC56E00BEB4C3 /* joomla.plist in Resources */,
+				AA36C3A522E35563008B393E /* VDGui.jpg in Resources */,
 				AA71A907226CC56E00BEB4C3 /* wordpress.plist in Resources */,
-				AA288CD41C8B64120026A172 /* Localizable.strings in Resources */,
-				AA62EDF52250E9E400757106 /* Outdated item.png in Resources */,
-				AA62EDF92250E9F300757106 /* Summarize.png in Resources */,
-				AA62EDF72250E9EC00757106 /* Detailed view.png in Resources */,
-				AA6AD7B41C6B4BD90097CD9A /* Assets.xcassets in Resources */,
-				AA6AD7B71C6B4BD90097CD9A /* Main.storyboard in Resources */,
+				AA36C39C22E35563008B393E /* 96x96.png in Resources */,
+				AA36C39222E35563008B393E /* Summarize.ai in Resources */,
+				AA36C39022E35563008B393E /* Main.storyboard in Resources */,
+				AA36C38C22E35563008B393E /* Main.strings in Resources */,
+				AA36C3A322E35563008B393E /* Version Dashboard.ai in Resources */,
+				AA36C3A222E35563008B393E /* 512x512.png in Resources */,
+				AA36C38E22E35563008B393E /* configuration.plist in Resources */,
+				AA36C39622E35563008B393E /* Detailed view.ai in Resources */,
+				AA36C3A022E35563008B393E /* 24x24.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1261,6 +1373,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA36C3BB22E3557B008B393E /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1422,22 +1535,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA7FB8461C88CEF1009FC40B /* PreferencesViewController.swift in Sources */,
-				AA6AD7F51C6B77C00097CD9A /* WordpressViewController.swift in Sources */,
-				AA6AD7B21C6B4BD90097CD9A /* DetailedViewController.swift in Sources */,
-				AAA5632D1C83837A00E1199A /* InternetConnectivity.swift in Sources */,
-				AA7FB8441C88CEBD009FC40B /* PreferencesWindowController.swift in Sources */,
-				AA6AD8511C7E397B0097CD9A /* badgeFunctions.swift in Sources */,
-				AA6AD7F11C6B779D0097CD9A /* OwncloudViewController.swift in Sources */,
-				AA6AD7E21C6B73AC0097CD9A /* AddSystemViewController.swift in Sources */,
-				AAA563291C83567300E1199A /* NotificationFunctions.swift in Sources */,
-				AAA5631D1C81E01200E1199A /* MainWindow.swift in Sources */,
-				AA6AD7B01C6B4BD90097CD9A /* AppDelegate.swift in Sources */,
-				AA6AD7EE1C6B777B0097CD9A /* PiwikViewController.swift in Sources */,
-				AAA563271C8302A300E1199A /* OutdatedViewController.swift in Sources */,
-				AA6AD7DE1C6B60230097CD9A /* SettingsViewController.swift in Sources */,
-				AA6AD7F31C6B77AE0097CD9A /* JoomlaViewController.swift in Sources */,
-				AAA5631B1C81DFE700E1199A /* SummaryViewController.swift in Sources */,
+				AA36C3AC22E35563008B393E /* WordpressViewController.swift in Sources */,
+				AA36C3A822E35563008B393E /* AddSystemViewController.swift in Sources */,
+				AA36C3AB22E35563008B393E /* PreferencesWindowController.swift in Sources */,
+				AA36C3A722E35563008B393E /* SummaryViewController.swift in Sources */,
+				AA36C3B322E35563008B393E /* badgeFunctions.swift in Sources */,
+				AA36C3B022E35563008B393E /* JoomlaViewController.swift in Sources */,
+				AA36C3A622E35563008B393E /* OwncloudViewController.swift in Sources */,
+				AA36C3AF22E35563008B393E /* PiwikViewController.swift in Sources */,
+				AA36C3AD22E35563008B393E /* OutdatedViewController.swift in Sources */,
+				AA36C3A922E35563008B393E /* DetailedViewController.swift in Sources */,
+				AA36C3B422E35563008B393E /* NotificationFunctions.swift in Sources */,
+				AA36C3B222E35563008B393E /* InternetConnectivity.swift in Sources */,
+				AA36C3B122E35563008B393E /* SettingsViewController.swift in Sources */,
+				AA36C3AE22E35563008B393E /* MainWindow.swift in Sources */,
+				AA36C39122E35563008B393E /* AppDelegate.swift in Sources */,
+				AA36C3AA22E35563008B393E /* PreferencesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1445,6 +1558,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA36C3BA22E3557B008B393E /* Version_DashboardUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1452,7 +1566,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAE8B6511F87F2C5004E4AF3 /* Version_DashboardTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1512,13 +1625,29 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		AA288CD61C8B64120026A172 /* Localizable.strings */ = {
+		AA36C35522E35563008B393E /* Main.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AA288CD51C8B64120026A172 /* Base */,
-				AA288CD71C8B641A0026A172 /* de */,
+				AA36C35622E35563008B393E /* de */,
+			);
+			name = Main.strings;
+			sourceTree = "<group>";
+		};
+		AA36C35722E35563008B393E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA36C35822E35563008B393E /* de */,
+				AA36C35E22E35563008B393E /* Base */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		AA36C35C22E35563008B393E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA36C35D22E35563008B393E /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		AA62F4EF2251508B00757106 /* LaunchScreen.strings */ = {
@@ -1559,15 +1688,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				AA62F5112251508B00757106 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		AA6AD7B51C6B4BD90097CD9A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AA6AD7B61C6B4BD90097CD9A /* Base */,
-				AA288CCA1C8B0C300026A172 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -2255,7 +2375,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA6AD7A71C6B4BD90097CD9A /* Build configuration list for PBXProject "Version Dashboard" */ = {
+		AA6AD7A71C6B4BD90097CD9A /* Build configuration list for PBXProject "VersionDashboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA6AD7CF1C6B4BD90097CD9A /* Debug */,
