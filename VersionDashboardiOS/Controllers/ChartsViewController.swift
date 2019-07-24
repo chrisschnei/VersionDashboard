@@ -29,11 +29,15 @@ class ChartsViewController: UIViewController {
         navigationBar.prefersLargeTitles = true
         
         if(HeadInstances.headInstances.count == 0) {
-            HeadInstancesModel.loadConfigfiles()
+            if (!HeadInstancesModel.loadConfigfiles()) {
+                print("Loading head instances models failed.")
+            }
         }
         
         if(SystemInstances.systemInstances.count == 0) {
-            SystemInstancesModel.loadConfigfiles()
+            if (!SystemInstancesModel.loadConfigfiles()) {
+                print("Loading system instances models failed.")
+            }
         }
         self.tabBarController?.setOutdatedBadgeNumber()
     }
