@@ -10,6 +10,13 @@ import Foundation
 
 open class SystemInstancesModel : NSObject {
     
+    /**
+     Checks all present version instances using GCD threading interface.
+     
+     - Parameters:
+     - force: Passes the force attribute to instance models for ignoring check interval. Version strings will be fetched from instance webservice.
+     - completionHandler: Called on thread termination.
+     */
     public static func checkAllInstancesVersions(force: Bool, _ completionHandler: @escaping (Bool) -> ()) {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             for instance in SystemInstances.systemInstances.keys {
@@ -47,6 +54,11 @@ open class SystemInstancesModel : NSObject {
         }
     }
     
+    /**
+     Calculates amount of instance objects based on supported types
+     
+     - Returns: Dictionary with instance name as key and amount of instances as value.
+     */
     public static func checkAllInstancesTypes() -> Dictionary<String, Int> {
         var wordpressInstances = 0
         var piwikInstances = 0
@@ -68,10 +80,20 @@ open class SystemInstancesModel : NSObject {
         return ["Wordpress" : wordpressInstances, "Joomla" : joomlaInstances, "Owncloud" : owncloudInstances, "Piwik" : piwikInstances]
     }
     
+    /**
+     Calculates number of created system instances.
+     
+     - Returns: Amount of system instances as string value
+     */
     public static func getAmountOfInstances() -> String {
        return String(SystemInstances.systemInstances.count)
     }
     
+    /**
+     Calculates a list of outdated instances.
+     
+     - Returns: Numer of outdated instances.
+     */
     public static func getAmountOfOutdateInstances() -> Int {
         var instancesOutOfDate = 0
         
@@ -98,6 +120,13 @@ open class SystemInstancesModel : NSObject {
         return instancesOutOfDate
     }
     
+    /**
+     On new instance creation check if name is already present. This is important because name is the primary key and therefor has to be unique in the app.
+     
+     - Parameters:
+     - newName: Name to be created.
+     - Returns: true if name already extists, false if name is not used already.
+     */
     public static func checkInstanceNameAlreadyPresent(_ newName: String) -> Bool {
         if(SystemInstances.systemInstances[newName] != nil) {
             return true
@@ -105,7 +134,12 @@ open class SystemInstancesModel : NSObject {
         return false
     }
     
-    public static func loadConfigfiles() {
+    /**
+     Loads all configurationfiles containing informations about system instances.
+     
+     - Returns: true on success, false on failure
+     */
+    public static func loadConfigfiles() -> Bool {
         let fileManager = FileManager.default
         var isDir : ObjCBool = false
         if fileManager.fileExists(atPath: Constants.plistFilesPath, isDirectory:&isDir) {
@@ -140,10 +174,18 @@ open class SystemInstancesModel : NSObject {
                 try FileManager.default.createDirectory(atPath: Constants.configurationFilePath, withIntermediateDirectories: false, attributes: nil)
             } catch _ as NSError {
                 NSLog("plist folder Application Support creation failed")
+                return false
             }
         }
+        
+        return true
     }
     
+    /**
+     Returns amount of up to date instances.
+     
+     - Returns: Value of up to date instances.
+     */
     public static func getAmountOfUptodateInstances() -> Int {
         var instancesUptoDate = 0
         
@@ -170,6 +212,11 @@ open class SystemInstancesModel : NSObject {
         return instancesUptoDate
     }
     
+    /**
+     Returns amount of outdated instances.
+     
+     - Returns: Dictionary with outdated instance names as values and reference to model object
+     */
     public static func getOutdatedInstances() -> Dictionary<String, AnyObject> {
         var outdatedInstances = Dictionary<String, AnyObject>()
         

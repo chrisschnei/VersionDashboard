@@ -8,19 +8,76 @@
 
 import Foundation
 
+/**
+ GenericModel class for instantiating specific webservice models.
+ */
 open class GenericModel: GenericModelProtocol {
     
+    /**
+     Variable hosturl for storing url to webservice.
+     */
     public var hosturl = String()
+    
+    /**
+     Variable currentVersion contains webservice version.
+     */
     public var currentVersion = String()
+    
+    /**
+     Variable headVersion contains webservice vendor version.
+     */
     public var headVersion = String()
+    
+    /**
+     Variable lastRefresh contains last update timestamp.
+     */
     public var lastRefresh = String()
+    
+    /**
+     Variable creationDate holds webservice creation date.
+     */
     public var creationDate = String()
+    
+    /**
+     Variable updateAvailable decides whether webservice should be updated.
+     */
     public var updateAvailable = Int()
+    
+    /**
+     Variable name of instance.
+     */
     public var name = String()
+    
+    /**
+     Variable type contains webservice type.
+     */
     public var type = String()
+    
+    /**
+     Variable phpVersion contains php version supplied by http header.
+     */
     public var phpVersion = String()
+    
+    /**
+     Variable serverType contains webserver type supplied by http header.
+     */
     public var serverType = String()
     
+    /**
+     Initializes a new webservice model.
+     
+     - Parameters:
+     - creationDate: timestamp of webservice
+     - currentVersion: version of self hosted webservice
+     - hosturl: url to self hosted webservice
+     - headVersion: version of webservice supplied by vendor
+     - lastRefresh: timestamp of last update
+     - name: webservice name
+     - type: type of webservice
+     - updateAvailable: signals if webservice update is available
+     - phpVersion: contains active php version
+     - serverType: contains webserver type
+     */
     public init(creationDate: String, currentVersion: String, hosturl: String, headVersion: String, lastRefresh: String, name: String, type: String, updateAvailable: Int, phpVersion: String, serverType: String) {
         self.hosturl = hosturl
         self.currentVersion = currentVersion
@@ -34,16 +91,32 @@ open class GenericModel: GenericModelProtocol {
         self.serverType = serverType
     }
 
-    open func renamePlistFile(_ oldName: String) {
+    /**
+     Rename plist file. Specified name will be moved to name class attribute
+     
+     - Parameters:
+     - oldName: contains old filename.
+     - Returns: true if file is moved successfully or false on failure
+     */
+    open func renamePlistFile(_ oldName: String) -> Bool {
         let fileManager = FileManager.default
         do {
             try fileManager.moveItem(atPath: (Constants.plistFilesPath + oldName) + ".plist", toPath: (Constants.plistFilesPath + self.name) + ".plist")
         }
         catch let error as NSError {
             print("Ooops! Something went wrong: \(error)")
+            return false
         }
+        return true
     }
     
+    /**
+     Saves a config file to disc.
+     
+     - Parameters:
+     - filename: String containing file location
+     - Returns: true if file is written successfully or false on failure
+     */
     open func saveConfigfile() -> Bool {
         let path = (Constants.plistFilesPath + self.name) + ".plist"
         let dict: NSMutableDictionary = NSMutableDictionary()
@@ -71,6 +144,9 @@ open class GenericModel: GenericModelProtocol {
         return dict.write(toFile: path, atomically: true)
     }
     
+    /**
+     Updates lastRefresh attribute in object.
+     */
     open func updateDate() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.medium
@@ -78,6 +154,10 @@ open class GenericModel: GenericModelProtocol {
         self.lastRefresh = dateFormatter.string(from: Date())
     }
     
+    /**
+     Checks if webservice is outdated and user notification should be displayed.
+     In case of outdated version updateAvailable attribute is set to 1.
+     */
     open func checkNotificationRequired() {
         if (self.headVersion == "0.0" || self.currentVersion == "0.0") {
         } else if((self.headVersion > self.currentVersion) && (self.updateAvailable == 0)) {
@@ -87,6 +167,13 @@ open class GenericModel: GenericModelProtocol {
         }
     }
 
+    /**
+     Return handler function for extracting PHP version string from HTTP header.
+     
+     - Parameters:
+     - data: HTTP header data to be filtered
+     - Returns: void
+     */
     open func phpReturnHandler(_ data: URLResponse?) -> Void {
         let lines = (String(describing: data)).components(separatedBy: "\n")
         if(lines.count > 0) {
@@ -110,6 +197,12 @@ open class GenericModel: GenericModelProtocol {
         }
     }
     
+    /**
+     Function for getting php version string out of HTTP header.
+     
+     - Parameters:
+     - completionHandler: Function for downloading data via HTTP request
+     */
     open func phpVersionRequest(_ completionHandler: ((URLResponse?) -> Void)?)
     {
         let semaphore = DispatchSemaphore(value: 0)

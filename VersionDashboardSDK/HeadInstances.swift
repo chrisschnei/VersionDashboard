@@ -9,5 +9,9 @@
 import Foundation
 
 public class HeadInstances {
+    
+    /**
+     Holds all headInstances objects.
+     */
     static public var headInstances = Dictionary<String, AnyObject>()
 }

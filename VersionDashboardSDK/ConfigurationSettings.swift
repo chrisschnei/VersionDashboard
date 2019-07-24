@@ -9,5 +9,9 @@
 import Foundation
 
 public class ConfigurationSettings {
+    
+    /**
+     Holds all configuration values stored in configuration.plist file for fast access.
+     */
     static public var configurationSettings = Dictionary<String, Any>()
 }

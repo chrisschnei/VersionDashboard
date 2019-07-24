@@ -10,7 +10,12 @@ import Foundation
 
 open class HeadInstancesModel : NSObject {
     
-    public static func loadConfigfiles() {
+    /**
+     Load configuration files and create a object for every file.
+     
+     - Returns: true on success, false on error
+     */
+    public static func loadConfigfiles() -> Bool {
         let fileManager = FileManager.default
         var isDir : ObjCBool = false
         if fileManager.fileExists(atPath: Constants.headPlistFilesPath, isDirectory:&isDir) {
@@ -34,6 +39,8 @@ open class HeadInstancesModel : NSObject {
             }
         } else {
             do {
+                try FileManager.default.createDirectory(atPath: Constants.applicationSupportPath, withIntermediateDirectories: false, attributes: nil)
+                try FileManager.default.createDirectory(atPath: Constants.applicationSupportAppname, withIntermediateDirectories: false, attributes: nil)
                 try FileManager.default.createDirectory(atPath: Constants.headPlistFilesPath, withIntermediateDirectories: false, attributes: nil)
                 try fileManager.copyItem(atPath: Constants.appBundleJoomlaPath, toPath: Constants.joomlaFilePath)
                 try fileManager.copyItem(atPath: Constants.appBundlewordpressPath, toPath: Constants.wordpressFilePath)
@@ -41,8 +48,11 @@ open class HeadInstancesModel : NSObject {
                 try fileManager.copyItem(atPath: Constants.appBundlePiwikPath, toPath: Constants.piwikFilePath)
             } catch _ as NSError {
                 NSLog("plist folder Application Support headPlistFolder creation failed")
+                return false
             }
         }
+        
+        return true
     }
     
 }

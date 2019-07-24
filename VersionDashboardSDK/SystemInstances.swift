@@ -9,5 +9,9 @@
 import Foundation
 
 public class SystemInstances {
+    
+    /**
+     Holds system instances created by the user.
+     */
     static public var systemInstances = Dictionary<String, AnyObject>()
 }

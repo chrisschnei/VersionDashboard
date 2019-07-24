@@ -9,5 +9,9 @@
 import Foundation
 
 public class OutdatedInstances {
+    
+    /**
+     Holds all outdated instance names for object referencing.
+     */
     static public var outdatedInstances : [String] = []
 }

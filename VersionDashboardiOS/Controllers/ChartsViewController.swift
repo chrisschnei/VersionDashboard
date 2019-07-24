@@ -24,6 +24,8 @@ class ChartsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Constants.initialize(Bundle.main.bundlePath)
+        
         navigationBar.prefersLargeTitles = true
         
         if(HeadInstances.headInstances.count == 0) {

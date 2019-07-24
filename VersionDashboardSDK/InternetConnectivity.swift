@@ -11,6 +11,11 @@ import SystemConfiguration
 
 open class InternetConnectivity {
     
+    /**
+     Checks if internet connection is working. Needed for basic check before further version checks.
+     
+     - Returns: true if internet connection is working, false in error case
+     */
     public static func checkInternetConnection() -> Bool {
         var zeroAddress = sockaddr_in()
         zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))

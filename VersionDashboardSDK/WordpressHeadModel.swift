@@ -10,6 +10,13 @@ import Foundation
 
 open class WordpressHeadModel: GenericHeadModel {
     
+    /**
+     Get version from piwik vendor server.
+     
+     - Parameters:
+     - forceUpdate: true if time checks should be ignored and version should be updated immediately, false to only retrieve version when time interval is exceeded.
+     - Returns: true if download succeeded, false in error case
+     */
     func getVersion(forceUpdate: Bool = false) {
         if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-Constants.refreshHeadInstances)))) {
             let headVersion = self.getInstanceVersionJSON(Constants.wordpressAPIUrl)
@@ -18,12 +25,19 @@ open class WordpressHeadModel: GenericHeadModel {
             } else {
                 self.headVersion = "0.0"
             }
-            if (self.saveConfigfile(filename: Constants.wordpressHead)) {
+            if (!self.saveConfigfile(filename: Constants.wordpressHead)) {
                 print("Error saving wordpress head plist file.")
             }
         }
     }
     
+    /**
+     Get version from wordpress vendor server.
+     
+     - Parameters:
+     - url: URL to wordpress vendor version string page.
+     - Returns: String containing version number
+     */
     func getInstanceVersionJSON(_ url: String) -> String {
         if let version = try? Data(contentsOf: URL(string: url)!) {
             do {

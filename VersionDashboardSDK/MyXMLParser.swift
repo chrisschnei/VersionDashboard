@@ -13,9 +13,17 @@ protocol XMLParserDelegate {
 }
 
 open class MyXMLParser : NSObject, Foundation.XMLParserDelegate {
+    
+    /**
+     Version to XML Document
+     */
     var url: URL;
+    
     var delegate: XMLParserDelegate?
     
+    /**
+     Contains downloaded XML contents.
+     */
     var object = Dictionary<String, String>()
     
     var inItem = false

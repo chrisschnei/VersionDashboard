@@ -10,6 +10,13 @@ import Foundation
 
 public class WordpressModel : GenericModel {
     
+    /**
+     Fetches versions from wordpress head and custom instance.
+     
+     - Parameters:
+     - forceUpdate: true if time checks should be ignored and version should be updated immediately, false to only retrieve version when time interval is exceeded.
+     - Returns: true if download succeeded, false in error case
+     */
     open func getVersions(forceUpdate: Bool) -> Bool {
         let wordpressheadobject = HeadInstances.headInstances["Wordpress"] as! WordpressHeadModel
         wordpressheadobject.getVersion(forceUpdate: forceUpdate)
@@ -26,6 +33,13 @@ public class WordpressModel : GenericModel {
         return false
     }
     
+    /**
+     Extract version string from javascript file.
+     
+     - Parameters:
+     - url: url to javascript file
+     - Returns: string containing version number, empty string in error case.
+     */
     func checkVersionViaJavascript(_ url: String) -> String {
         if let version = try? Data(contentsOf: URL(string: url)!) {
             let version = String(data: version, encoding: String.Encoding.utf8)
@@ -41,6 +55,13 @@ public class WordpressModel : GenericModel {
         return ""
     }
     
+    /**
+     Extract wordpress version number from emoji javascript part.
+     
+     - Parameters:
+     - url: contains url to javascript file
+     - Returns: version number string on success, empty string in error case.
+     */
     func checkVersionViaJavascriptEmoji(_ url: String) -> String {
         if let version = try? Data(contentsOf: URL(string: url)!) {
             let version = String(data: version, encoding: String.Encoding.utf8)
@@ -56,6 +77,13 @@ public class WordpressModel : GenericModel {
         return ""
     }
     
+    /**
+     Extracts wordpress version string from readme.html file.
+     
+     - Parameters:
+     - url: URL to html file.
+     - Returns: version number string on success, empty string in error case.
+     */
     func checkVersionViaReadmeHtml(_ url: String) -> String {
         if let version = try? Data(contentsOf: URL(string: url)!) {
             let version = String(data: version, encoding: String.Encoding.utf8)
@@ -70,6 +98,13 @@ public class WordpressModel : GenericModel {
         return ""
     }
     
+    /**
+     Extracts wordpress version number from rss feed.
+     
+     - Parameters:
+     - url: URL to rss feed.
+     - Returns: version number string on success, empty string in error case.
+     */
     func checkVersionViaRSSFeed(_ url: String) -> String {
         if let version = try? Data(contentsOf: URL(string: url)!) {
             let version = String(data: version, encoding: String.Encoding.utf8)
@@ -85,6 +120,13 @@ public class WordpressModel : GenericModel {
         return ""
     }
     
+    /**
+     Checks wordpress instance version using different wordpress specific sources in an instance.
+     
+     - Parameters:
+     - url: URL to custom wordpress instance
+     - Returns: version number string on success, empty string in error case.
+     */
     func getInstanceVersion(_ url: String) -> String {
         if(url != "") {
             var result = ""
@@ -105,6 +147,13 @@ public class WordpressModel : GenericModel {
         return ""
     }
     
+    /**
+     Extracts wordpress version from json file.
+     
+     - Parameters:
+     - url: URL to json file.
+     - Returns: version number string on success, empty string in error case.
+     */
     func getInstanceVersionJSON(_ url: String) -> String {
         if let version = try? Data(contentsOf: URL(string: url)!) {
             do {

@@ -8,10 +8,33 @@
 
 import Foundation
 
+/**
+ GenericHeadModelProtocol.
+ Implements mandatory functions in GenericHeadModel instances.
+ */
 public protocol GenericHeadModelProtocol {
-    
+   
+    /**
+     Saves a config file to disc.
+     
+     - Parameters:
+     - filename: String containing file location
+     - Returns: true if file is written successfully or false on failure
+     */
     func saveConfigfile(filename: String) -> Bool
+    
+    /**
+     Update timestamp of refreshDate attribute.
+     */
     func updateDate()
-    func renamePlistFile(_ oldName: String)
+    
+    /**
+     Replace plist file.
+     
+     - Parameters:
+     - filename: String containing old filename
+     - Returns: true if file is replaced successfully or false on failure
+     */
+    func renamePlistFile(_ oldName: String) -> Bool
     
 }

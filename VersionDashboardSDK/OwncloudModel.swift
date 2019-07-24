@@ -10,6 +10,13 @@ import Foundation
 
 open class OwncloudModel : GenericModel {
     
+    /**
+     Get version from custom owncloud instance server.
+     
+     - Parameters:
+     - forceUpdate: true to retrieve version string and ignore time interval, false if time interval should be respected.
+     - Returns: true if version string download succeeded, false on error
+     */
     open func getVersions(forceUpdate: Bool) -> Bool {
         let owncloudheadobject = HeadInstances.headInstances["Owncloud"] as! OwncloudHeadModel
         owncloudheadobject.getVersion(forceUpdate: forceUpdate)
@@ -26,7 +33,13 @@ open class OwncloudModel : GenericModel {
         return false
     }
 
-    
+    /**
+     Get version from owncloud vendor server.
+     
+     - Parameters:
+     - url: URL to owncloud vendor version string page.
+     - Returns: String containing version number
+     */
     func getInstanceVersion(_ url: String) -> String {
         if let version = try? Data(contentsOf: URL(string: url)!) {
             let version = String(data: version, encoding: String.Encoding.utf8)

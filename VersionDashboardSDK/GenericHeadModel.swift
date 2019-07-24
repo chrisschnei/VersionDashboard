@@ -8,14 +8,49 @@
 
 import Foundation
 
+/**
+ Class GenericHeadModel.
+ Represents a model containing webservice vendor details.
+ */
 open class GenericHeadModel: GenericHeadModelProtocol {
     
+    /**
+     Variable headVersion.
+     Contains vendor head version.
+     */
     open var headVersion = String()
+    
+    /**
+     Variable name.
+     Contains webservice name.
+     */
     open var name = String()
+    
+    /**
+     Variable type.
+     Contains webservice type.
+     */
     open var type = String()
+    
+    /**
+     Variable creationDate.
+     Contains plist creation date.
+     */
     open var creationDate = Date()
+    
+    /**
+     Variable lastRefresh.
+     Contains last update date.
+     */
     open var lastRefresh = Date()
     
+    /**
+     Saves a config file to disc.
+     
+     - Parameters:
+     - filename: String containing file location
+     - Returns: true if file is written successfully or false on failure
+     */
     init(headVersion: String, name: String, type: String, creationDate: Date, lastRefresh: Date) {
         self.headVersion = headVersion
         self.name = name
@@ -24,16 +59,32 @@ open class GenericHeadModel: GenericHeadModelProtocol {
         self.lastRefresh = lastRefresh
     }
 
-    open func renamePlistFile(_ oldName: String) {
+    /**
+     Renames plist file on name change.
+     
+     - Parameters:
+     - oldName: old filename.
+     - Returns: true if file is renamed successfully or false on failure
+     */
+    open func renamePlistFile(_ oldName: String) -> Bool {
         let fileManager = FileManager.default
         do {
             try fileManager.moveItem(atPath: (Constants.plistFilesPath + oldName) + ".plist", toPath: (Constants.plistFilesPath + self.name) + ".plist")
         }
         catch let error as NSError {
             print("Ooops! Something went wrong: \(error)")
+            return false
         }
+        return true
     }
     
+    /**
+     Saves a config file to disc.
+     
+     - Parameters:
+     - filename: String containing file location
+     - Returns: true if file is written successfully or false on failure
+     */
     open func saveConfigfile(filename: String) -> Bool {
         let path = Constants.headPlistFilesPath + filename
         let dict: NSMutableDictionary = NSMutableDictionary()
@@ -53,6 +104,11 @@ open class GenericHeadModel: GenericHeadModelProtocol {
         return dict.write(toFile: path, atomically: true)
     }
     
+    /**
+     Updates variable lastRefresh with current timestamp.
+     
+     - Returns:
+     */
     open func updateDate() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.medium
