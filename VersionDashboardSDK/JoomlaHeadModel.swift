@@ -54,7 +54,6 @@ open class JoomlaHeadModel: GenericHeadModel, XMLParserDelegate {
      */
     func getInstanceVersion(_ url: String) -> String {
         let pathToXml = URL(string: url)
-        print(pathToXml)
         let parser = MyXMLParser(url: pathToXml!);
         
         parser.delegate = self;
