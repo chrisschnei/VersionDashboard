@@ -5,3 +5,4 @@ xcode_project: VersionDashboard.xcodeproj # path to your xcodeproj folder
 xcode_scheme: VersionDashboardSDK
 xcode_destination: platform=macOS
 script: xcodebuild -project VersionDashboard.xcodeproj -scheme VersionDashboardSDK -destination 'platform=OS X,arch=x86_64' clean build | xcpretty -c || true
+script: xcodebuild -project VersionDashboard.xcodeproj -scheme VersionDashboard -destination 'platform=OS X,arch=x86_64' clean build | xcpretty -c || true

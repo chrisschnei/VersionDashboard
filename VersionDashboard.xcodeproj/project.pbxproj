@@ -7,18 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA36C38C22E35563008B393E /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35522E35563008B393E /* Main.strings */; };
-		AA36C38D22E35563008B393E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35722E35563008B393E /* Localizable.strings */; };
-		AA36C38E22E35563008B393E /* configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35A22E35563008B393E /* configuration.plist */; };
 		AA36C38F22E35563008B393E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35B22E35563008B393E /* Assets.xcassets */; };
-		AA36C39022E35563008B393E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35C22E35563008B393E /* Main.storyboard */; };
 		AA36C39122E35563008B393E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C35F22E35563008B393E /* AppDelegate.swift */; };
-		AA36C39222E35563008B393E /* Summarize.ai in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36222E35563008B393E /* Summarize.ai */; };
 		AA36C39322E35563008B393E /* Summarize.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36322E35563008B393E /* Summarize.png */; };
 		AA36C39422E35563008B393E /* VDDetailed.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36422E35563008B393E /* VDDetailed.tiff */; };
 		AA36C39522E35563008B393E /* Detailed view.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36622E35563008B393E /* Detailed view.png */; };
-		AA36C39622E35563008B393E /* Detailed view.ai in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36722E35563008B393E /* Detailed view.ai */; };
-		AA36C39722E35563008B393E /* Outdated item.ai in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36922E35563008B393E /* Outdated item.ai */; };
 		AA36C39822E35563008B393E /* Outdated item.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36A22E35563008B393E /* Outdated item.png */; };
 		AA36C39922E35563008B393E /* 16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36C22E35563008B393E /* 16x16.png */; };
 		AA36C39A22E35563008B393E /* 256x256.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36D22E35563008B393E /* 256x256.png */; };
@@ -30,7 +23,6 @@
 		AA36C3A022E35563008B393E /* 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37322E35563008B393E /* 24x24.png */; };
 		AA36C3A122E35563008B393E /* 32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37422E35563008B393E /* 32x32.png */; };
 		AA36C3A222E35563008B393E /* 512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37522E35563008B393E /* 512x512.png */; };
-		AA36C3A322E35563008B393E /* Version Dashboard.ai in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37622E35563008B393E /* Version Dashboard.ai */; };
 		AA36C3A422E35563008B393E /* 64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37722E35563008B393E /* 64x64.png */; };
 		AA36C3A522E35563008B393E /* VDGui.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37822E35563008B393E /* VDGui.jpg */; };
 		AA36C3A622E35563008B393E /* OwncloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C37A22E35563008B393E /* OwncloudViewController.swift */; };
@@ -454,8 +446,8 @@
 		AA62F73522589EE400757106 /* ConfigurationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSettings.swift; sourceTree = "<group>"; };
 		AA62F75C2258ADE300757106 /* libVersionDashboardSDKARM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVersionDashboardSDKARM.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA62F7862258AE9D00757106 /* VersionDashboardiOSSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VersionDashboardiOSSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA6AD7AC1C6B4BD90097CD9A /* Version Dashboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Version Dashboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA6AD7C81C6B4BD90097CD9A /* Version DashboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Version DashboardUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA6AD7AC1C6B4BD90097CD9A /* VersionDashboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VersionDashboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA6AD7C81C6B4BD90097CD9A /* VersionDashboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA71A7CE226B00EE00BEB4C3 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
 		AA71A7CF226B00EE00BEB4C3 /* LaunchScreen.afdesign */ = {isa = PBXFileReference; lastKnownFileType = file; path = LaunchScreen.afdesign; sourceTree = "<group>"; };
 		AA71A7D1226B00EE00BEB4C3 /* summary.afdesign */ = {isa = PBXFileReference; lastKnownFileType = file; path = summary.afdesign; sourceTree = "<group>"; };
@@ -505,7 +497,7 @@
 		AA71A8FB226CBDDD00BEB4C3 /* joomla.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = joomla.plist; sourceTree = "<group>"; };
 		AA71A8FC226CBDDD00BEB4C3 /* wordpress.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = wordpress.plist; sourceTree = "<group>"; };
 		AAB9131C2234371E006D1EE7 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts.framework/Charts.xcodeproj; sourceTree = "<group>"; };
-		AAE8B64E1F87F2C5004E4AF3 /* Version DashboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Version DashboardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAE8B64E1F87F2C5004E4AF3 /* VersionDashboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -823,9 +815,9 @@
 		AA6AD7AD1C6B4BD90097CD9A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AA6AD7AC1C6B4BD90097CD9A /* Version Dashboard.app */,
-				AA6AD7C81C6B4BD90097CD9A /* Version DashboardUITests.xctest */,
-				AAE8B64E1F87F2C5004E4AF3 /* Version DashboardTests.xctest */,
+				AA6AD7AC1C6B4BD90097CD9A /* VersionDashboard.app */,
+				AA6AD7C81C6B4BD90097CD9A /* VersionDashboardUITests.xctest */,
+				AAE8B64E1F87F2C5004E4AF3 /* VersionDashboardTests.xctest */,
 				AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */,
 				AA62EE812251456000757106 /* VersionDashboardiOS.app */,
 				AA62EE962251456800757106 /* VersionDashboardiOSTests.xctest */,
@@ -1085,9 +1077,9 @@
 			productReference = AA62F7862258AE9D00757106 /* VersionDashboardiOSSimulator.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AA6AD7AB1C6B4BD90097CD9A /* Version Dashboard */ = {
+		AA6AD7AB1C6B4BD90097CD9A /* VersionDashboard */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA6AD7D11C6B4BD90097CD9A /* Build configuration list for PBXNativeTarget "Version Dashboard" */;
+			buildConfigurationList = AA6AD7D11C6B4BD90097CD9A /* Build configuration list for PBXNativeTarget "VersionDashboard" */;
 			buildPhases = (
 				AA6AD7A81C6B4BD90097CD9A /* Sources */,
 				AA6AD7AA1C6B4BD90097CD9A /* Resources */,
@@ -1100,14 +1092,14 @@
 				AA62F7052257DBAC00757106 /* PBXTargetDependency */,
 				AAB9132622343734006D1EE7 /* PBXTargetDependency */,
 			);
-			name = "Version Dashboard";
+			name = VersionDashboard;
 			productName = "Version Dashboard";
-			productReference = AA6AD7AC1C6B4BD90097CD9A /* Version Dashboard.app */;
+			productReference = AA6AD7AC1C6B4BD90097CD9A /* VersionDashboard.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AA6AD7C71C6B4BD90097CD9A /* Version DashboardUITests */ = {
+		AA6AD7C71C6B4BD90097CD9A /* VersionDashboardUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA6AD7D71C6B4BD90097CD9A /* Build configuration list for PBXNativeTarget "Version DashboardUITests" */;
+			buildConfigurationList = AA6AD7D71C6B4BD90097CD9A /* Build configuration list for PBXNativeTarget "VersionDashboardUITests" */;
 			buildPhases = (
 				AA6AD7C41C6B4BD90097CD9A /* Sources */,
 				AA6AD7C51C6B4BD90097CD9A /* Frameworks */,
@@ -1118,14 +1110,14 @@
 			dependencies = (
 				AA6AD7CA1C6B4BD90097CD9A /* PBXTargetDependency */,
 			);
-			name = "Version DashboardUITests";
+			name = VersionDashboardUITests;
 			productName = "Version DashboardUITests";
-			productReference = AA6AD7C81C6B4BD90097CD9A /* Version DashboardUITests.xctest */;
+			productReference = AA6AD7C81C6B4BD90097CD9A /* VersionDashboardUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		AAE8B64D1F87F2C5004E4AF3 /* Version DashboardTests */ = {
+		AAE8B64D1F87F2C5004E4AF3 /* VersionDashboardTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAE8B6551F87F2C6004E4AF3 /* Build configuration list for PBXNativeTarget "Version DashboardTests" */;
+			buildConfigurationList = AAE8B6551F87F2C6004E4AF3 /* Build configuration list for PBXNativeTarget "VersionDashboardTests" */;
 			buildPhases = (
 				AAE8B64A1F87F2C5004E4AF3 /* Sources */,
 				AAE8B64B1F87F2C5004E4AF3 /* Frameworks */,
@@ -1136,9 +1128,9 @@
 			dependencies = (
 				AAE8B6541F87F2C6004E4AF3 /* PBXTargetDependency */,
 			);
-			name = "Version DashboardTests";
+			name = VersionDashboardTests;
 			productName = "Version DashboardTests";
-			productReference = AAE8B64E1F87F2C5004E4AF3 /* Version DashboardTests.xctest */;
+			productReference = AAE8B64E1F87F2C5004E4AF3 /* VersionDashboardTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1213,9 +1205,9 @@
 			);
 			projectRoot = "";
 			targets = (
-				AA6AD7AB1C6B4BD90097CD9A /* Version Dashboard */,
-				AAE8B64D1F87F2C5004E4AF3 /* Version DashboardTests */,
-				AA6AD7C71C6B4BD90097CD9A /* Version DashboardUITests */,
+				AA6AD7AB1C6B4BD90097CD9A /* VersionDashboard */,
+				AAE8B64D1F87F2C5004E4AF3 /* VersionDashboardTests */,
+				AA6AD7C71C6B4BD90097CD9A /* VersionDashboardUITests */,
 				AA62EE4D2251391000757106 /* VersionDashboardSDK */,
 				AA62F7402258ADE300757106 /* VersionDashboardSDKARM */,
 				AA62EE802251456000757106 /* VersionDashboardiOS */,
@@ -1331,7 +1323,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA36C38D22E35563008B393E /* Localizable.strings in Resources */,
 				AA36C39D22E35563008B393E /* Version Dashboard1024.png in Resources */,
 				AA36C3A122E35563008B393E /* 32x32.png in Resources */,
 				AA71A90E227D74CC00BEB4C3 /* piwik_dots.png in Resources */,
@@ -1342,29 +1333,22 @@
 				AA36C39822E35563008B393E /* Outdated item.png in Resources */,
 				AA36C39322E35563008B393E /* Summarize.png in Resources */,
 				AA36C3A422E35563008B393E /* 64x64.png in Resources */,
-				AA36C39722E35563008B393E /* Outdated item.ai in Resources */,
 				AA36C39F22E35563008B393E /* 48x48.png in Resources */,
-				AA36C3B522E35563008B393E /* Info.plist in Resources */,
 				AA36C39422E35563008B393E /* VDDetailed.tiff in Resources */,
 				AA36C38F22E35563008B393E /* Assets.xcassets in Resources */,
 				AA71A910227D74CC00BEB4C3 /* owncloud_dots.png in Resources */,
 				AA36C39922E35563008B393E /* 16x16.png in Resources */,
 				AA36C39B22E35563008B393E /* Version Dashboard.png in Resources */,
 				AA71A911227D74CC00BEB4C3 /* wordpress_dots.png in Resources */,
+				AA36C3B522E35563008B393E /* Info.plist in Resources */,
 				AA71A903226CC56E00BEB4C3 /* owncloud.plist in Resources */,
 				AA71A904226CC56E00BEB4C3 /* configuration.plist in Resources */,
 				AA71A905226CC56E00BEB4C3 /* piwik.plist in Resources */,
 				AA71A906226CC56E00BEB4C3 /* joomla.plist in Resources */,
-				AA36C3A522E35563008B393E /* VDGui.jpg in Resources */,
 				AA71A907226CC56E00BEB4C3 /* wordpress.plist in Resources */,
+				AA36C3A522E35563008B393E /* VDGui.jpg in Resources */,
 				AA36C39C22E35563008B393E /* 96x96.png in Resources */,
-				AA36C39222E35563008B393E /* Summarize.ai in Resources */,
-				AA36C39022E35563008B393E /* Main.storyboard in Resources */,
-				AA36C38C22E35563008B393E /* Main.strings in Resources */,
-				AA36C3A322E35563008B393E /* Version Dashboard.ai in Resources */,
 				AA36C3A222E35563008B393E /* 512x512.png in Resources */,
-				AA36C38E22E35563008B393E /* configuration.plist in Resources */,
-				AA36C39622E35563008B393E /* Detailed view.ai in Resources */,
 				AA36C3A022E35563008B393E /* 24x24.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1599,7 +1583,7 @@
 		};
 		AA6AD7CA1C6B4BD90097CD9A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AA6AD7AB1C6B4BD90097CD9A /* Version Dashboard */;
+			target = AA6AD7AB1C6B4BD90097CD9A /* VersionDashboard */;
 			targetProxy = AA6AD7C91C6B4BD90097CD9A /* PBXContainerItemProxy */;
 		};
 		AA71A743226A3E8C00BEB4C3 /* PBXTargetDependency */ = {
@@ -1619,7 +1603,7 @@
 		};
 		AAE8B6541F87F2C6004E4AF3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AA6AD7AB1C6B4BD90097CD9A /* Version Dashboard */;
+			target = AA6AD7AB1C6B4BD90097CD9A /* VersionDashboard */;
 			targetProxy = AAE8B6531F87F2C6004E4AF3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -2221,7 +2205,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
-				INFOPLIST_FILE = "Version Dashboard/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/VersionDashboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.versiondashboard.VersionDashboardApp;
@@ -2239,7 +2223,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
-				INFOPLIST_FILE = "Version Dashboard/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/VersionDashboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.versiondashboard.VersionDashboardApp;
@@ -2384,7 +2368,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA6AD7D11C6B4BD90097CD9A /* Build configuration list for PBXNativeTarget "Version Dashboard" */ = {
+		AA6AD7D11C6B4BD90097CD9A /* Build configuration list for PBXNativeTarget "VersionDashboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA6AD7D21C6B4BD90097CD9A /* Debug */,
@@ -2393,7 +2377,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA6AD7D71C6B4BD90097CD9A /* Build configuration list for PBXNativeTarget "Version DashboardUITests" */ = {
+		AA6AD7D71C6B4BD90097CD9A /* Build configuration list for PBXNativeTarget "VersionDashboardUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA6AD7D81C6B4BD90097CD9A /* Debug */,
@@ -2402,7 +2386,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAE8B6551F87F2C6004E4AF3 /* Build configuration list for PBXNativeTarget "Version DashboardTests" */ = {
+		AAE8B6551F87F2C6004E4AF3 /* Build configuration list for PBXNativeTarget "VersionDashboardTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAE8B6561F87F2C6004E4AF3 /* Debug */,
