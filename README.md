@@ -3,6 +3,7 @@
 Version Dashboard periodically performs update checks on your webservices.
 
 [![Build Status](https://travis-ci.com/chrisschnei/VersionDashboard.svg?branch=master)](https://travis-ci.com/chrisschnei/VersionDashboard)
+[![GitHub issues](https://img.shields.io/github/issues/chrisschnei/VersionDashboard)](https://github.com/chrisschnei/VersionDashboard/issues)
 
 ## macOS App
 
