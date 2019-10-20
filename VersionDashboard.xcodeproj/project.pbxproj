@@ -7,24 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA20D276235C83CE0027B268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35C22E35563008B393E /* Main.storyboard */; };
+		AA20D277235C84F10027B268 /* Detailed view.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36622E35563008B393E /* Detailed view.png */; };
 		AA36C38F22E35563008B393E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35B22E35563008B393E /* Assets.xcassets */; };
 		AA36C39122E35563008B393E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C35F22E35563008B393E /* AppDelegate.swift */; };
 		AA36C39322E35563008B393E /* Summarize.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36322E35563008B393E /* Summarize.png */; };
-		AA36C39422E35563008B393E /* VDDetailed.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36422E35563008B393E /* VDDetailed.tiff */; };
-		AA36C39522E35563008B393E /* Detailed view.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36622E35563008B393E /* Detailed view.png */; };
 		AA36C39822E35563008B393E /* Outdated item.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36A22E35563008B393E /* Outdated item.png */; };
-		AA36C39922E35563008B393E /* 16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36C22E35563008B393E /* 16x16.png */; };
-		AA36C39A22E35563008B393E /* 256x256.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36D22E35563008B393E /* 256x256.png */; };
-		AA36C39B22E35563008B393E /* Version Dashboard.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36E22E35563008B393E /* Version Dashboard.png */; };
-		AA36C39C22E35563008B393E /* 96x96.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36F22E35563008B393E /* 96x96.png */; };
-		AA36C39D22E35563008B393E /* Version Dashboard1024.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37022E35563008B393E /* Version Dashboard1024.png */; };
-		AA36C39E22E35563008B393E /* 128x128.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37122E35563008B393E /* 128x128.png */; };
-		AA36C39F22E35563008B393E /* 48x48.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37222E35563008B393E /* 48x48.png */; };
-		AA36C3A022E35563008B393E /* 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37322E35563008B393E /* 24x24.png */; };
-		AA36C3A122E35563008B393E /* 32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37422E35563008B393E /* 32x32.png */; };
-		AA36C3A222E35563008B393E /* 512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37522E35563008B393E /* 512x512.png */; };
-		AA36C3A422E35563008B393E /* 64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37722E35563008B393E /* 64x64.png */; };
-		AA36C3A522E35563008B393E /* VDGui.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA36C37822E35563008B393E /* VDGui.jpg */; };
 		AA36C3A622E35563008B393E /* OwncloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C37A22E35563008B393E /* OwncloudViewController.swift */; };
 		AA36C3A722E35563008B393E /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C37B22E35563008B393E /* SummaryViewController.swift */; };
 		AA36C3A822E35563008B393E /* AddSystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C37C22E35563008B393E /* AddSystemViewController.swift */; };
@@ -40,7 +28,6 @@
 		AA36C3B222E35563008B393E /* InternetConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C38722E35563008B393E /* InternetConnectivity.swift */; };
 		AA36C3B322E35563008B393E /* badgeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C38822E35563008B393E /* badgeFunctions.swift */; };
 		AA36C3B422E35563008B393E /* NotificationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C38922E35563008B393E /* NotificationFunctions.swift */; };
-		AA36C3B522E35563008B393E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA36C38A22E35563008B393E /* Info.plist */; };
 		AA36C3BA22E3557B008B393E /* Version_DashboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C3B822E3557B008B393E /* Version_DashboardUITests.swift */; };
 		AA36C3BB22E3557B008B393E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA36C3B922E3557B008B393E /* Info.plist */; };
 		AA62EE692251393F00757106 /* SystemInstancesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE572251393800757106 /* SystemInstancesModel.swift */; };
@@ -346,6 +333,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AA20D273235C7DD40027B268 /* generateLogos.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = generateLogos.sh; sourceTree = "<group>"; };
 		AA36C35622E35563008B393E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		AA36C35822E35563008B393E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AA36C35A22E35563008B393E /* configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = configuration.plist; sourceTree = "<group>"; };
@@ -912,6 +900,7 @@
 		AA71A8EE226CBDDD00BEB4C3 /* GenericResources */ = {
 			isa = PBXGroup;
 			children = (
+				AA20D273235C7DD40027B268 /* generateLogos.sh */,
 				AA71A8EF226CBDDD00BEB4C3 /* piwik.tiff */,
 				AA71A8F0226CBDDD00BEB4C3 /* owncloud.plist */,
 				AA71A8F1226CBDDD00BEB4C3 /* joomla.png */,
@@ -1323,33 +1312,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA36C39D22E35563008B393E /* Version Dashboard1024.png in Resources */,
-				AA36C3A122E35563008B393E /* 32x32.png in Resources */,
 				AA71A90E227D74CC00BEB4C3 /* piwik_dots.png in Resources */,
-				AA36C39E22E35563008B393E /* 128x128.png in Resources */,
-				AA36C39A22E35563008B393E /* 256x256.png in Resources */,
 				AA71A90F227D74CC00BEB4C3 /* joomla_dots.png in Resources */,
-				AA36C39522E35563008B393E /* Detailed view.png in Resources */,
+				AA20D277235C84F10027B268 /* Detailed view.png in Resources */,
 				AA36C39822E35563008B393E /* Outdated item.png in Resources */,
 				AA36C39322E35563008B393E /* Summarize.png in Resources */,
-				AA36C3A422E35563008B393E /* 64x64.png in Resources */,
-				AA36C39F22E35563008B393E /* 48x48.png in Resources */,
-				AA36C39422E35563008B393E /* VDDetailed.tiff in Resources */,
 				AA36C38F22E35563008B393E /* Assets.xcassets in Resources */,
 				AA71A910227D74CC00BEB4C3 /* owncloud_dots.png in Resources */,
-				AA36C39922E35563008B393E /* 16x16.png in Resources */,
-				AA36C39B22E35563008B393E /* Version Dashboard.png in Resources */,
+				AA20D276235C83CE0027B268 /* Main.storyboard in Resources */,
 				AA71A911227D74CC00BEB4C3 /* wordpress_dots.png in Resources */,
-				AA36C3B522E35563008B393E /* Info.plist in Resources */,
 				AA71A903226CC56E00BEB4C3 /* owncloud.plist in Resources */,
 				AA71A904226CC56E00BEB4C3 /* configuration.plist in Resources */,
 				AA71A905226CC56E00BEB4C3 /* piwik.plist in Resources */,
 				AA71A906226CC56E00BEB4C3 /* joomla.plist in Resources */,
 				AA71A907226CC56E00BEB4C3 /* wordpress.plist in Resources */,
-				AA36C3A522E35563008B393E /* VDGui.jpg in Resources */,
-				AA36C39C22E35563008B393E /* 96x96.png in Resources */,
-				AA36C3A222E35563008B393E /* 512x512.png in Resources */,
-				AA36C3A022E35563008B393E /* 24x24.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
