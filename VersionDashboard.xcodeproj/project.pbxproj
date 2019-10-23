@@ -50,12 +50,10 @@
 		AA62EE7B2251398400757106 /* libVersionDashboardSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */; };
 		AA62F5252251508B00757106 /* VersionDashboardiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4E92251508A00757106 /* VersionDashboardiOSTests.swift */; };
 		AA62F5262251508B00757106 /* VersionDashboardiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4E92251508A00757106 /* VersionDashboardiOSTests.swift */; };
-		AA62F5282251508B00757106 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4EA2251508A00757106 /* Info.plist */; };
 		AA62F5292251508B00757106 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4EA2251508A00757106 /* Info.plist */; };
 		AA62F52B2251508B00757106 /* VersionDashboardiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4EC2251508A00757106 /* VersionDashboardiOSUITests.swift */; };
 		AA62F52C2251508B00757106 /* VersionDashboardiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4EC2251508A00757106 /* VersionDashboardiOSUITests.swift */; };
 		AA62F52E2251508B00757106 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4ED2251508A00757106 /* Info.plist */; };
-		AA62F52F2251508B00757106 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4ED2251508A00757106 /* Info.plist */; };
 		AA62F5302251508B00757106 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4EF2251508B00757106 /* LaunchScreen.strings */; };
 		AA62F5312251508B00757106 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4EF2251508B00757106 /* LaunchScreen.strings */; };
 		AA62F5322251508B00757106 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4EF2251508B00757106 /* LaunchScreen.strings */; };
@@ -1260,7 +1258,6 @@
 				AA62F5822251508B00757106 /* Main.storyboard in Resources */,
 				AA62F57F2251508B00757106 /* LaunchScreen.storyboard in Resources */,
 				AA62F5312251508B00757106 /* LaunchScreen.strings in Resources */,
-				AA62F5282251508B00757106 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1270,7 +1267,6 @@
 			files = (
 				AA62F5772251508B00757106 /* Assets.xcassets in Resources */,
 				AA62F5382251508B00757106 /* Localizable.strings in Resources */,
-				AA62F52F2251508B00757106 /* Info.plist in Resources */,
 				AA62F5AD2251508B00757106 /* Info.plist in Resources */,
 				AA62F5352251508B00757106 /* Main.strings in Resources */,
 				AA62F5832251508B00757106 /* Main.storyboard in Resources */,
@@ -2105,7 +2101,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "macosx ios";
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/**";
