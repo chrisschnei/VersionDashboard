@@ -93,7 +93,10 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             self.deleteFile(path)
             zeroBadgeNumber()
             SystemInstances.systemInstances.removeAll()
-            SystemInstancesModel.loadConfigfiles()
+            if (!SystemInstancesModel.loadConfigfiles()) {
+                print("Loading system instances config files failed.")
+                return
+            }
             self.addInstancesToTable()
         }
     }
@@ -106,7 +109,10 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         let selectedRow = self.systemTableView.selectedRow
         self.systemTableView.deselectAll(self)
         SystemInstances.systemInstances.removeAll()
-        SystemInstancesModel.loadConfigfiles()
+        if (!SystemInstancesModel.loadConfigfiles()) {
+            print("Loading system instances config files failed.")
+            return
+        }
         self.systemTableView.reloadData()
         self.systemTableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
     }

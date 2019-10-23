@@ -26,10 +26,14 @@ class SummaryViewController: NSViewController {
         
         PreferencesViewController().loadConfigurationFile()
         if(HeadInstances.headInstances.count == 0) {
-            HeadInstancesModel.loadConfigfiles()
+            if (!HeadInstancesModel.loadConfigfiles()) {
+                print("Loading head instances config files failed.")
+            }
         }
         if(SystemInstances.systemInstances.count == 0) {
-            SystemInstancesModel.loadConfigfiles()
+            if (!SystemInstancesModel.loadConfigfiles()) {
+                print("Loading system instances config files failed.")
+            }
         }
         if((ConfigurationSettings.configurationSettings["automaticRefreshActive"] as! Bool) == true) {
             PreferencesViewController().automaticRefresh()
@@ -69,7 +73,9 @@ class SummaryViewController: NSViewController {
         self.refreshActiveSpinner.stopAnimation(self)
         self.refreshActiveSpinner.isHidden = true
         SystemInstances.systemInstances.removeAll()
-        SystemInstancesModel.loadConfigfiles()
+        if (!SystemInstancesModel.loadConfigfiles()) {
+            print("Loading system instances config files failed.")
+        }
         self.drawPieChartInstances()
         self.drawPieChartOutdated()
     }

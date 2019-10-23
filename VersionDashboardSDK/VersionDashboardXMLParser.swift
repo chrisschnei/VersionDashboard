@@ -63,7 +63,7 @@ class VersionDashboardXMLParser : NSObject, Foundation.XMLParserDelegate {
         parser.delegate = self
 
         if (!parser.parse()) {
-            print ("XML parser parse() function returned false.")
+            print("XML parser parse() function returned false.")
             return false
         }
         

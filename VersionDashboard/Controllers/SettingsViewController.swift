@@ -57,7 +57,7 @@ class SettingsViewController: NSViewController {
     
     func updateConfigfile() -> Bool {
         let instance = SystemInstances.systemInstances[instanceName]
-        if((instance as? JoomlaModel) != nil) {
+        if ((instance as? JoomlaModel) != nil) {
             let instanceObject = SystemInstances.systemInstances[instanceName] as! JoomlaModel
             instanceObject.hosturl = self.hostTextbox.stringValue
             instanceObject.name = self.settingsLabel.stringValue
@@ -65,18 +65,24 @@ class SettingsViewController: NSViewController {
             if(SystemInstancesModel.checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
                 return instanceObject.saveConfigfile()
             } else {
-                instanceObject.renamePlistFile(instanceName)
+                if (!instanceObject.renamePlistFile(instanceName)) {
+                    print("Renaming plist file \(instanceName) .plist failed.")
+                    return false
+                }
                 return instanceObject.saveConfigfile()
             }
-        } else if((instance as? OwncloudModel) != nil) {
+        } else if ((instance as? OwncloudModel) != nil) {
             let instanceObject = SystemInstances.systemInstances[instanceName] as! OwncloudModel
             instanceObject.hosturl = self.hostTextbox.stringValue
             instanceObject.name = self.settingsLabel.stringValue
             
-            if(SystemInstancesModel.checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
+            if (SystemInstancesModel.checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
                 return instanceObject.saveConfigfile()
             } else {
-                instanceObject.renamePlistFile(instanceName)
+                if (!instanceObject.renamePlistFile(instanceName)) {
+                    print("Renaming plist file \(instanceName) .plist failed.")
+                    return false
+                }
                 return instanceObject.saveConfigfile()
             }
         } else if((instance as? PiwikModel) != nil) {
@@ -88,7 +94,10 @@ class SettingsViewController: NSViewController {
             if(SystemInstancesModel.checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
                 return instanceObject.saveConfigfile()
             } else {
-                instanceObject.renamePlistFile(instanceName)
+                if (!instanceObject.renamePlistFile(instanceName)) {
+                    print("Renaming plist file \(instanceName) .plist failed.")
+                    return false
+                }
                 return instanceObject.saveConfigfile()
             }
         } else if((instance as? WordpressModel) != nil) {
@@ -99,7 +108,10 @@ class SettingsViewController: NSViewController {
             if(SystemInstancesModel.checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
                 return instanceObject.saveConfigfile()
             } else {
-                instanceObject.renamePlistFile(instanceName)
+                if (!instanceObject.renamePlistFile(instanceName)) {
+                    print("Renaming plist file \(instanceName) .plist failed.")
+                    return false
+                }
                 return instanceObject.saveConfigfile()
             }
         }
