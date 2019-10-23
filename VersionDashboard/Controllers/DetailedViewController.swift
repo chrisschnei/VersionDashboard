@@ -43,7 +43,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if(self.systemTableView.selectedRow != -1) {
             let button = sender as! NSButton
-            if (((button.title) == NSLocalizedString("edit", comment:"")) || ((button.title) == NSLocalizedString("edit", comment:""))) {
+            if (button == editButton) {
                 let instances = Array(SystemInstances.systemInstances.keys)
                 let instanceNa = instances[self.systemTableView.selectedRow]
                 let destination = segue.destinationController as! SettingsViewController
