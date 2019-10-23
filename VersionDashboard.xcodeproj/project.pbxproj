@@ -43,7 +43,7 @@
 		AA62EE742251393F00757106 /* OwncloudHeadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE622251393C00757106 /* OwncloudHeadModel.swift */; };
 		AA62EE752251393F00757106 /* GenericHeadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE632251393D00757106 /* GenericHeadModel.swift */; };
 		AA62EE762251393F00757106 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE642251393D00757106 /* Constants.swift */; };
-		AA62EE772251393F00757106 /* MyXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE652251393D00757106 /* MyXMLParser.swift */; };
+		AA62EE772251393F00757106 /* VersionDashboardXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE652251393D00757106 /* VersionDashboardXMLParser.swift */; };
 		AA62EE782251393F00757106 /* GenericHeadModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE662251393E00757106 /* GenericHeadModelProtocol.swift */; };
 		AA62EE792251393F00757106 /* JoomlaHeadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE672251393E00757106 /* JoomlaHeadModel.swift */; };
 		AA62EE7A2251393F00757106 /* WordpressHeadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE682251393F00757106 /* WordpressHeadModel.swift */; };
@@ -123,7 +123,7 @@
 		AA62F73122589EB400757106 /* HeadInstances.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F73022589EB400757106 /* HeadInstances.swift */; };
 		AA62F73422589ECB00757106 /* OutdatedInstances.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F73322589ECB00757106 /* OutdatedInstances.swift */; };
 		AA62F73622589EE400757106 /* ConfigurationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F73522589EE400757106 /* ConfigurationSettings.swift */; };
-		AA62F7432258ADE300757106 /* MyXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE652251393D00757106 /* MyXMLParser.swift */; };
+		AA62F7432258ADE300757106 /* VersionDashboardXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE652251393D00757106 /* VersionDashboardXMLParser.swift */; };
 		AA62F7442258ADE300757106 /* JoomlaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE5E2251393B00757106 /* JoomlaModel.swift */; };
 		AA62F7452258ADE300757106 /* PiwikHeadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE602251393B00757106 /* PiwikHeadModel.swift */; };
 		AA62F7462258ADE300757106 /* HeadInstancesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE5B2251393A00757106 /* HeadInstancesModel.swift */; };
@@ -393,7 +393,7 @@
 		AA62EE622251393C00757106 /* OwncloudHeadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwncloudHeadModel.swift; sourceTree = "<group>"; };
 		AA62EE632251393D00757106 /* GenericHeadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericHeadModel.swift; sourceTree = "<group>"; };
 		AA62EE642251393D00757106 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		AA62EE652251393D00757106 /* MyXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyXMLParser.swift; sourceTree = "<group>"; };
+		AA62EE652251393D00757106 /* VersionDashboardXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionDashboardXMLParser.swift; sourceTree = "<group>"; };
 		AA62EE662251393E00757106 /* GenericHeadModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericHeadModelProtocol.swift; sourceTree = "<group>"; };
 		AA62EE672251393E00757106 /* JoomlaHeadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoomlaHeadModel.swift; sourceTree = "<group>"; };
 		AA62EE682251393F00757106 /* WordpressHeadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordpressHeadModel.swift; sourceTree = "<group>"; };
@@ -708,7 +708,7 @@
 				AA62EE592251393900757106 /* InternetConnectivity.swift */,
 				AA62EE672251393E00757106 /* JoomlaHeadModel.swift */,
 				AA62EE5E2251393B00757106 /* JoomlaModel.swift */,
-				AA62EE652251393D00757106 /* MyXMLParser.swift */,
+				AA62EE652251393D00757106 /* VersionDashboardXMLParser.swift */,
 				AA62EE622251393C00757106 /* OwncloudHeadModel.swift */,
 				AA62EE5D2251393A00757106 /* OwncloudModel.swift */,
 				AA62EE602251393B00757106 /* PiwikHeadModel.swift */,
@@ -1351,7 +1351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA62EE772251393F00757106 /* MyXMLParser.swift in Sources */,
+				AA62EE772251393F00757106 /* VersionDashboardXMLParser.swift in Sources */,
 				AA62EE702251393F00757106 /* JoomlaModel.swift in Sources */,
 				AA62EE722251393F00757106 /* PiwikHeadModel.swift in Sources */,
 				AA62EE6D2251393F00757106 /* HeadInstancesModel.swift in Sources */,
@@ -1446,7 +1446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA62F7432258ADE300757106 /* MyXMLParser.swift in Sources */,
+				AA62F7432258ADE300757106 /* VersionDashboardXMLParser.swift in Sources */,
 				AA62F7442258ADE300757106 /* JoomlaModel.swift in Sources */,
 				AA62F7452258ADE300757106 /* PiwikHeadModel.swift in Sources */,
 				AA62F7462258ADE300757106 /* HeadInstancesModel.swift in Sources */,

@@ -17,7 +17,7 @@ open class JoomlaModel : GenericModel, XMLParserDelegate {
      - forceUpdate: true to retrieve version string and ignore time interval, false if time interval should be respected.
      - Returns: true if version string download succeeded, false on error
      */
-    open func getVersions(forceUpdate: Bool) -> Bool {
+    open override func getVersions(forceUpdate: Bool) -> Bool {
         let joomlaheadobject = HeadInstances.headInstances["Joomla"] as! JoomlaHeadModel
         if (!joomlaheadobject.getVersion(forceUpdate: forceUpdate)) {
             print("Getting version form joomla instance failed.")
@@ -33,6 +33,7 @@ open class JoomlaModel : GenericModel, XMLParserDelegate {
         
         self.currentVersion = "0.0"
         self.headVersion = "0.0"
+        
         print("Failure retrieving version string. Setting to 0.0")
         return false
     }
@@ -57,11 +58,11 @@ open class JoomlaModel : GenericModel, XMLParserDelegate {
      */
     func getInstanceVersion(_ url: String) -> String {
         let pathToXml = URL(string: url)
-        let parser = MyXMLParser(url: pathToXml!);
-        
-        parser.delegate = self;
-        let s = parser.parse {
+        let parser = VersionDashboardXMLParser(url: pathToXml!);
+        if (!parser.startParsing()) {
+            print("Error extracting joomla version string.")
         }
-        return s
+        return parser.version
     }
+    
 }

@@ -219,4 +219,16 @@ open class GenericModel: GenericModelProtocol {
         _ = semaphore.wait(timeout: DispatchTime.distantFuture)
     }
     
+    /**
+     Get version from custom joomla instance server.
+     
+     - Parameters:
+     - forceUpdate: true to retrieve version string and ignore time interval, false if time interval should be respected.
+     - Returns: true if version string download succeeded, false on error
+     */
+    public func getVersions(forceUpdate: Bool) -> Bool {
+        print("Call this function on a specific object instance type")
+        return false
+    }
+    
 }

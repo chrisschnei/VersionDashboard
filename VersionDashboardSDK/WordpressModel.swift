@@ -17,9 +17,12 @@ public class WordpressModel : GenericModel {
      - forceUpdate: true if time checks should be ignored and version should be updated immediately, false to only retrieve version when time interval is exceeded.
      - Returns: true if download succeeded, false in error case
      */
-    open func getVersions(forceUpdate: Bool) -> Bool {
+    open override func getVersions(forceUpdate: Bool) -> Bool {
         let wordpressheadobject = HeadInstances.headInstances["Wordpress"] as! WordpressHeadModel
-        wordpressheadobject.getVersion(forceUpdate: forceUpdate)
+        if (!wordpressheadobject.getVersion(forceUpdate: forceUpdate)) {
+            print("Could not get wordpress head version. Abort further checking.")
+            return false
+        }
         let currentVersion = self.getInstanceVersion(self.hosturl)
         self.phpVersionRequest(self.phpReturnHandler)
         if(currentVersion != "") {

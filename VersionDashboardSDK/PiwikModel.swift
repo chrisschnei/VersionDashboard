@@ -35,9 +35,12 @@ open class PiwikModel : GenericModel, XMLParserDelegate {
      - forceUpdate: true to retrieve version string and ignore time interval, false if time interval should be respected.
      - Returns: true if version string download succeeded, false on error
      */
-    open func getVersions(forceUpdate: Bool) -> Bool {
+    open override func getVersions(forceUpdate: Bool) -> Bool {
         let piwikheadobject = HeadInstances.headInstances["Piwik"] as! PiwikHeadModel
-        piwikheadobject.getVersion(forceUpdate: forceUpdate)
+        if (!piwikheadobject.getVersion(forceUpdate: forceUpdate)) {
+            print("Could not get piwik head version. Abort further checking.")
+            return false
+        }
         let currentVersion = self.getInstanceVersionXML(((self.hosturl) + Constants.piwikAPIUrl) + self.apiToken)
         self.phpVersionRequest(self.phpReturnHandler)
         if(!currentVersion.isEmpty) {
@@ -121,12 +124,11 @@ open class PiwikModel : GenericModel, XMLParserDelegate {
      */
     func getInstanceVersionXML(_ url: String) -> String {
         let pathToXml = URL(string: url)
-        let parser = MyXMLParser(url: pathToXml!);
-        
-        parser.delegate = self;
-        let s = parser.parse {
+        let parser = VersionDashboardXMLParser(url: pathToXml!);
+        if (!parser.startParsing()) {
+            print("Error extracting piwik version string.")
         }
-        return s
+        return parser.version
     }
     
 }

@@ -17,9 +17,12 @@ open class OwncloudModel : GenericModel {
      - forceUpdate: true to retrieve version string and ignore time interval, false if time interval should be respected.
      - Returns: true if version string download succeeded, false on error
      */
-    open func getVersions(forceUpdate: Bool) -> Bool {
+    open override func getVersions(forceUpdate: Bool) -> Bool {
         let owncloudheadobject = HeadInstances.headInstances["Owncloud"] as! OwncloudHeadModel
-        owncloudheadobject.getVersion(forceUpdate: forceUpdate)
+        if (!owncloudheadobject.getVersion(forceUpdate: forceUpdate)) {
+            print("Could not get owncloud head version. Abort further checking.")
+            return false
+        }
         let currentVersion = self.getInstanceVersion((self.hosturl) + Constants.owncloudStatusFile)
         self.phpVersionRequest(self.phpReturnHandler)
         if(currentVersion != "") {

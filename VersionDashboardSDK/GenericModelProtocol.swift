@@ -18,6 +18,15 @@ public protocol GenericModelProtocol {
     func saveConfigfile() -> Bool
     
     /**
+     Get version from custom joomla instance server.
+     
+     - Parameters:
+     - forceUpdate: true to retrieve version string and ignore time interval, false if time interval should be respected.
+     - Returns: true if version string download succeeded, false on error
+     */
+    func getVersions(forceUpdate: Bool) -> Bool
+    
+    /**
      Updates date on given object.
      */
     func updateDate()

@@ -107,13 +107,23 @@ open class GenericHeadModel: GenericHeadModelProtocol {
     /**
      Updates variable lastRefresh with current timestamp.
      
-     - Returns:
+     - Returns: none
      */
     open func updateDate() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.medium
         dateFormatter.timeStyle = DateFormatter.Style.short
         self.lastRefresh = dateFormatter.date(from: dateFormatter.dateFormat)!
+    }
+    
+    /**
+     Retrieves version from instance. Call this method on specific instance type object.
+     
+     - Returns: false
+     */
+    public func getVersion(forceUpdate: Bool) -> Bool {
+        print("Call getVersion() function in specific object.")
+        return false
     }
     
 }

@@ -17,18 +17,22 @@ open class OwncloudHeadModel: GenericHeadModel {
      - forceUpdate: true if time checks should be ignored and version should be updated immediately, false to only retrieve version when time interval is exceeded.
      - Returns: true if download succeeded, false in error case
      */
-    func getVersion(forceUpdate: Bool = false) {
+    override public func getVersion(forceUpdate: Bool = false) -> Bool {
         if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-Constants.refreshHeadInstances)))) {
             let headVersion = self.getLatestVersion(Constants.owncloudAPIUrl)
             if(headVersion != "") {
                 self.headVersion = headVersion
             } else {
                 self.headVersion = "0.0"
+                return false
             }
             if (!self.saveConfigfile(filename: Constants.owncloudHead)) {
                 print("Error saving owncloud head plist file.")
+                return false
             }
         }
+    
+        return true
     }
     
     /**
