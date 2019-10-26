@@ -75,22 +75,11 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         }
     }
     
-    func deleteFile(_ path: String) {
-        let fileManager = FileManager.default
-        do {
-            try fileManager.removeItem(atPath: path)
-        }
-        catch let error as NSError {
-            print("Error deleting plist file: \(error)")
-        }
-    }
-    
     @IBAction func removeInstance(_ sender: AnyObject) {
         if(self.systemTableView.selectedRow != -1) {
             let instances = Array(SystemInstances.systemInstances.keys)
             let filename = instances[self.systemTableView.selectedRow]
-            let path = (Constants.plistFilesPath + filename) + ".plist"
-            self.deleteFile(path)
+            GenericModel.deleteFile(filename)
             zeroBadgeNumber()
             SystemInstances.systemInstances.removeAll()
             if (!SystemInstancesModel.loadConfigfiles()) {

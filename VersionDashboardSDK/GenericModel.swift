@@ -145,6 +145,25 @@ open class GenericModel: GenericModelProtocol {
     }
     
     /**
+     Deletes a plist file from database directory.
+     
+     - Parameters:
+     - filename: String containing filename to be deleted.
+     - Returns: true if file is deleted successfully or false on failure
+     */
+    public static func deleteFile(_ filename: String) {
+        let path = (Constants.plistFilesPath + filename) + ".plist"
+        
+        let fileManager = FileManager.default
+        do {
+            try fileManager.removeItem(atPath: path)
+        }
+        catch let error as NSError {
+            print("Error deleting plist file: \(error)")
+        }
+    }
+    
+    /**
      Updates lastRefresh attribute in object.
      */
     open func updateDate() {
