@@ -43,7 +43,6 @@ public class Constants {
     public static var joomlaBackendURL = "administrator/"
     
     public static var wordpressAPIUrl = "http://api.wordpress.org/core/version-check/1.7/"
-    public static var wordpressIndexPath = ""
     public static var wordpressBackendURL = "wp-admin/"
     
     public static var piwikAPIUrl = "index.php?module=API&method=API.getPiwikVersion&token_auth="
@@ -90,7 +89,6 @@ public class Constants {
         joomlaBackendURL = "administrator/"
         
         wordpressAPIUrl = "http://api.wordpress.org/core/version-check/1.7/"
-        wordpressIndexPath = ""
         wordpressBackendURL = "wp-admin/"
         
         piwikAPIUrl = "index.php?module=API&method=API.getPiwikVersion&token_auth="

@@ -69,12 +69,34 @@ open class GenericHeadModel: GenericHeadModelProtocol {
     open func renamePlistFile(_ oldName: String) -> Bool {
         let fileManager = FileManager.default
         do {
-            try fileManager.moveItem(atPath: (Constants.plistFilesPath + oldName) + ".plist", toPath: (Constants.plistFilesPath + self.name) + ".plist")
+            try fileManager.moveItem(atPath: (Constants.headPlistFilesPath + oldName), toPath: (Constants.headPlistFilesPath + self.name))
         }
         catch let error as NSError {
             print("Ooops! Something went wrong: \(error)")
             return false
         }
+        return true
+    }
+    
+    /**
+     Deletes a head plist file from database directory.
+     
+     - Parameters:
+     - filename: String containing filename to be deleted.
+     - Returns: true if file is deleted successfully or false on failure
+     */
+    public static func deleteFile(_ filename: String) -> Bool {
+        let path = (Constants.headPlistFilesPath + filename)
+        
+        let fileManager = FileManager.default
+        do {
+            try fileManager.removeItem(atPath: path)
+        }
+        catch let error as NSError {
+            print("Error deleting plist file: \(error)")
+            return false
+        }
+        
         return true
     }
     
@@ -109,11 +131,8 @@ open class GenericHeadModel: GenericHeadModelProtocol {
      
      - Returns: none
      */
-    open func updateDate() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.medium
-        dateFormatter.timeStyle = DateFormatter.Style.short
-        self.lastRefresh = dateFormatter.date(from: dateFormatter.dateFormat)!
+    open func updateDate() -> Void {
+        self.lastRefresh = Date()
     }
     
     /**

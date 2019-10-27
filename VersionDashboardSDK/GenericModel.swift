@@ -151,7 +151,7 @@ open class GenericModel: GenericModelProtocol {
      - filename: String containing filename to be deleted.
      - Returns: true if file is deleted successfully or false on failure
      */
-    public static func deleteFile(_ filename: String) {
+    public static func deleteFile(_ filename: String) -> Bool {
         let path = (Constants.plistFilesPath + filename) + ".plist"
         
         let fileManager = FileManager.default
@@ -160,7 +160,10 @@ open class GenericModel: GenericModelProtocol {
         }
         catch let error as NSError {
             print("Error deleting plist file: \(error)")
+            return false
         }
+        
+        return true
     }
     
     /**

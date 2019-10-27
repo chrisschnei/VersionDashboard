@@ -81,27 +81,6 @@ public class WordpressModel : GenericModel {
     }
     
     /**
-     Extracts wordpress version string from readme.html file.
-     
-     - Parameters:
-     - url: URL to html file.
-     - Returns: version number string on success, empty string in error case.
-     */
-    func checkVersionViaReadmeHtml(_ url: String) -> String {
-        if let version = try? Data(contentsOf: URL(string: url)!) {
-            let version = String(data: version, encoding: String.Encoding.utf8)
-            let lines = version?.components(separatedBy: "\n")
-            for part in lines! {
-                if(part.range(of: "Version") != nil) {
-                    let part2 = part.components(separatedBy: " ")
-                    return part2.last!
-                }
-            }
-        }
-        return ""
-    }
-    
-    /**
      Extracts wordpress version number from rss feed.
      
      - Parameters:

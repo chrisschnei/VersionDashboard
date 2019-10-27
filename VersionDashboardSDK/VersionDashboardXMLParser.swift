@@ -46,7 +46,7 @@ class VersionDashboardXMLParser : NSObject, Foundation.XMLParserDelegate {
      - Parameters:
      - url: URL of XML document.
      */
-    init(url: URL) {
+    public init(url: URL) {
         super.init()
         self.url = url
         parser.delegate = self

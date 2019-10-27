@@ -79,7 +79,10 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         if(self.systemTableView.selectedRow != -1) {
             let instances = Array(SystemInstances.systemInstances.keys)
             let filename = instances[self.systemTableView.selectedRow]
-            GenericModel.deleteFile(filename)
+            if (!GenericModel.deleteFile(filename)) {
+                print("Deleting plist file with name \(filename) did not work.")
+                return
+            }
             zeroBadgeNumber()
             SystemInstances.systemInstances.removeAll()
             if (!SystemInstancesModel.loadConfigfiles()) {

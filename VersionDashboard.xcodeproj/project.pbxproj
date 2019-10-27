@@ -9,6 +9,22 @@
 /* Begin PBXBuildFile section */
 		AA20D276235C83CE0027B268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35C22E35563008B393E /* Main.storyboard */; };
 		AA20D277235C84F10027B268 /* Detailed view.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36622E35563008B393E /* Detailed view.png */; };
+		AA20D27F2361071E0027B268 /* GenericHeadModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20D27E2361071E0027B268 /* GenericHeadModelTests.swift */; };
+		AA20D2812361071E0027B268 /* libVersionDashboardSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */; };
+		AA20D288236109480027B268 /* GenericModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20D287236109480027B268 /* GenericModelTests.swift */; };
+		AA20D28A236109700027B268 /* HeadInstancesModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20D289236109700027B268 /* HeadInstancesModelTests.swift */; };
+		AA20D28C2361099E0027B268 /* HeadInstancesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20D28B2361099E0027B268 /* HeadInstancesTests.swift */; };
+		AA20D28E236109BD0027B268 /* InternetConnectivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20D28D236109BD0027B268 /* InternetConnectivityTests.swift */; };
+		AA20D290236109CF0027B268 /* JoomlaHeadModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20D28F236109CF0027B268 /* JoomlaHeadModelTests.swift */; };
+		AA20D292236109DD0027B268 /* JoomlaModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20D291236109DD0027B268 /* JoomlaModelTests.swift */; };
+		AA20D294236109F60027B268 /* VersionDashboardXMLParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20D293236109F60027B268 /* VersionDashboardXMLParserTests.swift */; };
+		AA20D29623610A040027B268 /* OwncloudHeadModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20D29523610A040027B268 /* OwncloudHeadModelTests.swift */; };
+		AA20D29823610A100027B268 /* OwncloudModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20D29723610A100027B268 /* OwncloudModelTests.swift */; };
+		AA20D29A23610A1D0027B268 /* PiwikHeadModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20D29923610A1D0027B268 /* PiwikHeadModelTests.swift */; };
+		AA20D29C23610A290027B268 /* PiwikModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20D29B23610A290027B268 /* PiwikModelTests.swift */; };
+		AA20D29E23610A370027B268 /* WordpressHeadModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20D29D23610A370027B268 /* WordpressHeadModelTests.swift */; };
+		AA20D2A023610A460027B268 /* WordpressModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20D29F23610A460027B268 /* WordpressModelTests.swift */; };
+		AA20D2A223610A640027B268 /* SystemInstancesModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20D2A123610A640027B268 /* SystemInstancesModelTests.swift */; };
 		AA36C38F22E35563008B393E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35B22E35563008B393E /* Assets.xcassets */; };
 		AA36C39122E35563008B393E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C35F22E35563008B393E /* AppDelegate.swift */; };
 		AA36C39322E35563008B393E /* Summarize.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36322E35563008B393E /* Summarize.png */; };
@@ -208,6 +224,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		AA20D2822361071E0027B268 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA6AD7A41C6B4BD90097CD9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA62EE4D2251391000757106;
+			remoteInfo = VersionDashboardSDK;
+		};
 		AA62EE972251456800757106 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AA6AD7A41C6B4BD90097CD9A /* Project object */;
@@ -332,6 +355,23 @@
 
 /* Begin PBXFileReference section */
 		AA20D273235C7DD40027B268 /* generateLogos.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = generateLogos.sh; sourceTree = "<group>"; };
+		AA20D27C2361071E0027B268 /* VersionDashboardSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA20D27E2361071E0027B268 /* GenericHeadModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericHeadModelTests.swift; sourceTree = "<group>"; };
+		AA20D2802361071E0027B268 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA20D287236109480027B268 /* GenericModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericModelTests.swift; sourceTree = "<group>"; };
+		AA20D289236109700027B268 /* HeadInstancesModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadInstancesModelTests.swift; sourceTree = "<group>"; };
+		AA20D28B2361099E0027B268 /* HeadInstancesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadInstancesTests.swift; sourceTree = "<group>"; };
+		AA20D28D236109BD0027B268 /* InternetConnectivityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectivityTests.swift; sourceTree = "<group>"; };
+		AA20D28F236109CF0027B268 /* JoomlaHeadModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoomlaHeadModelTests.swift; sourceTree = "<group>"; };
+		AA20D291236109DD0027B268 /* JoomlaModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoomlaModelTests.swift; sourceTree = "<group>"; };
+		AA20D293236109F60027B268 /* VersionDashboardXMLParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionDashboardXMLParserTests.swift; sourceTree = "<group>"; };
+		AA20D29523610A040027B268 /* OwncloudHeadModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwncloudHeadModelTests.swift; sourceTree = "<group>"; };
+		AA20D29723610A100027B268 /* OwncloudModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwncloudModelTests.swift; sourceTree = "<group>"; };
+		AA20D29923610A1D0027B268 /* PiwikHeadModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiwikHeadModelTests.swift; sourceTree = "<group>"; };
+		AA20D29B23610A290027B268 /* PiwikModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiwikModelTests.swift; sourceTree = "<group>"; };
+		AA20D29D23610A370027B268 /* WordpressHeadModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordpressHeadModelTests.swift; sourceTree = "<group>"; };
+		AA20D29F23610A460027B268 /* WordpressModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordpressModelTests.swift; sourceTree = "<group>"; };
+		AA20D2A123610A640027B268 /* SystemInstancesModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemInstancesModelTests.swift; sourceTree = "<group>"; };
 		AA36C35622E35563008B393E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		AA36C35822E35563008B393E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AA36C35A22E35563008B393E /* configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = configuration.plist; sourceTree = "<group>"; };
@@ -487,6 +527,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AA20D2792361071E0027B268 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA20D2812361071E0027B268 /* libVersionDashboardSDK.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AA62EE4C2251391000757106 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -561,6 +609,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA20D27D2361071E0027B268 /* VersionDashboardSDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA20D27E2361071E0027B268 /* GenericHeadModelTests.swift */,
+				AA20D2802361071E0027B268 /* Info.plist */,
+				AA20D287236109480027B268 /* GenericModelTests.swift */,
+				AA20D289236109700027B268 /* HeadInstancesModelTests.swift */,
+				AA20D28B2361099E0027B268 /* HeadInstancesTests.swift */,
+				AA20D28D236109BD0027B268 /* InternetConnectivityTests.swift */,
+				AA20D28F236109CF0027B268 /* JoomlaHeadModelTests.swift */,
+				AA20D291236109DD0027B268 /* JoomlaModelTests.swift */,
+				AA20D293236109F60027B268 /* VersionDashboardXMLParserTests.swift */,
+				AA20D29523610A040027B268 /* OwncloudHeadModelTests.swift */,
+				AA20D29723610A100027B268 /* OwncloudModelTests.swift */,
+				AA20D29923610A1D0027B268 /* PiwikHeadModelTests.swift */,
+				AA20D29B23610A290027B268 /* PiwikModelTests.swift */,
+				AA20D29D23610A370027B268 /* WordpressHeadModelTests.swift */,
+				AA20D29F23610A460027B268 /* WordpressModelTests.swift */,
+				AA20D2A123610A640027B268 /* SystemInstancesModelTests.swift */,
+			);
+			path = VersionDashboardSDKTests;
+			sourceTree = "<group>";
+		};
 		AA36C35422E35562008B393E /* VersionDashboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -792,6 +863,7 @@
 				AA62F4E82251508A00757106 /* VersionDashboardiOSTests */,
 				AA62F4EB2251508A00757106 /* VersionDashboardiOSUITests */,
 				AA62EE4F2251391000757106 /* VersionDashboardSDK */,
+				AA20D27D2361071E0027B268 /* VersionDashboardSDKTests */,
 				AA6AD7AD1C6B4BD90097CD9A /* Products */,
 				AAB9131C2234371E006D1EE7 /* Charts.xcodeproj */,
 				AAADAF531E4C635B0073B238 /* Frameworks */,
@@ -810,6 +882,7 @@
 				AA62EEA12251456800757106 /* VersionDashboardiOSUITests.xctest */,
 				AA62F75C2258ADE300757106 /* libVersionDashboardSDKARM.a */,
 				AA62F7862258AE9D00757106 /* VersionDashboardiOSSimulator.app */,
+				AA20D27C2361071E0027B268 /* VersionDashboardSDKTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -954,6 +1027,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		AA20D27B2361071E0027B268 /* VersionDashboardSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA20D2842361071E0027B268 /* Build configuration list for PBXNativeTarget "VersionDashboardSDKTests" */;
+			buildPhases = (
+				AA20D2782361071E0027B268 /* Sources */,
+				AA20D2792361071E0027B268 /* Frameworks */,
+				AA20D27A2361071E0027B268 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA20D2832361071E0027B268 /* PBXTargetDependency */,
+			);
+			name = VersionDashboardSDKTests;
+			productName = VersionDashboardSDKTests;
+			productReference = AA20D27C2361071E0027B268 /* VersionDashboardSDKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		AA62EE4D2251391000757106 /* VersionDashboardSDK */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA62EE542251391000757106 /* Build configuration list for PBXNativeTarget "VersionDashboardSDK" */;
@@ -1130,6 +1221,10 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = NonameCompany;
 				TargetAttributes = {
+					AA20D27B2361071E0027B268 = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+					};
 					AA62EE4D2251391000757106 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
@@ -1201,6 +1296,7 @@
 				AA62EE952251456800757106 /* VersionDashboardiOSTests */,
 				AA62EEA02251456800757106 /* VersionDashboardiOSUITests */,
 				AA62F75D2258AE9D00757106 /* VersionDashboardiOSSimulator */,
+				AA20D27B2361071E0027B268 /* VersionDashboardSDKTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1223,6 +1319,13 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AA20D27A2361071E0027B268 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AA62EE7F2251456000757106 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1343,6 +1446,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AA20D2782361071E0027B268 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA20D29823610A100027B268 /* OwncloudModelTests.swift in Sources */,
+				AA20D29A23610A1D0027B268 /* PiwikHeadModelTests.swift in Sources */,
+				AA20D28C2361099E0027B268 /* HeadInstancesTests.swift in Sources */,
+				AA20D292236109DD0027B268 /* JoomlaModelTests.swift in Sources */,
+				AA20D2A223610A640027B268 /* SystemInstancesModelTests.swift in Sources */,
+				AA20D290236109CF0027B268 /* JoomlaHeadModelTests.swift in Sources */,
+				AA20D29623610A040027B268 /* OwncloudHeadModelTests.swift in Sources */,
+				AA20D29E23610A370027B268 /* WordpressHeadModelTests.swift in Sources */,
+				AA20D27F2361071E0027B268 /* GenericHeadModelTests.swift in Sources */,
+				AA20D28E236109BD0027B268 /* InternetConnectivityTests.swift in Sources */,
+				AA20D29C23610A290027B268 /* PiwikModelTests.swift in Sources */,
+				AA20D28A236109700027B268 /* HeadInstancesModelTests.swift in Sources */,
+				AA20D2A023610A460027B268 /* WordpressModelTests.swift in Sources */,
+				AA20D294236109F60027B268 /* VersionDashboardXMLParserTests.swift in Sources */,
+				AA20D288236109480027B268 /* GenericModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AA62EE4B2251391000757106 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1528,6 +1653,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		AA20D2832361071E0027B268 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA62EE4D2251391000757106 /* VersionDashboardSDK */;
+			targetProxy = AA20D2822361071E0027B268 /* PBXContainerItemProxy */;
+		};
 		AA62EE982251456800757106 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = AA62EE802251456000757106 /* VersionDashboardiOS */;
@@ -1651,6 +1781,56 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AA20D2852361071E0027B268 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = VersionDashboardSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nonamecompany.VersionDashboardSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		AA20D2862361071E0027B268 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = VersionDashboardSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nonamecompany.VersionDashboardSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
 		AA62EE552251391000757106 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2277,6 +2457,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AA20D2842361071E0027B268 /* Build configuration list for PBXNativeTarget "VersionDashboardSDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA20D2852361071E0027B268 /* Debug */,
+				AA20D2862361071E0027B268 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AA62EE542251391000757106 /* Build configuration list for PBXNativeTarget "VersionDashboardSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
