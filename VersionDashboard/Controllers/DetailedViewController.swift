@@ -196,6 +196,8 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         }
         self.systemTableView.deselectAll(parameters["self"])
         self.systemTableView.selectRowIndexes((IndexSet(integer:parameters["selectedRow"] as! Int)), byExtendingSelection: false)
+        
+        setOutdatedBadgeNumber()
     }
     
     func updateInstanceDetails(_ index: Int) {

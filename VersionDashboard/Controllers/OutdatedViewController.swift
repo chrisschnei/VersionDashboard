@@ -214,6 +214,8 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     }
     self.tableView.deselectAll(parameters["self"])
     self.tableView.selectRowIndexes((IndexSet(integer:parameters["selectedRow"] as! Int)), byExtendingSelection: false)
+    
+    setOutdatedBadgeNumber()
 }
     
     func reloadTable() {

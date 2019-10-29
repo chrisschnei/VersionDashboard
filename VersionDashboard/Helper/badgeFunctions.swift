@@ -8,26 +8,25 @@
 
 import Foundation
 import AppKit
+import VersionDashboardSDK
 
-func incrementBadgeNumber() {
+/**
+ Sets app icons badge number showing amount of outdated instances.
+ */
+func setOutdatedBadgeNumber() {
     let doc = NSApplication.shared.dockTile
-    if(doc.badgeLabel == nil || doc.badgeLabel == "") {
-        doc.badgeLabel = "0"
-    }
-    let batchnumber = Int(doc.badgeLabel!)!
-    doc.badgeLabel = String(batchnumber + 1)
-}
-
-func decrementBadgeNumber() {
-    let doc = NSApplication.shared.dockTile
-    let batchnumber = Int(doc.badgeLabel!)!
-    if(batchnumber > 1) {
-        doc.badgeLabel = String(batchnumber - 1)
-    } else {
+    let outdatedAmount = SystemInstancesModel.getAmountOfOutdateInstances()
+    
+    if(doc.badgeLabel == nil || doc.badgeLabel == "" || outdatedAmount == 0) {
         doc.badgeLabel = ""
+        return
     }
+    doc.badgeLabel = String(outdatedAmount)
 }
 
+/**
+ Sets app icons badge number to zero.
+ */
 func zeroBadgeNumber() {
     let doc = NSApplication.shared.dockTile
     doc.badgeLabel = ""

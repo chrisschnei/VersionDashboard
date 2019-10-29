@@ -40,6 +40,8 @@ class SummaryViewController: NSViewController {
         }
         self.drawPieChartInstances()
         self.drawPieChartOutdated()
+        
+        setOutdatedBadgeNumber()
     }
     
     func drawPieChartInstances() {
@@ -78,6 +80,8 @@ class SummaryViewController: NSViewController {
         }
         self.drawPieChartInstances()
         self.drawPieChartOutdated()
+        
+        setOutdatedBadgeNumber()
     }
     
     @IBAction func checkAllInstances(_ sender: AnyObject) {

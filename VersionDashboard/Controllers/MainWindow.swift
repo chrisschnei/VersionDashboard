@@ -25,17 +25,17 @@ class MainWindow: NSWindowController {
     }
 
     @IBAction func detailedViewClicked(_ sender: AnyObject) {
-        let viewController = storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("detailedviewcontroller")) as! NSViewController
+        let viewController = storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("DetailedViewController")) as! NSViewController
         self.mainwindow?.contentViewController = viewController
     }
     
     @IBAction func summaryViewClicked(_ sender: AnyObject) {
-        let viewController = storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("summaryviewcontroller")) as! NSViewController
+        let viewController = storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("SummaryViewController")) as! NSViewController
         self.window?.contentViewController = viewController
     }
     
     @IBAction func outdatedViewClicked(_ sender: AnyObject) {
-        let viewController = storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("outdatedviewcontroller")) as! NSViewController
+        let viewController = storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("OutdatedViewController")) as! NSViewController
         self.window?.contentViewController = viewController
     }
 }

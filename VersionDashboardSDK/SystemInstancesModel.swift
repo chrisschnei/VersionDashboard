@@ -162,9 +162,6 @@ open class SystemInstancesModel : NSObject {
                             let piwikhead = HeadInstances.headInstances["Piwik"].self! as! PiwikHeadModel
                             SystemInstances.systemInstances[myDict!["name"] as! String] = PiwikModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, apiToken: myDict!["apiToken"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: piwikhead.headVersion, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
                         }
-                        if((myDict!["updateAvailable"] as! Int) == 1) {
-//                            incrementBadgeNumber()
-                        }
                     }
                 }
             }
