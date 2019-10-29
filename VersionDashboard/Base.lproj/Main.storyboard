@@ -221,7 +221,7 @@
         <!--Preferences-->
         <scene sceneID="Q5X-sk-cla">
             <objects>
-                <viewController title="Preferences" id="Sma-kB-1iu" customClass="PreferencesViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Preferences" storyboardIdentifier="PreferencesViewController" id="Sma-kB-1iu" customClass="PreferencesViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="b4Y-fp-onJ">
                         <rect key="frame" x="0.0" y="0.0" width="350" height="196"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -334,7 +334,7 @@ Gw
         <!--Summary View Controller-->
         <scene sceneID="hxu-Gl-8Bg">
             <objects>
-                <viewController title="Summary View Controller" storyboardIdentifier="summaryviewcontroller" id="X2f-d4-1Xq" customClass="SummaryViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Summary View Controller" storyboardIdentifier="SummaryViewController" id="X2f-d4-1Xq" customClass="SummaryViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" id="LeM-NU-AWq">
                         <rect key="frame" x="0.0" y="0.0" width="680" height="393"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -383,7 +383,7 @@ Gw
         <!--Detailed View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController storyboardIdentifier="detailedviewcontroller" id="XfG-lQ-9wD" customClass="DetailedViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailedViewController" id="XfG-lQ-9wD" customClass="DetailedViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="681" height="393"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -772,7 +772,7 @@ DQ
         <!--Outdated instances-->
         <scene sceneID="mKG-yP-sXb">
             <objects>
-                <viewController title="Outdated instances" storyboardIdentifier="outdatedviewcontroller" id="SKc-0J-o2d" customClass="OutdatedViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Outdated instances" storyboardIdentifier="OutdatedViewController" id="SKc-0J-o2d" customClass="OutdatedViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" id="l61-2m-qjy">
                         <rect key="frame" x="0.0" y="0.0" width="681" height="393"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1100,7 +1100,7 @@ DQ
         <!--Add System View Controller-->
         <scene sceneID="afO-b3-eK0">
             <objects>
-                <viewController id="kEa-r5-7tV" customClass="AddSystemViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddSystemViewController" id="kEa-r5-7tV" customClass="AddSystemViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="5fz-05-hua">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="178"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1206,7 +1206,7 @@ Gw
         <!--PiwikInstance-->
         <scene sceneID="Qae-bO-nXs">
             <objects>
-                <viewController title="PiwikInstance" id="Fcf-yV-hnA" customClass="PiwikController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="PiwikInstance" storyboardIdentifier="PiwikController" id="Fcf-yV-hnA" customClass="PiwikController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="tHp-HE-tk7">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="258"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1349,7 +1349,7 @@ DQ
         <!--JoomlaInstance-->
         <scene sceneID="PTj-Z4-y8A">
             <objects>
-                <viewController title="JoomlaInstance" id="Fvk-we-7IL" customClass="JoomlaViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="JoomlaInstance" storyboardIdentifier="JoomlaViewController" id="Fvk-we-7IL" customClass="JoomlaViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="1e5-D9-g0F">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="250"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1479,7 +1479,7 @@ DQ
         <!--Settings View Controller-->
         <scene sceneID="yvE-ap-T19">
             <objects>
-                <viewController id="i1Z-jw-4V4" customClass="SettingsViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="i1Z-jw-4V4" customClass="SettingsViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="khx-rX-eZN">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="223"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1636,7 +1636,7 @@ DQ
         <!--OwncloudInstance-->
         <scene sceneID="OQA-UR-BfH">
             <objects>
-                <viewController title="OwncloudInstance" id="yRM-Ta-SWb" customClass="OwncloudViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="OwncloudInstance" storyboardIdentifier="OwncloudViewController" id="yRM-Ta-SWb" customClass="OwncloudViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="1lY-uj-wFq">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="250"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1756,7 +1756,7 @@ DQ
         <!--WordpressInstance-->
         <scene sceneID="ACV-Cs-CFQ">
             <objects>
-                <viewController title="WordpressInstance" id="dms-g4-Ywq" customClass="WordpressViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="WordpressInstance" storyboardIdentifier="WordpressViewController" id="dms-g4-Ywq" customClass="WordpressViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="u91-LB-tum">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="250"/>
                         <autoresizingMask key="autoresizingMask"/>

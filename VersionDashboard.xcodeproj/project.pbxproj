@@ -220,6 +220,10 @@
 		AA93435E22594D78005D8C1C /* libVersionDashboardSDKARM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62F75C2258ADE300757106 /* libVersionDashboardSDKARM.a */; };
 		AAB91328223437AA006D1EE7 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; };
 		AAB91329223437FA006D1EE7 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AABD442723674EAF009A98C1 /* SettingsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD442623674EAF009A98C1 /* SettingsViewControllerTests.swift */; };
+		AABD442A23674FDA009A98C1 /* DetailedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD442923674FDA009A98C1 /* DetailedViewControllerTests.swift */; };
+		AABD442C23674FEE009A98C1 /* PreferencesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD442B23674FEE009A98C1 /* PreferencesViewControllerTests.swift */; };
+		AABD442E23674FFF009A98C1 /* OutdatedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD442D23674FFF009A98C1 /* OutdatedViewControllerTests.swift */; };
 		AAE626C6226256EE00398F81 /* libVersionDashboardSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */; };
 /* End PBXBuildFile section */
 
@@ -271,7 +275,7 @@
 			containerPortal = AA6AD7A41C6B4BD90097CD9A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = AA6AD7AB1C6B4BD90097CD9A;
-			remoteInfo = "Version Dashboard";
+			remoteInfo = VersionDashboard;
 		};
 		AA71A742226A3E8C00BEB4C3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -313,7 +317,7 @@
 			containerPortal = AA6AD7A41C6B4BD90097CD9A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = AA6AD7AB1C6B4BD90097CD9A;
-			remoteInfo = "Version Dashboard";
+			remoteInfo = VersionDashboard;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -388,15 +392,15 @@
 		AA36C36A22E35563008B393E /* Outdated item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Outdated item.png"; sourceTree = "<group>"; };
 		AA36C36C22E35563008B393E /* 16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 16x16.png; sourceTree = "<group>"; };
 		AA36C36D22E35563008B393E /* 256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 256x256.png; sourceTree = "<group>"; };
-		AA36C36E22E35563008B393E /* Version Dashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Version Dashboard.png"; sourceTree = "<group>"; };
+		AA36C36E22E35563008B393E /* VersionDashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VersionDashboard.png; sourceTree = "<group>"; };
 		AA36C36F22E35563008B393E /* 96x96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 96x96.png; sourceTree = "<group>"; };
-		AA36C37022E35563008B393E /* Version Dashboard1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Version Dashboard1024.png"; sourceTree = "<group>"; };
+		AA36C37022E35563008B393E /* VersionDashboard1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VersionDashboard1024.png; sourceTree = "<group>"; };
 		AA36C37122E35563008B393E /* 128x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 128x128.png; sourceTree = "<group>"; };
 		AA36C37222E35563008B393E /* 48x48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 48x48.png; sourceTree = "<group>"; };
 		AA36C37322E35563008B393E /* 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 24x24.png; sourceTree = "<group>"; };
 		AA36C37422E35563008B393E /* 32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 32x32.png; sourceTree = "<group>"; };
 		AA36C37522E35563008B393E /* 512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 512x512.png; sourceTree = "<group>"; };
-		AA36C37622E35563008B393E /* Version Dashboard.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Version Dashboard.ai"; sourceTree = "<group>"; };
+		AA36C37622E35563008B393E /* VersionDashboard.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VersionDashboard.ai; sourceTree = "<group>"; };
 		AA36C37722E35563008B393E /* 64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 64x64.png; sourceTree = "<group>"; };
 		AA36C37822E35563008B393E /* VDGui.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = VDGui.jpg; sourceTree = "<group>"; };
 		AA36C37A22E35563008B393E /* OwncloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwncloudViewController.swift; sourceTree = "<group>"; };
@@ -523,6 +527,11 @@
 		AA71A8FB226CBDDD00BEB4C3 /* joomla.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = joomla.plist; sourceTree = "<group>"; };
 		AA71A8FC226CBDDD00BEB4C3 /* wordpress.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = wordpress.plist; sourceTree = "<group>"; };
 		AAB9131C2234371E006D1EE7 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts.framework/Charts.xcodeproj; sourceTree = "<group>"; };
+		AABD442623674EAF009A98C1 /* SettingsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerTests.swift; sourceTree = "<group>"; };
+		AABD442923674FDA009A98C1 /* DetailedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewControllerTests.swift; sourceTree = "<group>"; };
+		AABD442B23674FEE009A98C1 /* PreferencesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewControllerTests.swift; sourceTree = "<group>"; };
+		AABD442D23674FFF009A98C1 /* OutdatedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutdatedViewControllerTests.swift; sourceTree = "<group>"; };
+		AABD443323676E55009A98C1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAE8B64E1F87F2C5004E4AF3 /* VersionDashboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -702,15 +711,15 @@
 			children = (
 				AA36C36C22E35563008B393E /* 16x16.png */,
 				AA36C36D22E35563008B393E /* 256x256.png */,
-				AA36C36E22E35563008B393E /* Version Dashboard.png */,
+				AA36C36E22E35563008B393E /* VersionDashboard.png */,
 				AA36C36F22E35563008B393E /* 96x96.png */,
-				AA36C37022E35563008B393E /* Version Dashboard1024.png */,
+				AA36C37022E35563008B393E /* VersionDashboard1024.png */,
 				AA36C37122E35563008B393E /* 128x128.png */,
 				AA36C37222E35563008B393E /* 48x48.png */,
 				AA36C37322E35563008B393E /* 24x24.png */,
 				AA36C37422E35563008B393E /* 32x32.png */,
 				AA36C37522E35563008B393E /* 512x512.png */,
-				AA36C37622E35563008B393E /* Version Dashboard.ai */,
+				AA36C37622E35563008B393E /* VersionDashboard.ai */,
 				AA36C37722E35563008B393E /* 64x64.png */,
 			);
 			path = applogo;
@@ -748,6 +757,11 @@
 		AA36C3B622E35571008B393E /* VersionDashboardTests */ = {
 			isa = PBXGroup;
 			children = (
+				AABD443323676E55009A98C1 /* Info.plist */,
+				AABD442623674EAF009A98C1 /* SettingsViewControllerTests.swift */,
+				AABD442923674FDA009A98C1 /* DetailedViewControllerTests.swift */,
+				AABD442B23674FEE009A98C1 /* PreferencesViewControllerTests.swift */,
+				AABD442D23674FFF009A98C1 /* OutdatedViewControllerTests.swift */,
 			);
 			path = VersionDashboardTests;
 			sourceTree = "<group>";
@@ -1171,7 +1185,7 @@
 				AAB9132622343734006D1EE7 /* PBXTargetDependency */,
 			);
 			name = VersionDashboard;
-			productName = "Version Dashboard";
+			productName = VersionDashboard;
 			productReference = AA6AD7AC1C6B4BD90097CD9A /* VersionDashboard.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -1189,7 +1203,7 @@
 				AA6AD7CA1C6B4BD90097CD9A /* PBXTargetDependency */,
 			);
 			name = VersionDashboardUITests;
-			productName = "Version DashboardUITests";
+			productName = VersionDashboardUITests;
 			productReference = AA6AD7C81C6B4BD90097CD9A /* VersionDashboardUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
@@ -1207,7 +1221,7 @@
 				AAE8B6541F87F2C6004E4AF3 /* PBXTargetDependency */,
 			);
 			name = VersionDashboardTests;
-			productName = "Version DashboardTests";
+			productName = VersionDashboardTests;
 			productReference = AAE8B64E1F87F2C5004E4AF3 /* VersionDashboardTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -1262,6 +1276,7 @@
 					};
 					AAE8B64D1F87F2C5004E4AF3 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = AA6AD7AB1C6B4BD90097CD9A;
 					};
@@ -1647,6 +1662,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AABD442E23674FFF009A98C1 /* OutdatedViewControllerTests.swift in Sources */,
+				AABD442C23674FEE009A98C1 /* PreferencesViewControllerTests.swift in Sources */,
+				AABD442A23674FDA009A98C1 /* DetailedViewControllerTests.swift in Sources */,
+				AABD442723674EAF009A98C1 /* SettingsViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2283,7 +2302,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = "macosx ios";
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/**";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALID_ARCHS = "x86_64 armv7";
@@ -2342,7 +2361,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = "macosx ios";
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/**";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALID_ARCHS = "x86_64 armv7";
@@ -2389,11 +2408,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "Version DashboardUITests/Info.plist";
+				INFOPLIST_FILE = VersionDashboardUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nonamecompany.Version-DashboardUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Version Dashboard";
+				TEST_TARGET_NAME = VersionDashboard;
 				USES_XCTRUNNER = YES;
 			};
 			name = Debug;
@@ -2402,11 +2421,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "Version DashboardUITests/Info.plist";
+				INFOPLIST_FILE = VersionDashboardUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nonamecompany.Version-DashboardUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Version Dashboard";
+				TEST_TARGET_NAME = VersionDashboard;
 				USES_XCTRUNNER = YES;
 			};
 			name = Release;
@@ -2418,18 +2437,24 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "Version DashboardTests/Info.plist";
+				INFOPLIST_FILE = VersionDashboardTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nonamecompany.Version-DashboardTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Version Dashboard.app/Contents/MacOS/Version Dashboard";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VersionDashboard.app/Contents/MacOS/VersionDashboard";
 			};
 			name = Debug;
 		};
@@ -2440,17 +2465,22 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "Version DashboardTests/Info.plist";
+				INFOPLIST_FILE = VersionDashboardTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nonamecompany.Version-DashboardTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Version Dashboard.app/Contents/MacOS/Version Dashboard";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VersionDashboard.app/Contents/MacOS/VersionDashboard";
 			};
 			name = Release;
 		};

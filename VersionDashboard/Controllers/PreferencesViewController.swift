@@ -50,7 +50,7 @@ class PreferencesViewController: NSViewController {
         }
     }
     
-    func saveConfigurationFile() {
+    func saveConfigurationFile() -> Bool {
         ConfigurationSettings.configurationSettings["interval"] = self.dropdownInterval.selectedCell()?.stringValue as AnyObject?
         ConfigurationSettings.configurationSettings["automaticRefreshActive"] = Bool(truncating: (self.activatedCheckbox.state as AnyObject?)as! NSNumber)
         
@@ -63,11 +63,13 @@ class PreferencesViewController: NSViewController {
         {
             fileManager.createFile(atPath: Constants.configurationFilePath, contents: nil, attributes: nil)
         }
-        dict.write(toFile: Constants.configurationFilePath, atomically: true)
+        return dict.write(toFile: Constants.configurationFilePath, atomically: true)
     }
     
     @IBAction func savePreferences(_ sender: AnyObject) {
-        self.saveConfigurationFile()
+        if (!self.saveConfigurationFile()) {
+            print("Saving configuration file failed.")
+        }
         if(self.activatedCheckbox.state.rawValue == 1) {
             self.stopTimer()
             self.automaticRefresh()
