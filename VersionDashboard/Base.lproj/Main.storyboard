@@ -145,7 +145,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" customClass="MainWindow" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="WindowController" id="B8D-0N-5wS" customClass="MainWindow" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Version Dashboard" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES"/>
@@ -155,18 +155,18 @@
                         <value key="maxSize" type="size" width="680" height="380"/>
                         <toolbar key="toolbar" implicitIdentifier="A6443199-AC4D-4202-9444-A3EDAE6F940F" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="H4y-30-MH0">
                             <allowedToolbarItems>
-                                <toolbarItem implicitItemIdentifier="7D9AF1CE-1242-4C09-810A-37D5A199BD6E" label="Detailed View" paletteLabel="Detailed View" toolTip="Show detailed informations" tag="-1" image="Detailed view" id="E4i-Mv-nM7">
+                                <toolbarItem implicitItemIdentifier="7D9AF1CE-1242-4C09-810A-37D5A199BD6E" label="Detailed View" paletteLabel="Detailed View" toolTip="Show detailed informations" tag="-1" image="Detailed view" id="E4i-Mv-nM7" userLabel="DetailedViewButton">
                                     <connections>
                                         <action selector="detailedViewClicked:" target="B8D-0N-5wS" id="Jt8-1x-7fd"/>
                                     </connections>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="AD6A0E58-82FD-4BAB-9A7B-F0FC9E42FBAF" label="Summary" paletteLabel="Summary" toolTip="Show summary of instances" tag="-1" image="Summarize" id="v31-g5-7ng">
+                                <toolbarItem implicitItemIdentifier="AD6A0E58-82FD-4BAB-9A7B-F0FC9E42FBAF" label="Summary" paletteLabel="Summary" toolTip="Show summary of instances" tag="-1" image="Summarize" id="v31-g5-7ng" userLabel="SummaryViewButton">
                                     <connections>
                                         <action selector="summaryViewClicked:" target="B8D-0N-5wS" id="Eh0-Sf-oaw"/>
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="xe7-pW-FdN"/>
-                                <toolbarItem implicitItemIdentifier="BE4EEB9B-E343-4530-9572-D89FDFB1822E" label="Outdated" paletteLabel="Outdated" toolTip="Outdated instances" tag="-1" image="Outdated item" id="M32-r8-3JJ">
+                                <toolbarItem implicitItemIdentifier="BE4EEB9B-E343-4530-9572-D89FDFB1822E" label="Outdated" paletteLabel="Outdated" toolTip="Outdated instances" tag="-1" image="Outdated item" id="M32-r8-3JJ" userLabel="OutdatedViewButton">
                                     <connections>
                                         <action selector="outdatedViewClicked:" target="B8D-0N-5wS" id="Wi5-Ph-9j0"/>
                                     </connections>
@@ -200,7 +200,7 @@
         <!--Window Controller-->
         <scene sceneID="ju9-AI-Amt">
             <objects>
-                <windowController id="lKe-qP-1I3" customClass="PreferencesWindowController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="PreferencesWindowController" id="lKe-qP-1I3" customClass="PreferencesWindowController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="JtY-Dg-bi9">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -243,6 +243,7 @@
 DQ
 </string>
                                 </buttonCell>
+                                <accessibility description="PreferencesSaveButton" identifier="PreferencesSaveButton"/>
                                 <connections>
                                     <action selector="savePreferences:" target="Sma-kB-1iu" id="3wt-Ox-zaD"/>
                                 </connections>
@@ -256,6 +257,7 @@ DQ
 Gw
 </string>
                                 </buttonCell>
+                                <accessibility description="PreferencesCancelButton" identifier="PreferencesCancelButton"/>
                                 <connections>
                                     <action selector="cancelPreferences:" target="Sma-kB-1iu" id="lEI-4B-DCc"/>
                                 </connections>
@@ -282,6 +284,7 @@ Gw
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <accessibility description="AutomaticRefreshActivated" identifier="AutomaticRefreshActivated"/>
                             </button>
                             <comboBox verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Tg-IT-24g">
                                 <rect key="frame" x="194" y="59" width="99" height="26"/>
@@ -290,6 +293,7 @@ Gw
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </comboBoxCell>
+                                <accessibility description="AutomaticRefreshInterval" identifier="AutomaticRefreshInterval"/>
                             </comboBox>
                         </subviews>
                         <constraints>
@@ -298,8 +302,8 @@ Gw
                             <constraint firstItem="fEc-Uc-b3c" firstAttribute="baseline" secondItem="FKF-QT-342" secondAttribute="baseline" id="9R3-I0-tkd"/>
                             <constraint firstItem="5Tg-IT-24g" firstAttribute="top" secondItem="3KZ-WJ-fDM" secondAttribute="bottom" constant="16" id="9hw-vx-C5f"/>
                             <constraint firstAttribute="bottom" secondItem="fEc-Uc-b3c" secondAttribute="bottom" constant="20" symbolic="YES" id="Bop-hh-OfI"/>
-                            <constraint firstItem="3KZ-WJ-fDM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Y9Z-db-y2I" secondAttribute="trailing" symbolic="YES" id="CS2-wt-zq1"/>
-                            <constraint firstItem="5Tg-IT-24g" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kuN-Yx-1F8" secondAttribute="trailing" symbolic="YES" id="CpV-Cz-D8i"/>
+                            <constraint firstItem="3KZ-WJ-fDM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Y9Z-db-y2I" secondAttribute="trailing" constant="8" symbolic="YES" id="CS2-wt-zq1"/>
+                            <constraint firstItem="5Tg-IT-24g" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kuN-Yx-1F8" secondAttribute="trailing" constant="8" symbolic="YES" id="CpV-Cz-D8i"/>
                             <constraint firstItem="Yst-XC-hSV" firstAttribute="leading" secondItem="fEc-Uc-b3c" secondAttribute="leading" id="Gvn-5X-DwG"/>
                             <constraint firstItem="kuN-Yx-1F8" firstAttribute="top" secondItem="5Tg-IT-24g" secondAttribute="top" id="LvB-Xf-EF7"/>
                             <constraint firstItem="Y9Z-db-y2I" firstAttribute="leading" secondItem="kuN-Yx-1F8" secondAttribute="leading" id="aym-xu-OiF"/>
@@ -345,20 +349,24 @@ Gw
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <accessibility description="CheckAllInstancesButton" identifier="CheckAllInstancesButton"/>
                                 <connections>
                                     <action selector="checkAllInstances:" target="X2f-d4-1Xq" id="hM5-wJ-bbi"/>
                                 </connections>
                             </button>
                             <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Chi-F0-rb0">
                                 <rect key="frame" x="487" y="23" width="16" height="16"/>
+                                <accessibility description="CheckSpinner" identifier="CheckSpinner"/>
                             </progressIndicator>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dhg-Mj-GZ8" customClass="PieChartView" customModule="Charts">
                                 <rect key="frame" x="6" y="14" width="338" height="379"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <accessibility description="OverviewInstancesChart" identifier="OverviewInstancesChart"/>
                             </customView>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CVQ-X7-pIf" customClass="PieChartView" customModule="Charts">
                                 <rect key="frame" x="348" y="62" width="324" height="331"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <accessibility description="OutdatedInstancesChart" identifier="OutdatedInstancesChart"/>
                             </customView>
                         </subviews>
                         <constraints>
@@ -367,6 +375,7 @@ Gw
                             <constraint firstItem="0C2-LV-LAx" firstAttribute="leading" secondItem="Chi-F0-rb0" secondAttribute="trailing" constant="12" id="s7L-UK-Tn9"/>
                             <constraint firstAttribute="trailing" secondItem="0C2-LV-LAx" secondAttribute="trailing" constant="20" symbolic="YES" id="uVC-ZA-VrP"/>
                         </constraints>
+                        <accessibility description="SummaryViewController"/>
                     </view>
                     <connections>
                         <outlet property="checkAllInstancesButton" destination="0C2-LV-LAx" id="lj8-1A-iJd"/>
@@ -397,6 +406,7 @@ Gw
 DQ
 </string>
                                 </buttonCell>
+                                <accessibility description="EditInstanceButton" identifier="EditInstanceButton"/>
                                 <connections>
                                     <segue destination="i1Z-jw-4V4" kind="sheet" id="dEh-a7-J9q"/>
                                 </connections>
@@ -410,6 +420,7 @@ DQ
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <accessibility description="RemoveInstanceButton" identifier="RemoveInstanceButton"/>
                                 <connections>
                                     <action selector="removeInstance:" target="XfG-lQ-9wD" id="LVI-Wk-Hmr"/>
                                 </connections>
@@ -423,6 +434,7 @@ DQ
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <accessibility description="AddInstanceButton" identifier="AddInstanceButton"/>
                                 <connections>
                                     <segue destination="kEa-r5-7tV" kind="sheet" id="ivn-da-Jl1"/>
                                 </connections>
@@ -489,6 +501,7 @@ DQ
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <accessibility description="InstanceTableView" identifier="InstanceTableView"/>
                                             <connections>
                                                 <outlet property="dataSource" destination="XfG-lQ-9wD" id="vN1-6n-n9T"/>
                                                 <outlet property="delegate" destination="XfG-lQ-9wD" id="yx1-NZ-Gxo"/>
@@ -508,6 +521,7 @@ DQ
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
+                                <accessibility description="InstanceScrollView" identifier="InstanceScrollView"/>
                             </scrollView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2P-gB-6tA">
                                 <rect key="frame" x="346" y="329" width="99" height="17"/>
@@ -567,6 +581,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="SystemLabel" identifier="SystemLabel"/>
                             </textField>
                             <textField autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" preferredMaxLayoutWidth="152" translatesAutoresizingMaskIntoConstraints="NO" id="Wpt-K6-smb">
                                 <rect key="frame" x="450" y="301" width="213" height="17"/>
@@ -575,6 +590,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="HostLabel" identifier="HostLabel"/>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gyu-X2-ggO">
                                 <rect key="frame" x="450" y="268" width="213" height="17"/>
@@ -583,6 +599,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="StatusLabel" identifier="StatusLabel"/>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nve-po-yOl">
                                 <rect key="frame" x="450" y="237" width="213" height="17"/>
@@ -591,6 +608,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="LastCheckLabel" identifier="LastCheckLabel"/>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D4G-6k-UnL">
                                 <rect key="frame" x="450" y="207" width="213" height="17"/>
@@ -599,6 +617,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="CurrentVersionLabel" identifier="CurrentVersionLabel"/>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jIC-AQ-uPD">
                                 <rect key="frame" x="450" y="177" width="213" height="17"/>
@@ -607,6 +626,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="LatestVersionLabel" identifier="LatestVersionLabel"/>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4GS-Yf-Kuw">
                                 <rect key="frame" x="346" y="152" width="99" height="17"/>
@@ -623,6 +643,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="PhpVersionLabel" identifier="PhpVersionLabel"/>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j8W-qX-9iN">
                                 <rect key="frame" x="346" y="127" width="99" height="17"/>
@@ -639,6 +660,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="WebserverLabel" identifier="WebserverLabel"/>
                             </textField>
                             <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9KI-Iw-ZmR">
                                 <rect key="frame" x="342" y="25" width="143" height="17"/>
@@ -647,6 +669,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="ErrorLabel"/>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YdH-wg-2fZ">
                                 <rect key="frame" x="484" y="44" width="183" height="32"/>
@@ -654,6 +677,7 @@ DQ
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <accessibility description="TakeMeToMyInstanceButton"/>
                                 <connections>
                                     <action selector="takeMeToMyInstance:" target="XfG-lQ-9wD" id="1ch-G0-C5F"/>
                                 </connections>
@@ -664,12 +688,14 @@ DQ
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <accessibility description="RefreshButton"/>
                                 <connections>
                                     <action selector="refreshInstance:" target="XfG-lQ-9wD" id="0sP-4y-QrL"/>
                                 </connections>
                             </button>
                             <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="6qx-Y3-mPn">
                                 <rect key="frame" x="562" y="25" width="16" height="16"/>
+                                <accessibility description="RefreshSpinner"/>
                             </progressIndicator>
                         </subviews>
                         <constraints>
@@ -691,7 +717,7 @@ DQ
                             <constraint firstItem="Nve-po-yOl" firstAttribute="trailing" secondItem="D4G-6k-UnL" secondAttribute="trailing" id="EdW-x5-NFG"/>
                             <constraint firstItem="L7V-eM-Il0" firstAttribute="leading" secondItem="zfS-iu-Zxa" secondAttribute="leading" id="Est-e6-FVO"/>
                             <constraint firstItem="zfS-iu-Zxa" firstAttribute="trailing" secondItem="48L-bd-agh" secondAttribute="trailing" id="H6Y-h5-cU1"/>
-                            <constraint firstItem="9KI-Iw-ZmR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dqa-Dc-dq7" secondAttribute="trailing" symbolic="YES" id="IPH-ju-BFE"/>
+                            <constraint firstItem="9KI-Iw-ZmR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dqa-Dc-dq7" secondAttribute="trailing" constant="8" symbolic="YES" id="IPH-ju-BFE"/>
                             <constraint firstItem="dqa-Dc-dq7" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="KyF-oc-icm"/>
                             <constraint firstItem="peO-bh-qjj" firstAttribute="trailing" secondItem="6rc-fo-hW0" secondAttribute="trailing" id="Kzm-zy-dY5"/>
                             <constraint firstItem="z2P-gB-6tA" firstAttribute="trailing" secondItem="9hx-PL-5Or" secondAttribute="trailing" id="LFw-3N-Sgg"/>
@@ -744,6 +770,7 @@ DQ
                             <constraint firstItem="9KI-Iw-ZmR" firstAttribute="baseline" secondItem="qLB-qe-dzI" secondAttribute="baseline" id="yBa-yH-fZR"/>
                             <constraint firstItem="z2P-gB-6tA" firstAttribute="leading" secondItem="dqa-Dc-dq7" secondAttribute="trailing" constant="26" id="zHo-tT-RMx"/>
                         </constraints>
+                        <accessibility description="DetailedViewController"/>
                     </view>
                     <connections>
                         <outlet property="addButton" destination="15P-VU-gSC" id="yvN-yv-8sq"/>
@@ -865,12 +892,14 @@ DQ
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <accessibility description="RefreshButton" identifier="RefreshButton"/>
                                 <connections>
                                     <action selector="refreshInstance:" target="SKc-0J-o2d" id="ovp-k8-wB9"/>
                                 </connections>
                             </button>
                             <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="kXR-7z-rxN">
                                 <rect key="frame" x="562" y="25" width="16" height="16"/>
+                                <accessibility description="RefreshSpinner" identifier="RefreshSpinner"/>
                             </progressIndicator>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JGg-nh-blm">
                                 <rect key="frame" x="299" y="301" width="72" height="17"/>
@@ -922,6 +951,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="SystemLabel" identifier="SystemLabel"/>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" preferredMaxLayoutWidth="152" translatesAutoresizingMaskIntoConstraints="NO" id="AmR-J1-2Dl">
                                 <rect key="frame" x="450" y="301" width="213" height="17"/>
@@ -930,6 +960,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="HostLabel" identifier="HostLabel"/>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8AN-Ki-O7s">
                                 <rect key="frame" x="450" y="268" width="213" height="17"/>
@@ -938,6 +969,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="StatusLabel" identifier="StatusLabel"/>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j1M-BE-ptA">
                                 <rect key="frame" x="450" y="237" width="213" height="17"/>
@@ -946,6 +978,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="LastCheckLabel" identifier="LastCheckLabel"/>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yaN-7g-FRC">
                                 <rect key="frame" x="450" y="207" width="213" height="17"/>
@@ -954,6 +987,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="CurrentVersionLabel" identifier="CurrentVersionLabel"/>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hIz-IQ-rem">
                                 <rect key="frame" x="450" y="177" width="213" height="17"/>
@@ -962,6 +996,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="LatestVersionLabel" identifier="LatestVersionLabel"/>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Die-1o-nyB">
                                 <rect key="frame" x="299" y="329" width="72" height="17"/>
@@ -986,6 +1021,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="PhpVersionLabel" identifier="PhpVersionLabel"/>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" preferredMaxLayoutWidth="249" translatesAutoresizingMaskIntoConstraints="NO" id="MaW-lU-m0K">
                                 <rect key="frame" x="450" y="127" width="213" height="17"/>
@@ -994,6 +1030,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="WebserverLabel" identifier="WebserverLabel"/>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Laj-Up-UDR">
                                 <rect key="frame" x="299" y="127" width="79" height="17"/>
@@ -1010,6 +1047,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="ErrorLabel" identifier="ErrorLabel"/>
                             </textField>
                         </subviews>
                         <constraints>
@@ -1069,6 +1107,7 @@ DQ
                             <constraint firstItem="kXR-7z-rxN" firstAttribute="centerY" secondItem="eHz-vo-CVz" secondAttribute="centerY" id="wqa-vq-2Hr"/>
                             <constraint firstItem="eHz-vo-CVz" firstAttribute="leading" secondItem="kXR-7z-rxN" secondAttribute="trailing" constant="8" id="y60-bg-fgP"/>
                         </constraints>
+                        <accessibility description="OutdatedViewController"/>
                     </view>
                     <connections>
                         <outlet property="currentVersion" destination="yaN-7g-FRC" id="UMM-Rk-v2i"/>
@@ -1125,6 +1164,7 @@ Gw
                                         <action selector="cancelClicked:" target="kEa-r5-7tV" id="Htk-Ft-IPu"/>
                                     </connections>
                                 </buttonCell>
+                                <accessibility description="CancelInstanceCreationButton" identifier="CancelInstanceCreationButton"/>
                             </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="4MJ-ct-iDJ">
                                 <rect key="frame" x="37" y="65" width="73" height="48"/>
@@ -1136,6 +1176,7 @@ Gw
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <accessibility description="OwncloudInstanceCreation" identifier="OwncloudInstanceCreation"/>
                                 <connections>
                                     <segue destination="yRM-Ta-SWb" kind="sheet" id="dg5-13-4MZ"/>
                                 </connections>
@@ -1149,6 +1190,7 @@ Gw
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <accessibility description="JoomlaInstanceCreation" identifier="JoomlaInstanceCreation"/>
                                 <connections>
                                     <segue destination="Fvk-we-7IL" kind="sheet" id="xbS-sw-Lfz"/>
                                 </connections>
@@ -1159,6 +1201,7 @@ Gw
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <accessibility description="WordpressInstanceCreation" identifier="WordpressInstanceCreation"/>
                                 <connections>
                                     <segue destination="dms-g4-Ywq" kind="sheet" id="HKE-L7-mdP"/>
                                 </connections>
@@ -1172,6 +1215,7 @@ Gw
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <accessibility description="PiwikInstanceCreation" identifier="PiwikInstanceCreation"/>
                                 <connections>
                                     <segue destination="Fcf-yV-hnA" kind="sheet" id="HKm-ax-apH"/>
                                 </connections>
@@ -1242,6 +1286,7 @@ Gw
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="PiwikHostURL" identifier="PiwikHostURL"/>
                             </textField>
                             <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PPU-99-apf">
                                 <rect key="frame" x="189" y="129" width="241" height="22"/>
@@ -1250,6 +1295,7 @@ Gw
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="PiwikAPIToken" identifier="PiwikAPIToken"/>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HID-nB-zrS">
                                 <rect key="frame" x="14" y="13" width="82" height="32"/>
@@ -1260,6 +1306,7 @@ Gw
 Gw
 </string>
                                 </buttonCell>
+                                <accessibility description="PiwikCancel" identifier="PiwikCancel"/>
                                 <connections>
                                     <action selector="cancelAction:" target="Fcf-yV-hnA" id="ujP-m0-bCy"/>
                                 </connections>
@@ -1273,6 +1320,7 @@ Gw
 DQ
 </string>
                                 </buttonCell>
+                                <accessibility description="PiwikSave" identifier="PiwikSave"/>
                                 <connections>
                                     <action selector="saveAction:" target="Fcf-yV-hnA" id="CEO-M0-Qip"/>
                                 </connections>
@@ -1292,6 +1340,7 @@ DQ
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="PiwikInstanceName" identifier="PiwikInstanceName"/>
                             </textField>
                             <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HKn-aV-6o9">
                                 <rect key="frame" x="18" y="56" width="351" height="17"/>
@@ -1300,6 +1349,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="PiwikErrorMessage" identifier="PiwikErrorMessage"/>
                             </textField>
                         </subviews>
                         <constraints>
@@ -1363,6 +1413,7 @@ DQ
 Gw
 </string>
                                 </buttonCell>
+                                <accessibility description="JoomlaCancel" identifier="JoomlaCancel"/>
                                 <connections>
                                     <action selector="cancelAction:" target="Fvk-we-7IL" id="lkg-wg-YeY"/>
                                 </connections>
@@ -1376,6 +1427,7 @@ Gw
 DQ
 </string>
                                 </buttonCell>
+                                <accessibility description="JoomlaSave" identifier="JoomlaSave"/>
                                 <connections>
                                     <action selector="saveAction:" target="Fvk-we-7IL" id="Giv-pd-LE9"/>
                                 </connections>
@@ -1422,6 +1474,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="JoomlaErrorMessage" identifier="ErrorMessageLabel"/>
                             </textField>
                             <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hWe-RA-kh6">
                                 <rect key="frame" x="183" y="153" width="247" height="22"/>
@@ -1430,6 +1483,7 @@ DQ
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="JoomlaHostURL" identifier="JoomlaHostURL"/>
                             </textField>
                             <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sND-Tg-T4D">
                                 <rect key="frame" x="183" y="116" width="247" height="22"/>
@@ -1438,6 +1492,7 @@ DQ
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="JoomlaInstanceName" identifier="JoomlaInstanceName"/>
                             </textField>
                         </subviews>
                         <constraints>
@@ -1515,6 +1570,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="EditInstanceLastCheck" identifier="EditInstanceLastCheck"/>
                             </textField>
                             <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HBP-WW-ZLh">
                                 <rect key="frame" x="172" y="144" width="288" height="22"/>
@@ -1523,6 +1579,7 @@ DQ
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="EditInstanceHost" identifier="EditInstanceHost"/>
                             </textField>
                             <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="95c-qw-ULD">
                                 <rect key="frame" x="172" y="176" width="288" height="22"/>
@@ -1530,7 +1587,9 @@ DQ
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <accessibility description="EditInstanceName" identifier="EditInstanceName"/>
                                 </textFieldCell>
+                                <accessibility description="EditInstanceSystemname" identifier="EditInstanceSystemname"/>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ctd-t7-HRR">
                                 <rect key="frame" x="14" y="13" width="82" height="32"/>
@@ -1541,6 +1600,7 @@ DQ
 Gw
 </string>
                                 </buttonCell>
+                                <accessibility description="EditInstanceCancel" identifier="EditInstanceCancel"/>
                                 <connections>
                                     <action selector="cancelButton:" target="i1Z-jw-4V4" id="ySM-HL-Uzt"/>
                                 </connections>
@@ -1552,6 +1612,7 @@ Gw
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="EditInstanceErrorMessage" identifier="EditInstanceErrorMessage"/>
                             </textField>
                             <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0g2-zl-3bK">
                                 <rect key="frame" x="18" y="82" width="65" height="17"/>
@@ -1568,6 +1629,7 @@ Gw
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="EditInstanceApiToken" identifier="EditInstanceApiToken"/>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ywn-Zn-yn1">
                                 <rect key="frame" x="396" y="13" width="70" height="32"/>
@@ -1578,6 +1640,7 @@ Gw
 DQ
 </string>
                                 </buttonCell>
+                                <accessibility description="EditInstanceSave" identifier="EditInstanceSave"/>
                                 <connections>
                                     <action selector="saveButton:" target="i1Z-jw-4V4" id="ifF-Ax-5Au"/>
                                 </connections>
@@ -1658,6 +1721,7 @@ DQ
 Gw
 </string>
                                 </buttonCell>
+                                <accessibility description="OwncloudCancel" identifier="OwncloudCancel"/>
                                 <connections>
                                     <action selector="cancelAction:" target="yRM-Ta-SWb" id="XGr-ts-sgL"/>
                                 </connections>
@@ -1671,6 +1735,7 @@ Gw
 DQ
 </string>
                                 </buttonCell>
+                                <accessibility description="OwncloudSave" identifier="OwncloudSave"/>
                                 <connections>
                                     <action selector="saveAction:" target="yRM-Ta-SWb" id="qDw-9q-qlZ"/>
                                 </connections>
@@ -1682,6 +1747,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="OwncloudErrorMessage" identifier="OwncloudErrorMessage"/>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xPd-7P-OkJ">
                                 <rect key="frame" x="18" y="157" width="62" height="17"/>
@@ -1698,6 +1764,7 @@ DQ
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="OwncloudHostURL" identifier="OwncloudHostURL"/>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tDV-Ay-GiM">
                                 <rect key="frame" x="18" y="120" width="93" height="17"/>
@@ -1714,6 +1781,7 @@ DQ
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="OwncloudInstanceName" identifier="OwncloudInstanceName"/>
                             </textField>
                         </subviews>
                         <constraints>
@@ -1770,6 +1838,7 @@ DQ
 Gw
 </string>
                                 </buttonCell>
+                                <accessibility description="WordpressCancel" identifier="WordpressCancel"/>
                                 <connections>
                                     <action selector="cancelAction:" target="dms-g4-Ywq" id="dvZ-Wh-gKD"/>
                                 </connections>
@@ -1783,6 +1852,7 @@ Gw
 DQ
 </string>
                                 </buttonCell>
+                                <accessibility description="WordpressSave" identifier="WordpressSave"/>
                                 <connections>
                                     <action selector="saveAction:" target="dms-g4-Ywq" id="BDi-wY-C7i"/>
                                 </connections>
@@ -1818,6 +1888,7 @@ DQ
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="WordpressErrorMessage" identifier="WordpressErrorMessage"/>
                             </textField>
                             <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wrg-Pp-ChO">
                                 <rect key="frame" x="192" y="150" width="238" height="22"/>
@@ -1826,6 +1897,7 @@ DQ
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="WordpressHostURL" identifier="WordpressHostURL"/>
                             </textField>
                             <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jyH-iU-dRv">
                                 <rect key="frame" x="192" y="111" width="238" height="22"/>
@@ -1834,6 +1906,7 @@ DQ
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="WordpressInstanceName" identifier="WordpressInstanceName"/>
                             </textField>
                         </subviews>
                         <constraints>

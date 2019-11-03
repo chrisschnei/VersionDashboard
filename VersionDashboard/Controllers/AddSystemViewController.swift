@@ -12,16 +12,11 @@ class AddSystemViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(AddSystemViewController.cancelClicked(_:)), name: NSNotification.Name(rawValue: "load"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AddSystemViewController.cancelClicked(_:)), name: NSNotification.Name(rawValue: "reloadTableContents"), object: nil)
     }
     
     @IBAction func cancelClicked(_ sender: AnyObject) {
         self.dismiss(self)
-    }
-    
-    func closeView() {
-        self.dismiss(self)
-    }
-    
+    }    
     
 }

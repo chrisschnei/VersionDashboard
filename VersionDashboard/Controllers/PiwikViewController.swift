@@ -31,8 +31,8 @@ class PiwikController: NSViewController {
         }
         let piwikinstance = PiwikModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, apiToken : tokenField.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Piwik", headVersion: "", updateAvailable: 0, phpVersion: "", serverType: "")
         _ = piwikinstance.saveConfigfile()
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "load"), object: nil)
         self.dismiss(self)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadTableContents"), object: nil)
     }
     
     @IBAction func cancelAction(_ sender: AnyObject) {

@@ -62,7 +62,7 @@ class SettingsViewController: NSViewController {
             instanceObject.hosturl = self.hostTextbox.stringValue
             instanceObject.name = self.settingsLabel.stringValue
             
-            if(SystemInstancesModel.checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
+            if (SystemInstancesModel.checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
                 return instanceObject.saveConfigfile()
             } else {
                 if (!instanceObject.renamePlistFile(instanceName)) {
@@ -85,13 +85,13 @@ class SettingsViewController: NSViewController {
                 }
                 return instanceObject.saveConfigfile()
             }
-        } else if((instance as? PiwikModel) != nil) {
+        } else if ((instance as? PiwikModel) != nil) {
             let instanceObject = SystemInstances.systemInstances[instanceName] as! PiwikModel
             instanceObject.hosturl = self.hostTextbox.stringValue
             instanceObject.name = self.settingsLabel.stringValue
             instanceObject.apiToken = self.apiToken.stringValue
             
-            if(SystemInstancesModel.checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
+            if (SystemInstancesModel.checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
                 return instanceObject.saveConfigfile()
             } else {
                 if (!instanceObject.renamePlistFile(instanceName)) {
@@ -100,12 +100,12 @@ class SettingsViewController: NSViewController {
                 }
                 return instanceObject.saveConfigfile()
             }
-        } else if((instance as? WordpressModel) != nil) {
+        } else if ((instance as? WordpressModel) != nil) {
             let instanceObject = SystemInstances.systemInstances[instanceName] as! WordpressModel
             instanceObject.hosturl = self.hostTextbox.stringValue
             instanceObject.name = self.settingsLabel.stringValue
             
-            if(SystemInstancesModel.checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
+            if (SystemInstancesModel.checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
                 return instanceObject.saveConfigfile()
             } else {
                 if (!instanceObject.renamePlistFile(instanceName)) {
@@ -124,9 +124,10 @@ class SettingsViewController: NSViewController {
     
     @IBAction func saveButton(_ sender: AnyObject) {
         if(!self.updateConfigfile()) {
+            print("Failure updating instance configuration file.")
             return
         }
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "load"), object: nil)
         self.dismiss(self)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadTableContents"), object: nil)
     }
 }

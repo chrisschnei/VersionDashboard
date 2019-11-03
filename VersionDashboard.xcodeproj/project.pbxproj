@@ -44,7 +44,7 @@
 		AA36C3B222E35563008B393E /* InternetConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C38722E35563008B393E /* InternetConnectivity.swift */; };
 		AA36C3B322E35563008B393E /* badgeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C38822E35563008B393E /* badgeFunctions.swift */; };
 		AA36C3B422E35563008B393E /* NotificationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C38922E35563008B393E /* NotificationFunctions.swift */; };
-		AA36C3BA22E3557B008B393E /* Version_DashboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C3B822E3557B008B393E /* Version_DashboardUITests.swift */; };
+		AA36C3BA22E3557B008B393E /* SummaryViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C3B822E3557B008B393E /* SummaryViewControllerUITests.swift */; };
 		AA36C3BB22E3557B008B393E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA36C3B922E3557B008B393E /* Info.plist */; };
 		AA62EE692251393F00757106 /* SystemInstancesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE572251393800757106 /* SystemInstancesModel.swift */; };
 		AA62EE6A2251393F00757106 /* GenericModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE582251393800757106 /* GenericModelProtocol.swift */; };
@@ -217,6 +217,10 @@
 		AA71A90F227D74CC00BEB4C3 /* joomla_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F7226CBDDD00BEB4C3 /* joomla_dots.png */; };
 		AA71A910227D74CC00BEB4C3 /* owncloud_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F8226CBDDD00BEB4C3 /* owncloud_dots.png */; };
 		AA71A911227D74CC00BEB4C3 /* wordpress_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8FA226CBDDD00BEB4C3 /* wordpress_dots.png */; };
+		AA8CDEA9236F01AD00C1DEBB /* wordpress.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F4226CBDDD00BEB4C3 /* wordpress.png */; };
+		AA8CDEAB236F01B000C1DEBB /* joomla.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F1226CBDDD00BEB4C3 /* joomla.png */; };
+		AA8CDEAC236F01B500C1DEBB /* piwik.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8EF226CBDDD00BEB4C3 /* piwik.tiff */; };
+		AA8CDEAD236F01BA00C1DEBB /* owncloud.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F6226CBDDD00BEB4C3 /* owncloud.tiff */; };
 		AA93435E22594D78005D8C1C /* libVersionDashboardSDKARM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62F75C2258ADE300757106 /* libVersionDashboardSDKARM.a */; };
 		AAB91328223437AA006D1EE7 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; };
 		AAB91329223437FA006D1EE7 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -224,6 +228,15 @@
 		AABD442A23674FDA009A98C1 /* DetailedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD442923674FDA009A98C1 /* DetailedViewControllerTests.swift */; };
 		AABD442C23674FEE009A98C1 /* PreferencesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD442B23674FEE009A98C1 /* PreferencesViewControllerTests.swift */; };
 		AABD442E23674FFF009A98C1 /* OutdatedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD442D23674FFF009A98C1 /* OutdatedViewControllerTests.swift */; };
+		AABD444023689649009A98C1 /* PiwikInstanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD443923689647009A98C1 /* PiwikInstanceUITests.swift */; };
+		AABD444123689649009A98C1 /* OutdatedViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD443A23689648009A98C1 /* OutdatedViewControllerUITests.swift */; };
+		AABD444223689649009A98C1 /* JoomlaInstanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD443B23689648009A98C1 /* JoomlaInstanceUITests.swift */; };
+		AABD444323689649009A98C1 /* PreferencesViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD443C23689648009A98C1 /* PreferencesViewControllerUITests.swift */; };
+		AABD444423689649009A98C1 /* WordpressInstanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD443D23689648009A98C1 /* WordpressInstanceUITests.swift */; };
+		AABD444523689649009A98C1 /* DetailedViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD443E23689648009A98C1 /* DetailedViewControllerUITests.swift */; };
+		AABD444623689649009A98C1 /* OwncloudInstanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD443F23689648009A98C1 /* OwncloudInstanceUITests.swift */; };
+		AABD4448236897CA009A98C1 /* SettingsViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD4447236897C9009A98C1 /* SettingsViewControllerUITests.swift */; };
+		AABD44492369A8EE009A98C1 /* libVersionDashboardSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */; };
 		AAE626C6226256EE00398F81 /* libVersionDashboardSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */; };
 /* End PBXBuildFile section */
 
@@ -392,15 +405,12 @@
 		AA36C36A22E35563008B393E /* Outdated item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Outdated item.png"; sourceTree = "<group>"; };
 		AA36C36C22E35563008B393E /* 16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 16x16.png; sourceTree = "<group>"; };
 		AA36C36D22E35563008B393E /* 256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 256x256.png; sourceTree = "<group>"; };
-		AA36C36E22E35563008B393E /* VersionDashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VersionDashboard.png; sourceTree = "<group>"; };
 		AA36C36F22E35563008B393E /* 96x96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 96x96.png; sourceTree = "<group>"; };
-		AA36C37022E35563008B393E /* VersionDashboard1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VersionDashboard1024.png; sourceTree = "<group>"; };
 		AA36C37122E35563008B393E /* 128x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 128x128.png; sourceTree = "<group>"; };
 		AA36C37222E35563008B393E /* 48x48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 48x48.png; sourceTree = "<group>"; };
 		AA36C37322E35563008B393E /* 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 24x24.png; sourceTree = "<group>"; };
 		AA36C37422E35563008B393E /* 32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 32x32.png; sourceTree = "<group>"; };
 		AA36C37522E35563008B393E /* 512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 512x512.png; sourceTree = "<group>"; };
-		AA36C37622E35563008B393E /* VersionDashboard.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VersionDashboard.ai; sourceTree = "<group>"; };
 		AA36C37722E35563008B393E /* 64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 64x64.png; sourceTree = "<group>"; };
 		AA36C37822E35563008B393E /* VDGui.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = VDGui.jpg; sourceTree = "<group>"; };
 		AA36C37A22E35563008B393E /* OwncloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwncloudViewController.swift; sourceTree = "<group>"; };
@@ -419,7 +429,7 @@
 		AA36C38822E35563008B393E /* badgeFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = badgeFunctions.swift; sourceTree = "<group>"; };
 		AA36C38922E35563008B393E /* NotificationFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationFunctions.swift; sourceTree = "<group>"; };
 		AA36C38A22E35563008B393E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AA36C3B822E3557B008B393E /* Version_DashboardUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version_DashboardUITests.swift; sourceTree = "<group>"; };
+		AA36C3B822E3557B008B393E /* SummaryViewControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewControllerUITests.swift; sourceTree = "<group>"; };
 		AA36C3B922E3557B008B393E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVersionDashboardSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA62EE572251393800757106 /* SystemInstancesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemInstancesModel.swift; sourceTree = "<group>"; };
@@ -526,12 +536,23 @@
 		AA71A8FA226CBDDD00BEB4C3 /* wordpress_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wordpress_dots.png; sourceTree = "<group>"; };
 		AA71A8FB226CBDDD00BEB4C3 /* joomla.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = joomla.plist; sourceTree = "<group>"; };
 		AA71A8FC226CBDDD00BEB4C3 /* wordpress.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = wordpress.plist; sourceTree = "<group>"; };
+		AA8CDEAE236F020E00C1DEBB /* Version Dashboard.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Version Dashboard.ai"; sourceTree = "<group>"; };
+		AA8CDEAF236F020F00C1DEBB /* Version Dashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Version Dashboard.png"; sourceTree = "<group>"; };
+		AA8CDEB0236F020F00C1DEBB /* Version Dashboard1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Version Dashboard1024.png"; sourceTree = "<group>"; };
 		AAB9131C2234371E006D1EE7 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts.framework/Charts.xcodeproj; sourceTree = "<group>"; };
 		AABD442623674EAF009A98C1 /* SettingsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerTests.swift; sourceTree = "<group>"; };
 		AABD442923674FDA009A98C1 /* DetailedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewControllerTests.swift; sourceTree = "<group>"; };
 		AABD442B23674FEE009A98C1 /* PreferencesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewControllerTests.swift; sourceTree = "<group>"; };
 		AABD442D23674FFF009A98C1 /* OutdatedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutdatedViewControllerTests.swift; sourceTree = "<group>"; };
 		AABD443323676E55009A98C1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AABD443923689647009A98C1 /* PiwikInstanceUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PiwikInstanceUITests.swift; sourceTree = "<group>"; };
+		AABD443A23689648009A98C1 /* OutdatedViewControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutdatedViewControllerUITests.swift; sourceTree = "<group>"; };
+		AABD443B23689648009A98C1 /* JoomlaInstanceUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoomlaInstanceUITests.swift; sourceTree = "<group>"; };
+		AABD443C23689648009A98C1 /* PreferencesViewControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewControllerUITests.swift; sourceTree = "<group>"; };
+		AABD443D23689648009A98C1 /* WordpressInstanceUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordpressInstanceUITests.swift; sourceTree = "<group>"; };
+		AABD443E23689648009A98C1 /* DetailedViewControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewControllerUITests.swift; sourceTree = "<group>"; };
+		AABD443F23689648009A98C1 /* OwncloudInstanceUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwncloudInstanceUITests.swift; sourceTree = "<group>"; };
+		AABD4447236897C9009A98C1 /* SettingsViewControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerUITests.swift; sourceTree = "<group>"; };
 		AAE8B64E1F87F2C5004E4AF3 /* VersionDashboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -605,6 +626,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AABD44492369A8EE009A98C1 /* libVersionDashboardSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,15 +733,15 @@
 			children = (
 				AA36C36C22E35563008B393E /* 16x16.png */,
 				AA36C36D22E35563008B393E /* 256x256.png */,
-				AA36C36E22E35563008B393E /* VersionDashboard.png */,
 				AA36C36F22E35563008B393E /* 96x96.png */,
-				AA36C37022E35563008B393E /* VersionDashboard1024.png */,
 				AA36C37122E35563008B393E /* 128x128.png */,
 				AA36C37222E35563008B393E /* 48x48.png */,
+				AA8CDEAE236F020E00C1DEBB /* Version Dashboard.ai */,
+				AA8CDEAF236F020F00C1DEBB /* Version Dashboard.png */,
+				AA8CDEB0236F020F00C1DEBB /* Version Dashboard1024.png */,
 				AA36C37322E35563008B393E /* 24x24.png */,
 				AA36C37422E35563008B393E /* 32x32.png */,
 				AA36C37522E35563008B393E /* 512x512.png */,
-				AA36C37622E35563008B393E /* VersionDashboard.ai */,
 				AA36C37722E35563008B393E /* 64x64.png */,
 			);
 			path = applogo;
@@ -769,7 +791,15 @@
 		AA36C3B722E3557B008B393E /* VersionDashboardUITests */ = {
 			isa = PBXGroup;
 			children = (
-				AA36C3B822E3557B008B393E /* Version_DashboardUITests.swift */,
+				AABD4447236897C9009A98C1 /* SettingsViewControllerUITests.swift */,
+				AABD443D23689648009A98C1 /* WordpressInstanceUITests.swift */,
+				AABD443B23689648009A98C1 /* JoomlaInstanceUITests.swift */,
+				AABD443923689647009A98C1 /* PiwikInstanceUITests.swift */,
+				AABD443F23689648009A98C1 /* OwncloudInstanceUITests.swift */,
+				AABD443C23689648009A98C1 /* PreferencesViewControllerUITests.swift */,
+				AABD443E23689648009A98C1 /* DetailedViewControllerUITests.swift */,
+				AABD443A23689648009A98C1 /* OutdatedViewControllerUITests.swift */,
+				AA36C3B822E3557B008B393E /* SummaryViewControllerUITests.swift */,
 				AA36C3B922E3557B008B393E /* Info.plist */,
 			);
 			path = VersionDashboardUITests;
@@ -1430,8 +1460,12 @@
 				AA71A90F227D74CC00BEB4C3 /* joomla_dots.png in Resources */,
 				AA20D277235C84F10027B268 /* Detailed view.png in Resources */,
 				AA36C39822E35563008B393E /* Outdated item.png in Resources */,
+				AA8CDEAB236F01B000C1DEBB /* joomla.png in Resources */,
 				AA36C39322E35563008B393E /* Summarize.png in Resources */,
 				AA36C38F22E35563008B393E /* Assets.xcassets in Resources */,
+				AA8CDEAD236F01BA00C1DEBB /* owncloud.tiff in Resources */,
+				AA8CDEAC236F01B500C1DEBB /* piwik.tiff in Resources */,
+				AA8CDEA9236F01AD00C1DEBB /* wordpress.png in Resources */,
 				AA71A910227D74CC00BEB4C3 /* owncloud_dots.png in Resources */,
 				AA20D276235C83CE0027B268 /* Main.storyboard in Resources */,
 				AA71A911227D74CC00BEB4C3 /* wordpress_dots.png in Resources */,
@@ -1654,7 +1688,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA36C3BA22E3557B008B393E /* Version_DashboardUITests.swift in Sources */,
+				AABD444623689649009A98C1 /* OwncloudInstanceUITests.swift in Sources */,
+				AA36C3BA22E3557B008B393E /* SummaryViewControllerUITests.swift in Sources */,
+				AABD444423689649009A98C1 /* WordpressInstanceUITests.swift in Sources */,
+				AABD444023689649009A98C1 /* PiwikInstanceUITests.swift in Sources */,
+				AABD444523689649009A98C1 /* DetailedViewControllerUITests.swift in Sources */,
+				AABD444223689649009A98C1 /* JoomlaInstanceUITests.swift in Sources */,
+				AABD444323689649009A98C1 /* PreferencesViewControllerUITests.swift in Sources */,
+				AABD444123689649009A98C1 /* OutdatedViewControllerUITests.swift in Sources */,
+				AABD4448236897CA009A98C1 /* SettingsViewControllerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2408,10 +2450,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = VersionDashboardUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nonamecompany.Version-DashboardUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = VersionDashboard;
 				USES_XCTRUNNER = YES;
 			};
@@ -2421,10 +2465,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = VersionDashboardUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nonamecompany.Version-DashboardUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = VersionDashboard;
 				USES_XCTRUNNER = YES;
 			};

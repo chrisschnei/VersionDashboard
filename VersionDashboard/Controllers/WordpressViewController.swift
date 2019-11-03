@@ -28,8 +28,8 @@ class WordpressViewController: NSViewController {
         }
         let wordpressinstance = WordpressModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, headVersion: "", lastRefresh: "", name: instanceName.stringValue, type: "Wordpress", updateAvailable: 0, phpVersion: "", serverType: "")
         _ = wordpressinstance.saveConfigfile()
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "load"), object: nil)
         self.dismiss(self)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadTableContents"), object: nil)
     }
     
     @IBAction func cancelAction(_ sender: AnyObject) {

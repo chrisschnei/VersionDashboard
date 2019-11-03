@@ -34,8 +34,8 @@ class OwncloudViewController: NSViewController {
         }
         let owncloudinstance = OwncloudModel(creationDate: "", currentVersion: "", hosturl: urlField.stringValue, headVersion: "", lastRefresh: "", name: instanceName.stringValue, type: "Owncloud", updateAvailable: 0, phpVersion: "", serverType: "")
         _ = owncloudinstance.saveConfigfile()
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "load"), object: nil)
         self.dismiss(self)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadTableContents"), object: nil)
     }
     
     func checkURLTextfields() -> Bool {
