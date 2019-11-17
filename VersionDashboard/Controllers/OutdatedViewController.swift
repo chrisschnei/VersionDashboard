@@ -133,7 +133,9 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
             if((SystemInstances.systemInstances[instanceName] as? JoomlaModel) != nil) {
                 let joomlamodel = SystemInstances.systemInstances[instanceName] as? JoomlaModel
                 if(joomlamodel!.getVersions(forceUpdate: false)) {
-                    joomlamodel!.checkNotificationRequired()
+                    if (joomlamodel!.checkNotificationRequired()) {
+                        sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), joomlamodel!.name)))
+                    }
                 } else {
                     returnValue = false
                 }
@@ -144,7 +146,9 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
             } else if((SystemInstances.systemInstances[instanceName] as? OwncloudModel) != nil) {
                 let owncloudmodel = SystemInstances.systemInstances[instanceName] as? OwncloudModel
                 if(owncloudmodel!.getVersions(forceUpdate: false)) {
-                    owncloudmodel!.checkNotificationRequired()
+                    if (owncloudmodel!.checkNotificationRequired()) {
+                        sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), owncloudmodel!.name)))
+                    }
                 } else {
                     returnValue = false
                 }
@@ -155,7 +159,9 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
             } else if((SystemInstances.systemInstances[instanceName] as? PiwikModel) != nil) {
                 let piwikmodel = SystemInstances.systemInstances[instanceName] as? PiwikModel
                 if(piwikmodel!.getVersions(forceUpdate: false)) {
-                    piwikmodel!.checkNotificationRequired()
+                    if (piwikmodel!.checkNotificationRequired()) {
+                        sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), piwikmodel!.name)))
+                    }
                 } else {
                     returnValue = false
                 }
@@ -166,7 +172,9 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
             } else if((SystemInstances.systemInstances[instanceName] as? WordpressModel) != nil) {
                 let wordpressmodel = SystemInstances.systemInstances[instanceName] as? WordpressModel
                 if(wordpressmodel!.getVersions(forceUpdate: false)) {
-                    wordpressmodel!.checkNotificationRequired()
+                    if (wordpressmodel!.checkNotificationRequired()) {
+                        sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), wordpressmodel!.name)))
+                    }
                 } else {
                     returnValue = false
                 }
@@ -203,26 +211,28 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
         self.reloadTable()
     }
 
-@objc func checksFinished(_ parameters: [String: Any]) {
-    self.spinner.stopAnimation(parameters["self"])
-    self.spinner.isHidden = true
-    if (!(parameters["completion"] as! Bool)) {
-        self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-        self.errorLabel.isHidden = false
-    } else {
-        self.errorLabel.isHidden = true
+    @objc func checksFinished(_ parameters: [String: Any]) {
+        self.spinner.stopAnimation(parameters["self"])
+        self.spinner.isHidden = true
+        if (!(parameters["completion"] as! Bool)) {
+            self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+            self.errorLabel.isHidden = false
+        } else {
+            self.errorLabel.isHidden = true
+        }
+        self.tableView.deselectAll(parameters["self"])
+        self.tableView.selectRowIndexes((IndexSet(integer:parameters["selectedRow"] as! Int)), byExtendingSelection: false)
+        
+        setOutdatedBadgeNumber()
     }
-    self.tableView.deselectAll(parameters["self"])
-    self.tableView.selectRowIndexes((IndexSet(integer:parameters["selectedRow"] as! Int)), byExtendingSelection: false)
-    
-    setOutdatedBadgeNumber()
-}
     
     func reloadTable() {
         let selectedRow = self.tableView.selectedRow
         self.tableView.deselectAll(self)
+        
         OutdatedInstances.outdatedInstances.removeAll()
         self.loadOutdatedInstances()
+        
         self.tableView.reloadData()
         self.tableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
     }

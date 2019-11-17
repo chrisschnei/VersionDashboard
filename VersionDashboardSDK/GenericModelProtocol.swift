@@ -43,8 +43,10 @@ public protocol GenericModelProtocol {
     /**
      Checks if webservice is outdated and user notification should be displayed.
      In case of outdated version updateAvailable attribute is set to 1.
+     
+     - Returns: true in case of update is available, false if instance is up to date
      */
-    func checkNotificationRequired()
+    func checkNotificationRequired() -> Bool
     
     /**
      Function for getting php version string out of HTTP header.

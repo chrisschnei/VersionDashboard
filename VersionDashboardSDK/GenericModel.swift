@@ -179,14 +179,20 @@ open class GenericModel: GenericModelProtocol {
     /**
      Checks if webservice is outdated and user notification should be displayed.
      In case of outdated version updateAvailable attribute is set to 1.
+     
+     - Returns: true in case of update is available, false if instance is up to date
      */
-    open func checkNotificationRequired() {
+    open func checkNotificationRequired() -> Bool {
         if (self.headVersion == "0.0" || self.currentVersion == "0.0") {
+            return false
         } else if((self.headVersion > self.currentVersion) && (self.updateAvailable == 0)) {
             self.updateAvailable = 1
+            return true
         } else if((self.headVersion == self.currentVersion) && (self.updateAvailable == 1)) {
             self.updateAvailable = 0
+            return false
         }
+        return false
     }
 
     /**
