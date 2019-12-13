@@ -46,6 +46,7 @@
 		AA36C3B422E35563008B393E /* NotificationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C38922E35563008B393E /* NotificationFunctions.swift */; };
 		AA36C3BA22E3557B008B393E /* SummaryViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C3B822E3557B008B393E /* SummaryViewControllerUITests.swift */; };
 		AA36C3BB22E3557B008B393E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA36C3B922E3557B008B393E /* Info.plist */; };
+		AA4E5B1323A3720D00DD595C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35722E35563008B393E /* Localizable.strings */; };
 		AA62EE692251393F00757106 /* SystemInstancesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE572251393800757106 /* SystemInstancesModel.swift */; };
 		AA62EE6A2251393F00757106 /* GenericModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE582251393800757106 /* GenericModelProtocol.swift */; };
 		AA62EE6B2251393F00757106 /* InternetConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE592251393900757106 /* InternetConnectivity.swift */; };
@@ -1467,6 +1468,7 @@
 				AA8CDEAC236F01B500C1DEBB /* piwik.tiff in Resources */,
 				AA8CDEA9236F01AD00C1DEBB /* wordpress.png in Resources */,
 				AA71A910227D74CC00BEB4C3 /* owncloud_dots.png in Resources */,
+				AA4E5B1323A3720D00DD595C /* Localizable.strings in Resources */,
 				AA20D276235C83CE0027B268 /* Main.storyboard in Resources */,
 				AA71A911227D74CC00BEB4C3 /* wordpress_dots.png in Resources */,
 				AA71A903226CC56E00BEB4C3 /* owncloud.plist in Resources */,
