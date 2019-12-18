@@ -15,5 +15,5 @@ func sendNotification(heading: String, informativeText: String) {
     content.body = NSString.localizedUserNotificationString(forKey: informativeText, arguments: nil)
     let time = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
     let request = UNNotificationRequest(identifier: "OutdatedInstance", content: content, trigger: time)
-    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    UNUserNotificationCenter.current().add(request)
 }

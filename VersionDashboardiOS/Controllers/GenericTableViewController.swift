@@ -50,62 +50,70 @@ class GenericViewController : UIViewController {
             var returnValue = true
             if((SystemInstances.systemInstances[instanceName] as? JoomlaModel) != nil) {
                 let joomlamodel = SystemInstances.systemInstances[instanceName] as? JoomlaModel
-                if(joomlamodel!.getVersions(forceUpdate: false)) {
-                    joomlamodel!.checkNotificationRequired()
+                if (joomlamodel!.getVersions(forceUpdate: false)) {
+                    if (joomlamodel!.checkNotificationRequired()) {
+                        sendNotification(heading: NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), joomlamodel!.name)))
+                    }
                 } else {
                     returnValue = false
                 }
                 let joomlaHeadModel = HeadInstances.headInstances["Joomla"].self as! JoomlaHeadModel
-                if(!(joomlaHeadModel.saveConfigfile(filename: Constants.joomlaHead))) {
+                if (!(joomlaHeadModel.saveConfigfile(filename: Constants.joomlaHead))) {
                     print("Error saving Joomla headversion plist File.")
                 }
                 joomlamodel!.updateDate()
-                if(!(joomlamodel!.saveConfigfile())) {
+                if (!(joomlamodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
             } else if((SystemInstances.systemInstances[instanceName] as? OwncloudModel) != nil) {
                 let owncloudmodel = SystemInstances.systemInstances[instanceName] as? OwncloudModel
-                if(owncloudmodel!.getVersions(forceUpdate: false)) {
-                    owncloudmodel!.checkNotificationRequired()
+                if (owncloudmodel!.getVersions(forceUpdate: false)) {
+                    if (owncloudmodel!.checkNotificationRequired()) {
+                        sendNotification(heading: NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), owncloudmodel!.name)))
+                    }
                 } else {
                     returnValue = false
                 }
                 let owncloudHeadModel = HeadInstances.headInstances["Owncloud"].self as! OwncloudHeadModel
-                if(!(owncloudHeadModel.saveConfigfile(filename: Constants.owncloudHead))) {
+                if (!(owncloudHeadModel.saveConfigfile(filename: Constants.owncloudHead))) {
                     print("Error saving Owncloud headversion plist File.")
                 }
                 owncloudmodel!.updateDate()
-                if(!(owncloudmodel!.saveConfigfile())) {
+                if (!(owncloudmodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
             } else if((SystemInstances.systemInstances[instanceName] as? PiwikModel) != nil) {
                 let piwikmodel = SystemInstances.systemInstances[instanceName] as? PiwikModel
-                if(piwikmodel!.getVersions(forceUpdate: false)) {
-                    piwikmodel!.checkNotificationRequired()
+                if (piwikmodel!.getVersions(forceUpdate: false)) {
+                    if (piwikmodel!.checkNotificationRequired()) {
+                        sendNotification(heading: NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), piwikmodel!.name)))
+                    }
                 } else {
                     returnValue = false
                 }
                 let piwikHeadModel = HeadInstances.headInstances["Piwik"].self as! PiwikHeadModel
-                if(!(piwikHeadModel.saveConfigfile(filename: Constants.piwikHead))) {
+                if (!(piwikHeadModel.saveConfigfile(filename: Constants.piwikHead))) {
                     print("Error saving Piwik headversion plist File.")
                 }
                 piwikmodel!.updateDate()
-                if(!(piwikmodel!.saveConfigfile())) {
+                if (!(piwikmodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
             } else if((SystemInstances.systemInstances[instanceName] as? WordpressModel) != nil) {
                 let wordpressmodel = SystemInstances.systemInstances[instanceName] as? WordpressModel
-                if(wordpressmodel!.getVersions(forceUpdate: false)) {
-                    wordpressmodel!.checkNotificationRequired()
+                if (wordpressmodel!.getVersions(forceUpdate: false)) {
+                    if (wordpressmodel!.checkNotificationRequired()) {
+                        sendNotification(heading: NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), wordpressmodel!.name)))
+                    }
                 } else {
                     returnValue = false
                 }
                 let wordpressHeadModel = HeadInstances.headInstances["Wordpress"].self as! WordpressHeadModel
-                if(!(wordpressHeadModel.saveConfigfile(filename: Constants.wordpressHead))) {
+                if (!(wordpressHeadModel.saveConfigfile(filename: Constants.wordpressHead))) {
                     print("Error saving Wordpress headversion plist File.")
                 }
                 wordpressmodel!.updateDate()
-                if(!(wordpressmodel!.saveConfigfile())) {
+                if (!(wordpressmodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
             }

@@ -78,7 +78,9 @@ class GenericTableViewController : UIViewController {
             if((SystemInstances.systemInstances[instanceName] as? JoomlaModel) != nil) {
                 let joomlamodel = SystemInstances.systemInstances[instanceName] as? JoomlaModel
                 if(joomlamodel!.getVersions(forceUpdate: false)) {
-                    joomlamodel!.checkNotificationRequired()
+                    if (joomlamodel!.checkNotificationRequired()) {
+                        sendNotification(heading: NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), joomlamodel!.name)))
+                    }
                 } else {
                     returnValue = false
                 }
@@ -93,7 +95,9 @@ class GenericTableViewController : UIViewController {
             } else if((SystemInstances.systemInstances[instanceName] as? OwncloudModel) != nil) {
                 let owncloudmodel = SystemInstances.systemInstances[instanceName] as? OwncloudModel
                 if(owncloudmodel!.getVersions(forceUpdate: false)) {
-                    owncloudmodel!.checkNotificationRequired()
+                    if (owncloudmodel!.checkNotificationRequired()) {
+                        sendNotification(heading: NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), owncloudmodel!.name)))
+                    }
                 } else {
                     returnValue = false
                 }
@@ -108,7 +112,9 @@ class GenericTableViewController : UIViewController {
             } else if((SystemInstances.systemInstances[instanceName] as? PiwikModel) != nil) {
                 let piwikmodel = SystemInstances.systemInstances[instanceName] as? PiwikModel
                 if(piwikmodel!.getVersions(forceUpdate: false)) {
-                    piwikmodel!.checkNotificationRequired()
+                    if (piwikmodel!.checkNotificationRequired()) {
+                        sendNotification(heading: NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), piwikmodel!.name)))
+                    }
                 } else {
                     returnValue = false
                 }
@@ -123,7 +129,9 @@ class GenericTableViewController : UIViewController {
             } else if((SystemInstances.systemInstances[instanceName] as? WordpressModel) != nil) {
                 let wordpressmodel = SystemInstances.systemInstances[instanceName] as? WordpressModel
                 if(wordpressmodel!.getVersions(forceUpdate: false)) {
-                    wordpressmodel!.checkNotificationRequired()
+                    if (wordpressmodel!.checkNotificationRequired()) {
+                        sendNotification(heading: NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), wordpressmodel!.name)))
+                    }
                 } else {
                     returnValue = false
                 }
@@ -156,11 +164,6 @@ class GenericTableViewController : UIViewController {
         takeMeToMyInstanceAction.backgroundColor = .blue
         
         let refreshAction = UIContextualAction(style: .normal, title:  NSLocalizedString("refresh", comment: ""), handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-//            if (self.refreshInstance(instanceName: systemInstanceName)) {
-//                success(true)
-//            } else {
-//                success(false)
-//            }
         })
         refreshAction.backgroundColor = .blue
         

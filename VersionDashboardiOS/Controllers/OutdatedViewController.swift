@@ -87,8 +87,12 @@ class OutdatedViewController: GenericViewController, UITableViewDelegate, UITabl
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        HeadInstancesModel.loadConfigfiles()
-        SystemInstancesModel.loadConfigfiles()
+        if (!HeadInstancesModel.loadConfigfiles()) {
+            print("Loading head instances config files failed.")
+        }
+        if (!SystemInstancesModel.loadConfigfiles()) {
+            print("Loading system instances config files failed.")
+        }
         
         self.table.reloadData()
     }
@@ -143,7 +147,7 @@ class OutdatedViewController: GenericViewController, UITableViewDelegate, UITabl
     @IBAction func refreshAll(_ sender: Any) {
         self.refreshActiveSpinner.startAnimating()
         self.refreshActiveSpinner.isHidden = false
-        SystemInstancesModel.checkAllInstancesVersions(force: false) { result in
+        SummaryViewController.checkAllInstancesVersions(force: false) { result in
             self.performSelector(onMainThread: #selector(self.checksFinished), with: self, waitUntilDone: true)
         }
     }
@@ -152,7 +156,9 @@ class OutdatedViewController: GenericViewController, UITableViewDelegate, UITabl
         self.refreshActiveSpinner.stopAnimating()
         self.refreshActiveSpinner.isHidden = true
         SystemInstances.systemInstances.removeAll()
-        SystemInstancesModel.loadConfigfiles()
+        if (!SystemInstancesModel.loadConfigfiles()) {
+            print("Loading system instances config files failed.")
+        }
         self.tabBarController?.setOutdatedBadgeNumber()
     }
 }

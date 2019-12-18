@@ -223,6 +223,22 @@
 		AA8CDEAC236F01B500C1DEBB /* piwik.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8EF226CBDDD00BEB4C3 /* piwik.tiff */; };
 		AA8CDEAD236F01BA00C1DEBB /* owncloud.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F6226CBDDD00BEB4C3 /* owncloud.tiff */; };
 		AA93435E22594D78005D8C1C /* libVersionDashboardSDKARM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62F75C2258ADE300757106 /* libVersionDashboardSDKARM.a */; };
+		AAB511B323AA863200B440A7 /* wordpress.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F4226CBDDD00BEB4C3 /* wordpress.png */; };
+		AAB511B423AA864100B440A7 /* piwik.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8EF226CBDDD00BEB4C3 /* piwik.tiff */; };
+		AAB511B523AA864300B440A7 /* joomla.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F1226CBDDD00BEB4C3 /* joomla.png */; };
+		AAB511B623AA864700B440A7 /* piwik_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F3226CBDDD00BEB4C3 /* piwik_dots.png */; };
+		AAB511B723AA864900B440A7 /* owncloud.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F6226CBDDD00BEB4C3 /* owncloud.tiff */; };
+		AAB511B823AA864B00B440A7 /* joomla_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F7226CBDDD00BEB4C3 /* joomla_dots.png */; };
+		AAB511B923AA864E00B440A7 /* owncloud_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F8226CBDDD00BEB4C3 /* owncloud_dots.png */; };
+		AAB511BA23AA865000B440A7 /* wordpress_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8FA226CBDDD00BEB4C3 /* wordpress_dots.png */; };
+		AAB511BB23AA86AE00B440A7 /* piwik.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8EF226CBDDD00BEB4C3 /* piwik.tiff */; };
+		AAB511BC23AA86B000B440A7 /* joomla.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F1226CBDDD00BEB4C3 /* joomla.png */; };
+		AAB511BD23AA86B300B440A7 /* piwik_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F3226CBDDD00BEB4C3 /* piwik_dots.png */; };
+		AAB511BE23AA86B500B440A7 /* wordpress.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F4226CBDDD00BEB4C3 /* wordpress.png */; };
+		AAB511BF23AA86B700B440A7 /* owncloud.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F6226CBDDD00BEB4C3 /* owncloud.tiff */; };
+		AAB511C023AA86B900B440A7 /* joomla_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F7226CBDDD00BEB4C3 /* joomla_dots.png */; };
+		AAB511C123AA86BC00B440A7 /* owncloud_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F8226CBDDD00BEB4C3 /* owncloud_dots.png */; };
+		AAB511C223AA86BE00B440A7 /* wordpress_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8FA226CBDDD00BEB4C3 /* wordpress_dots.png */; };
 		AAB91328223437AA006D1EE7 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; };
 		AAB91329223437FA006D1EE7 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AABD442723674EAF009A98C1 /* SettingsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD442623674EAF009A98C1 /* SettingsViewControllerTests.swift */; };
@@ -1382,7 +1398,15 @@
 				AA71A828226B00EF00BEB4C3 /* chart@2x.png in Resources */,
 				AA71A7F4226B00EF00BEB4C3 /* LaunchScreen.png in Resources */,
 				AA62F5812251508B00757106 /* Main.storyboard in Resources */,
+				AAB511B423AA864100B440A7 /* piwik.tiff in Resources */,
+				AAB511B323AA863200B440A7 /* wordpress.png in Resources */,
+				AAB511B923AA864E00B440A7 /* owncloud_dots.png in Resources */,
+				AAB511B523AA864300B440A7 /* joomla.png in Resources */,
+				AAB511BA23AA865000B440A7 /* wordpress_dots.png in Resources */,
 				AA71A7FA226B00EF00BEB4C3 /* summary@2x.png in Resources */,
+				AAB511B723AA864900B440A7 /* owncloud.tiff in Resources */,
+				AAB511B823AA864B00B440A7 /* joomla_dots.png in Resources */,
+				AAB511B623AA864700B440A7 /* piwik_dots.png in Resources */,
 				AA71A82A226B00EF00BEB4C3 /* chart.png in Resources */,
 				AA71A82C226B00EF00BEB4C3 /* chart@3x.png in Resources */,
 				AA71A834226B00EF00BEB4C3 /* outdated.png in Resources */,
@@ -1435,9 +1459,17 @@
 				AA71A90B226CC5F300BEB4C3 /* joomla.plist in Resources */,
 				AA71A90C226CC5F300BEB4C3 /* wordpress.plist in Resources */,
 				AA62F7742258AE9D00757106 /* Assets.xcassets in Resources */,
-				AA62F7762258AE9D00757106 /* Localizable.strings in Resources */,
 				AA62F7772258AE9D00757106 /* Main.strings in Resources */,
 				AA71A829226B00EF00BEB4C3 /* chart@2x.png in Resources */,
+				AAB511BB23AA86AE00B440A7 /* piwik.tiff in Resources */,
+				AAB511BE23AA86B500B440A7 /* wordpress.png in Resources */,
+				AAB511BF23AA86B700B440A7 /* owncloud.tiff in Resources */,
+				AAB511C023AA86B900B440A7 /* joomla_dots.png in Resources */,
+				AAB511C123AA86BC00B440A7 /* owncloud_dots.png in Resources */,
+				AA62F7762258AE9D00757106 /* Localizable.strings in Resources */,
+				AAB511BC23AA86B000B440A7 /* joomla.png in Resources */,
+				AAB511C223AA86BE00B440A7 /* wordpress_dots.png in Resources */,
+				AAB511BD23AA86B300B440A7 /* piwik_dots.png in Resources */,
 				AA71A7F5226B00EF00BEB4C3 /* LaunchScreen.png in Resources */,
 				AA62F7782258AE9D00757106 /* Main.storyboard in Resources */,
 				AA71A7FB226B00EF00BEB4C3 /* summary@2x.png in Resources */,
@@ -1913,8 +1945,9 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macOS";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				VALID_ARCHS = "x86_64 armv7 arm64e arm64";
@@ -1939,8 +1972,9 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macOS";
 				SWIFT_VERSION = 4.2;
 				VALID_ARCHS = "x86_64 armv7 arm64e arm64";
 			};

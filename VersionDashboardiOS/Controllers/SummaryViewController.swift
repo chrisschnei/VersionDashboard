@@ -41,8 +41,12 @@ class SummaryViewController: GenericViewController, UITableViewDelegate, UITable
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        HeadInstancesModel.loadConfigfiles()
-        SystemInstancesModel.loadConfigfiles()
+        if (!HeadInstancesModel.loadConfigfiles()) {
+            print("Loading head instances config files failed.")
+        }
+        if (!SystemInstancesModel.loadConfigfiles()) {
+            print("Loading system instances config files failed.")
+        }
         
         self.table.reloadData()
         
@@ -133,8 +137,56 @@ class SummaryViewController: GenericViewController, UITableViewDelegate, UITable
     @IBAction func refreshAll(_ sender: Any) {
         self.refreshActiveSpinner.startAnimating()
         self.refreshActiveSpinner.isHidden = false
-        SystemInstancesModel.checkAllInstancesVersions(force: false) { result in
+        SummaryViewController.checkAllInstancesVersions(force: false) { result in
             self.performSelector(onMainThread: #selector(self.checksFinished), with: self, waitUntilDone: true)
+        }
+    }
+    
+    /**
+     Checks all present version instances using GCD threading interface.
+     
+     - Parameters:
+     - force: Passes the force attribute to instance models for ignoring check interval. Version strings will be fetched from instance webservice.
+     - completionHandler: Called on thread termination.
+     */
+    public static func checkAllInstancesVersions(force: Bool, _ completionHandler: @escaping (Bool) -> ()) {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
+            for instance in SystemInstances.systemInstances.keys {
+                if((SystemInstances.systemInstances[instance] as? JoomlaModel) != nil) {
+                    let joomlamodel = SystemInstances.systemInstances[instance] as? JoomlaModel
+                    _ = joomlamodel!.getVersions(forceUpdate: force)
+                    _ = joomlamodel!.updateDate()
+                    if (joomlamodel!.checkNotificationRequired()) {
+                        sendNotification(heading: NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), joomlamodel!.name)))
+                    }
+                    _ = joomlamodel!.saveConfigfile()
+                } else if((SystemInstances.systemInstances[instance] as? PiwikModel) != nil) {
+                    let piwikmodel = SystemInstances.systemInstances[instance] as? PiwikModel
+                    _ = piwikmodel!.getVersions(forceUpdate: force)
+                    _ = piwikmodel!.updateDate()
+                    if (piwikmodel!.checkNotificationRequired()) {
+                        sendNotification(heading: NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), piwikmodel!.name)))
+                    }
+                    _ = piwikmodel!.saveConfigfile()
+                } else if((SystemInstances.systemInstances[instance] as? OwncloudModel) != nil) {
+                    let owncloudmodel = SystemInstances.systemInstances[instance] as? OwncloudModel
+                    _ = owncloudmodel!.getVersions(forceUpdate: force)
+                    _ = owncloudmodel!.updateDate()
+                    if (owncloudmodel!.checkNotificationRequired()) {
+                        sendNotification(heading: NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), owncloudmodel!.name)))
+                    }
+                    _ = owncloudmodel!.saveConfigfile()
+                } else if((SystemInstances.systemInstances[instance] as? WordpressModel) != nil) {
+                    let wordpressmodel = SystemInstances.systemInstances[instance] as? WordpressModel
+                    _ = wordpressmodel!.getVersions(forceUpdate: force)
+                    _ = wordpressmodel!.updateDate()
+                    if (wordpressmodel!.checkNotificationRequired()) {
+                        sendNotification(heading: NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), wordpressmodel!.name)))
+                    }
+                    _ = wordpressmodel!.saveConfigfile()
+                }
+            }
+            completionHandler(true)
         }
     }
     
@@ -154,7 +206,9 @@ class SummaryViewController: GenericViewController, UITableViewDelegate, UITable
         self.refreshActiveSpinner.stopAnimating()
         self.refreshActiveSpinner.isHidden = true
         SystemInstances.systemInstances.removeAll()
-        SystemInstancesModel.loadConfigfiles()
+        if (!SystemInstancesModel.loadConfigfiles()) {
+            print("Loading system instances config files failed.")
+        }
         self.tabBarController?.setOutdatedBadgeNumber()
     }
     
