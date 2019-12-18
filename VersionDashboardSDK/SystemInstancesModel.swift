@@ -11,50 +11,6 @@ import Foundation
 open class SystemInstancesModel : NSObject {
     
     /**
-     Checks all present version instances using GCD threading interface.
-     
-     - Parameters:
-     - force: Passes the force attribute to instance models for ignoring check interval. Version strings will be fetched from instance webservice.
-     - completionHandler: Called on thread termination.
-     */
-    public static func checkAllInstancesVersions(force: Bool, _ completionHandler: @escaping (Bool) -> ()) {
-        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
-            for instance in SystemInstances.systemInstances.keys {
-                if((SystemInstances.systemInstances[instance] as? JoomlaModel) != nil) {
-                    let joomlamodel = SystemInstances.systemInstances[instance] as? JoomlaModel
-                    //Remote Version url
-                    _ = joomlamodel!.getVersions(forceUpdate: force)
-                    _ = joomlamodel!.updateDate()
-                    _ = joomlamodel!.checkNotificationRequired()
-                    _ = joomlamodel!.saveConfigfile()
-                } else if((SystemInstances.systemInstances[instance] as? PiwikModel) != nil) {
-                    let piwikmodel = SystemInstances.systemInstances[instance] as? PiwikModel
-                    //Remote Version url
-                    _ = piwikmodel!.getVersions(forceUpdate: force)
-                    _ = piwikmodel!.updateDate()
-                    _ = piwikmodel!.checkNotificationRequired()
-                    _ = piwikmodel!.saveConfigfile()
-                } else if((SystemInstances.systemInstances[instance] as? OwncloudModel) != nil) {
-                    let owncloudmodel = SystemInstances.systemInstances[instance] as? OwncloudModel
-                    //Remote Version url
-                    _ = owncloudmodel!.getVersions(forceUpdate: force)
-                    _ = owncloudmodel!.updateDate()
-                    _ = owncloudmodel!.checkNotificationRequired()
-                    _ = owncloudmodel!.saveConfigfile()
-                } else if((SystemInstances.systemInstances[instance] as? WordpressModel) != nil) {
-                    let wordpressmodel = SystemInstances.systemInstances[instance] as? WordpressModel
-                    //Remote Version url
-                    _ = wordpressmodel!.getVersions(forceUpdate: force)
-                    _ = wordpressmodel!.updateDate()
-                    _ = wordpressmodel!.checkNotificationRequired()
-                    _ = wordpressmodel!.saveConfigfile()
-                }
-            }
-            completionHandler(true)
-        }
-    }
-    
-    /**
      Calculates amount of instance objects based on supported types
      
      - Returns: Dictionary with instance name as key and amount of instances as value.

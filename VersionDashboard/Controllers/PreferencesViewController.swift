@@ -85,7 +85,7 @@ class PreferencesViewController: NSViewController {
     
     @objc func checkInstancesAutomatic() {
         if(checkInternetConnection()) {
-            SystemInstancesModel.checkAllInstancesVersions(force: false) { result in
+            SummaryViewController.checkAllInstancesVersions(force: false) { result in
             }
         }
     }

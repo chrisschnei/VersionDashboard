@@ -31,7 +31,7 @@
                                         <menuItem isSeparatorItem="YES" id="rg7-rZ-LN4"/>
                                         <menuItem title="Force update" keyEquivalent="R" id="M4m-DV-3ke">
                                             <connections>
-                                                <action selector="forceUpdateHeadVersion:" target="Voe-Tx-rLC" id="ppr-ym-Sbu"/>
+                                                <action selector="forceUpdateHeadVersion:" target="Voe-Tx-rLC" id="dYA-3k-mcD"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>

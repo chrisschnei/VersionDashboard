@@ -23,7 +23,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     }
     
     @IBAction func forceUpdateHeadVersion(_ sender: Any) {
-        SystemInstancesModel.checkAllInstancesVersions(force: true) { result in
+        if(checkInternetConnection()) {
+            SummaryViewController.checkAllInstancesVersions(force: true) { result in
+            }
         }
     }
     
