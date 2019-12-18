@@ -292,8 +292,19 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     self.statusLabel.stringValue = ""
                 }
             }
+            self.takeMeToMyInstance.isEnabled = true
+            self.refreshButton.isEnabled = true
         } else {
             self.takeMeToMyInstance.isEnabled = false
+            self.refreshButton.isEnabled = false
+            self.hostLabel.stringValue = ""
+            self.systemLabel.stringValue = ""
+            self.lastcheckLabel.stringValue = ""
+            self.latestsversionLabel.stringValue = ""
+            self.deployedversionLabel.stringValue = ""
+            self.phpVersion.stringValue = ""
+            self.webserver.stringValue = ""
+            self.statusLabel.stringValue = ""
         }
     }
     

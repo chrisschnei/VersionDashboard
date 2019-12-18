@@ -32,6 +32,7 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     @IBOutlet weak var phpVersion: NSTextField!
     @IBOutlet weak var webserverLabel: NSLayoutConstraint!
     @IBOutlet weak var webserver: NSTextField!
+    @IBOutlet weak var takeMeToMyInstance: NSButton!
     
     override func viewDidLoad() {
         OutdatedInstances.outdatedInstances.removeAll()
@@ -124,6 +125,19 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     self.status.stringValue = ""
                 }
             }
+            self.takeMeToMyInstance.isEnabled = true
+            self.refreshButton.isEnabled = true
+        } else {
+            self.takeMeToMyInstance.isEnabled = false
+            self.refreshButton.isEnabled = false
+            self.hostLabel.stringValue = ""
+            self.systemLabel.stringValue = ""
+            self.lastcheck.stringValue = ""
+            self.latestVersion.stringValue = ""
+            self.currentVersion.stringValue = ""
+            self.phpVersion.stringValue = ""
+            self.webserver.stringValue = ""
+            self.statusLabel.stringValue = ""
         }
     }
     
@@ -209,6 +223,24 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
             self.refreshButton.stringValue = NSLocalizedString("retry", comment: "")
         }
         self.reloadTable()
+    }
+    
+    @IBAction func takeMeToMyInstance(_ sender: AnyObject) {
+        if(self.tableView.selectedRow != -1) {
+            let instancename = Array(SystemInstances.systemInstances.keys)[self.tableView.selectedRow]
+            let instance = SystemInstances.systemInstances[instancename]
+            var url = ""
+            if((instance as? JoomlaModel) != nil) {
+                url = (instance as! JoomlaModel).hosturl + Constants.joomlaBackendURL
+            } else if((instance as? WordpressModel) != nil) {
+                url = (instance as! WordpressModel).hosturl + Constants.wordpressBackendURL
+            } else if((instance as? PiwikModel) != nil) {
+                url = (instance as! PiwikModel).hosturl
+            } else if((instance as? OwncloudModel) != nil) {
+                url = (instance as! OwncloudModel).hosturl
+            }
+            NSWorkspace.shared.open(URL(string: url)!)
+        }
     }
 
     @objc func checksFinished(_ parameters: [String: Any]) {

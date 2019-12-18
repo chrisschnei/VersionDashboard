@@ -65,8 +65,6 @@
 		AA62EE792251393F00757106 /* JoomlaHeadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE672251393E00757106 /* JoomlaHeadModel.swift */; };
 		AA62EE7A2251393F00757106 /* WordpressHeadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE682251393F00757106 /* WordpressHeadModel.swift */; };
 		AA62EE7B2251398400757106 /* libVersionDashboardSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */; };
-		AA62F5252251508B00757106 /* VersionDashboardiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4E92251508A00757106 /* VersionDashboardiOSTests.swift */; };
-		AA62F5262251508B00757106 /* VersionDashboardiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4E92251508A00757106 /* VersionDashboardiOSTests.swift */; };
 		AA62F5292251508B00757106 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4EA2251508A00757106 /* Info.plist */; };
 		AA62F52B2251508B00757106 /* VersionDashboardiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4EC2251508A00757106 /* VersionDashboardiOSUITests.swift */; };
 		AA62F52C2251508B00757106 /* VersionDashboardiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4EC2251508A00757106 /* VersionDashboardiOSUITests.swift */; };
@@ -222,6 +220,14 @@
 		AA8CDEAB236F01B000C1DEBB /* joomla.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F1226CBDDD00BEB4C3 /* joomla.png */; };
 		AA8CDEAC236F01B500C1DEBB /* piwik.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8EF226CBDDD00BEB4C3 /* piwik.tiff */; };
 		AA8CDEAD236F01BA00C1DEBB /* owncloud.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F6226CBDDD00BEB4C3 /* owncloud.tiff */; };
+		AA8CDEB5236F7D2E00C1DEBB /* OutdatedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEB4236F7D2E00C1DEBB /* OutdatedViewControllerTests.swift */; };
+		AA8CDEB7236F7D7A00C1DEBB /* SummaryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEB6236F7D7A00C1DEBB /* SummaryViewControllerTests.swift */; };
+		AA8CDEB9236F7D9900C1DEBB /* GenericViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEB8236F7D9900C1DEBB /* GenericViewControllerTests.swift */; };
+		AA8CDEBB236F7DB000C1DEBB /* PiwikInstanceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEBA236F7DB000C1DEBB /* PiwikInstanceViewControllerTests.swift */; };
+		AA8CDEBD236F7DF900C1DEBB /* InstanceDetailsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEBC236F7DF900C1DEBB /* InstanceDetailsViewControllerTests.swift */; };
+		AA8CDEBF236F7E2200C1DEBB /* WordpressInstanceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEBE236F7E2200C1DEBB /* WordpressInstanceViewControllerTests.swift */; };
+		AA8CDEC1236F7E4B00C1DEBB /* JoomlaInstanceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEC0236F7E4B00C1DEBB /* JoomlaInstanceViewControllerTests.swift */; };
+		AA8CDEC3236F7E5C00C1DEBB /* OwncloudInstanceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEC2236F7E5C00C1DEBB /* OwncloudInstanceViewControllerTests.swift */; };
 		AA93435E22594D78005D8C1C /* libVersionDashboardSDKARM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62F75C2258ADE300757106 /* libVersionDashboardSDKARM.a */; };
 		AAB511B323AA863200B440A7 /* wordpress.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F4226CBDDD00BEB4C3 /* wordpress.png */; };
 		AAB511B423AA864100B440A7 /* piwik.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8EF226CBDDD00BEB4C3 /* piwik.tiff */; };
@@ -313,6 +319,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A58A4ED274A941CA248EA921;
 			remoteInfo = Charts;
+		};
+		AA8CDEC4236F7FB400C1DEBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA6AD7A41C6B4BD90097CD9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA62F75D2258AE9D00757106;
+			remoteInfo = VersionDashboardiOSSimulator;
 		};
 		AA93435F22594D83005D8C1C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -469,7 +482,6 @@
 		AA62EE812251456000757106 /* VersionDashboardiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VersionDashboardiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA62EE962251456800757106 /* VersionDashboardiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA62EEA12251456800757106 /* VersionDashboardiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA62F4E92251508A00757106 /* VersionDashboardiOSTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionDashboardiOSTests.swift; sourceTree = "<group>"; };
 		AA62F4EA2251508A00757106 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA62F4EC2251508A00757106 /* VersionDashboardiOSUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionDashboardiOSUITests.swift; sourceTree = "<group>"; };
 		AA62F4ED2251508A00757106 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -556,6 +568,14 @@
 		AA8CDEAE236F020E00C1DEBB /* Version Dashboard.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Version Dashboard.ai"; sourceTree = "<group>"; };
 		AA8CDEAF236F020F00C1DEBB /* Version Dashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Version Dashboard.png"; sourceTree = "<group>"; };
 		AA8CDEB0236F020F00C1DEBB /* Version Dashboard1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Version Dashboard1024.png"; sourceTree = "<group>"; };
+		AA8CDEB4236F7D2E00C1DEBB /* OutdatedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutdatedViewControllerTests.swift; sourceTree = "<group>"; };
+		AA8CDEB6236F7D7A00C1DEBB /* SummaryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewControllerTests.swift; sourceTree = "<group>"; };
+		AA8CDEB8236F7D9900C1DEBB /* GenericViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewControllerTests.swift; sourceTree = "<group>"; };
+		AA8CDEBA236F7DB000C1DEBB /* PiwikInstanceViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiwikInstanceViewControllerTests.swift; sourceTree = "<group>"; };
+		AA8CDEBC236F7DF900C1DEBB /* InstanceDetailsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceDetailsViewControllerTests.swift; sourceTree = "<group>"; };
+		AA8CDEBE236F7E2200C1DEBB /* WordpressInstanceViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordpressInstanceViewControllerTests.swift; sourceTree = "<group>"; };
+		AA8CDEC0236F7E4B00C1DEBB /* JoomlaInstanceViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoomlaInstanceViewControllerTests.swift; sourceTree = "<group>"; };
+		AA8CDEC2236F7E5C00C1DEBB /* OwncloudInstanceViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwncloudInstanceViewControllerTests.swift; sourceTree = "<group>"; };
 		AAB9131C2234371E006D1EE7 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts.framework/Charts.xcodeproj; sourceTree = "<group>"; };
 		AABD442623674EAF009A98C1 /* SettingsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerTests.swift; sourceTree = "<group>"; };
 		AABD442923674FDA009A98C1 /* DetailedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewControllerTests.swift; sourceTree = "<group>"; };
@@ -853,8 +873,15 @@
 		AA62F4E82251508A00757106 /* VersionDashboardiOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				AA62F4E92251508A00757106 /* VersionDashboardiOSTests.swift */,
 				AA62F4EA2251508A00757106 /* Info.plist */,
+				AA8CDEB4236F7D2E00C1DEBB /* OutdatedViewControllerTests.swift */,
+				AA8CDEB6236F7D7A00C1DEBB /* SummaryViewControllerTests.swift */,
+				AA8CDEB8236F7D9900C1DEBB /* GenericViewControllerTests.swift */,
+				AA8CDEBA236F7DB000C1DEBB /* PiwikInstanceViewControllerTests.swift */,
+				AA8CDEBC236F7DF900C1DEBB /* InstanceDetailsViewControllerTests.swift */,
+				AA8CDEBE236F7E2200C1DEBB /* WordpressInstanceViewControllerTests.swift */,
+				AA8CDEC0236F7E4B00C1DEBB /* JoomlaInstanceViewControllerTests.swift */,
+				AA8CDEC2236F7E5C00C1DEBB /* OwncloudInstanceViewControllerTests.swift */,
 			);
 			path = VersionDashboardiOSTests;
 			sourceTree = "<group>";
@@ -1155,6 +1182,7 @@
 			);
 			dependencies = (
 				AA62EE982251456800757106 /* PBXTargetDependency */,
+				AA8CDEC5236F7FB400C1DEBB /* PBXTargetDependency */,
 			);
 			name = VersionDashboardiOSTests;
 			productName = VersionDashboardiOSTests;
@@ -1299,7 +1327,7 @@
 					AA62EE952251456800757106 = {
 						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Automatic;
-						TestTargetID = AA62EE802251456000757106;
+						TestTargetID = AA62F75D2258AE9D00757106;
 					};
 					AA62EEA02251456800757106 = {
 						CreatedOnToolsVersion = 10.1;
@@ -1605,18 +1633,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA62F55B2251508B00757106 /* PiwikInstanceViewController.swift in Sources */,
+				AA8CDEBF236F7E2200C1DEBB /* WordpressInstanceViewControllerTests.swift in Sources */,
 				AA62F52B2251508B00757106 /* VersionDashboardiOSUITests.swift in Sources */,
 				AA62F5792251508B00757106 /* ChartsViewController.swift in Sources */,
-				AA62F5252251508B00757106 /* VersionDashboardiOSTests.swift in Sources */,
 				AA62F5522251508B00757106 /* badgeFunctions.swift in Sources */,
 				AA62F5972251508B00757106 /* AppDelegate.swift in Sources */,
 				AA62F5A32251508B00757106 /* InstanceTypeViewController.swift in Sources */,
 				AA62F5552251508B00757106 /* GenericViewController.swift in Sources */,
 				AA62F5912251508B00757106 /* WordpressInstanceViewController.swift in Sources */,
+				AA8CDEB5236F7D2E00C1DEBB /* OutdatedViewControllerTests.swift in Sources */,
 				AA62F5612251508B00757106 /* InstanceDetailsViewController.swift in Sources */,
+				AA8CDEC1236F7E4B00C1DEBB /* JoomlaInstanceViewControllerTests.swift in Sources */,
+				AA8CDEBB236F7DB000C1DEBB /* PiwikInstanceViewControllerTests.swift in Sources */,
+				AA8CDEC3236F7E5C00C1DEBB /* OwncloudInstanceViewControllerTests.swift in Sources */,
+				AA8CDEB7236F7D7A00C1DEBB /* SummaryViewControllerTests.swift in Sources */,
 				AA62F58E2251508B00757106 /* OutdatedViewController.swift in Sources */,
+				AA8CDEB9236F7D9900C1DEBB /* GenericViewControllerTests.swift in Sources */,
 				AA62F5B52251508B00757106 /* NotificationFunctions.swift in Sources */,
 				AA62F55E2251508B00757106 /* GenericTableViewController.swift in Sources */,
+				AA8CDEBD236F7DF900C1DEBB /* InstanceDetailsViewControllerTests.swift in Sources */,
 				AA62F54C2251508B00757106 /* SummaryViewController.swift in Sources */,
 				AA62F5B22251508B00757106 /* OwncloudInstanceViewController.swift in Sources */,
 				AA62F5A92251508B00757106 /* JoomlaInstanceViewController.swift in Sources */,
@@ -1630,7 +1665,6 @@
 				AA62F55C2251508B00757106 /* PiwikInstanceViewController.swift in Sources */,
 				AA62F52C2251508B00757106 /* VersionDashboardiOSUITests.swift in Sources */,
 				AA62F57A2251508B00757106 /* ChartsViewController.swift in Sources */,
-				AA62F5262251508B00757106 /* VersionDashboardiOSTests.swift in Sources */,
 				AA62F5532251508B00757106 /* badgeFunctions.swift in Sources */,
 				AA62F5982251508B00757106 /* AppDelegate.swift in Sources */,
 				AA62F5A42251508B00757106 /* InstanceTypeViewController.swift in Sources */,
@@ -1787,6 +1821,11 @@
 			isa = PBXTargetDependency;
 			name = Charts;
 			targetProxy = AA71A742226A3E8C00BEB4C3 /* PBXContainerItemProxy */;
+		};
+		AA8CDEC5236F7FB400C1DEBB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA62F75D2258AE9D00757106 /* VersionDashboardiOSSimulator */;
+			targetProxy = AA8CDEC4236F7FB400C1DEBB /* PBXContainerItemProxy */;
 		};
 		AA93436022594D83005D8C1C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1945,7 +1984,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
+				SDKROOT = "";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macOS";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1972,7 +2011,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
+				SDKROOT = "";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macOS";
 				SWIFT_VERSION = 4.2;
@@ -2076,6 +2115,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = VersionDashboardiOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -2088,7 +2128,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VersionDashboardiOS.app/VersionDashboardiOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VersionDashboardiOSSimulator.app/VersionDashboardiOSSimulator";
 			};
 			name = Debug;
 		};
@@ -2105,6 +2145,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = VersionDashboardiOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -2115,7 +2156,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VersionDashboardiOS.app/VersionDashboardiOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VersionDashboardiOSSimulator.app/VersionDashboardiOSSimulator";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
