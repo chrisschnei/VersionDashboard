@@ -38,13 +38,7 @@ class GenericHeadModelTests: XCTestCase {
 
     func testSaveConfigfile() {
         XCTAssert(testobject.saveConfigfile(filename: instancename))
-    }
-    
-    func testRenamePlistFiles() {
         XCTAssert(testobject.renamePlistFile(instancename))
-    }
-    
-    func testDeleteFile() {
         XCTAssert(GenericHeadModel.deleteFile(instancename))
     }
 

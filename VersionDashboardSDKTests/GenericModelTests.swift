@@ -30,7 +30,7 @@ class GenericModelTests: XCTestCase {
     }
     
     func testCheckNotificationRequired() {
-        testobject.checkNotificationRequired()
+        XCTAssertFalse(testobject.checkNotificationRequired())
         XCTAssertEqual(testobject.updateAvailable, 0)
     }
     
@@ -38,18 +38,12 @@ class GenericModelTests: XCTestCase {
         let current = testobject.lastRefresh
         testobject.updateDate()
         
-        XCTAssertLessThan(current, testobject.lastRefresh)
+        XCTAssertLessThan(testobject.lastRefresh, current)
     }
     
     func testSaveConfigfile() {
         XCTAssert(testobject.saveConfigfile())
-    }
-    
-    func testRenamePlistFiles() {
         XCTAssert(testobject.renamePlistFile(instancename))
-    }
-    
-    func testDeleteFile() {
         XCTAssert(GenericModel.deleteFile(instancename))
     }
 
