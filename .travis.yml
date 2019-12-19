@@ -2,15 +2,18 @@ language: swift
 os: osx
 osx_image: xcode10.1
 xcode_project: VersionDashboard.xcodeproj # path to your xcodeproj folder
-xcode_scheme: VersionDashboardSDK
+xcode_scheme: VersionDashboard
 xcode_destination: platform=macOS
-jobs:
-	include:
-		- stage: VersionDashboardSDK
-		  script: xcodebuild -project VersionDashboard.xcodeproj -scheme VersionDashboardSDK -destination 'platform=OS X,arch=x86_64' clean build | xcpretty -c || true
-		- stage: VersionDashboardSDK unit testing
-		  script: xcodebuild test -project VersionDashboard.xcodeproj -scheme VersionDashboardSDKTests -destination 'platform=OS X,arch=x86_64' | xcpretty -c || true
-		- stage: VersionDashboard macOS
-		  script: xcodebuild -project VersionDashboard.xcodeproj -scheme VersionDashboard -destination 'platform=OS X,arch=x86_64' clean build | xcpretty -c || true
-		- stage: VersionDashboard macOS unit testing
-		  script: xcodebuild test -project VersionDashboard.xcodeproj -scheme VersionDashboardTests -destination 'platform=OS X,arch=x86_64' | xcpretty -c || true
+script: 
+# build and test SDK
+ - xcodebuild -project VersionDashboard.xcodeproj -scheme VersionDashboardSDK -destination 'platform=OS X,arch=x86_64' clean build | xcpretty -c || true
+ - xcodebuild test -project VersionDashboard.xcodeproj -scheme VersionDashboardSDKTests -destination 'platform=OS X,arch=x86_64' | xcpretty -c || true
+# build and test macOS app
+ - xcodebuild -project VersionDashboard.xcodeproj -scheme VersionDashboard -destination 'platform=OS X,arch=x86_64' clean build | xcpretty -c || true
+ - xcodebuild test -project VersionDashboard.xcodeproj -scheme VersionDashboardTests -destination 'platform=OS X,arch=x86_64' | xcpretty -c || true
+# build iOS simulator app
+ - xcodebuild -project VersionDashboard.xcodeproj -scheme VersionDashboardiOSSimulator -destination 'platform=iOS Simulator,OS=12.1,name=iPhone XR' clean build
+# build SDK ARM version
+ - xcodebuild -project VersionDashboard.xcodeproj -scheme VersionDashboardSDKARM clean build | xcpretty -c || true
+# build iOS app for real device
+# - xcodebuild -project VersionDashboard.xcodeproj -scheme VersionDashboardiOS clean build
