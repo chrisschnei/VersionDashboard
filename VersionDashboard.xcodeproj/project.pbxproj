@@ -228,6 +228,7 @@
 		AA8CDEBF236F7E2200C1DEBB /* WordpressInstanceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEBE236F7E2200C1DEBB /* WordpressInstanceViewControllerTests.swift */; };
 		AA8CDEC1236F7E4B00C1DEBB /* JoomlaInstanceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEC0236F7E4B00C1DEBB /* JoomlaInstanceViewControllerTests.swift */; };
 		AA8CDEC3236F7E5C00C1DEBB /* OwncloudInstanceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEC2236F7E5C00C1DEBB /* OwncloudInstanceViewControllerTests.swift */; };
+		AA8D60FE23C09048003D1B34 /* container-migration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA8D60FD23C09048003D1B34 /* container-migration.plist */; };
 		AA93435E22594D78005D8C1C /* libVersionDashboardSDKARM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62F75C2258ADE300757106 /* libVersionDashboardSDKARM.a */; };
 		AAB511B323AA863200B440A7 /* wordpress.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F4226CBDDD00BEB4C3 /* wordpress.png */; };
 		AAB511B423AA864100B440A7 /* piwik.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8EF226CBDDD00BEB4C3 /* piwik.tiff */; };
@@ -576,6 +577,8 @@
 		AA8CDEBE236F7E2200C1DEBB /* WordpressInstanceViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordpressInstanceViewControllerTests.swift; sourceTree = "<group>"; };
 		AA8CDEC0236F7E4B00C1DEBB /* JoomlaInstanceViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoomlaInstanceViewControllerTests.swift; sourceTree = "<group>"; };
 		AA8CDEC2236F7E5C00C1DEBB /* OwncloudInstanceViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwncloudInstanceViewControllerTests.swift; sourceTree = "<group>"; };
+		AA8D60FC23BF9156003D1B34 /* VersionDashboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VersionDashboard.entitlements; sourceTree = "<group>"; };
+		AA8D60FD23C09048003D1B34 /* container-migration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "container-migration.plist"; sourceTree = "<group>"; };
 		AAB9131C2234371E006D1EE7 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts.framework/Charts.xcodeproj; sourceTree = "<group>"; };
 		AABD442623674EAF009A98C1 /* SettingsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerTests.swift; sourceTree = "<group>"; };
 		AABD442923674FDA009A98C1 /* DetailedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewControllerTests.swift; sourceTree = "<group>"; };
@@ -703,6 +706,7 @@
 		AA36C35422E35562008B393E /* VersionDashboard */ = {
 			isa = PBXGroup;
 			children = (
+				AA8D60FC23BF9156003D1B34 /* VersionDashboard.entitlements */,
 				AA36C35522E35563008B393E /* Main.strings */,
 				AA36C35722E35563008B393E /* Localizable.strings */,
 				AA36C35922E35563008B393E /* Plists */,
@@ -713,6 +717,7 @@
 				AA36C37922E35563008B393E /* Controllers */,
 				AA36C38622E35563008B393E /* Helper */,
 				AA36C38A22E35563008B393E /* Info.plist */,
+				AA8D60FD23C09048003D1B34 /* container-migration.plist */,
 			);
 			path = VersionDashboard;
 			sourceTree = "<group>";
@@ -1343,7 +1348,19 @@
 					};
 					AA6AD7AB1C6B4BD90097CD9A = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = G7RXN8CWKG;
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.GameCenter.Mac = {
+								enabled = 0;
+							};
+							com.apple.HardenedRuntime = {
+								enabled = 1;
+							};
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					AA6AD7C71C6B4BD90097CD9A = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -1526,6 +1543,7 @@
 				AA36C38F22E35563008B393E /* Assets.xcassets in Resources */,
 				AA8CDEAD236F01BA00C1DEBB /* owncloud.tiff in Resources */,
 				AA8CDEAC236F01B500C1DEBB /* piwik.tiff in Resources */,
+				AA8D60FE23C09048003D1B34 /* container-migration.plist in Resources */,
 				AA8CDEA9236F01AD00C1DEBB /* wordpress.png in Resources */,
 				AA71A910227D74CC00BEB4C3 /* owncloud_dots.png in Resources */,
 				AA4E5B1323A3720D00DD595C /* Localizable.strings in Resources */,
@@ -2492,8 +2510,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_ENTITLEMENTS = VersionDashboard/VersionDashboard.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = G7RXN8CWKG;
+				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				INFOPLIST_FILE = "$(SRCROOT)/VersionDashboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -2510,8 +2531,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_ENTITLEMENTS = VersionDashboard/VersionDashboard.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = G7RXN8CWKG;
+				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				INFOPLIST_FILE = "$(SRCROOT)/VersionDashboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";

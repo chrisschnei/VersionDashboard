@@ -13,7 +13,7 @@ import Foundation
  */
 public class Constants {
     public static var appurl = ""
-    public static var applicationSupportPath = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .allDomainsMask, true).first!
+    public static var applicationSupportPath = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true).first!
     public static var applicationSupportAppname = applicationSupportPath + "/Version Dashboard"
     public static var plistFilesPath = applicationSupportAppname + "/config/"
     public static var headPlistFilesPath = applicationSupportAppname + "/head/"
