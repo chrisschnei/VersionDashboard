@@ -204,18 +204,23 @@ open class GenericModel: GenericModelProtocol {
      */
     open func phpReturnHandler(_ data: URLResponse?) -> Void {
         let lines = (String(describing: data)).components(separatedBy: "\n")
-        if(lines.count > 0) {
-            for line in lines {
-                if(line.range(of: "PHP/") != nil) {
+        if (lines.count > 0) {
+            for (index, line) in lines.enumerated() {
+                if (line.range(of: "PHP/") != nil) {
                     let phpString = line.components(separatedBy: "PHP/")
                     let number = phpString[1].components(separatedBy: "\"")[0]
                     self.phpVersion = number
+                } else {
+                    self.phpVersion = "n/a"
                 }
-                if(line.range(of: "Apache") != nil || line.range(of: "nginx") != nil) {
-                    if(line != "") {
-                        self.serverType = line.trimmingCharacters(in: .whitespaces).replacingOccurrences(of: "\"", with: "")
+                if (line.range(of: "Server") != nil) {
+                    let templine = lines[index + 1]
+                    if (templine.range(of: "Apache") != nil) {
+                        self.serverType = "Apache"
+                    } else if (templine.range(of: "nginx") != nil) {
+                        self.serverType = "Nginx"
                     } else {
-                        self.serverType = ""
+                        self.serverType = "n/a"
                     }
                 }
             }
