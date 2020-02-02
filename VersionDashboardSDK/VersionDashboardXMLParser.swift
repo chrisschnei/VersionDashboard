@@ -59,18 +59,21 @@ class VersionDashboardXMLParser : NSObject, Foundation.XMLParserDelegate {
     */
     func startParsing() -> Bool {
         let data = NSData(contentsOf: self.url!)
-        let parser = XMLParser(data: data! as Data);
-        parser.delegate = self
-
-        if (!parser.parse()) {
-            print("XML parser parse() function returned false.")
-            return false
+        if (data != nil) {
+            let parser = XMLParser(data: data! as Data);
+            parser.delegate = self
+            
+            if (!parser.parse()) {
+                print("XML parser parse() function returned false.")
+                return false
+            }
+            
+            if (!self.version.isEmpty) {
+                return true
+            }
         }
         
-        if (!self.version.isEmpty) {
-            return true
-        }
-        
+        print("XML parser parse() function returned false.")
         return false
     }
     
