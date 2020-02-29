@@ -19,3 +19,5 @@
 "pleaseUpdate" = "Please update your %@ instance";
 "noSelectionMade" = "No instance selected.";
 "pleaseCheck" = "Please check instance %@";
+"outdated" = "Outdated";
+"uptodate" = "Up to date";

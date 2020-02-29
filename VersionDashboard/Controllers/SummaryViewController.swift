@@ -60,8 +60,8 @@ class SummaryViewController: NSViewController {
     
     func drawPieChartOutdated() {
         var chartdata = Array<PieChartDataEntry>()
-        chartdata.append(PieChartDataEntry(value: Double(SystemInstancesModel.getAmountOfOutdateInstances()), label:"Outdated"))
-        chartdata.append(PieChartDataEntry(value: Double(SystemInstancesModel.getAmountOfUptodateInstances()), label:"Up to Date"))
+        chartdata.append(PieChartDataEntry(value: Double(SystemInstancesModel.getAmountOfOutdateInstances()), label: NSLocalizedString("outdated", comment: "")))
+        chartdata.append(PieChartDataEntry(value: Double(SystemInstancesModel.getAmountOfUptodateInstances()), label:  NSLocalizedString("uptodate", comment: "")))
         
         let data = PieChartData()
         let ds1 = PieChartDataSet(entries: chartdata, label:"")
