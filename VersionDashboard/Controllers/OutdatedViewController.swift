@@ -130,14 +130,14 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
         } else {
             self.takeMeToMyInstance.isEnabled = false
             self.refreshButton.isEnabled = false
-            self.hostLabel.stringValue = ""
-            self.systemLabel.stringValue = ""
+            self.hostName.stringValue = ""
+            self.systemName.stringValue = ""
             self.lastcheck.stringValue = ""
             self.latestVersion.stringValue = ""
             self.currentVersion.stringValue = ""
             self.phpVersion.stringValue = ""
             self.webserver.stringValue = ""
-            self.statusLabel.stringValue = ""
+            self.status.stringValue = ""
         }
     }
     
@@ -227,7 +227,7 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     
     @IBAction func takeMeToMyInstance(_ sender: AnyObject) {
         if(self.tableView.selectedRow != -1) {
-            let instancename = Array(SystemInstances.systemInstances.keys)[self.tableView.selectedRow]
+            let instancename = Array(OutdatedInstances.outdatedInstances)[self.tableView.selectedRow]
             let instance = SystemInstances.systemInstances[instancename]
             var url = ""
             if((instance as? JoomlaModel) != nil) {
@@ -254,6 +254,7 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
         }
         self.tableView.deselectAll(parameters["self"])
         self.tableView.selectRowIndexes((IndexSet(integer:parameters["selectedRow"] as! Int)), byExtendingSelection: false)
+        reloadTable()
         
         setOutdatedBadgeNumber()
     }
