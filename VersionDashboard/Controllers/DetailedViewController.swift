@@ -38,6 +38,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         systemTableView.dataSource = self
         self.addInstancesToTable()
         self.takeMeToMyInstance.isEnabled = false
+        self.editButton.isEnabled = false
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
@@ -211,6 +212,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     func updateInstanceDetails(_ index: Int) {
         if((index) != -1) {
             self.takeMeToMyInstance.isEnabled = true
+            self.editButton.isEnabled = true
             let key = Array(SystemInstances.systemInstances.keys)[index]
             let modelclass = SystemInstances.systemInstances[key].self!
             if((modelclass as? JoomlaModel) != nil) {
@@ -305,6 +307,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             self.phpVersion.stringValue = ""
             self.webserver.stringValue = ""
             self.statusLabel.stringValue = ""
+            self.editButton.isEnabled = false
         }
     }
     
