@@ -22,14 +22,18 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     @IBOutlet weak var removeButton: NSButton!
     @IBOutlet weak var editButton: NSButton!
     @IBOutlet weak var systemTableView: NSTableView!
-    @IBOutlet weak var noInternetConnection: NSTextField!
+    @IBOutlet weak var infoMessage: NSTextField!
     @IBOutlet weak var checkActiveSpinner: NSProgressIndicator!
-    @IBOutlet weak var activeSpinnter: NSProgressIndicator!
+    @IBOutlet weak var activeSpinner: NSProgressIndicator!
     @IBOutlet weak var takeMeToMyInstance: NSButton!
     @IBOutlet weak var phpVersionLabel: NSTextField!
     @IBOutlet weak var phpVersion: NSTextField!
     @IBOutlet weak var webserverLabel: NSLayoutConstraint!
     @IBOutlet weak var webserver: NSTextField!
+    @IBOutlet weak var copyDownloadURL: NSButton!
+    @IBOutlet weak var downloadUrlLabel: NSTextField!
+    @IBOutlet weak var downloadUrl: NSTextField!
+    var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +43,31 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         self.addInstancesToTable()
         self.takeMeToMyInstance.isEnabled = false
         self.editButton.isEnabled = false
+        self.copyDownloadURL.isHidden = true
+        self.copyDownloadURL.isEnabled = false
+    }
+    
+    @IBAction func copyDownloadUrlToClipboard(_ sender: Any) {
+        self.infoMessage.isHidden = false
+        timer = Timer.scheduledTimer(timeInterval: TimeInterval(Constants.timerInterval), target: self, selector: #selector(disableInfoMessage), userInfo: nil, repeats: false)
+        let owncloudhead = HeadInstances.headInstances["Owncloud"] as! OwncloudHeadModel
+        if (owncloudhead.downloadurl == "") {
+            infoMessage.stringValue = NSLocalizedString("clipboardCopyingFailed", comment: "")
+            return
+        }
+        let pasteboard = NSPasteboard.general
+        pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
+        if (pasteboard.setString(owncloudhead.downloadurl, forType: NSPasteboard.PasteboardType.string)) {
+            infoMessage.stringValue = NSLocalizedString("clipboardCopyingWorked", comment: "")
+        } else {
+            infoMessage.stringValue = NSLocalizedString("clipboardCopyingFailed", comment: "")
+        }
+    }
+    
+    @objc func disableInfoMessage() {
+        self.infoMessage.stringValue = ""
+        self.infoMessage.isHidden = true
+        self.timer?.invalidate()
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
@@ -182,15 +211,17 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     self.performSelector(onMainThread: #selector(self.checksFinished), with: parameters, waitUntilDone: true)
                 }
             } else {
-                self.noInternetConnection.stringValue = NSLocalizedString("noSelectionMade", comment: "")
-                self.noInternetConnection.isHidden = false
+                self.infoMessage.stringValue = NSLocalizedString("noSelectionMade", comment: "")
+                self.infoMessage.isHidden = false
                 self.checkActiveSpinner.stopAnimation(self)
                 self.checkActiveSpinner.isHidden = true
+                timer = Timer.scheduledTimer(timeInterval: TimeInterval(Constants.timerInterval), target: self, selector: #selector(disableInfoMessage), userInfo: nil, repeats: true)
             }
         } else {
-            self.noInternetConnection.stringValue = NSLocalizedString("errorInternetConnection", comment: "")
-            self.noInternetConnection.isHidden = false
+            self.infoMessage.stringValue = NSLocalizedString("errorInternetConnection", comment: "")
+            self.infoMessage.isHidden = false
             self.refreshButton.stringValue = NSLocalizedString("retry", comment: "")
+            timer = Timer.scheduledTimer(timeInterval: TimeInterval(Constants.timerInterval), target: self, selector: #selector(disableInfoMessage), userInfo: nil, repeats: true)
         }
     }
     
@@ -198,10 +229,11 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         self.checkActiveSpinner.stopAnimation(parameters["self"])
         self.checkActiveSpinner.isHidden = true
         if (!(parameters["completion"] as! Bool)) {
-            self.noInternetConnection.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-            self.noInternetConnection.isHidden = false
+            self.infoMessage.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+            self.infoMessage.isHidden = false
+            timer = Timer.scheduledTimer(timeInterval: TimeInterval(Constants.timerInterval), target: self, selector: #selector(disableInfoMessage), userInfo: nil, repeats: true)
         } else {
-            self.noInternetConnection.isHidden = true
+            self.infoMessage.isHidden = true
         }
         self.systemTableView.deselectAll(parameters["self"])
         self.systemTableView.selectRowIndexes((IndexSet(integer:parameters["selectedRow"] as! Int)), byExtendingSelection: false)
@@ -213,6 +245,10 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         if((index) != -1) {
             self.takeMeToMyInstance.isEnabled = true
             self.editButton.isEnabled = true
+            self.copyDownloadURL.isHidden = true
+            self.copyDownloadURL.isEnabled = false
+            self.downloadUrlLabel.isHidden = true
+            self.downloadUrl.isHidden = true
             let key = Array(SystemInstances.systemInstances.keys)[index]
             let modelclass = SystemInstances.systemInstances[key].self!
             if((modelclass as? JoomlaModel) != nil) {
@@ -237,13 +273,20 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             } else if((modelclass as? OwncloudModel) != nil) {
                 let owncloudmodel = modelclass as? OwncloudModel
                 let owncloudhead = HeadInstances.headInstances["Owncloud"] as! OwncloudHeadModel
+                self.latestsversionLabel.stringValue = owncloudhead.headVersion
+                self.downloadUrl.stringValue = owncloudhead.downloadurl
                 self.hostLabel.stringValue = owncloudmodel!.hosturl
                 self.systemLabel.stringValue = owncloudmodel!.name
                 self.lastcheckLabel.stringValue = owncloudmodel!.lastRefresh
-                self.latestsversionLabel.stringValue = owncloudhead.headVersion
                 self.deployedversionLabel.stringValue = owncloudmodel!.currentVersion
                 self.phpVersion.stringValue = owncloudmodel!.phpVersion
                 self.webserver.stringValue = owncloudmodel!.serverType
+                self.copyDownloadURL.isHidden = false
+                self.downloadUrlLabel.isHidden = false
+                self.downloadUrl.isHidden = false
+                if (owncloudhead.downloadurl != "") {
+                    self.copyDownloadURL.isEnabled = true
+                }
                 if(self.latestsversionLabel.stringValue != "" || self.deployedversionLabel.stringValue != "") {
                     if(owncloudmodel!.updateAvailable == 0) {
                         self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")
@@ -297,8 +340,6 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             self.takeMeToMyInstance.isEnabled = true
             self.refreshButton.isEnabled = true
         } else {
-            self.takeMeToMyInstance.isEnabled = false
-            self.refreshButton.isEnabled = false
             self.hostLabel.stringValue = ""
             self.systemLabel.stringValue = ""
             self.lastcheckLabel.stringValue = ""
@@ -307,7 +348,14 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             self.phpVersion.stringValue = ""
             self.webserver.stringValue = ""
             self.statusLabel.stringValue = ""
+            self.downloadUrl.stringValue = ""
             self.editButton.isEnabled = false
+            self.copyDownloadURL.isHidden = true
+            self.copyDownloadURL.isEnabled = false
+            self.takeMeToMyInstance.isEnabled = false
+            self.refreshButton.isEnabled = false
+            self.downloadUrlLabel.isHidden = true
+            self.downloadUrl.isHidden = true
         }
     }
     

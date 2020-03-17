@@ -21,3 +21,5 @@
 "pleaseCheck" = "Please check instance %@";
 "outdated" = "Outdated";
 "uptodate" = "Up to date";
+"clipboardCopyingWorked" = "URL copied";
+"clipboardCopyingFailed" = "URL not copied";

@@ -19,7 +19,7 @@ public class WordpressModel : GenericModel {
      */
     open override func getVersions(forceUpdate: Bool) -> Bool {
         let wordpressheadobject = HeadInstances.headInstances["Wordpress"] as! WordpressHeadModel
-        if (!wordpressheadobject.getVersion(forceUpdate: forceUpdate)) {
+        if (!wordpressheadobject.updateHeadObject(forceUpdate: forceUpdate)) {
             print("Could not get wordpress head version. Abort further checking.")
             return false
         }

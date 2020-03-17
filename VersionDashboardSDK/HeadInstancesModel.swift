@@ -26,13 +26,13 @@ open class HeadInstancesModel : NSObject {
                     if element.hasSuffix("plist") {
                         let myDict = NSDictionary(contentsOfFile: Constants.headPlistFilesPath + element)
                         if myDict!["type"] as! String == "Joomla" {
-                            HeadInstances.headInstances[myDict!["name"] as! String] = JoomlaHeadModel(headVersion: myDict!["headVersion"] as! String, name: myDict!["name"] as! String, type: "Joomla", creationDate: myDict!["creationDate"] as! Date, lastRefresh: myDict!["lastRefresh"] as! Date)
+                            HeadInstances.headInstances[myDict!["name"] as! String] = JoomlaHeadModel(headVersion: myDict!["headVersion"] as! String, name: myDict!["name"] as! String, type: "Joomla", creationDate: myDict!["creationDate"] as! Date, lastRefresh: myDict!["lastRefresh"] as! Date, downloadurl: myDict?["downloadurl"] as? String ?? "")
                         } else if myDict!["type"] as! String == "Wordpress" {
-                            HeadInstances.headInstances[myDict!["name"] as! String] = WordpressHeadModel(headVersion: myDict!["headVersion"] as! String, name: myDict!["name"] as! String, type: "Wordpress", creationDate: myDict!["creationDate"] as! Date, lastRefresh: myDict!["lastRefresh"] as! Date)
+                            HeadInstances.headInstances[myDict!["name"] as! String] = WordpressHeadModel(headVersion: myDict!["headVersion"] as! String, name: myDict!["name"] as! String, type: "Wordpress", creationDate: myDict!["creationDate"] as! Date, lastRefresh: myDict!["lastRefresh"] as! Date, downloadurl: myDict?["downloadurl"] as? String ?? "")
                         } else if myDict!["type"] as! String == "Owncloud" {
-                            HeadInstances.headInstances[myDict!["name"] as! String] = OwncloudHeadModel(headVersion: myDict!["headVersion"] as! String, name: myDict!["name"] as! String, type: "Owncloud", creationDate: myDict!["creationDate"] as! Date, lastRefresh: myDict!["lastRefresh"] as! Date)
+                            HeadInstances.headInstances[myDict!["name"] as! String] = OwncloudHeadModel(headVersion: myDict!["headVersion"] as! String, name: myDict!["name"] as! String, type: "Owncloud", creationDate: myDict!["creationDate"] as! Date, lastRefresh: myDict!["lastRefresh"] as! Date, downloadurl: myDict?["downloadurl"] as? String ?? "")
                         } else if myDict!["type"] as! String == "Piwik" {
-                            HeadInstances.headInstances[myDict!["name"] as! String] = PiwikHeadModel(headVersion: myDict!["headVersion"] as! String, name: myDict!["name"] as! String, type: "Piwik", creationDate: myDict!["creationDate"] as! Date, lastRefresh: myDict!["lastRefresh"] as! Date)
+                            HeadInstances.headInstances[myDict!["name"] as! String] = PiwikHeadModel(headVersion: myDict!["headVersion"] as! String, name: myDict!["name"] as! String, type: "Piwik", creationDate: myDict!["creationDate"] as! Date, lastRefresh: myDict!["lastRefresh"] as! Date, downloadurl: myDict?["downloadurl"] as? String ?? "")
                         }
                     }
                 }

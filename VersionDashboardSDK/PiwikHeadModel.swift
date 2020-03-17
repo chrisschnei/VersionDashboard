@@ -17,7 +17,7 @@ open class PiwikHeadModel: GenericHeadModel, XMLParserDelegate {
      - forceUpdate: true if time checks should be ignored and version should be updated immediately, false to only retrieve version when time interval is exceeded.
      - Returns: true if download succeeded, false in error case
      */
-    override public func getVersion(forceUpdate: Bool = false) -> Bool {
+    override public func updateHeadObject(forceUpdate: Bool = false) -> Bool {
         if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-Constants.refreshHeadInstances)))) {
             let headVersion = self.getInstanceVersion(Constants.piwikLatestVersionURL)
             if(headVersion != "") {

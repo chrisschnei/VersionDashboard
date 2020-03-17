@@ -21,3 +21,5 @@
 "pleaseCheck" = "Bitte Instanz %@ überprüfen";
 "outdated" = "Veraltet";
 "uptodate" = "Aktuell";
+"clipboardCopyingWorked" = "URL kopiert";
+"clipboardCopyingFailed" = "URL nicht kopiert";

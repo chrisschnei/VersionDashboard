@@ -19,7 +19,7 @@ open class OwncloudModel : GenericModel {
      */
     open override func getVersions(forceUpdate: Bool) -> Bool {
         let owncloudheadobject = HeadInstances.headInstances["Owncloud"] as! OwncloudHeadModel
-        if (!owncloudheadobject.getVersion(forceUpdate: forceUpdate)) {
+        if (!owncloudheadobject.updateHeadObject(forceUpdate: forceUpdate)) {
             print("Could not get owncloud head version. Abort further checking.")
             return false
         }

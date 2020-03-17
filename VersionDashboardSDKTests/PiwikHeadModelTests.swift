@@ -16,7 +16,7 @@ class PiwikHeadModelTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        testobject = PiwikHeadModel(headVersion: "3.11.0", name: "Piwik", type: "Piwik", creationDate: Date(), lastRefresh: Date())
+        testobject = PiwikHeadModel(headVersion: "3.11.0", name: "Piwik", type: "Piwik", creationDate: Date(), lastRefresh: Date(), downloadurl: String())
     }
     
     override func tearDown() {
@@ -24,7 +24,7 @@ class PiwikHeadModelTests: XCTestCase {
     }
     
     func testGetVersion() {
-        XCTAssert(testobject.getVersion(forceUpdate: true))
+        XCTAssert(testobject.updateHeadObject(forceUpdate: true))
     }
 
 }

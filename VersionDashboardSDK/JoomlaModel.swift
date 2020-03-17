@@ -19,7 +19,7 @@ open class JoomlaModel : GenericModel, XMLParserDelegate {
      */
     open override func getVersions(forceUpdate: Bool) -> Bool {
         let joomlaheadobject = HeadInstances.headInstances["Joomla"] as! JoomlaHeadModel
-        if (!joomlaheadobject.getVersion(forceUpdate: forceUpdate)) {
+        if (!joomlaheadobject.updateHeadObject(forceUpdate: forceUpdate)) {
             print("Getting version form joomla instance failed.")
             return false
         }

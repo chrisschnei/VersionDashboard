@@ -20,6 +20,8 @@ public class Constants {
     
     public static var contentsResources = ""
     
+    public static var timerInterval = 5
+    
     public static var appBundleConfigationPath = appurl + contentsResources + "configuration.plist"
     public static var configurationFilePath = applicationSupportAppname + "/configuration.plist"
     
@@ -50,6 +52,7 @@ public class Constants {
     
     public static var owncloudAPIUrl = "https://owncloud.org/install/#edition"
     public static var owncloudStatusFile = "status.php"
+    public static var owncloudRegexDownload = "https:[/]*download.owncloud.org/community/owncloud[0-9a-zA-Z-.]*zip"
     
     public static var refreshIntervals = ["6", "12", "24", "48"]
     

@@ -44,5 +44,5 @@ public protocol GenericHeadModelProtocol {
      - forceUpdate: true if time checks should be ignored and version should be updated immediately, false to only retrieve version when time interval is exceeded.
      - Returns: true if download succeeded, false in error case
      */
-    func getVersion(forceUpdate: Bool) -> Bool
+    func updateHeadObject(forceUpdate: Bool) -> Bool
 }

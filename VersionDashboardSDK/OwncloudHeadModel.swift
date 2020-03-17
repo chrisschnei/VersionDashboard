@@ -17,18 +17,30 @@ open class OwncloudHeadModel: GenericHeadModel {
      - forceUpdate: true if time checks should be ignored and version should be updated immediately, false to only retrieve version when time interval is exceeded.
      - Returns: true if download succeeded, false in error case
      */
-    override public func getVersion(forceUpdate: Bool = false) -> Bool {
+    override public func updateHeadObject(forceUpdate: Bool = false) -> Bool {
         if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-Constants.refreshHeadInstances)))) {
-            let headVersion = self.getLatestVersion(Constants.owncloudAPIUrl)
-            if(headVersion != "") {
+            if let data = try? Data(contentsOf: URL(string: Constants.owncloudAPIUrl)!) {
+                let version = String(data: data, encoding: String.Encoding.utf8)
+                let lines = version?.components(separatedBy: "\n")
+                var headVersion = ""
+                var downloadUrl = ""
+                
+                for part in lines! {
+                    if (headVersion == "") {
+                        headVersion = self.getLatestVersion(part, lines!)
+                    }
+                    if (downloadUrl == "") {
+                        downloadUrl = self.getDownloadUrl(part)
+                    }
+                }
+                
                 self.headVersion = headVersion
-            } else {
-                self.headVersion = "0.0"
-                return false
-            }
-            if (!self.saveConfigfile(filename: Constants.owncloudHead)) {
-                print("Error saving owncloud head plist file.")
-                return false
+                self.downloadurl = downloadUrl
+                
+                if (!self.saveConfigfile(filename: Constants.owncloudHead)) {
+                    print("Error saving owncloud head plist file.")
+                    return false
+                }
             }
         }
     
@@ -39,26 +51,34 @@ open class OwncloudHeadModel: GenericHeadModel {
      Parse version string from HTML content.
      
      - Parameters:
-     - url: URL to owncloud vendor version string page.
+     - content: Fetched owncloud data from website.
+     - lines: Fetched owncloud data from website.
      - Returns: String containing version number
      */
-    func getLatestVersion(_ url: String) -> String {
-        if let version = try? Data(contentsOf: URL(string: url)!) {
-            let version = String(data: version, encoding: String.Encoding.utf8)
-            let lines = version?.components(separatedBy: "\n")
-            for part in lines! {
-                if(part.range(of: "<td>Production</td>") != nil) {
-                    let index = lines?.index(of: part)
-                    let part2 = lines![index! + 1]
-                    let part3 = part2.components(separatedBy: "<td>")
-                    let part4 = part3[1].components(separatedBy: "</td>")
-                    if(part4[0] != "" && !part4[0].isEmpty) {
-                        return part4[0]
-                    }
-                }
+    func getLatestVersion(_ content: String, _ lines: [String]) -> String {
+        if (content.range(of: "<td>Production</td>") != nil) {
+            let index = lines.index(of: content)
+            let part2 = lines[index! + 1]
+            let part3 = part2.components(separatedBy: "<td>")
+            let part4 = part3[1].components(separatedBy: "</td>")
+            if(part4[0] != "" && !part4[0].isEmpty) {
+                return part4[0]
             }
         }
         return ""
     }
     
+    /**
+     Parse download url string from HTML content.
+     
+     - Parameters:
+     - content: Fetched owncloud data from website.
+     - Returns: String containing download url
+     */
+    func getDownloadUrl(_ line: String) -> String {
+          if let range2 = line.range(of: Constants.owncloudRegexDownload, options: .regularExpression) {
+            return String(line[range2])
+        }
+        return ""
+    }
 }

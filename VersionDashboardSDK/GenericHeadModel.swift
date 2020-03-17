@@ -45,18 +45,25 @@ open class GenericHeadModel: GenericHeadModelProtocol {
     open var lastRefresh = Date()
     
     /**
-     Saves a config file to disc.
+     Variable downloadurl.
+     Contains url to download head version.
+     */
+    open var downloadurl = String()
+    
+    /**
+     Initializes new ownlcoud head model object.
      
      - Parameters:
      - filename: String containing file location
      - Returns: true if file is written successfully or false on failure
      */
-    init(headVersion: String, name: String, type: String, creationDate: Date, lastRefresh: Date) {
+    init(headVersion: String, name: String, type: String, creationDate: Date, lastRefresh: Date, downloadurl: String) {
         self.headVersion = headVersion
         self.name = name
         self.type = type
         self.creationDate = creationDate
         self.lastRefresh = lastRefresh
+        self.downloadurl = downloadurl
     }
 
     /**
@@ -118,6 +125,7 @@ open class GenericHeadModel: GenericHeadModelProtocol {
         dict.setObject(self.headVersion, forKey: "headVersion" as NSCopying)
         dict.setObject(self.creationDate, forKey: "creationDate" as NSCopying)
         dict.setObject(self.lastRefresh, forKey: "lastRefresh" as NSCopying)
+        dict.setObject(self.downloadurl, forKey: "downloadurl" as NSCopying)
         let fileManager = FileManager.default
         if (!(fileManager.fileExists(atPath: path)))
         {
@@ -140,7 +148,7 @@ open class GenericHeadModel: GenericHeadModelProtocol {
      
      - Returns: false
      */
-    public func getVersion(forceUpdate: Bool) -> Bool {
+    public func updateHeadObject(forceUpdate: Bool) -> Bool {
         print("Call getVersion() function in specific object.")
         return false
     }

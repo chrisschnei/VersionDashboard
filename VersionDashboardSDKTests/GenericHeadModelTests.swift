@@ -18,7 +18,7 @@ class GenericHeadModelTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        testobject = GenericHeadModel(headVersion: "3.9.12", name: instancename, type: "Joomla", creationDate: Date(), lastRefresh: Date())
+        testobject = GenericHeadModel(headVersion: "3.9.12", name: instancename, type: "Joomla", creationDate: Date(), lastRefresh: Date(), downloadurl: String())
     }
 
     override func tearDown() {
@@ -26,7 +26,7 @@ class GenericHeadModelTests: XCTestCase {
     }
     
     func testGetVersions() {
-        XCTAssertFalse(testobject.getVersion(forceUpdate: false))
+        XCTAssertFalse(testobject.updateHeadObject(forceUpdate: false))
     }
     
     func testUpdateDate() {

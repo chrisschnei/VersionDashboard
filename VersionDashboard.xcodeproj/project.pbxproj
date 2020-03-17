@@ -356,6 +356,13 @@
 			remoteGlobalIDString = A58A4ED274A941CA248EA921;
 			remoteInfo = Charts;
 		};
+		AADD08E4242154B700B9EAC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA6AD7A41C6B4BD90097CD9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA6AD7AB1C6B4BD90097CD9A;
+			remoteInfo = VersionDashboard;
+		};
 		AAE8B6531F87F2C6004E4AF3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AA6AD7A41C6B4BD90097CD9A /* Project object */;
@@ -1133,6 +1140,7 @@
 			);
 			dependencies = (
 				AA20D2832361071E0027B268 /* PBXTargetDependency */,
+				AADD08E5242154B700B9EAC3 /* PBXTargetDependency */,
 			);
 			name = VersionDashboardSDKTests;
 			productName = VersionDashboardSDKTests;
@@ -1319,6 +1327,7 @@
 					AA20D27B2361071E0027B268 = {
 						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Automatic;
+						TestTargetID = AA6AD7AB1C6B4BD90097CD9A;
 					};
 					AA62EE4D2251391000757106 = {
 						CreatedOnToolsVersion = 10.1;
@@ -1855,6 +1864,11 @@
 			name = Charts;
 			targetProxy = AAB9132522343734006D1EE7 /* PBXContainerItemProxy */;
 		};
+		AADD08E5242154B700B9EAC3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA6AD7AB1C6B4BD90097CD9A /* VersionDashboard */;
+			targetProxy = AADD08E4242154B700B9EAC3 /* PBXContainerItemProxy */;
+		};
 		AAE8B6541F87F2C6004E4AF3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = AA6AD7AB1C6B4BD90097CD9A /* VersionDashboard */;
@@ -1957,6 +1971,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VersionDashboard.app/Contents/MacOS/VersionDashboard";
 			};
 			name = Debug;
 		};
@@ -1981,6 +1996,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nonamecompany.VersionDashboardSDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VersionDashboard.app/Contents/MacOS/VersionDashboard";
 			};
 			name = Release;
 		};

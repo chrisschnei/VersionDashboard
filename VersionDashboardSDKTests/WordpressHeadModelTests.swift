@@ -16,7 +16,7 @@ class WordpressHeadModelTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        testobject = WordpressHeadModel(headVersion: "5.2.4", name: "Wordpress", type: "Wordpress", creationDate: Date(), lastRefresh: Date())
+        testobject = WordpressHeadModel(headVersion: "5.2.4", name: "Wordpress", type: "Wordpress", creationDate: Date(), lastRefresh: Date(), downloadurl: String())
     }
     
     override func tearDown() {
@@ -24,7 +24,7 @@ class WordpressHeadModelTests: XCTestCase {
     }
     
     func testGetVersion() {
-        XCTAssert(testobject.getVersion(forceUpdate: true))
+        XCTAssert(testobject.updateHeadObject(forceUpdate: true))
     }
 
 }

@@ -22,22 +22,48 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     @IBOutlet weak var latestVersionLabel: NSTextField!
     @IBOutlet weak var currentVersionLabel: NSTextField!
     @IBOutlet weak var lastCheckLabel: NSTextField!
-    @IBOutlet weak var statusLabel: NSTextField!
+    @IBOutlet weak var infoMessage: NSTextField!
     @IBOutlet weak var hostLabel: NSTextField!
     @IBOutlet weak var systemLabel: NSTextField!
     @IBOutlet weak var refreshButton: NSButton!
     @IBOutlet weak var spinner: NSProgressIndicator!
-    @IBOutlet weak var errorLabel: NSTextField!
     @IBOutlet weak var phpVersionLabel: NSTextField!
     @IBOutlet weak var phpVersion: NSTextField!
     @IBOutlet weak var webserverLabel: NSLayoutConstraint!
     @IBOutlet weak var webserver: NSTextField!
     @IBOutlet weak var takeMeToMyInstance: NSButton!
+    @IBOutlet weak var copyDownloadURL: NSButton!
+    @IBOutlet weak var downloadUrlLabel: NSTextField!
+    @IBOutlet weak var downloadUrl: NSTextField!
+    var timer: Timer?
     
     override func viewDidLoad() {
         OutdatedInstances.outdatedInstances.removeAll()
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    @IBAction func copyDownloadUrlToClipboard(_ sender: Any) {
+        self.infoMessage.isHidden = false
+        timer = Timer.scheduledTimer(timeInterval: TimeInterval(Constants.timerInterval), target: self, selector: #selector(disableInfoMessage), userInfo: nil, repeats: false)
+        let owncloudhead = HeadInstances.headInstances["Owncloud"] as! OwncloudHeadModel
+        if (owncloudhead.downloadurl == "") {
+            infoMessage.stringValue = NSLocalizedString("clipboardCopyingFailed", comment: "")
+            return
+        }
+        let pasteboard = NSPasteboard.general
+        pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
+        if (pasteboard.setString(owncloudhead.downloadurl, forType: NSPasteboard.PasteboardType.string)) {
+            infoMessage.stringValue = NSLocalizedString("clipboardCopyingWorked", comment: "")
+        } else {
+            infoMessage.stringValue = NSLocalizedString("clipboardCopyingFailed", comment: "")
+        }
+    }
+
+    @objc func disableInfoMessage() {
+        self.infoMessage.stringValue = ""
+        self.infoMessage.isHidden = true
+        self.timer?.invalidate()
     }
     
     func updateInstanceDetails(_ index: Int) {
@@ -66,6 +92,7 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 }
             } else if((modelclass as? OwncloudModel) != nil) {
                 let owncloudmodel = modelclass as? OwncloudModel
+                let owncloudhead = HeadInstances.headInstances["Owncloud"] as! OwncloudHeadModel
                 self.hostName.stringValue = owncloudmodel!.hosturl
                 self.systemName.stringValue = owncloudmodel!.name
                 self.lastcheck.stringValue = owncloudmodel!.lastRefresh
@@ -73,6 +100,12 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.currentVersion.stringValue = owncloudmodel!.currentVersion
                 self.phpVersion.stringValue = owncloudmodel!.phpVersion
                 self.webserver.stringValue = owncloudmodel!.serverType
+                self.copyDownloadURL.isHidden = false
+                self.downloadUrlLabel.isHidden = false
+                self.downloadUrl.isHidden = false
+                if (owncloudhead.downloadurl != "") {
+                    self.copyDownloadURL.isEnabled = true
+                }
                 if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
                     if(owncloudmodel!.updateAvailable == 0) {
                         self.status.stringValue = NSLocalizedString("ok", comment: "")
@@ -213,14 +246,17 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     self.performSelector(onMainThread: #selector(self.checksFinished), with: parameters, waitUntilDone: true)
                 }
             } else {
-                self.errorLabel.stringValue = NSLocalizedString("noSelectionMade", comment: "")
-                self.errorLabel.isHidden = false
+                self.infoMessage.stringValue = NSLocalizedString("noSelectionMade", comment: "")
+                self.infoMessage.isHidden = false
                 self.spinner.stopAnimation(self)
                 self.spinner.isHidden = true
+                timer = Timer.scheduledTimer(timeInterval: TimeInterval(Constants.timerInterval), target: self, selector: #selector(disableInfoMessage), userInfo: nil, repeats: true)
             }
         } else {
-            self.errorLabel.isHidden = false
+            self.infoMessage.isHidden = false
             self.refreshButton.stringValue = NSLocalizedString("retry", comment: "")
+            self.infoMessage.stringValue = NSLocalizedString("errorInternetConnection", comment: "")
+            timer = Timer.scheduledTimer(timeInterval: TimeInterval(Constants.timerInterval), target: self, selector: #selector(disableInfoMessage), userInfo: nil, repeats: true)
         }
         self.reloadTable()
     }
@@ -247,10 +283,11 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
         self.spinner.stopAnimation(parameters["self"])
         self.spinner.isHidden = true
         if (!(parameters["completion"] as! Bool)) {
-            self.errorLabel.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
-            self.errorLabel.isHidden = false
+            self.infoMessage.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+            self.infoMessage.isHidden = false
+            timer = Timer.scheduledTimer(timeInterval: TimeInterval(Constants.timerInterval), target: self, selector: #selector(disableInfoMessage), userInfo: nil, repeats: true)
         } else {
-            self.errorLabel.isHidden = true
+            self.infoMessage.isHidden = true
         }
         self.tableView.deselectAll(parameters["self"])
         self.tableView.selectRowIndexes((IndexSet(integer:parameters["selectedRow"] as! Int)), byExtendingSelection: false)

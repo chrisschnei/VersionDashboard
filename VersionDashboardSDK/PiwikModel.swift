@@ -37,7 +37,7 @@ open class PiwikModel : GenericModel, XMLParserDelegate {
      */
     open override func getVersions(forceUpdate: Bool) -> Bool {
         let piwikheadobject = HeadInstances.headInstances["Piwik"] as! PiwikHeadModel
-        if (!piwikheadobject.getVersion(forceUpdate: forceUpdate)) {
+        if (!piwikheadobject.updateHeadObject(forceUpdate: forceUpdate)) {
             print("Could not get piwik head version. Abort further checking.")
             return false
         }

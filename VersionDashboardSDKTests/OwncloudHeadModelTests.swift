@@ -15,8 +15,9 @@ class OwncloudHeadModelTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
+        Constants.initialize(Bundle.main.bundlePath)
         
-        testobject = OwncloudHeadModel(headVersion: "10.3", name: "Owncloud", type: "Owncloud", creationDate: Date(), lastRefresh: Date())
+        testobject = OwncloudHeadModel(headVersion: "10.3", name: "Owncloud", type: "Owncloud", creationDate: Date(), lastRefresh: Date(), downloadurl: String())
     }
 
     override func tearDown() {
@@ -24,11 +25,9 @@ class OwncloudHeadModelTests: XCTestCase {
     }
 
     func testGetVersion() {
-        XCTAssert(testobject.getVersion(forceUpdate: true))
-    }
-    
-    func testGetInstanceVersion() {
-        XCTAssertNotNil(testobject.getLatestVersion(Constants.owncloudAPIUrl))
+        XCTAssertTrue(testobject.updateHeadObject(forceUpdate: true))
+        XCTAssertNotEqual(testobject.headVersion, "")
+        XCTAssertNotEqual(testobject.downloadurl, "")
     }
 
 }

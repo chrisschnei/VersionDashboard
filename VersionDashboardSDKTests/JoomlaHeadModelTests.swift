@@ -16,7 +16,7 @@ class JoomlaHeadModelTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        testobject = JoomlaHeadModel(headVersion: "3.9.12", name: "Joomla", type: "Joomla", creationDate: Date(), lastRefresh: Date())
+        testobject = JoomlaHeadModel(headVersion: "3.9.12", name: "Joomla", type: "Joomla", creationDate: Date(), lastRefresh: Date(), downloadurl: String())
     }
 
     override func tearDown() {
@@ -24,7 +24,7 @@ class JoomlaHeadModelTests: XCTestCase {
     }
 
     func testGetVersion() {
-        XCTAssert(testobject.getVersion(forceUpdate: true))
+        XCTAssert(testobject.updateHeadObject(forceUpdate: true))
     }
     
     func testGetInstanceVersion() {
