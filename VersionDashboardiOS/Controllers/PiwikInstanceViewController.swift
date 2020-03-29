@@ -36,11 +36,11 @@ class PiwikInstanceViewController: UIViewController {
     }
     
     @IBAction func saveInstance(_ sender: Any) {
-        if(self.checkURLTextfields()) {
+        if (self.checkURLTextfields()) {
             return
         }
         
-        if(SystemInstancesModel.checkInstanceNameAlreadyPresent(self.nameTitle.text!)) {
+        if (SystemInstancesModel.checkInstanceNameAlreadyPresent(self.nameTitle.text!)) {
             self.infoTitle.isHidden = false
             self.infoTitle.text = NSLocalizedString("instanceDuplicate", comment: "")
             return
@@ -60,12 +60,12 @@ class PiwikInstanceViewController: UIViewController {
     
     func checkURLTextfields() -> Bool {
         var error = false
-        if(!((self.hostUrlTextfield.text?.hasSuffix("/"))!)) {
+        if (!((self.hostUrlTextfield.text?.hasSuffix("/"))!)) {
             self.infoTitle.text = NSLocalizedString("urlEnding", comment: "")
             self.infoTitle.isHidden = false
             error = true
         }
-        if(!((self.hostUrlTextfield.text?.hasPrefix("http"))!)) {
+        if (!((self.hostUrlTextfield.text?.hasPrefix("http"))!)) {
             self.infoTitle.text = NSLocalizedString("protocolMissing", comment: "")
             self.infoTitle.isHidden = false
             error = true

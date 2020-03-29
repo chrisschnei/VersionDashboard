@@ -25,17 +25,17 @@ class SummaryViewController: NSViewController {
         Constants.initialize(Bundle.main.bundlePath)
         
         PreferencesViewController().loadConfigurationFile()
-        if(HeadInstances.headInstances.count == 0) {
+        if (HeadInstances.headInstances.count == 0) {
             if (!HeadInstancesModel.loadConfigfiles()) {
                 print("Loading head instances config files failed.")
             }
         }
-        if(SystemInstances.systemInstances.count == 0) {
+        if (SystemInstances.systemInstances.count == 0) {
             if (!SystemInstancesModel.loadConfigfiles()) {
                 print("Loading system instances config files failed.")
             }
         }
-        if((ConfigurationSettings.configurationSettings["automaticRefreshActive"] as! Bool) == true) {
+        if ((ConfigurationSettings.configurationSettings["automaticRefreshActive"] as! Bool) == true) {
             PreferencesViewController().automaticRefresh()
         }
         self.drawPieChartInstances()
@@ -102,7 +102,7 @@ class SummaryViewController: NSViewController {
     public static func checkAllInstancesVersions(force: Bool, _ completionHandler: @escaping (Bool) -> ()) {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             for instance in SystemInstances.systemInstances.keys {
-                if((SystemInstances.systemInstances[instance] as? JoomlaModel) != nil) {
+                if ((SystemInstances.systemInstances[instance] as? JoomlaModel) != nil) {
                     let joomlamodel = SystemInstances.systemInstances[instance] as? JoomlaModel
                     //Remote Version url
                     _ = joomlamodel!.getVersions(forceUpdate: force)
@@ -111,7 +111,7 @@ class SummaryViewController: NSViewController {
                         sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), joomlamodel!.name)))
                     }
                     _ = joomlamodel!.saveConfigfile()
-                } else if((SystemInstances.systemInstances[instance] as? PiwikModel) != nil) {
+                } else if ((SystemInstances.systemInstances[instance] as? PiwikModel) != nil) {
                     let piwikmodel = SystemInstances.systemInstances[instance] as? PiwikModel
                     //Remote Version url
                     _ = piwikmodel!.getVersions(forceUpdate: force)
@@ -120,7 +120,7 @@ class SummaryViewController: NSViewController {
                         sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), piwikmodel!.name)))
                     }
                     _ = piwikmodel!.saveConfigfile()
-                } else if((SystemInstances.systemInstances[instance] as? OwncloudModel) != nil) {
+                } else if ((SystemInstances.systemInstances[instance] as? OwncloudModel) != nil) {
                     let owncloudmodel = SystemInstances.systemInstances[instance] as? OwncloudModel
                     //Remote Version url
                     _ = owncloudmodel!.getVersions(forceUpdate: force)
@@ -129,7 +129,7 @@ class SummaryViewController: NSViewController {
                         sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), owncloudmodel!.name)))
                     }
                     _ = owncloudmodel!.saveConfigfile()
-                } else if((SystemInstances.systemInstances[instance] as? WordpressModel) != nil) {
+                } else if ((SystemInstances.systemInstances[instance] as? WordpressModel) != nil) {
                     let wordpressmodel = SystemInstances.systemInstances[instance] as? WordpressModel
                     //Remote Version url
                     _ = wordpressmodel!.getVersions(forceUpdate: force)

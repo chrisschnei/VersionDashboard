@@ -28,17 +28,17 @@ class SettingsViewController: NSViewController {
     
     func loadInstanceDetails() {
         let instance = SystemInstances.systemInstances[instanceName]
-        if((instance as? JoomlaModel) != nil) {
+        if ((instance as? JoomlaModel) != nil) {
             let instanceObject = SystemInstances.systemInstances[instanceName] as! JoomlaModel
             self.settingsLabel.stringValue = instanceName
             self.lastcheckLabel.stringValue = instanceObject.lastRefresh
             self.hostTextbox.stringValue = instanceObject.hosturl
-        } else if((instance as? OwncloudModel) != nil) {
+        } else if ((instance as? OwncloudModel) != nil) {
             let instanceObject = SystemInstances.systemInstances[instanceName] as! OwncloudModel
             self.settingsLabel.stringValue = instanceName
             self.lastcheckLabel.stringValue = instanceObject.lastRefresh
             self.hostTextbox.stringValue = instanceObject.hosturl
-        } else if((instance as? PiwikModel) != nil) {
+        } else if ((instance as? PiwikModel) != nil) {
             let instanceObject = SystemInstances.systemInstances[instanceName] as! PiwikModel
             self.settingsLabel.stringValue = instanceName
             self.lastcheckLabel.stringValue = instanceObject.lastRefresh
@@ -47,7 +47,7 @@ class SettingsViewController: NSViewController {
             self.apiTokenLabel.isHidden = false
             
             self.apiToken.stringValue = instanceObject.apiToken
-        } else if((instance as? WordpressModel) != nil) {
+        } else if ((instance as? WordpressModel) != nil) {
             let instanceObject = SystemInstances.systemInstances[instanceName] as! WordpressModel
             self.settingsLabel.stringValue = instanceName
             self.lastcheckLabel.stringValue = instanceObject.lastRefresh
@@ -123,7 +123,7 @@ class SettingsViewController: NSViewController {
     }
     
     @IBAction func saveButton(_ sender: AnyObject) {
-        if(!self.updateConfigfile()) {
+        if (!self.updateConfigfile()) {
             print("Failure updating instance configuration file.")
             return
         }

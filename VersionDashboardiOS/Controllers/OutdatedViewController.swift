@@ -106,7 +106,7 @@ class OutdatedViewController: GenericViewController, UITableViewDelegate, UITabl
     }
     
     func refreshInstance(instanceName: String) -> Bool {
-        if(InternetConnectivity.checkInternetConnection()) {
+        if (InternetConnectivity.checkInternetConnection()) {
             self.refreshActiveSpinner.startAnimating()
             self.refreshActiveSpinner.isHidden = false
             self.updateSingleInstance(instanceName: instanceName) { completion in

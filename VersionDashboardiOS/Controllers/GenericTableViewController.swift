@@ -19,13 +19,13 @@ class GenericViewController : UIViewController {
     func takeMeToMyInstance(_ systemInstanceName : String) -> Bool {
         let instance = SystemInstances.systemInstances[systemInstanceName]
         var url = ""
-        if((instance as? JoomlaModel) != nil) {
+        if ((instance as? JoomlaModel) != nil) {
             url = (instance as! JoomlaModel).hosturl + Constants.joomlaBackendURL
-        } else if((instance as? WordpressModel) != nil) {
+        } else if ((instance as? WordpressModel) != nil) {
             url = (instance as! WordpressModel).hosturl + Constants.wordpressBackendURL
-        } else if((instance as? PiwikModel) != nil) {
+        } else if ((instance as? PiwikModel) != nil) {
             url = (instance as! PiwikModel).hosturl
-        } else if((instance as? OwncloudModel) != nil) {
+        } else if ((instance as? OwncloudModel) != nil) {
             url = (instance as! OwncloudModel).hosturl
         }
         UIApplication.shared.open(URL(string: url)!)
@@ -48,7 +48,7 @@ class GenericViewController : UIViewController {
     func updateSingleInstance(instanceName: String, completion: @escaping (Bool) -> ()) {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             var returnValue = true
-            if((SystemInstances.systemInstances[instanceName] as? JoomlaModel) != nil) {
+            if ((SystemInstances.systemInstances[instanceName] as? JoomlaModel) != nil) {
                 let joomlamodel = SystemInstances.systemInstances[instanceName] as? JoomlaModel
                 if (joomlamodel!.getVersions(forceUpdate: false)) {
                     if (joomlamodel!.checkNotificationRequired()) {
@@ -65,7 +65,7 @@ class GenericViewController : UIViewController {
                 if (!(joomlamodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
-            } else if((SystemInstances.systemInstances[instanceName] as? OwncloudModel) != nil) {
+            } else if ((SystemInstances.systemInstances[instanceName] as? OwncloudModel) != nil) {
                 let owncloudmodel = SystemInstances.systemInstances[instanceName] as? OwncloudModel
                 if (owncloudmodel!.getVersions(forceUpdate: false)) {
                     if (owncloudmodel!.checkNotificationRequired()) {
@@ -82,7 +82,7 @@ class GenericViewController : UIViewController {
                 if (!(owncloudmodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
-            } else if((SystemInstances.systemInstances[instanceName] as? PiwikModel) != nil) {
+            } else if ((SystemInstances.systemInstances[instanceName] as? PiwikModel) != nil) {
                 let piwikmodel = SystemInstances.systemInstances[instanceName] as? PiwikModel
                 if (piwikmodel!.getVersions(forceUpdate: false)) {
                     if (piwikmodel!.checkNotificationRequired()) {
@@ -99,7 +99,7 @@ class GenericViewController : UIViewController {
                 if (!(piwikmodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
-            } else if((SystemInstances.systemInstances[instanceName] as? WordpressModel) != nil) {
+            } else if ((SystemInstances.systemInstances[instanceName] as? WordpressModel) != nil) {
                 let wordpressmodel = SystemInstances.systemInstances[instanceName] as? WordpressModel
                 if (wordpressmodel!.getVersions(forceUpdate: false)) {
                     if (wordpressmodel!.checkNotificationRequired()) {

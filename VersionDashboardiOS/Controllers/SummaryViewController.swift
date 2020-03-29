@@ -152,7 +152,7 @@ class SummaryViewController: GenericViewController, UITableViewDelegate, UITable
     public static func checkAllInstancesVersions(force: Bool, _ completionHandler: @escaping (Bool) -> ()) {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             for instance in SystemInstances.systemInstances.keys {
-                if((SystemInstances.systemInstances[instance] as? JoomlaModel) != nil) {
+                if ((SystemInstances.systemInstances[instance] as? JoomlaModel) != nil) {
                     let joomlamodel = SystemInstances.systemInstances[instance] as? JoomlaModel
                     _ = joomlamodel!.getVersions(forceUpdate: force)
                     _ = joomlamodel!.updateDate()
@@ -160,7 +160,7 @@ class SummaryViewController: GenericViewController, UITableViewDelegate, UITable
                         sendNotification(heading: NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), joomlamodel!.name)))
                     }
                     _ = joomlamodel!.saveConfigfile()
-                } else if((SystemInstances.systemInstances[instance] as? PiwikModel) != nil) {
+                } else if ((SystemInstances.systemInstances[instance] as? PiwikModel) != nil) {
                     let piwikmodel = SystemInstances.systemInstances[instance] as? PiwikModel
                     _ = piwikmodel!.getVersions(forceUpdate: force)
                     _ = piwikmodel!.updateDate()
@@ -168,7 +168,7 @@ class SummaryViewController: GenericViewController, UITableViewDelegate, UITable
                         sendNotification(heading: NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), piwikmodel!.name)))
                     }
                     _ = piwikmodel!.saveConfigfile()
-                } else if((SystemInstances.systemInstances[instance] as? OwncloudModel) != nil) {
+                } else if ((SystemInstances.systemInstances[instance] as? OwncloudModel) != nil) {
                     let owncloudmodel = SystemInstances.systemInstances[instance] as? OwncloudModel
                     _ = owncloudmodel!.getVersions(forceUpdate: force)
                     _ = owncloudmodel!.updateDate()
@@ -176,7 +176,7 @@ class SummaryViewController: GenericViewController, UITableViewDelegate, UITable
                         sendNotification(heading: NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), owncloudmodel!.name)))
                     }
                     _ = owncloudmodel!.saveConfigfile()
-                } else if((SystemInstances.systemInstances[instance] as? WordpressModel) != nil) {
+                } else if ((SystemInstances.systemInstances[instance] as? WordpressModel) != nil) {
                     let wordpressmodel = SystemInstances.systemInstances[instance] as? WordpressModel
                     _ = wordpressmodel!.getVersions(forceUpdate: force)
                     _ = wordpressmodel!.updateDate()
@@ -191,7 +191,7 @@ class SummaryViewController: GenericViewController, UITableViewDelegate, UITable
     }
     
     func refreshInstance(instanceName: String) -> Bool {
-        if(InternetConnectivity.checkInternetConnection()) {
+        if (InternetConnectivity.checkInternetConnection()) {
             self.refreshActiveSpinner.startAnimating()
             self.refreshActiveSpinner.isHidden = false
             self.updateSingleInstance(instanceName: instanceName) { completion in

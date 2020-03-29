@@ -28,13 +28,13 @@ class ChartsViewController: UIViewController {
         
         navigationBar.prefersLargeTitles = true
         
-        if(HeadInstances.headInstances.count == 0) {
+        if (HeadInstances.headInstances.count == 0) {
             if (!HeadInstancesModel.loadConfigfiles()) {
                 print("Loading head instances models failed.")
             }
         }
         
-        if(SystemInstances.systemInstances.count == 0) {
+        if (SystemInstances.systemInstances.count == 0) {
             if (!SystemInstancesModel.loadConfigfiles()) {
                 print("Loading system instances models failed.")
             }

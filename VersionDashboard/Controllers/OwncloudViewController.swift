@@ -26,10 +26,10 @@ class OwncloudViewController: NSViewController {
     }
     
     @IBAction func saveAction(_ sender: AnyObject) {
-        if(self.checkURLTextfields()) {
+        if (self.checkURLTextfields()) {
             return
         }
-        if(SystemInstancesModel.checkInstanceNameAlreadyPresent(self.instanceName.stringValue)) {
+        if (SystemInstancesModel.checkInstanceNameAlreadyPresent(self.instanceName.stringValue)) {
             return
         }
         let owncloudinstance = OwncloudModel(creationDate: "", currentVersion: "", hosturl: urlField.stringValue, headVersion: "", lastRefresh: "", name: instanceName.stringValue, type: "Owncloud", updateAvailable: 0, phpVersion: "", serverType: "")
@@ -40,12 +40,12 @@ class OwncloudViewController: NSViewController {
     
     func checkURLTextfields() -> Bool {
         var error = false
-        if(!(self.urlField.stringValue.hasSuffix("/"))) {
+        if (!(self.urlField.stringValue.hasSuffix("/"))) {
             self.errorMessage.stringValue = NSLocalizedString("urlEnding", comment: "")
             self.errorMessage.isHidden = false
             error = true
         }
-        if(!(self.urlField.stringValue.hasPrefix("http"))) {
+        if (!(self.urlField.stringValue.hasPrefix("http"))) {
             self.errorMessage.stringValue = NSLocalizedString("protocolMissing", comment: "")
             self.errorMessage.isHidden = false
             error = true

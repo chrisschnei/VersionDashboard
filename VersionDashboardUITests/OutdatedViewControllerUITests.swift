@@ -9,12 +9,12 @@
 import XCTest
 
 class OutdatedViewControllerUITests: XCTestCase {
+    
+    let versionDashboardWindow = XCUIApplication().windows["Version Dashboard"]
         
     override func setUp() {
         super.setUp()
-        
         continueAfterFailure = false
-        
         XCUIApplication().launch()
     }
     
@@ -23,13 +23,9 @@ class OutdatedViewControllerUITests: XCTestCase {
     }
     
     func testViewDidLoad() {
-        let app = XCUIApplication()
-        let versionDashboardWindow = app.windows["Version Dashboard"]
         versionDashboardWindow.toolbars.buttons["Outdated"].click()
         
-        XCTAssert(versionDashboardWindow.buttons["RefreshButton"].isEnabled)
-        XCTAssert(versionDashboardWindow.buttons["RefreshButton"].isHittable)
-        XCTAssertEqual(versionDashboardWindow.staticTexts["SystemLabel"].value as? String, "")
+        XCTAssertFalse(versionDashboardWindow.buttons["RefreshButton"].isEnabled)
+        XCTAssertEqual(versionDashboardWindow.tables["InstanceTableView"].textFields.count, 0)
     }
-    
 }

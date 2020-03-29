@@ -17,7 +17,7 @@ func setOutdatedBadgeNumber() {
     let doc = NSApplication.shared.dockTile
     let outdatedAmount = SystemInstancesModel.getAmountOfOutdateInstances()
     
-    if(outdatedAmount == 0) {
+    if (outdatedAmount == 0) {
         doc.badgeLabel = ""
         return
     }

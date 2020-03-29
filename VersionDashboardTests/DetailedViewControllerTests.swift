@@ -125,5 +125,22 @@ class DetailedViewControllerTests: XCTestCase {
             XCTAssertEqual(vc.webserver.stringValue, serverType)
         }
     }
+    
+    func testFilterInstances() {
+        vc.filtertext = self.testobjectOwncloud.name.lowercased()
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadTableContents"), object: nil)
+        
+        if (vc.filteredInstancesArray.isEmpty) {
+            XCTAssert(false)
+        }
+        
+        for var instancename in vc.filteredInstancesArray {
+            instancename = instancename.lowercased()
+            if (!instancename.contains(vc.filtertext)) {
+                XCTAssert(false)
+            }
+        }
+        XCTAssert(true)
+    }
 
 }

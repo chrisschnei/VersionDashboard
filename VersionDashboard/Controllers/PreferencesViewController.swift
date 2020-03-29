@@ -70,10 +70,10 @@ class PreferencesViewController: NSViewController {
         if (!self.saveConfigurationFile()) {
             print("Saving configuration file failed.")
         }
-        if(self.activatedCheckbox.state.rawValue == 1) {
+        if (self.activatedCheckbox.state.rawValue == 1) {
             self.stopTimer()
             self.automaticRefresh()
-        } else if(self.activatedCheckbox.state.rawValue == 0) {
+        } else if (self.activatedCheckbox.state.rawValue == 0) {
             self.stopTimer()
         }
         self.dismiss(self)
@@ -84,7 +84,7 @@ class PreferencesViewController: NSViewController {
     }
     
     @objc func checkInstancesAutomatic() {
-        if(checkInternetConnection()) {
+        if (checkInternetConnection()) {
             SummaryViewController.checkAllInstancesVersions(force: false) { result in
             }
         }

@@ -18,6 +18,7 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     @IBOutlet weak var lastcheck: NSTextField!
     @IBOutlet weak var status: NSTextField!
     @IBOutlet weak var hostName: NSTextField!
+    @IBOutlet weak var statusLabel: NSTextField!
     @IBOutlet weak var systemName: NSTextField!
     @IBOutlet weak var latestVersionLabel: NSTextField!
     @IBOutlet weak var currentVersionLabel: NSTextField!
@@ -35,12 +36,21 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     @IBOutlet weak var copyDownloadURL: NSButton!
     @IBOutlet weak var downloadUrlLabel: NSTextField!
     @IBOutlet weak var downloadUrl: NSTextField!
+    @IBOutlet weak var searchfield: NSSearchFieldCell!
     var timer: Timer?
+    var filtertext = String()
+    var filteredInstancesArray = Array<String>()
     
     override func viewDidLoad() {
         OutdatedInstances.outdatedInstances.removeAll()
         tableView.delegate = self
         tableView.dataSource = self
+        self.searchfield.placeholderString = NSLocalizedString("searchInstances", comment: "")
+    }
+    
+    @IBAction func filterInstances(_ sender: Any) {
+        self.filtertext = searchfield.stringValue.lowercased()
+        self.reloadTable()
     }
     
     @IBAction func copyDownloadUrlToClipboard(_ sender: Any) {
@@ -67,10 +77,15 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     }
     
     func updateInstanceDetails(_ index: Int) {
-        if((index) != -1) {
-            let key = OutdatedInstances.outdatedInstances[index]
+        if ((index) != -1) {
+            var key = ""
+            if (!filtertext.isEmpty) {
+                key = filteredInstancesArray[index]
+            } else {
+                key = OutdatedInstances.outdatedInstances[index]
+            }
             let modelclass = SystemInstances.systemInstances[key].self!
-            if((modelclass as? JoomlaModel) != nil) {
+            if ((modelclass as? JoomlaModel) != nil) {
                 let joomlaobject = modelclass as? JoomlaModel
                 self.hostName.stringValue = joomlaobject!.hosturl
                 self.systemName.stringValue = joomlaobject!.name
@@ -79,10 +94,10 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.currentVersion.stringValue = joomlaobject!.currentVersion
                 self.phpVersion.stringValue = joomlaobject!.phpVersion
                 self.webserver.stringValue = joomlaobject!.serverType
-                if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
-                    if(joomlaobject!.updateAvailable == 0) {
+                if (self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
+                    if (joomlaobject!.updateAvailable == 0) {
                         self.status.stringValue = NSLocalizedString("ok", comment: "")
-                    } else if(joomlaobject?.updateAvailable == -1) {
+                    } else if (joomlaobject?.updateAvailable == -1) {
                         self.status.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
                     } else {
                         self.status.stringValue = NSLocalizedString("updateavailable", comment: "")
@@ -90,7 +105,7 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 } else {
                     self.status.stringValue = ""
                 }
-            } else if((modelclass as? OwncloudModel) != nil) {
+            } else if ((modelclass as? OwncloudModel) != nil) {
                 let owncloudmodel = modelclass as? OwncloudModel
                 let owncloudhead = HeadInstances.headInstances["Owncloud"] as! OwncloudHeadModel
                 self.hostName.stringValue = owncloudmodel!.hosturl
@@ -106,10 +121,10 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 if (owncloudhead.downloadurl != "") {
                     self.copyDownloadURL.isEnabled = true
                 }
-                if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
-                    if(owncloudmodel!.updateAvailable == 0) {
+                if (self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
+                    if (owncloudmodel!.updateAvailable == 0) {
                         self.status.stringValue = NSLocalizedString("ok", comment: "")
-                    } else if(owncloudmodel?.updateAvailable == -1) {
+                    } else if (owncloudmodel?.updateAvailable == -1) {
                         self.status.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
                     } else {
                         self.status.stringValue = NSLocalizedString("updateavailable", comment: "")
@@ -117,7 +132,7 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 } else {
                     self.status.stringValue = ""
                 }
-            } else if((modelclass as? PiwikModel) != nil) {
+            } else if ((modelclass as? PiwikModel) != nil) {
                 let piwikmodel = modelclass as? PiwikModel
                 self.hostName.stringValue = piwikmodel!.hosturl
                 self.systemName.stringValue = piwikmodel!.name
@@ -126,10 +141,10 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.currentVersion.stringValue = piwikmodel!.currentVersion
                 self.phpVersion.stringValue = piwikmodel!.phpVersion
                 self.webserver.stringValue = piwikmodel!.serverType
-                if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
-                    if(piwikmodel!.updateAvailable == 0) {
+                if (self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
+                    if (piwikmodel!.updateAvailable == 0) {
                         self.status.stringValue = NSLocalizedString("ok", comment: "")
-                    } else if(piwikmodel?.updateAvailable == -1) {
+                    } else if (piwikmodel?.updateAvailable == -1) {
                         self.status.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
                     } else {
                         self.status.stringValue = NSLocalizedString("updateavailable", comment: "")
@@ -137,7 +152,7 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 } else {
                     self.status.stringValue = ""
                 }
-            } else if((modelclass as? WordpressModel) != nil) {
+            } else if ((modelclass as? WordpressModel) != nil) {
                 let wordpressmodel = modelclass as? WordpressModel
                 self.hostName.stringValue = wordpressmodel!.hosturl
                 self.systemName.stringValue = wordpressmodel!.name
@@ -146,10 +161,10 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 self.currentVersion.stringValue = wordpressmodel!.currentVersion
                 self.phpVersion.stringValue = wordpressmodel!.phpVersion
                 self.webserver.stringValue = wordpressmodel!.serverType
-                if(self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
-                    if(wordpressmodel!.updateAvailable == 0) {
+                if (self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
+                    if (wordpressmodel!.updateAvailable == 0) {
                         self.status.stringValue = NSLocalizedString("ok", comment: "")
-                    } else if(wordpressmodel?.updateAvailable == -1) {
+                    } else if (wordpressmodel?.updateAvailable == -1) {
                         self.status.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
                     } else {
                         self.status.stringValue = NSLocalizedString("updateavailable", comment: "")
@@ -177,9 +192,9 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     func updateSingleInstance(instanceName: String, completion: @escaping (Bool) -> ()) {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             var returnValue = true
-            if((SystemInstances.systemInstances[instanceName] as? JoomlaModel) != nil) {
+            if ((SystemInstances.systemInstances[instanceName] as? JoomlaModel) != nil) {
                 let joomlamodel = SystemInstances.systemInstances[instanceName] as? JoomlaModel
-                if(joomlamodel!.getVersions(forceUpdate: false)) {
+                if (joomlamodel!.getVersions(forceUpdate: false)) {
                     if (joomlamodel!.checkNotificationRequired()) {
                         sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), joomlamodel!.name)))
                     }
@@ -187,12 +202,12 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     returnValue = false
                 }
                 joomlamodel!.updateDate()
-                if(!(joomlamodel!.saveConfigfile())) {
+                if (!(joomlamodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
-            } else if((SystemInstances.systemInstances[instanceName] as? OwncloudModel) != nil) {
+            } else if ((SystemInstances.systemInstances[instanceName] as? OwncloudModel) != nil) {
                 let owncloudmodel = SystemInstances.systemInstances[instanceName] as? OwncloudModel
-                if(owncloudmodel!.getVersions(forceUpdate: false)) {
+                if (owncloudmodel!.getVersions(forceUpdate: false)) {
                     if (owncloudmodel!.checkNotificationRequired()) {
                         sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), owncloudmodel!.name)))
                     }
@@ -200,12 +215,12 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     returnValue = false
                 }
                 owncloudmodel!.updateDate()
-                if(!(owncloudmodel!.saveConfigfile())) {
+                if (!(owncloudmodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
-            } else if((SystemInstances.systemInstances[instanceName] as? PiwikModel) != nil) {
+            } else if ((SystemInstances.systemInstances[instanceName] as? PiwikModel) != nil) {
                 let piwikmodel = SystemInstances.systemInstances[instanceName] as? PiwikModel
-                if(piwikmodel!.getVersions(forceUpdate: false)) {
+                if (piwikmodel!.getVersions(forceUpdate: false)) {
                     if (piwikmodel!.checkNotificationRequired()) {
                         sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), piwikmodel!.name)))
                     }
@@ -213,12 +228,12 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     returnValue = false
                 }
                 piwikmodel!.updateDate()
-                if(!(piwikmodel!.saveConfigfile())) {
+                if (!(piwikmodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
-            } else if((SystemInstances.systemInstances[instanceName] as? WordpressModel) != nil) {
+            } else if ((SystemInstances.systemInstances[instanceName] as? WordpressModel) != nil) {
                 let wordpressmodel = SystemInstances.systemInstances[instanceName] as? WordpressModel
-                if(wordpressmodel!.getVersions(forceUpdate: false)) {
+                if (wordpressmodel!.getVersions(forceUpdate: false)) {
                     if (wordpressmodel!.checkNotificationRequired()) {
                         sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), wordpressmodel!.name)))
                     }
@@ -226,7 +241,7 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                     returnValue = false
                 }
                 wordpressmodel!.updateDate()
-                if(!(wordpressmodel!.saveConfigfile())) {
+                if (!(wordpressmodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
             }
@@ -237,9 +252,9 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     @IBAction func refreshInstance(_ sender: AnyObject) {
         self.spinner.isHidden = false
         self.spinner.startAnimation(self)
-        if(checkInternetConnection()) {
+        if (checkInternetConnection()) {
             let selectedRow = tableView.selectedRow
-            if(selectedRow != -1) {
+            if (selectedRow != -1) {
                 let instanceName = OutdatedInstances.outdatedInstances[selectedRow]
                 self.updateSingleInstance(instanceName: instanceName) { completion in
                     let parameters = ["self": self, "completion" : completion, "selectedRow" : selectedRow] as [String : Any]
@@ -262,17 +277,17 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     }
     
     @IBAction func takeMeToMyInstance(_ sender: AnyObject) {
-        if(self.tableView.selectedRow != -1) {
+        if (self.tableView.selectedRow != -1) {
             let instancename = Array(OutdatedInstances.outdatedInstances)[self.tableView.selectedRow]
             let instance = SystemInstances.systemInstances[instancename]
             var url = ""
-            if((instance as? JoomlaModel) != nil) {
+            if ((instance as? JoomlaModel) != nil) {
                 url = (instance as! JoomlaModel).hosturl + Constants.joomlaBackendURL
-            } else if((instance as? WordpressModel) != nil) {
+            } else if ((instance as? WordpressModel) != nil) {
                 url = (instance as! WordpressModel).hosturl + Constants.wordpressBackendURL
-            } else if((instance as? PiwikModel) != nil) {
+            } else if ((instance as? PiwikModel) != nil) {
                 url = (instance as! PiwikModel).hosturl
-            } else if((instance as? OwncloudModel) != nil) {
+            } else if ((instance as? OwncloudModel) != nil) {
                 url = (instance as! OwncloudModel).hosturl
             }
             NSWorkspace.shared.open(URL(string: url)!)
@@ -311,14 +326,14 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     {
         self.tableView.rowHeight = 30.0
         let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "InstanceName"), owner: self) as! NSTableCellView
-        let name = OutdatedInstances.outdatedInstances[row]
-        if((SystemInstances.systemInstances[name] as? OwncloudModel) != nil) {
+        let name = filteredInstancesArray[row]
+        if ((SystemInstances.systemInstances[name] as? OwncloudModel) != nil) {
             cellView.imageView!.image = NSImage(named: NSImage.Name("owncloud_dots.png"))!
-        } else if((SystemInstances.systemInstances[name] as? PiwikModel) != nil) {
+        } else if ((SystemInstances.systemInstances[name] as? PiwikModel) != nil) {
             cellView.imageView!.image = NSImage(named: NSImage.Name("piwik_dots.png"))!
-        } else if((SystemInstances.systemInstances[name] as? WordpressModel) != nil) {
+        } else if ((SystemInstances.systemInstances[name] as? WordpressModel) != nil) {
             cellView.imageView!.image = NSImage(named: NSImage.Name("wordpress_dots.png"))!
-        } else if((SystemInstances.systemInstances[name] as? JoomlaModel) != nil) {
+        } else if ((SystemInstances.systemInstances[name] as? JoomlaModel) != nil) {
             cellView.imageView!.image = NSImage(named: NSImage.Name("joomla_dots.png"))!
         }
         cellView.textField?.stringValue = name
@@ -331,20 +346,20 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     
     func loadOutdatedInstances() {
         for instance in SystemInstances.systemInstances.keys {
-            if((SystemInstances.systemInstances[instance] as? JoomlaModel) != nil) {
-                if((SystemInstances.systemInstances[instance] as! JoomlaModel).updateAvailable == 1) {
+            if ((SystemInstances.systemInstances[instance] as? JoomlaModel) != nil) {
+                if ((SystemInstances.systemInstances[instance] as! JoomlaModel).updateAvailable == 1) {
                     OutdatedInstances.outdatedInstances.append(instance)
                 }
-            } else if((SystemInstances.systemInstances[instance] as? WordpressModel) != nil) {
-                if((SystemInstances.systemInstances[instance] as! WordpressModel).updateAvailable == 1) {
+            } else if ((SystemInstances.systemInstances[instance] as? WordpressModel) != nil) {
+                if ((SystemInstances.systemInstances[instance] as! WordpressModel).updateAvailable == 1) {
                     OutdatedInstances.outdatedInstances.append(instance)
                 }
-            } else if((SystemInstances.systemInstances[instance] as? PiwikModel) != nil) {
-                if((SystemInstances.systemInstances[instance] as! PiwikModel).updateAvailable == 1) {
+            } else if ((SystemInstances.systemInstances[instance] as? PiwikModel) != nil) {
+                if ((SystemInstances.systemInstances[instance] as! PiwikModel).updateAvailable == 1) {
                     OutdatedInstances.outdatedInstances.append(instance)
                 }
-            } else if((SystemInstances.systemInstances[instance] as? OwncloudModel) != nil) {
-                if((SystemInstances.systemInstances[instance] as! OwncloudModel).updateAvailable == 1) {
+            } else if ((SystemInstances.systemInstances[instance] as? OwncloudModel) != nil) {
+                if ((SystemInstances.systemInstances[instance] as! OwncloudModel).updateAvailable == 1) {
                     OutdatedInstances.outdatedInstances.append(instance)
                 }
             }
@@ -354,6 +369,18 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     func numberOfRows(in aTableView: NSTableView) -> Int {
         OutdatedInstances.outdatedInstances.removeAll()
         self.loadOutdatedInstances()
+        
+        if (!filtertext.isEmpty) {
+            filteredInstancesArray.removeAll()
+            for systemInstance in OutdatedInstances.outdatedInstances {
+                let systemInstanceLower = systemInstance.lowercased()
+                if (systemInstanceLower.range(of: filtertext, options: .regularExpression) != nil) {
+                    filteredInstancesArray.append(systemInstance)
+                }
+            }
+            return filteredInstancesArray.count
+        }
+        filteredInstancesArray = OutdatedInstances.outdatedInstances
         return OutdatedInstances.outdatedInstances.count
     }
 }

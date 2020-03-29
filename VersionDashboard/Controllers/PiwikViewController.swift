@@ -23,10 +23,10 @@ class PiwikController: NSViewController {
     }
     
     @IBAction func saveAction(_ sender: AnyObject) {
-        if(self.checkURLTextfields()) {
+        if (self.checkURLTextfields()) {
             return
         }
-        if(SystemInstancesModel.checkInstanceNameAlreadyPresent(self.instanceName.stringValue)) {
+        if (SystemInstancesModel.checkInstanceNameAlreadyPresent(self.instanceName.stringValue)) {
             return
         }
         let piwikinstance = PiwikModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, apiToken : tokenField.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Piwik", headVersion: "", updateAvailable: 0, phpVersion: "", serverType: "")
@@ -41,12 +41,12 @@ class PiwikController: NSViewController {
     
     func checkURLTextfields() -> Bool {
         var error = false
-        if(!(self.hostUrl.stringValue.hasSuffix("/"))) {
+        if (!(self.hostUrl.stringValue.hasSuffix("/"))) {
             self.errorMessage.stringValue = NSLocalizedString("urlEnding", comment: "")
             self.errorMessage.isHidden = false
             error = true
         }
-        if(!(self.hostUrl.stringValue.hasPrefix("http"))) {
+        if (!(self.hostUrl.stringValue.hasPrefix("http"))) {
             self.errorMessage.stringValue = NSLocalizedString("protocolMissing", comment: "")
             self.errorMessage.isHidden = false
             error = true

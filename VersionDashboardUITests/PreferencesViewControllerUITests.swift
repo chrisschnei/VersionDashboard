@@ -12,9 +12,7 @@ class PreferencesViewControllerUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
-        
         continueAfterFailure = false
-        
         XCUIApplication().launch()
     }
     
@@ -23,7 +21,6 @@ class PreferencesViewControllerUITests: XCTestCase {
     }
     
     func testViewDidLoad() {
-        
         let app = XCUIApplication()
         let menuBarsQuery = app.menuBars
         let versiondashboardMenuBarItem = menuBarsQuery.menuBarItems["VersionDashboard"]

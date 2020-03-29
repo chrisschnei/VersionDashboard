@@ -21,7 +21,10 @@ class OutdatedViewControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
+        XCTAssert(HeadInstancesModel.loadConfigfiles())
+        
         self.createInstances()
+        XCTAssert(SystemInstancesModel.loadConfigfiles())
         
         let storyboard = NSStoryboard(name: "Main", bundle: Bundle.main)
         vc = (storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("OutdatedViewController")) as? OutdatedViewController)!
@@ -38,7 +41,7 @@ class OutdatedViewControllerTests: XCTestCase {
         testobjectWordpress = WordpressModel(creationDate: "06-04-2016", currentVersion: "5.2.4", hosturl: "https://s1.demo.opensourcecms.com/wordpress/", headVersion: "5.2.4", lastRefresh: "26.10.2019, 22:38", name: "Wordpresstestinstance", type: "Wordpress", updateAvailable: 0, phpVersion: "7.2.23", serverType: "Apache/2.2.15 (CentOS)")
         XCTAssert(testobjectWordpress.saveConfigfile())
         
-        testobjectOwncloud = OwncloudModel(creationDate: "06-04-2016", currentVersion: "10.3.0", hosturl: "https://demo.owncloud.com/", headVersion: "10.3", lastRefresh: "26.10.2019, 22:38", name: "Owncloudtestinstance", type: "Owncloud", updateAvailable: 0, phpVersion: "7.2.23", serverType: "Apache/2.2.15 (CentOS)")
+        testobjectOwncloud = OwncloudModel(creationDate: "06-04-2016", currentVersion: "10.2.0", hosturl: "https://demo.owncloud.com/", headVersion: "10.3.0", lastRefresh: "26.10.2019, 22:38", name: "Owncloudtestinstance", type: "Owncloud", updateAvailable: 1, phpVersion: "7.2.23", serverType: "Apache/2.2.15 (CentOS)")
         XCTAssert(testobjectOwncloud.saveConfigfile())
     }
 
@@ -52,12 +55,24 @@ class OutdatedViewControllerTests: XCTestCase {
     }
 
     func testLoadOutdatedInstances() {
-        vc.loadOutdatedInstances()
+        XCTAssertEqual(OutdatedInstances.outdatedInstances.count, 1)
+    }
+    
+    func testFilterInstances() {
+        vc.filtertext = self.testobjectOwncloud.name.lowercased()
+        vc.reloadTable()
         
-        /* Filter real database entries. Only process unit testing instances. */
-        let outdatedInstances = OutdatedInstances.outdatedInstances.filter() { $0 == "testinstance"}
-
-        XCTAssertEqual(outdatedInstances.count, 0)
+        if (vc.filteredInstancesArray.isEmpty) {
+            XCTAssert(false)
+        }
+        print(vc.filteredInstancesArray)
+        for var instancename in vc.filteredInstancesArray {
+            instancename = instancename.lowercased()
+            if (!instancename.contains(vc.filtertext)) {
+                XCTAssert(false)
+            }
+        }
+        XCTAssert(true)
     }
 
 }

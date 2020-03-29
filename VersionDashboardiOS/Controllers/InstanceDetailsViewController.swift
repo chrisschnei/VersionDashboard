@@ -102,11 +102,11 @@ class InstanceDetailsViewController: GenericViewController {
     }
     
     @IBAction func saveInstance(_ sender: Any) {
-        if(self.checkURLTextfields()) {
+        if (self.checkURLTextfields()) {
             return
         }
         
-        if(SystemInstancesModel.checkInstanceNameAlreadyPresent(self.title!)) {
+        if (SystemInstancesModel.checkInstanceNameAlreadyPresent(self.title!)) {
             self.noInternetConnection.isHidden = false
             self.noInternetConnection.text = NSLocalizedString("instanceDuplicate", comment: "")
             return
@@ -141,12 +141,12 @@ class InstanceDetailsViewController: GenericViewController {
     
     func checkURLTextfields() -> Bool {
         var error = false
-        if(!((self.hostUrlTextfield.text?.hasSuffix("/"))!)) {
+        if (!((self.hostUrlTextfield.text?.hasSuffix("/"))!)) {
             self.noInternetConnection.text = NSLocalizedString("urlEnding", comment: "")
             self.noInternetConnection.isHidden = false
             error = true
         }
-        if(!((self.hostUrlTextfield.text?.hasPrefix("http"))!)) {
+        if (!((self.hostUrlTextfield.text?.hasPrefix("http"))!)) {
             self.noInternetConnection.text = NSLocalizedString("protocolMissing", comment: "")
             self.noInternetConnection.isHidden = false
             error = true
@@ -157,7 +157,7 @@ class InstanceDetailsViewController: GenericViewController {
     @IBAction func refreshInstance(_ sender: Any) {
         self.activitySpinner.isHidden = false
         self.activitySpinner.startAnimating()
-        if(InternetConnectivity.checkInternetConnection()) {
+        if (InternetConnectivity.checkInternetConnection()) {
             self.updateSingleInstance(instanceName: systemInstancesName) { completion in
                 let parameters = ["self": self, "completion" : completion] as [String : Any]
                 self.performSelector(onMainThread: #selector(self.checksFinished), with: parameters, waitUntilDone: true)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA1A21D52430AA4400E7A25C /* GenericTestInstanceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A21D42430AA4300E7A25C /* GenericTestInstanceProtocol.swift */; };
 		AA20D276235C83CE0027B268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35C22E35563008B393E /* Main.storyboard */; };
 		AA20D277235C84F10027B268 /* Detailed view.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36622E35563008B393E /* Detailed view.png */; };
 		AA20D27F2361071E0027B268 /* GenericHeadModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20D27E2361071E0027B268 /* GenericHeadModelTests.swift */; };
@@ -257,7 +258,6 @@
 		AABD444223689649009A98C1 /* JoomlaInstanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD443B23689648009A98C1 /* JoomlaInstanceUITests.swift */; };
 		AABD444323689649009A98C1 /* PreferencesViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD443C23689648009A98C1 /* PreferencesViewControllerUITests.swift */; };
 		AABD444423689649009A98C1 /* WordpressInstanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD443D23689648009A98C1 /* WordpressInstanceUITests.swift */; };
-		AABD444523689649009A98C1 /* DetailedViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD443E23689648009A98C1 /* DetailedViewControllerUITests.swift */; };
 		AABD444623689649009A98C1 /* OwncloudInstanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD443F23689648009A98C1 /* OwncloudInstanceUITests.swift */; };
 		AABD4448236897CA009A98C1 /* SettingsViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD4447236897C9009A98C1 /* SettingsViewControllerUITests.swift */; };
 		AABD44492369A8EE009A98C1 /* libVersionDashboardSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */; };
@@ -307,13 +307,6 @@
 			remoteGlobalIDString = AA62EE4D2251391000757106;
 			remoteInfo = VersionDashboardSDK;
 		};
-		AA6AD7C91C6B4BD90097CD9A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AA6AD7A41C6B4BD90097CD9A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AA6AD7AB1C6B4BD90097CD9A;
-			remoteInfo = VersionDashboard;
-		};
 		AA71A742226A3E8C00BEB4C3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AAB9131C2234371E006D1EE7 /* Charts.xcodeproj */;
@@ -334,6 +327,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = AA62F7402258ADE300757106;
 			remoteInfo = VersionDashboardSDKARM;
+		};
+		AAB751AC24293E4000095547 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA6AD7A41C6B4BD90097CD9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA6AD7AB1C6B4BD90097CD9A;
+			remoteInfo = VersionDashboard;
 		};
 		AAB913212234371E006D1EE7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -409,6 +409,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AA1A21D42430AA4300E7A25C /* GenericTestInstanceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTestInstanceProtocol.swift; sourceTree = "<group>"; };
 		AA20D273235C7DD40027B268 /* generateLogos.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = generateLogos.sh; sourceTree = "<group>"; };
 		AA20D27C2361071E0027B268 /* VersionDashboardSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA20D27E2361071E0027B268 /* GenericHeadModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericHeadModelTests.swift; sourceTree = "<group>"; };
@@ -598,7 +599,6 @@
 		AABD443B23689648009A98C1 /* JoomlaInstanceUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoomlaInstanceUITests.swift; sourceTree = "<group>"; };
 		AABD443C23689648009A98C1 /* PreferencesViewControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewControllerUITests.swift; sourceTree = "<group>"; };
 		AABD443D23689648009A98C1 /* WordpressInstanceUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordpressInstanceUITests.swift; sourceTree = "<group>"; };
-		AABD443E23689648009A98C1 /* DetailedViewControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewControllerUITests.swift; sourceTree = "<group>"; };
 		AABD443F23689648009A98C1 /* OwncloudInstanceUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwncloudInstanceUITests.swift; sourceTree = "<group>"; };
 		AABD4447236897C9009A98C1 /* SettingsViewControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerUITests.swift; sourceTree = "<group>"; };
 		AAE8B64E1F87F2C5004E4AF3 /* VersionDashboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -841,13 +841,13 @@
 		AA36C3B722E3557B008B393E /* VersionDashboardUITests */ = {
 			isa = PBXGroup;
 			children = (
+				AA1A21D42430AA4300E7A25C /* GenericTestInstanceProtocol.swift */,
 				AABD4447236897C9009A98C1 /* SettingsViewControllerUITests.swift */,
 				AABD443D23689648009A98C1 /* WordpressInstanceUITests.swift */,
 				AABD443B23689648009A98C1 /* JoomlaInstanceUITests.swift */,
 				AABD443923689647009A98C1 /* PiwikInstanceUITests.swift */,
 				AABD443F23689648009A98C1 /* OwncloudInstanceUITests.swift */,
 				AABD443C23689648009A98C1 /* PreferencesViewControllerUITests.swift */,
-				AABD443E23689648009A98C1 /* DetailedViewControllerUITests.swift */,
 				AABD443A23689648009A98C1 /* OutdatedViewControllerUITests.swift */,
 				AA36C3B822E3557B008B393E /* SummaryViewControllerUITests.swift */,
 				AA36C3B922E3557B008B393E /* Info.plist */,
@@ -1289,7 +1289,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				AA6AD7CA1C6B4BD90097CD9A /* PBXTargetDependency */,
+				AAB751AD24293E4000095547 /* PBXTargetDependency */,
 			);
 			name = VersionDashboardUITests;
 			productName = VersionDashboardUITests;
@@ -1374,6 +1374,7 @@
 					};
 					AA6AD7C71C6B4BD90097CD9A = {
 						CreatedOnToolsVersion = 7.2.1;
+						ProvisioningStyle = Manual;
 						TestTargetID = AA6AD7AB1C6B4BD90097CD9A;
 					};
 					AAE8B64D1F87F2C5004E4AF3 = {
@@ -1785,9 +1786,9 @@
 			files = (
 				AABD444623689649009A98C1 /* OwncloudInstanceUITests.swift in Sources */,
 				AA36C3BA22E3557B008B393E /* SummaryViewControllerUITests.swift in Sources */,
+				AA1A21D52430AA4400E7A25C /* GenericTestInstanceProtocol.swift in Sources */,
 				AABD444423689649009A98C1 /* WordpressInstanceUITests.swift in Sources */,
 				AABD444023689649009A98C1 /* PiwikInstanceUITests.swift in Sources */,
-				AABD444523689649009A98C1 /* DetailedViewControllerUITests.swift in Sources */,
 				AABD444223689649009A98C1 /* JoomlaInstanceUITests.swift in Sources */,
 				AABD444323689649009A98C1 /* PreferencesViewControllerUITests.swift in Sources */,
 				AABD444123689649009A98C1 /* OutdatedViewControllerUITests.swift in Sources */,
@@ -1839,11 +1840,6 @@
 			target = AA62EE4D2251391000757106 /* VersionDashboardSDK */;
 			targetProxy = AA62F7892258B33C00757106 /* PBXContainerItemProxy */;
 		};
-		AA6AD7CA1C6B4BD90097CD9A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AA6AD7AB1C6B4BD90097CD9A /* VersionDashboard */;
-			targetProxy = AA6AD7C91C6B4BD90097CD9A /* PBXContainerItemProxy */;
-		};
 		AA71A743226A3E8C00BEB4C3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Charts;
@@ -1858,6 +1854,11 @@
 			isa = PBXTargetDependency;
 			target = AA62F7402258ADE300757106 /* VersionDashboardSDKARM */;
 			targetProxy = AA93435F22594D83005D8C1C /* PBXContainerItemProxy */;
+		};
+		AAB751AD24293E4000095547 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA6AD7AB1C6B4BD90097CD9A /* VersionDashboard */;
+			targetProxy = AAB751AC24293E4000095547 /* PBXContainerItemProxy */;
 		};
 		AAB9132622343734006D1EE7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2567,12 +2568,17 @@
 		AA6AD7D81C6B4BD90097CD9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = VersionDashboardUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nonamecompany.Version-DashboardUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.versiondashboard.VersionDashboardApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = VersionDashboard;
 				USES_XCTRUNNER = YES;
@@ -2582,12 +2588,17 @@
 		AA6AD7D91C6B4BD90097CD9A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = VersionDashboardUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nonamecompany.Version-DashboardUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.versiondashboard.VersionDashboardApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = VersionDashboard;
 				USES_XCTRUNNER = YES;
@@ -2612,7 +2623,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = VersionDashboardTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nonamecompany.Version-DashboardTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.versiondashboard.VersionDashboardApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -2640,7 +2651,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = VersionDashboardTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nonamecompany.Version-DashboardTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.versiondashboard.VersionDashboardApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;

@@ -104,10 +104,10 @@
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" fullScreenAuxiliary="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES"/>
-                        <rect key="contentRect" x="77" y="575" width="708" height="380"/>
+                        <rect key="contentRect" x="77" y="575" width="708" height="393"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="708" height="380"/>
-                        <value key="maxSize" type="size" width="708" height="380"/>
+                        <value key="minSize" type="size" width="708" height="393"/>
+                        <value key="maxSize" type="size" width="708" height="393"/>
                         <toolbar key="toolbar" implicitIdentifier="A6443199-AC4D-4202-9444-A3EDAE6F940F" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="H4y-30-MH0">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="7D9AF1CE-1242-4C09-810A-37D5A199BD6E" label="Details" paletteLabel="Details" toolTip="Show detailed informations" tag="-1" image="Detailed view" id="E4i-Mv-nM7" userLabel="DetailedViewButton">
@@ -383,14 +383,14 @@ Gw
                                     <segue destination="kEa-r5-7tV" kind="sheet" id="ivn-da-Jl1"/>
                                 </connections>
                             </button>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="22" horizontalPageScroll="10" verticalLineScroll="22" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqa-Dc-dq7">
-                                <rect key="frame" x="0.0" y="20" width="291" height="373"/>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqa-Dc-dq7">
+                                <rect key="frame" x="0.0" y="20" width="291" height="353"/>
                                 <clipView key="contentView" copiesOnScroll="NO" id="77F-aO-gW4">
-                                    <rect key="frame" x="1" y="0.0" width="289" height="372"/>
+                                    <rect key="frame" x="1" y="0.0" width="289" height="352"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="20" rowSizeStyle="automatic" headerView="U77-6m-pGq" viewBased="YES" id="SUz-Zq-Pay">
-                                            <rect key="frame" x="0.0" y="0.0" width="289" height="349"/>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="22" rowSizeStyle="automatic" headerView="U77-6m-pGq" viewBased="YES" id="SUz-Zq-Pay">
+                                            <rect key="frame" x="0.0" y="0.0" width="289" height="329"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -686,6 +686,15 @@ DQ
                                 <rect key="frame" x="551" y="25" width="16" height="16"/>
                                 <accessibility description="RefreshSpinner"/>
                             </progressIndicator>
+                            <searchField wantsLayer="YES" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haR-zI-lbr">
+                                <rect key="frame" x="0.0" y="371" width="291" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="Jye-8s-xe3">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </searchFieldCell>
+                            </searchField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="z2P-gB-6tA" firstAttribute="baseline" secondItem="BzC-Al-VNp" secondAttribute="baseline" id="456-FS-cYQ"/>
@@ -722,7 +731,7 @@ DQ
                             <constraint firstItem="Gyu-X2-ggO" firstAttribute="leading" secondItem="Nve-po-yOl" secondAttribute="leading" id="QPP-yf-6cz"/>
                             <constraint firstItem="L7V-eM-Il0" firstAttribute="leading" secondItem="zfS-iu-Zxa" secondAttribute="leading" id="ROw-EU-95g"/>
                             <constraint firstItem="4GS-Yf-Kuw" firstAttribute="trailing" secondItem="j8W-qX-9iN" secondAttribute="trailing" id="Rpr-uZ-GZQ"/>
-                            <constraint firstItem="dqa-Dc-dq7" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="ScP-eV-Wul"/>
+                            <constraint firstItem="dqa-Dc-dq7" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="ScP-eV-Wul"/>
                             <constraint firstItem="dqa-Dc-dq7" firstAttribute="leading" secondItem="15P-VU-gSC" secondAttribute="leading" id="TdT-IS-kfG"/>
                             <constraint firstItem="Gyu-X2-ggO" firstAttribute="trailing" secondItem="Nve-po-yOl" secondAttribute="trailing" id="UJ5-1g-BOb"/>
                             <constraint firstItem="D4G-6k-UnL" firstAttribute="trailing" secondItem="jIC-AQ-uPD" secondAttribute="trailing" id="YlE-Nj-k5M"/>
@@ -782,6 +791,7 @@ DQ
                         <outlet property="phpVersionLabel" destination="4GS-Yf-Kuw" id="YPI-DY-DtY"/>
                         <outlet property="refreshButton" destination="qLB-qe-dzI" id="Ocx-OZ-b5q"/>
                         <outlet property="removeButton" destination="h8f-9x-UZL" id="tZi-Bh-1nS"/>
+                        <outlet property="searchfield" destination="haR-zI-lbr" id="5VW-qB-kFc"/>
                         <outlet property="statusLabel" destination="Gyu-X2-ggO" id="eTS-lq-pIG"/>
                         <outlet property="systemLabel" destination="BzC-Al-VNp" id="Cng-bq-QAf"/>
                         <outlet property="systemTableView" destination="SUz-Zq-Pay" id="Kb3-jX-TWa"/>
@@ -802,14 +812,14 @@ DQ
                         <rect key="frame" x="0.0" y="0.0" width="708" height="393"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="22" horizontalPageScroll="10" verticalLineScroll="22" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2o-8F-LBc">
-                                <rect key="frame" x="0.0" y="0.0" width="291" height="393"/>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2o-8F-LBc">
+                                <rect key="frame" x="0.0" y="0.0" width="291" height="373"/>
                                 <clipView key="contentView" id="267-bQ-OMm">
-                                    <rect key="frame" x="1" y="0.0" width="289" height="392"/>
+                                    <rect key="frame" x="1" y="0.0" width="289" height="372"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="20" rowSizeStyle="automatic" headerView="zHA-Br-Yjo" viewBased="YES" id="eQr-WQ-fPp">
-                                            <rect key="frame" x="0.0" y="0.0" width="289" height="369"/>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="22" rowSizeStyle="automatic" headerView="zHA-Br-Yjo" viewBased="YES" id="eQr-WQ-fPp">
+                                            <rect key="frame" x="0.0" y="0.0" width="289" height="349"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1089,6 +1099,17 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Lw-L6-cjn">
+                                <rect key="frame" x="0.0" y="371" width="291" height="22"/>
+                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="ZkS-uW-KYZ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </searchFieldCell>
+                                <connections>
+                                    <action selector="filterInstances:" target="SKc-0J-o2d" id="bGi-h3-0Ad"/>
+                                </connections>
+                            </searchField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="bGM-5e-vSi" firstAttribute="trailing" secondItem="Laj-Up-UDR" secondAttribute="trailing" id="0J7-Wl-bSO"/>
@@ -1103,11 +1124,12 @@ DQ
                             <constraint firstItem="Z3g-lS-q2e" firstAttribute="trailing" secondItem="0Sr-AL-9vs" secondAttribute="trailing" id="6Sc-D0-N0i"/>
                             <constraint firstItem="M3r-61-07x" firstAttribute="trailing" secondItem="AmR-J1-2Dl" secondAttribute="trailing" id="8PA-Ay-ToR"/>
                             <constraint firstItem="Z3g-lS-q2e" firstAttribute="baseline" secondItem="8AN-Ki-O7s" secondAttribute="baseline" id="9Yo-Jg-4UZ"/>
+                            <constraint firstItem="2Lw-L6-cjn" firstAttribute="top" secondItem="l61-2m-qjy" secondAttribute="top" id="9lq-z5-UA0"/>
                             <constraint firstItem="1wi-nK-egg" firstAttribute="bottom" secondItem="kXR-7z-rxN" secondAttribute="bottom" id="9s3-KW-W20"/>
                             <constraint firstItem="bit-zb-leL" firstAttribute="trailing" secondItem="MaW-lU-m0K" secondAttribute="trailing" id="ABu-AZ-TvG"/>
                             <constraint firstItem="6jw-Vf-rio" firstAttribute="baseline" secondItem="tnD-Bi-tom" secondAttribute="baseline" id="AID-ha-8zo"/>
                             <constraint firstItem="JGg-nh-blm" firstAttribute="top" secondItem="Die-1o-nyB" secondAttribute="bottom" constant="11" id="AXM-WT-bMp"/>
-                            <constraint firstItem="K2o-8F-LBc" firstAttribute="top" secondItem="l61-2m-qjy" secondAttribute="top" id="AYw-1a-hIz"/>
+                            <constraint firstItem="K2o-8F-LBc" firstAttribute="top" secondItem="l61-2m-qjy" secondAttribute="top" constant="20" id="AYw-1a-hIz"/>
                             <constraint firstItem="GsD-U4-tzV" firstAttribute="leading" secondItem="ZpB-gO-GwI" secondAttribute="leading" id="Cy1-h3-cfW"/>
                             <constraint firstItem="eHz-vo-CVz" firstAttribute="top" secondItem="KmH-SR-oju" secondAttribute="bottom" constant="8" id="DsH-9J-6Rc"/>
                             <constraint firstItem="Die-1o-nyB" firstAttribute="trailing" secondItem="JGg-nh-blm" secondAttribute="trailing" id="IWl-SQ-I1P"/>
@@ -1131,6 +1153,7 @@ DQ
                             <constraint firstItem="KmH-SR-oju" firstAttribute="leading" secondItem="hmy-GR-TB7" secondAttribute="trailing" constant="68" id="bH7-ns-Ylf"/>
                             <constraint firstItem="AmR-J1-2Dl" firstAttribute="leading" secondItem="8AN-Ki-O7s" secondAttribute="leading" id="c18-c8-o1l"/>
                             <constraint firstItem="AmR-J1-2Dl" firstAttribute="trailing" secondItem="8AN-Ki-O7s" secondAttribute="trailing" id="cCY-jy-OQy"/>
+                            <constraint firstItem="2Lw-L6-cjn" firstAttribute="leading" secondItem="K2o-8F-LBc" secondAttribute="leading" id="cOR-0k-0xZ"/>
                             <constraint firstItem="bit-zb-leL" firstAttribute="top" secondItem="hIz-IQ-rem" secondAttribute="bottom" constant="3" id="d0h-sa-5eA"/>
                             <constraint firstItem="0Sr-AL-9vs" firstAttribute="baseline" secondItem="j1M-BE-ptA" secondAttribute="baseline" id="efK-1F-qCN"/>
                             <constraint firstItem="JGg-nh-blm" firstAttribute="baseline" secondItem="AmR-J1-2Dl" secondAttribute="baseline" id="fAK-Nd-WZ5"/>
@@ -1148,6 +1171,7 @@ DQ
                             <constraint firstItem="hmy-GR-TB7" firstAttribute="leading" secondItem="1wi-nK-egg" secondAttribute="leading" id="p5W-tl-d1v"/>
                             <constraint firstItem="0Sr-AL-9vs" firstAttribute="leading" secondItem="GsD-U4-tzV" secondAttribute="leading" id="pfj-6D-wQk"/>
                             <constraint firstItem="Laj-Up-UDR" firstAttribute="leading" secondItem="6jw-Vf-rio" secondAttribute="leading" id="pli-6e-Iih"/>
+                            <constraint firstItem="2Lw-L6-cjn" firstAttribute="trailing" secondItem="K2o-8F-LBc" secondAttribute="trailing" id="qf0-tA-JlO"/>
                             <constraint firstItem="ZpB-gO-GwI" firstAttribute="leading" secondItem="bGM-5e-vSi" secondAttribute="leading" id="qhT-RW-xsZ"/>
                             <constraint firstItem="bit-zb-leL" firstAttribute="leading" secondItem="MaW-lU-m0K" secondAttribute="leading" id="vIK-bT-0dV"/>
                             <constraint firstItem="hmy-GR-TB7" firstAttribute="top" secondItem="6jw-Vf-rio" secondAttribute="bottom" constant="30" id="vOT-9W-Xng"/>
@@ -1175,6 +1199,7 @@ DQ
                         <outlet property="phpVersion" destination="bit-zb-leL" id="G8Z-hL-PdW"/>
                         <outlet property="phpVersionLabel" destination="bGM-5e-vSi" id="Vwe-e1-CNq"/>
                         <outlet property="refreshButton" destination="eHz-vo-CVz" id="gfE-r1-QqL"/>
+                        <outlet property="searchfield" destination="ZkS-uW-KYZ" id="1dK-02-Gqp"/>
                         <outlet property="spinner" destination="kXR-7z-rxN" id="guH-nk-osR"/>
                         <outlet property="status" destination="8AN-Ki-O7s" id="edM-hI-P2L"/>
                         <outlet property="statusLabel" destination="Z3g-lS-q2e" id="lWL-q9-OD3"/>
