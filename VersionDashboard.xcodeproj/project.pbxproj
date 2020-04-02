@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA1A21D52430AA4400E7A25C /* GenericTestInstanceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A21D42430AA4300E7A25C /* GenericTestInstanceProtocol.swift */; };
+		AA1A21D924326C9000E7A25C /* TouchBarIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A21D824326C9000E7A25C /* TouchBarIdentifiers.swift */; };
 		AA20D276235C83CE0027B268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35C22E35563008B393E /* Main.storyboard */; };
 		AA20D277235C84F10027B268 /* Detailed view.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36622E35563008B393E /* Detailed view.png */; };
 		AA20D27F2361071E0027B268 /* GenericHeadModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20D27E2361071E0027B268 /* GenericHeadModelTests.swift */; };
@@ -410,6 +411,7 @@
 
 /* Begin PBXFileReference section */
 		AA1A21D42430AA4300E7A25C /* GenericTestInstanceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTestInstanceProtocol.swift; sourceTree = "<group>"; };
+		AA1A21D824326C9000E7A25C /* TouchBarIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarIdentifiers.swift; sourceTree = "<group>"; };
 		AA20D273235C7DD40027B268 /* generateLogos.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = generateLogos.sh; sourceTree = "<group>"; };
 		AA20D27C2361071E0027B268 /* VersionDashboardSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA20D27E2361071E0027B268 /* GenericHeadModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericHeadModelTests.swift; sourceTree = "<group>"; };
@@ -812,6 +814,7 @@
 				AA36C38322E35563008B393E /* PiwikViewController.swift */,
 				AA36C38422E35563008B393E /* JoomlaViewController.swift */,
 				AA36C38522E35563008B393E /* SettingsViewController.swift */,
+				AA1A21D824326C9000E7A25C /* TouchBarIdentifiers.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1764,6 +1767,7 @@
 				AA36C3AC22E35563008B393E /* WordpressViewController.swift in Sources */,
 				AA36C3A822E35563008B393E /* AddSystemViewController.swift in Sources */,
 				AA36C3AB22E35563008B393E /* PreferencesWindowController.swift in Sources */,
+				AA1A21D924326C9000E7A25C /* TouchBarIdentifiers.swift in Sources */,
 				AA36C3A722E35563008B393E /* SummaryViewController.swift in Sources */,
 				AA36C3B322E35563008B393E /* badgeFunctions.swift in Sources */,
 				AA36C3B022E35563008B393E /* JoomlaViewController.swift in Sources */,

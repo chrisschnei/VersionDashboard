@@ -9,7 +9,7 @@
 import Cocoa
 import VersionDashboardSDK
 
-class PiwikController: NSViewController {
+class PiwikViewController: NSViewController {
 
     @IBOutlet weak var hostUrl: NSTextField!
     @IBOutlet weak var tokenField: NSTextField!

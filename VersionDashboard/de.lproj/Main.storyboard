@@ -25,7 +25,7 @@
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
                                         <menuItem title="Einstellungen..." keyEquivalent="," id="BOF-NM-1cW">
                                             <connections>
-                                                <segue destination="lKe-qP-1I3" kind="modal" id="JL1-qp-yfJ"/>
+                                                <segue destination="lKe-qP-1I3" kind="modal" identifier="PreferencesSegue" id="JL1-qp-yfJ"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="rg7-rZ-LN4"/>
@@ -369,7 +369,7 @@ Gw
                                 </buttonCell>
                                 <accessibility description="RemoveInstanceButton" identifier="RemoveInstanceButton"/>
                                 <connections>
-                                    <action selector="removeInstance:" target="XfG-lQ-9wD" id="LVI-Wk-Hmr"/>
+                                    <action selector="takeMeToMyInstanceAction:" target="XfG-lQ-9wD" id="LVI-Wk-Hmr"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="15P-VU-gSC">
@@ -383,13 +383,13 @@ Gw
                                     <segue destination="kEa-r5-7tV" kind="sheet" id="ivn-da-Jl1"/>
                                 </connections>
                             </button>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqa-Dc-dq7">
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="22" horizontalPageScroll="10" verticalLineScroll="22" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqa-Dc-dq7">
                                 <rect key="frame" x="0.0" y="20" width="291" height="353"/>
                                 <clipView key="contentView" copiesOnScroll="NO" id="77F-aO-gW4">
                                     <rect key="frame" x="1" y="0.0" width="289" height="352"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="22" rowSizeStyle="automatic" headerView="U77-6m-pGq" viewBased="YES" id="SUz-Zq-Pay">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="20" rowSizeStyle="automatic" headerView="U77-6m-pGq" viewBased="YES" id="SUz-Zq-Pay">
                                             <rect key="frame" x="0.0" y="0.0" width="289" height="329"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -614,7 +614,7 @@ Gw
                                 </buttonCell>
                                 <accessibility description="TakeMeToMyInstanceButton"/>
                                 <connections>
-                                    <action selector="takeMeToMyInstance:" target="XfG-lQ-9wD" id="1ch-G0-C5F"/>
+                                    <action selector="takeMeToMyInstanceAction:" target="XfG-lQ-9wD" id="1ch-G0-C5F"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qLB-qe-dzI">
@@ -625,7 +625,7 @@ Gw
                                 </buttonCell>
                                 <accessibility description="RefreshButton"/>
                                 <connections>
-                                    <action selector="refreshInstance:" target="XfG-lQ-9wD" id="0sP-4y-QrL"/>
+                                    <action selector="refreshInstance:" target="XfG-lQ-9wD" id="pAo-0i-M9S"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gl2-Dz-Xy8">
@@ -642,7 +642,7 @@ DQ
                                 </buttonCell>
                                 <accessibility description="EditInstanceButton" identifier="EditInstanceButton"/>
                                 <connections>
-                                    <segue destination="i1Z-jw-4V4" kind="sheet" id="dEh-a7-J9q"/>
+                                    <action selector="loadSettingsViewController:" target="XfG-lQ-9wD" id="6Tu-yl-map"/>
                                 </connections>
                             </button>
                             <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" preferredMaxLayoutWidth="212" translatesAutoresizingMaskIntoConstraints="NO" id="9KI-Iw-ZmR">
@@ -679,7 +679,7 @@ DQ
                                 </buttonCell>
                                 <accessibility description="CopyDownloadURL"/>
                                 <connections>
-                                    <action selector="copyDownloadUrlToClipboard:" target="XfG-lQ-9wD" id="AQo-QJ-IBw"/>
+                                    <action selector="takeMeToMyInstanceAction:" target="XfG-lQ-9wD" id="AQo-QJ-IBw"/>
                                 </connections>
                             </button>
                             <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="6qx-Y3-mPn">
@@ -689,11 +689,14 @@ DQ
                             <searchField wantsLayer="YES" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haR-zI-lbr">
                                 <rect key="frame" x="0.0" y="371" width="291" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="Jye-8s-xe3">
+                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="Jye-8s-xe3">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </searchFieldCell>
+                                <connections>
+                                    <action selector="filterInstances:" target="XfG-lQ-9wD" id="oId-wA-5bO"/>
+                                </connections>
                             </searchField>
                         </subviews>
                         <constraints>
@@ -812,13 +815,13 @@ DQ
                         <rect key="frame" x="0.0" y="0.0" width="708" height="393"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2o-8F-LBc">
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="22" horizontalPageScroll="10" verticalLineScroll="22" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2o-8F-LBc">
                                 <rect key="frame" x="0.0" y="0.0" width="291" height="373"/>
                                 <clipView key="contentView" id="267-bQ-OMm">
                                     <rect key="frame" x="1" y="0.0" width="289" height="372"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="22" rowSizeStyle="automatic" headerView="zHA-Br-Yjo" viewBased="YES" id="eQr-WQ-fPp">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="20" rowSizeStyle="automatic" headerView="zHA-Br-Yjo" viewBased="YES" id="eQr-WQ-fPp">
                                             <rect key="frame" x="0.0" y="0.0" width="289" height="349"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -906,7 +909,7 @@ DQ
                                 </buttonCell>
                                 <accessibility description="RefreshButton" identifier="RefreshButton"/>
                                 <connections>
-                                    <action selector="refreshInstance:" target="SKc-0J-o2d" id="ovp-k8-wB9"/>
+                                    <action selector="refreshInstance:" target="SKc-0J-o2d" id="TFO-WF-Hsg"/>
                                 </connections>
                             </button>
                             <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="kXR-7z-rxN">
@@ -1060,7 +1063,7 @@ DQ
                                 </buttonCell>
                                 <accessibility description="TakeMeToMyInstanceButton"/>
                                 <connections>
-                                    <action selector="takeMeToMyInstance:" target="SKc-0J-o2d" id="HwA-QQ-8XC"/>
+                                    <action selector="takeMeToMyInstanceAction:" target="SKc-0J-o2d" id="HwA-QQ-8XC"/>
                                 </connections>
                             </button>
                             <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" preferredMaxLayoutWidth="212" translatesAutoresizingMaskIntoConstraints="NO" id="1wi-nK-egg">
@@ -1088,7 +1091,7 @@ DQ
                                 </buttonCell>
                                 <accessibility description="CopyDownloadURL"/>
                                 <connections>
-                                    <action selector="copyDownloadUrlToClipboard:" target="SKc-0J-o2d" id="rPA-y0-mJK"/>
+                                    <action selector="takeMeToMyInstanceAction:" target="SKc-0J-o2d" id="rPA-y0-mJK"/>
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" preferredMaxLayoutWidth="207" translatesAutoresizingMaskIntoConstraints="NO" id="tnD-Bi-tom">
@@ -1101,13 +1104,13 @@ DQ
                             </textField>
                             <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Lw-L6-cjn">
                                 <rect key="frame" x="0.0" y="371" width="291" height="22"/>
-                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="ZkS-uW-KYZ">
+                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="ZkS-uW-KYZ">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </searchFieldCell>
                                 <connections>
-                                    <action selector="filterInstances:" target="SKc-0J-o2d" id="bGi-h3-0Ad"/>
+                                    <action selector="takeMeToMyInstanceAction:" target="SKc-0J-o2d" id="bGi-h3-0Ad"/>
                                 </connections>
                             </searchField>
                         </subviews>
@@ -1330,7 +1333,7 @@ Gw
         <!--PiwikInstance-->
         <scene sceneID="Qae-bO-nXs">
             <objects>
-                <viewController title="PiwikInstance" storyboardIdentifier="PiwikController" id="Fcf-yV-hnA" customClass="PiwikController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="PiwikInstance" storyboardIdentifier="PiwikController" id="Fcf-yV-hnA" customClass="PiwikViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="tHp-HE-tk7">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="258"/>
                         <autoresizingMask key="autoresizingMask"/>

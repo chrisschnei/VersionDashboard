@@ -11,6 +11,9 @@ import Cocoa
 import Charts
 import VersionDashboardSDK
 
+/**
+ SummaryViewController class representing main view controller.
+ */
 class SummaryViewController: NSViewController {
 
     @IBOutlet weak var checkAllInstancesButton: NSButton!
@@ -18,6 +21,12 @@ class SummaryViewController: NSViewController {
     @IBOutlet weak var refreshActiveSpinner: NSProgressIndicator!
     @IBOutlet weak var pieChartInstanceSummary: PieChartView!
     @IBOutlet weak var pieChartInstanceOutdated: PieChartView!
+    var touchbarPreferencesItem: NSCustomTouchBarItem!
+    var touchbarRefreshItem: NSCustomTouchBarItem!
+    var touchbarSummaryInstancesItem: NSCustomTouchBarItem!
+    var summaryViewControllerItem: NSCustomTouchBarItem!
+    var detailedViewControllerItem: NSCustomTouchBarItem!
+    var outdatedViewControllerItem: NSCustomTouchBarItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +53,9 @@ class SummaryViewController: NSViewController {
         setOutdatedBadgeNumber()
     }
     
+    /**
+     Draws a pie chart containing all instances.
+     */
     func drawPieChartInstances() {
         var chartdata = Array<PieChartDataEntry>()
         for (instancename, amount) in SystemInstancesModel.checkAllInstancesTypes() {
@@ -58,6 +70,9 @@ class SummaryViewController: NSViewController {
         self.pieChartInstanceSummary.chartDescription?.text = ""
     }
     
+    /**
+     Draws a pie chart containing outdated instances information.
+     */
     func drawPieChartOutdated() {
         var chartdata = Array<PieChartDataEntry>()
         chartdata.append(PieChartDataEntry(value: Double(SystemInstancesModel.getAmountOfOutdateInstances()), label: NSLocalizedString("outdated", comment: "")))
@@ -71,9 +86,14 @@ class SummaryViewController: NSViewController {
         self.pieChartInstanceOutdated.chartDescription?.text = ""
     }
     
+    /**
+     Callback function execute on finished instances refresh.
+     */
     @objc func checksFinished() {
         self.refreshActiveSpinner.stopAnimation(self)
         self.refreshActiveSpinner.isHidden = true
+        (self.touchbarRefreshItem.view as! NSButton).isEnabled = true
+        
         SystemInstances.systemInstances.removeAll()
         if (!SystemInstancesModel.loadConfigfiles()) {
             print("Loading system instances config files failed.")
@@ -84,9 +104,16 @@ class SummaryViewController: NSViewController {
         setOutdatedBadgeNumber()
     }
     
+    /**
+     Callback run at the beginning of instances refresh.
+     
+     - Parameters:
+     - sender: Sending object.
+     */
     @IBAction func checkAllInstances(_ sender: AnyObject) {
         self.refreshActiveSpinner.isHidden = false
         self.refreshActiveSpinner.startAnimation(self)
+        (self.touchbarRefreshItem.view as! NSButton).isEnabled = false
         SummaryViewController.checkAllInstancesVersions(force: false) { result in
             self.performSelector(onMainThread: #selector(SummaryViewController.checksFinished), with: self, waitUntilDone: true)
         }
@@ -141,6 +168,86 @@ class SummaryViewController: NSViewController {
                 }
             }
             completionHandler(true)
+        }
+    }
+    
+    /**
+     Replace existing view controller by detailed view controller.
+     */
+    @IBAction func loadDetailedViewController(_: Any) {
+        let storyBoard : NSStoryboard = NSStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateController(withIdentifier: "DetailedViewController") as! DetailedViewController
+        self.view.window?.contentViewController = nextViewController
+    }
+    
+    /**
+     Replace existing view controller by outdated view controller.
+     */
+    @IBAction func loadOutdatedViewController(_: Any) {
+        let storyBoard : NSStoryboard = NSStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateController(withIdentifier: "OutdatedViewController") as! OutdatedViewController
+        self.view.window?.contentViewController = nextViewController
+    }
+    
+    /**
+     Load modal preferences window dialog.
+     */
+    @IBAction func loadPreferencesWindow(_: Any) {
+        let myWindowController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "PreferencesViewController") as! PreferencesViewController
+        presentAsModalWindow(myWindowController)
+    }
+}
+
+/**
+ NSTouchBarDelegate extension for view controller.
+ */
+extension SummaryViewController: NSTouchBarDelegate {
+    /**
+     Generates a custom TouchBar.
+     
+     - Returns: Custom NSTouchBar.
+     */
+    override func makeTouchBar() -> NSTouchBar? {
+        let touchBar = NSTouchBar()
+        touchBar.delegate = self
+        touchBar.customizationIdentifier = .touchBarSummary
+        touchBar.defaultItemIdentifiers = [.refreshAllInstances, .preferencesDialog, .flexibleSpace, .detailedViewController, .outdatedViewController]
+        touchBar.customizationAllowedItemIdentifiers = [.refreshAllInstances, .preferencesDialog, .detailedViewController, .outdatedViewController]
+        return touchBar
+    }
+    
+    /**
+     Creates SummaryViewController specific TouchBar buttons.
+     
+     - Parameters:
+     - touchBar: TouchBar to be added to
+     - identifier: NSTouchBarItem identifier.
+     - Returns: NSTouchBarItem to be added to TouchBar, nil in case of failure.
+     */
+    func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
+        switch identifier {
+        case NSTouchBarItem.Identifier.preferencesDialog:
+            self.touchbarPreferencesItem = NSCustomTouchBarItem(identifier: identifier)
+            let preferencesButton = NSButton(image: NSImage(named: NSImage.actionTemplateName)!, target: self, action: #selector(self.loadPreferencesWindow))
+            self.touchbarPreferencesItem.view = preferencesButton
+            return self.touchbarPreferencesItem
+        case NSTouchBarItem.Identifier.refreshAllInstances:
+            self.touchbarRefreshItem = NSCustomTouchBarItem(identifier: identifier)
+            let refreshButton = NSButton(image: NSImage(named: NSImage.refreshTemplateName)!, target: self, action: #selector(SummaryViewController.checkAllInstances))
+            self.touchbarRefreshItem.view = refreshButton
+            return self.touchbarRefreshItem
+        case NSTouchBarItem.Identifier.detailedViewController:
+            self.detailedViewControllerItem = NSCustomTouchBarItem(identifier: identifier)
+            let detailedButton = NSButton(image: NSImage(named: NSImage.Name("Detailed view.png"))!, target: self, action: #selector(self.loadDetailedViewController))
+            self.detailedViewControllerItem.view = detailedButton
+            return self.detailedViewControllerItem
+        case NSTouchBarItem.Identifier.outdatedViewController:
+            self.outdatedViewControllerItem = NSCustomTouchBarItem(identifier: identifier)
+            let outdatedButton = NSButton(image: NSImage(named: NSImage.Name("Outdated item.png"))!, target: self, action: #selector(self.loadOutdatedViewController))
+            self.outdatedViewControllerItem.view = outdatedButton
+            return self.outdatedViewControllerItem
+        default:
+            return nil
         }
     }
 }

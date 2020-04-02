@@ -40,6 +40,12 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     var timer: Timer?
     var filtertext = String()
     var filteredInstancesArray = Array<String>()
+    var summaryViewControllerItem: NSCustomTouchBarItem!
+    var detailedViewControllerItem: NSCustomTouchBarItem!
+    var outdatedViewControllerItem: NSCustomTouchBarItem!
+    var editButtonItem: NSCustomTouchBarItem!
+    var refreshInstanceButtonItem: NSCustomTouchBarItem!
+    var openInstanceButtonItem: NSCustomTouchBarItem!
     
     override func viewDidLoad() {
         OutdatedInstances.outdatedInstances.removeAll()
@@ -84,6 +90,11 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
             } else {
                 key = OutdatedInstances.outdatedInstances[index]
             }
+            
+            (self.openInstanceButtonItem.view as! NSButton).isEnabled = true
+            (self.refreshInstanceButtonItem.view as! NSButton).isEnabled = true
+            (self.editButtonItem.view as! NSButton).isEnabled = true
+            
             let modelclass = SystemInstances.systemInstances[key].self!
             if ((modelclass as? JoomlaModel) != nil) {
                 let joomlaobject = modelclass as? JoomlaModel
@@ -186,6 +197,9 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
             self.phpVersion.stringValue = ""
             self.webserver.stringValue = ""
             self.status.stringValue = ""
+            (self.openInstanceButtonItem.view as! NSButton).isEnabled = false
+            (self.refreshInstanceButtonItem.view as! NSButton).isEnabled = false
+            (self.editButtonItem.view as! NSButton).isEnabled = false
         }
     }
     
@@ -276,10 +290,15 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
         self.reloadTable()
     }
     
-    @IBAction func takeMeToMyInstance(_ sender: AnyObject) {
+    @IBAction func takeMeToMyInstanceAction(_ sender: AnyObject) {
         if (self.tableView.selectedRow != -1) {
-            let instancename = Array(OutdatedInstances.outdatedInstances)[self.tableView.selectedRow]
-            let instance = SystemInstances.systemInstances[instancename]
+            var key : String
+            if (!filtertext.isEmpty) {
+                key = filteredInstancesArray[self.tableView.selectedRow]
+            } else {
+                key = Array(SystemInstances.systemInstances.keys)[self.tableView.selectedRow]
+            }
+            let instance = SystemInstances.systemInstances[key]
             var url = ""
             if ((instance as? JoomlaModel) != nil) {
                 url = (instance as! JoomlaModel).hosturl + Constants.joomlaBackendURL
@@ -382,5 +401,73 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
         }
         filteredInstancesArray = OutdatedInstances.outdatedInstances
         return OutdatedInstances.outdatedInstances.count
+    }
+    
+    @IBAction func loadSummaryViewController(_: Any) {
+        let storyBoard : NSStoryboard = NSStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateController(withIdentifier: "SummaryViewController") as! SummaryViewController
+        self.view.window?.contentViewController = nextViewController
+    }
+    
+    @IBAction func loadDetailedViewController(_: Any) {
+        let storyBoard : NSStoryboard = NSStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateController(withIdentifier: "DetailedViewController") as! DetailedViewController
+        self.view.window?.contentViewController = nextViewController
+    }
+}
+
+/**
+ NSTouchBarDelegate extension for view controller.
+ */
+extension OutdatedViewController: NSTouchBarDelegate {
+    /**
+     Generates a custom TouchBar.
+     
+     - Returns: Custom NSTouchBar.
+     */
+    override func makeTouchBar() -> NSTouchBar? {
+        let touchBar = NSTouchBar()
+        touchBar.delegate = self
+        touchBar.customizationIdentifier = .touchBarOutdated
+        touchBar.defaultItemIdentifiers =        [.refreshInstance, .openInstanceWebsite, .flexibleSpace, .summaryViewController, .detailedViewController]
+        touchBar.customizationAllowedItemIdentifiers = [.refreshInstance, .openInstanceWebsite, .summaryViewController, .detailedViewController]
+        return touchBar
+    }
+    
+    /**
+     Creates OutdatedViewController specific TouchBar buttons.
+     
+     - Parameters:
+     - touchBar: TouchBar to be added to
+     - identifier: NSTouchBarItem identifier.
+     - Returns: NSTouchBarItem to be added to TouchBar, nil in case of failure.
+     */
+    func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
+        switch identifier {
+        case NSTouchBarItem.Identifier.refreshInstance:
+            self.refreshInstanceButtonItem = NSCustomTouchBarItem(identifier: identifier)
+            let refreshButton = NSButton(image: NSImage(named: NSImage.refreshTemplateName)!, target: self, action: #selector(self.refreshInstance))
+            refreshButton.isEnabled = false
+            self.refreshInstanceButtonItem.view = refreshButton
+            return self.refreshInstanceButtonItem
+        case NSTouchBarItem.Identifier.summaryViewController:
+            self.summaryViewControllerItem = NSCustomTouchBarItem(identifier: identifier)
+            let summaryButton = NSButton(image: NSImage(named: NSImage.Name("Summarize.png"))!, target: self, action: #selector(self.loadSummaryViewController))
+            self.summaryViewControllerItem.view = summaryButton
+            return self.summaryViewControllerItem
+        case NSTouchBarItem.Identifier.detailedViewController:
+            self.detailedViewControllerItem = NSCustomTouchBarItem(identifier: identifier)
+            let detailedButton = NSButton(image: NSImage(named: NSImage.Name("Detailed view.png"))!, target: self, action: #selector(self.loadDetailedViewController))
+            self.detailedViewControllerItem.view = detailedButton
+            return self.detailedViewControllerItem
+        case NSTouchBarItem.Identifier.openInstanceWebsite:
+            self.openInstanceButtonItem = NSCustomTouchBarItem(identifier: identifier)
+            let openButton = NSButton(image: NSImage(named: NSImage.homeTemplateName)!, target: self, action: #selector(self.takeMeToMyInstanceAction))
+            openButton.isEnabled = false
+            self.openInstanceButtonItem.view = openButton
+            return self.openInstanceButtonItem
+        default:
+            return nil
+        }
     }
 }

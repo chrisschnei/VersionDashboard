@@ -23,7 +23,7 @@ class MainWindow: NSWindowController {
         let appDelegate = NSApp.delegate as! AppDelegate
         appDelegate.mainWindowController = self
     }
-
+    
     @IBAction func detailedViewClicked(_ sender: AnyObject) {
         let viewController = storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("DetailedViewController")) as! NSViewController
         self.mainwindow?.contentViewController = viewController
@@ -37,5 +37,18 @@ class MainWindow: NSWindowController {
     @IBAction func outdatedViewClicked(_ sender: AnyObject) {
         let viewController = storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("OutdatedViewController")) as! NSViewController
         self.window?.contentViewController = viewController
+    }
+    
+    override func makeTouchBar() -> NSTouchBar? {
+        if let viewController = contentViewController as? SummaryViewController {
+            return viewController.makeTouchBar()
+        }
+        if let viewController = contentViewController as? DetailedViewController {
+            return viewController.makeTouchBar()
+        }
+        if let viewController = contentViewController as? OutdatedViewController {
+            return viewController.makeTouchBar()
+        }
+        return nil
     }
 }

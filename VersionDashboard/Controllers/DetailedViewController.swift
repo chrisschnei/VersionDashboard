@@ -24,11 +24,10 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     @IBOutlet weak var systemTableView: NSTableView!
     @IBOutlet weak var infoMessage: NSTextField!
     @IBOutlet weak var checkActiveSpinner: NSProgressIndicator!
-    @IBOutlet weak var activeSpinner: NSProgressIndicator!
     @IBOutlet weak var takeMeToMyInstance: NSButton!
     @IBOutlet weak var phpVersionLabel: NSTextField!
     @IBOutlet weak var phpVersion: NSTextField!
-    @IBOutlet weak var webserverLabel: NSLayoutConstraint!
+    @IBOutlet weak var webserverLabel: NSTextField!
     @IBOutlet weak var webserver: NSTextField!
     @IBOutlet weak var copyDownloadURL: NSButton!
     @IBOutlet weak var downloadUrlLabel: NSTextField!
@@ -37,6 +36,13 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     var timer: Timer?
     var filtertext = String()
     var filteredInstancesArray = Array<String>()
+    var summaryViewControllerItem: NSCustomTouchBarItem!
+    var detailedViewControllerItem: NSCustomTouchBarItem!
+    var outdatedViewControllerItem: NSCustomTouchBarItem!
+    var openInstancesButtonItem: NSCustomTouchBarItem!
+    var refreshInstanceButtonItem: NSCustomTouchBarItem!
+    var editButtonItem: NSCustomTouchBarItem!
+    var removeInstanceButtonItem: NSCustomTouchBarItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,27 +85,15 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         self.timer?.invalidate()
     }
     
-    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+    @IBAction func takeMeToMyInstanceAction(_ sender: AnyObject) {
         if (self.systemTableView.selectedRow != -1) {
-            let button = sender as! NSButton
-            if (button == editButton) {
-                let instances = Array(SystemInstances.systemInstances.keys)
-                let instanceNa = instances[self.systemTableView.selectedRow]
-                let destination = segue.destinationController as! SettingsViewController
-                destination.instanceName = instanceNa
+            var key : String
+            if (!filtertext.isEmpty) {
+                key = filteredInstancesArray[self.systemTableView.selectedRow]
+            } else {
+                key = Array(SystemInstances.systemInstances.keys)[self.systemTableView.selectedRow]
             }
-        }
-    }
-    
-    override var representedObject: Any? {
-        didSet {
-        }
-    }
-    
-    @IBAction func takeMeToMyInstance(_ sender: AnyObject) {
-        if (self.systemTableView.selectedRow != -1) {
-            let instancename = Array(SystemInstances.systemInstances.keys)[self.systemTableView.selectedRow]
-            let instance = SystemInstances.systemInstances[instancename]
+            let instance = SystemInstances.systemInstances[key]
             var url = ""
             if ((instance as? JoomlaModel) != nil) {
                 url = (instance as! JoomlaModel).hosturl + Constants.joomlaBackendURL
@@ -211,11 +205,17 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     @IBAction func refreshInstance(_ sender: AnyObject) {
         self.checkActiveSpinner.isHidden = false
         self.checkActiveSpinner.startAnimation(self)
+        (self.refreshInstanceButtonItem.view as! NSButton).isEnabled = false
         if (checkInternetConnection()) {
             let selectedRow = self.systemTableView.selectedRow
             if (selectedRow != -1) {
-                let instanceName = Array(SystemInstances.systemInstances.keys)[selectedRow]
-                self.updateSingleInstance(instanceName: instanceName) { completion in
+                var key : String
+                if (!filtertext.isEmpty) {
+                    key = filteredInstancesArray[self.systemTableView.selectedRow]
+                } else {
+                    key = Array(SystemInstances.systemInstances.keys)[self.systemTableView.selectedRow]
+                }
+                self.updateSingleInstance(instanceName: key) { completion in
                     let parameters = ["self": self, "completion" : completion, "selectedRow" : selectedRow] as [String : Any]
                     self.performSelector(onMainThread: #selector(self.checksFinished), with: parameters, waitUntilDone: true)
                 }
@@ -237,6 +237,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     @objc func checksFinished(_ parameters: [String: Any]) {
         self.checkActiveSpinner.stopAnimation(parameters["self"])
         self.checkActiveSpinner.isHidden = true
+        (self.refreshInstanceButtonItem.view as! NSButton).isEnabled = true
         if (!(parameters["completion"] as! Bool)) {
             self.infoMessage.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
             self.infoMessage.isHidden = false
@@ -258,6 +259,10 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             self.copyDownloadURL.isEnabled = false
             self.downloadUrlLabel.isHidden = true
             self.downloadUrl.isHidden = true
+            (self.openInstancesButtonItem.view as! NSButton).isEnabled = true
+            (self.refreshInstanceButtonItem.view as! NSButton).isEnabled = true
+            (self.editButtonItem.view as! NSButton).isEnabled = true
+            (self.removeInstanceButtonItem.view as! NSButton).isEnabled = true
             var key = ""
             if (!filtertext.isEmpty) {
                 key = filteredInstancesArray[index]
@@ -370,6 +375,10 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             self.refreshButton.isEnabled = false
             self.downloadUrlLabel.isHidden = true
             self.downloadUrl.isHidden = true
+            (self.openInstancesButtonItem.view as! NSButton).isEnabled = false
+            (self.refreshInstanceButtonItem.view as! NSButton).isEnabled = false
+            (self.editButtonItem.view as! NSButton).isEnabled = false
+            (self.removeInstanceButtonItem.view as! NSButton).isEnabled = false
         }
     }
     
@@ -408,5 +417,101 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         }
         filteredInstancesArray = Array(SystemInstances.systemInstances.keys)
         return SystemInstances.systemInstances.count
+    }
+    
+    @IBAction func loadSummaryViewController(_: Any) {
+        let storyBoard : NSStoryboard = NSStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateController(withIdentifier: "SummaryViewController") as! SummaryViewController
+        self.view.window?.contentViewController = nextViewController
+    }
+    
+    @IBAction func loadOutdatedViewController(_: Any) {
+        let storyBoard : NSStoryboard = NSStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateController(withIdentifier: "OutdatedViewController") as! OutdatedViewController
+        self.view.window?.contentViewController = nextViewController
+    }
+    
+    @IBAction func loadAddViewController(_: Any) {
+        let myWindowController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "AddSystemViewController") as! AddSystemViewController
+        presentAsSheet(myWindowController)
+    }
+    
+    @IBAction func loadSettingsViewController(_: Any) {
+        let myWindowController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "SettingsViewController") as! SettingsViewController
+        myWindowController.instanceName = self.systemLabel.stringValue
+        presentAsSheet(myWindowController)
+    }
+}
+
+/**
+ NSTouchBarDelegate extension for view controller.
+ */
+extension DetailedViewController: NSTouchBarDelegate {
+    /**
+     Generates a custom TouchBar.
+     
+     - Returns: Custom NSTouchBar.
+     */
+    override func makeTouchBar() -> NSTouchBar? {
+        let touchBar = NSTouchBar()
+        touchBar.delegate = self
+        touchBar.customizationIdentifier = .touchBarDetailed
+        touchBar.defaultItemIdentifiers = [.addNewInstance, .removeInstance, .editInstance, .refreshInstance, .openInstanceWebsite, .flexibleSpace, .summaryViewController, .outdatedViewController]
+        touchBar.customizationAllowedItemIdentifiers = [.addNewInstance, .removeInstance, .editInstance, .refreshInstance, .openInstanceWebsite, .summaryViewController, .outdatedViewController]
+        return touchBar
+    }
+    
+    /**
+     Creates DetailedViewController specific TouchBar buttons.
+     
+     - Parameters:
+     - touchBar: TouchBar to be added to
+     - identifier: NSTouchBarItem identifier.
+     - Returns: NSTouchBarItem to be added to TouchBar, nil in case of failure.
+     */
+    func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
+        switch identifier {
+        case NSTouchBarItem.Identifier.addNewInstance:
+            let addInstanceButtonItem = NSCustomTouchBarItem(identifier: identifier)
+            let addButton = NSButton(image: NSImage(named: NSImage.addTemplateName)!, target: self, action: #selector(self.loadAddViewController))
+            addInstanceButtonItem.view = addButton
+            return addInstanceButtonItem
+        case NSTouchBarItem.Identifier.removeInstance:
+            self.removeInstanceButtonItem = NSCustomTouchBarItem(identifier: identifier)
+            let removeButton = NSButton(image: NSImage(named: NSImage.removeTemplateName)!, target: self, action: #selector(self.removeInstance))
+            removeButton.isEnabled = false
+            removeInstanceButtonItem.view = removeButton
+            return removeInstanceButtonItem
+        case NSTouchBarItem.Identifier.editInstance:
+            self.editButtonItem = NSCustomTouchBarItem(identifier: identifier)
+            let editButton = NSButton(image: NSImage(named: NSImage.smartBadgeTemplateName)!, target: self, action: #selector(self.loadSettingsViewController))
+            editButton.isEnabled = false
+            editButtonItem.view = editButton
+            return editButtonItem
+        case NSTouchBarItem.Identifier.refreshInstance:
+            self.refreshInstanceButtonItem = NSCustomTouchBarItem(identifier: identifier)
+            let refreshButton = NSButton(image: NSImage(named: NSImage.refreshTemplateName)!, target: self, action: #selector(self.refreshInstance))
+            refreshButton.isEnabled = false
+            refreshInstanceButtonItem.view = refreshButton
+            return refreshInstanceButtonItem
+        case NSTouchBarItem.Identifier.summaryViewController:
+            self.summaryViewControllerItem = NSCustomTouchBarItem(identifier: identifier)
+            let summaryButton = NSButton(image: NSImage(named: NSImage.Name("Summarize.png"))!, target: self, action: #selector(self.loadSummaryViewController))
+            self.summaryViewControllerItem.view = summaryButton
+            return self.summaryViewControllerItem
+        case NSTouchBarItem.Identifier.outdatedViewController:
+            self.outdatedViewControllerItem = NSCustomTouchBarItem(identifier: identifier)
+            let outdatedButton = NSButton(image: NSImage(named: NSImage.Name("Outdated item.png"))!, target: self, action: #selector(self.loadOutdatedViewController))
+            self.outdatedViewControllerItem.view = outdatedButton
+            return self.outdatedViewControllerItem
+        case NSTouchBarItem.Identifier.openInstanceWebsite:
+            self.openInstancesButtonItem = NSCustomTouchBarItem(identifier: identifier)
+            let openButton = NSButton(image: NSImage(named: NSImage.homeTemplateName)!, target: self, action: #selector(DetailedViewController.takeMeToMyInstanceAction))
+            openButton.isEnabled = false
+            openInstancesButtonItem.view = openButton
+            return openInstancesButtonItem
+        default:
+            return nil
+        }
     }
 }

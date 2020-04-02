@@ -15,6 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     var mainWindowController: MainWindow? = nil
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        NSApplication.shared.isAutomaticCustomizeTouchBarMenuItemEnabled = true
         NSUserNotificationCenter.default.delegate = self
     }
     

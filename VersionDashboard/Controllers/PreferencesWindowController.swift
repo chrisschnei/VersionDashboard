@@ -13,5 +13,12 @@ class PreferencesWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
     }
+    
+    override func makeTouchBar() -> NSTouchBar? {
+        if let viewController = contentViewController as? PreferencesViewController {
+            return viewController.makeTouchBar()
+        }
+        return nil
+    }
 
 }

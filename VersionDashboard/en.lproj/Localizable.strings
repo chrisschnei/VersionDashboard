@@ -24,3 +24,4 @@
 "clipboardCopyingWorked" = "URL copied";
 "clipboardCopyingFailed" = "URL not copied";
 "searchInstances" = "Search instances";
+"instances" = "Instances";

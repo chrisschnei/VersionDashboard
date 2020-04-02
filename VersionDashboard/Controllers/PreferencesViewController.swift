@@ -18,6 +18,8 @@ class PreferencesViewController: NSViewController {
     @IBOutlet weak var activatedTextLabel: NSTextField!
     @IBOutlet weak var infoTextLabel: NSTextField!
     @IBOutlet weak var saveButton: NSButton!
+    var touchbarSaveItem: NSCustomTouchBarItem!
+    var touchbarCancelItem: NSCustomTouchBarItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
