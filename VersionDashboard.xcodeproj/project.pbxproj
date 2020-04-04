@@ -220,8 +220,6 @@
 		AA71A911227D74CC00BEB4C3 /* wordpress_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8FA226CBDDD00BEB4C3 /* wordpress_dots.png */; };
 		AA8CDEA9236F01AD00C1DEBB /* wordpress.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F4226CBDDD00BEB4C3 /* wordpress.png */; };
 		AA8CDEAB236F01B000C1DEBB /* joomla.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F1226CBDDD00BEB4C3 /* joomla.png */; };
-		AA8CDEAC236F01B500C1DEBB /* piwik.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8EF226CBDDD00BEB4C3 /* piwik.tiff */; };
-		AA8CDEAD236F01BA00C1DEBB /* owncloud.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F6226CBDDD00BEB4C3 /* owncloud.tiff */; };
 		AA8CDEB5236F7D2E00C1DEBB /* OutdatedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEB4236F7D2E00C1DEBB /* OutdatedViewControllerTests.swift */; };
 		AA8CDEB7236F7D7A00C1DEBB /* SummaryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEB6236F7D7A00C1DEBB /* SummaryViewControllerTests.swift */; };
 		AA8CDEB9236F7D9900C1DEBB /* GenericViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEB8236F7D9900C1DEBB /* GenericViewControllerTests.swift */; };
@@ -233,18 +231,14 @@
 		AA8D60FE23C09048003D1B34 /* container-migration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA8D60FD23C09048003D1B34 /* container-migration.plist */; };
 		AA93435E22594D78005D8C1C /* libVersionDashboardSDKARM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62F75C2258ADE300757106 /* libVersionDashboardSDKARM.a */; };
 		AAB511B323AA863200B440A7 /* wordpress.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F4226CBDDD00BEB4C3 /* wordpress.png */; };
-		AAB511B423AA864100B440A7 /* piwik.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8EF226CBDDD00BEB4C3 /* piwik.tiff */; };
 		AAB511B523AA864300B440A7 /* joomla.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F1226CBDDD00BEB4C3 /* joomla.png */; };
 		AAB511B623AA864700B440A7 /* piwik_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F3226CBDDD00BEB4C3 /* piwik_dots.png */; };
-		AAB511B723AA864900B440A7 /* owncloud.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F6226CBDDD00BEB4C3 /* owncloud.tiff */; };
 		AAB511B823AA864B00B440A7 /* joomla_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F7226CBDDD00BEB4C3 /* joomla_dots.png */; };
 		AAB511B923AA864E00B440A7 /* owncloud_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F8226CBDDD00BEB4C3 /* owncloud_dots.png */; };
 		AAB511BA23AA865000B440A7 /* wordpress_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8FA226CBDDD00BEB4C3 /* wordpress_dots.png */; };
-		AAB511BB23AA86AE00B440A7 /* piwik.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8EF226CBDDD00BEB4C3 /* piwik.tiff */; };
 		AAB511BC23AA86B000B440A7 /* joomla.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F1226CBDDD00BEB4C3 /* joomla.png */; };
 		AAB511BD23AA86B300B440A7 /* piwik_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F3226CBDDD00BEB4C3 /* piwik_dots.png */; };
 		AAB511BE23AA86B500B440A7 /* wordpress.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F4226CBDDD00BEB4C3 /* wordpress.png */; };
-		AAB511BF23AA86B700B440A7 /* owncloud.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F6226CBDDD00BEB4C3 /* owncloud.tiff */; };
 		AAB511C023AA86B900B440A7 /* joomla_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F7226CBDDD00BEB4C3 /* joomla_dots.png */; };
 		AAB511C123AA86BC00B440A7 /* owncloud_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F8226CBDDD00BEB4C3 /* owncloud_dots.png */; };
 		AAB511C223AA86BE00B440A7 /* wordpress_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8FA226CBDDD00BEB4C3 /* wordpress_dots.png */; };
@@ -262,6 +256,8 @@
 		AABD444623689649009A98C1 /* OwncloudInstanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD443F23689648009A98C1 /* OwncloudInstanceUITests.swift */; };
 		AABD4448236897CA009A98C1 /* SettingsViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD4447236897C9009A98C1 /* SettingsViewControllerUITests.swift */; };
 		AABD44492369A8EE009A98C1 /* libVersionDashboardSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */; };
+		AAD9CF6E2438FCAD00B83DAF /* owncloud.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD9CF6C2438FCAD00B83DAF /* owncloud.png */; };
+		AAD9CF702438FF7700B83DAF /* matamo.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD9CF6F2438FF7600B83DAF /* matamo.png */; };
 		AAE626C6226256EE00398F81 /* libVersionDashboardSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */; };
 /* End PBXBuildFile section */
 
@@ -563,14 +559,12 @@
 		AA71A7F1226B00EE00BEB4C3 /* outdated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "outdated@2x.png"; sourceTree = "<group>"; };
 		AA71A7F2226B00EE00BEB4C3 /* outdated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = outdated.png; sourceTree = "<group>"; };
 		AA71A7F3226B00EE00BEB4C3 /* outdated.afdesign */ = {isa = PBXFileReference; lastKnownFileType = file; path = outdated.afdesign; sourceTree = "<group>"; };
-		AA71A8EF226CBDDD00BEB4C3 /* piwik.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = piwik.tiff; sourceTree = "<group>"; };
 		AA71A8F0226CBDDD00BEB4C3 /* owncloud.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = owncloud.plist; sourceTree = "<group>"; };
 		AA71A8F1226CBDDD00BEB4C3 /* joomla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joomla.png; sourceTree = "<group>"; };
 		AA71A8F2226CBDDD00BEB4C3 /* configuration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = configuration.plist; sourceTree = "<group>"; };
 		AA71A8F3226CBDDD00BEB4C3 /* piwik_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = piwik_dots.png; sourceTree = "<group>"; };
 		AA71A8F4226CBDDD00BEB4C3 /* wordpress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wordpress.png; sourceTree = "<group>"; };
 		AA71A8F5226CBDDD00BEB4C3 /* buttons.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = buttons.psd; sourceTree = "<group>"; };
-		AA71A8F6226CBDDD00BEB4C3 /* owncloud.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = owncloud.tiff; sourceTree = "<group>"; };
 		AA71A8F7226CBDDD00BEB4C3 /* joomla_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joomla_dots.png; sourceTree = "<group>"; };
 		AA71A8F8226CBDDD00BEB4C3 /* owncloud_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = owncloud_dots.png; sourceTree = "<group>"; };
 		AA71A8F9226CBDDD00BEB4C3 /* piwik.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = piwik.plist; sourceTree = "<group>"; };
@@ -603,6 +597,8 @@
 		AABD443D23689648009A98C1 /* WordpressInstanceUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordpressInstanceUITests.swift; sourceTree = "<group>"; };
 		AABD443F23689648009A98C1 /* OwncloudInstanceUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwncloudInstanceUITests.swift; sourceTree = "<group>"; };
 		AABD4447236897C9009A98C1 /* SettingsViewControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerUITests.swift; sourceTree = "<group>"; };
+		AAD9CF6C2438FCAD00B83DAF /* owncloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = owncloud.png; sourceTree = "<group>"; };
+		AAD9CF6F2438FF7600B83DAF /* matamo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = matamo.png; sourceTree = "<group>"; };
 		AAE8B64E1F87F2C5004E4AF3 /* VersionDashboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1076,14 +1072,14 @@
 			isa = PBXGroup;
 			children = (
 				AA20D273235C7DD40027B268 /* generateLogos.sh */,
-				AA71A8EF226CBDDD00BEB4C3 /* piwik.tiff */,
 				AA71A8F0226CBDDD00BEB4C3 /* owncloud.plist */,
 				AA71A8F1226CBDDD00BEB4C3 /* joomla.png */,
 				AA71A8F2226CBDDD00BEB4C3 /* configuration.plist */,
 				AA71A8F3226CBDDD00BEB4C3 /* piwik_dots.png */,
+				AAD9CF6C2438FCAD00B83DAF /* owncloud.png */,
 				AA71A8F4226CBDDD00BEB4C3 /* wordpress.png */,
 				AA71A8F5226CBDDD00BEB4C3 /* buttons.psd */,
-				AA71A8F6226CBDDD00BEB4C3 /* owncloud.tiff */,
+				AAD9CF6F2438FF7600B83DAF /* matamo.png */,
 				AA71A8F7226CBDDD00BEB4C3 /* joomla_dots.png */,
 				AA71A8F8226CBDDD00BEB4C3 /* owncloud_dots.png */,
 				AA71A8F9226CBDDD00BEB4C3 /* piwik.plist */,
@@ -1456,13 +1452,11 @@
 				AA71A828226B00EF00BEB4C3 /* chart@2x.png in Resources */,
 				AA71A7F4226B00EF00BEB4C3 /* LaunchScreen.png in Resources */,
 				AA62F5812251508B00757106 /* Main.storyboard in Resources */,
-				AAB511B423AA864100B440A7 /* piwik.tiff in Resources */,
 				AAB511B323AA863200B440A7 /* wordpress.png in Resources */,
 				AAB511B923AA864E00B440A7 /* owncloud_dots.png in Resources */,
 				AAB511B523AA864300B440A7 /* joomla.png in Resources */,
 				AAB511BA23AA865000B440A7 /* wordpress_dots.png in Resources */,
 				AA71A7FA226B00EF00BEB4C3 /* summary@2x.png in Resources */,
-				AAB511B723AA864900B440A7 /* owncloud.tiff in Resources */,
 				AAB511B823AA864B00B440A7 /* joomla_dots.png in Resources */,
 				AAB511B623AA864700B440A7 /* piwik_dots.png in Resources */,
 				AA71A82A226B00EF00BEB4C3 /* chart.png in Resources */,
@@ -1519,9 +1513,7 @@
 				AA62F7742258AE9D00757106 /* Assets.xcassets in Resources */,
 				AA62F7772258AE9D00757106 /* Main.strings in Resources */,
 				AA71A829226B00EF00BEB4C3 /* chart@2x.png in Resources */,
-				AAB511BB23AA86AE00B440A7 /* piwik.tiff in Resources */,
 				AAB511BE23AA86B500B440A7 /* wordpress.png in Resources */,
-				AAB511BF23AA86B700B440A7 /* owncloud.tiff in Resources */,
 				AAB511C023AA86B900B440A7 /* joomla_dots.png in Resources */,
 				AAB511C123AA86BC00B440A7 /* owncloud_dots.png in Resources */,
 				AA62F7762258AE9D00757106 /* Localizable.strings in Resources */,
@@ -1554,8 +1546,6 @@
 				AA8CDEAB236F01B000C1DEBB /* joomla.png in Resources */,
 				AA36C39322E35563008B393E /* Summarize.png in Resources */,
 				AA36C38F22E35563008B393E /* Assets.xcassets in Resources */,
-				AA8CDEAD236F01BA00C1DEBB /* owncloud.tiff in Resources */,
-				AA8CDEAC236F01B500C1DEBB /* piwik.tiff in Resources */,
 				AA8D60FE23C09048003D1B34 /* container-migration.plist in Resources */,
 				AA8CDEA9236F01AD00C1DEBB /* wordpress.png in Resources */,
 				AA71A910227D74CC00BEB4C3 /* owncloud_dots.png in Resources */,
@@ -1565,8 +1555,10 @@
 				AA71A903226CC56E00BEB4C3 /* owncloud.plist in Resources */,
 				AA71A904226CC56E00BEB4C3 /* configuration.plist in Resources */,
 				AA71A905226CC56E00BEB4C3 /* piwik.plist in Resources */,
+				AAD9CF702438FF7700B83DAF /* matamo.png in Resources */,
 				AA71A906226CC56E00BEB4C3 /* joomla.plist in Resources */,
 				AA71A907226CC56E00BEB4C3 /* wordpress.plist in Resources */,
+				AAD9CF6E2438FCAD00B83DAF /* owncloud.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

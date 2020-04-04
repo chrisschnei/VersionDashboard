@@ -80,7 +80,7 @@ extension AddSystemViewController: NSTouchBarDelegate {
         switch identifier {
         case NSTouchBarItem.Identifier.owncloudInstanceTouchbar:
             self.addOwncloudItem = NSCustomTouchBarItem(identifier: identifier)
-            let owncloudButton = NSButton(image: NSImage(named: "owncloud.tiff")!, target: self, action: #selector(self.loadOwncloudController))
+            let owncloudButton = NSButton(image: NSImage(named: "owncloud.png")!, target: self, action: #selector(self.loadOwncloudController))
             self.addOwncloudItem.view = owncloudButton
             return self.addOwncloudItem
         case NSTouchBarItem.Identifier.wordpressInstanceTouchbar:
@@ -95,7 +95,7 @@ extension AddSystemViewController: NSTouchBarDelegate {
             return self.addJoomlaItem
         case NSTouchBarItem.Identifier.piwikInstanceTouchbar:
             self.addPiwikItem = NSCustomTouchBarItem(identifier: identifier)
-            let piwikButton = NSButton(image: NSImage(named: "piwik.tiff")!, target: self, action: #selector(self.loadPiwikController))
+            let piwikButton = NSButton(image: NSImage(named: "matamo.png")!, target: self, action: #selector(self.loadPiwikController))
             self.addPiwikItem.view = piwikButton
             return self.addPiwikItem
         default:

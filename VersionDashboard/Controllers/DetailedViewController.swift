@@ -52,6 +52,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         self.addInstancesToTable()
         self.takeMeToMyInstance.isEnabled = false
         self.editButton.isEnabled = false
+        self.removeButton.isEnabled = false
         self.copyDownloadURL.isHidden = true
         self.copyDownloadURL.isEnabled = false
         self.searchfield.placeholderString = NSLocalizedString("searchInstances", comment: "")
@@ -259,6 +260,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             self.copyDownloadURL.isEnabled = false
             self.downloadUrlLabel.isHidden = true
             self.downloadUrl.isHidden = true
+            self.removeButton.isEnabled = true
             (self.openInstancesButtonItem.view as! NSButton).isEnabled = true
             (self.refreshInstanceButtonItem.view as! NSButton).isEnabled = true
             (self.editButtonItem.view as! NSButton).isEnabled = true
@@ -369,6 +371,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             self.statusLabel.stringValue = ""
             self.downloadUrl.stringValue = ""
             self.editButton.isEnabled = false
+            self.removeButton.isEnabled = false
             self.copyDownloadURL.isHidden = true
             self.copyDownloadURL.isEnabled = false
             self.takeMeToMyInstance.isEnabled = false

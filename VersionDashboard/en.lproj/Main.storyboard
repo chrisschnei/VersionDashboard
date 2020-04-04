@@ -1252,8 +1252,8 @@ Gw
                                 </buttonCell>
                                 <accessibility description="CancelInstanceCreationButton" identifier="CancelInstanceCreationButton"/>
                             </button>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="4MJ-ct-iDJ">
-                                <rect key="frame" x="37" y="65" width="73" height="48"/>
+                            <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4MJ-ct-iDJ">
+                                <rect key="frame" x="64" y="65" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="73" id="A1f-EM-XIM"/>
                                     <constraint firstAttribute="height" constant="48" id="FIA-ta-ut8"/>
@@ -1292,12 +1292,12 @@ Gw
                                     <segue destination="dms-g4-Ywq" kind="sheet" id="HKE-L7-mdP"/>
                                 </connections>
                             </button>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="P93-jV-bbV">
-                                <rect key="frame" x="145" y="65" width="75" height="48"/>
+                            <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P93-jV-bbV">
+                                <rect key="frame" x="163" y="65" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="OoF-5u-vde"/>
                                 </constraints>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="piwik" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Bb5-17-4F6">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="matamo" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Bb5-17-4F6">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -2036,8 +2036,8 @@ DQ
         <image name="Outdated item" width="28.799999237060547" height="28.799999237060547"/>
         <image name="Summarize" width="28.559999465942383" height="27.840000152587891"/>
         <image name="joomla" width="40" height="40"/>
-        <image name="owncloud" width="83" height="44"/>
-        <image name="piwik" width="249" height="73"/>
-        <image name="wordpress" width="63" height="63"/>
+        <image name="matamo" width="50" height="50"/>
+        <image name="owncloud" width="50" height="50"/>
+        <image name="wordpress" width="40" height="40"/>
     </resources>
 </document>
