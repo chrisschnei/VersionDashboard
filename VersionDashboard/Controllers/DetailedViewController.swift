@@ -206,7 +206,9 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     @IBAction func refreshInstance(_ sender: AnyObject) {
         self.checkActiveSpinner.isHidden = false
         self.checkActiveSpinner.startAnimation(self)
-        (self.refreshInstanceButtonItem.view as! NSButton).isEnabled = false
+        if let view = self.refreshInstanceButtonItem {
+            (view.view as! NSButton).isEnabled = false
+        }
         if (checkInternetConnection()) {
             let selectedRow = self.systemTableView.selectedRow
             if (selectedRow != -1) {
@@ -238,7 +240,9 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     @objc func checksFinished(_ parameters: [String: Any]) {
         self.checkActiveSpinner.stopAnimation(parameters["self"])
         self.checkActiveSpinner.isHidden = true
-        (self.refreshInstanceButtonItem.view as! NSButton).isEnabled = true
+        if let view = self.refreshInstanceButtonItem {
+            (view.view as! NSButton).isEnabled = true
+        }
         if (!(parameters["completion"] as! Bool)) {
             self.infoMessage.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
             self.infoMessage.isHidden = false
@@ -261,10 +265,18 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             self.downloadUrlLabel.isHidden = true
             self.downloadUrl.isHidden = true
             self.removeButton.isEnabled = true
-            (self.openInstancesButtonItem.view as! NSButton).isEnabled = true
-            (self.refreshInstanceButtonItem.view as! NSButton).isEnabled = true
-            (self.editButtonItem.view as! NSButton).isEnabled = true
-            (self.removeInstanceButtonItem.view as! NSButton).isEnabled = true
+            if let view = self.openInstancesButtonItem {
+                (view.view as! NSButton).isEnabled = true
+            }
+            if let view = self.refreshInstanceButtonItem {
+                (view.view as! NSButton).isEnabled = true
+            }
+            if let view = self.editButtonItem {
+                (view.view as! NSButton).isEnabled = true
+            }
+            if let view = self.removeInstanceButtonItem {
+                (view.view as! NSButton).isEnabled = true
+            }
             var key = ""
             if (!filtertext.isEmpty) {
                 key = filteredInstancesArray[index]
@@ -378,10 +390,18 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             self.refreshButton.isEnabled = false
             self.downloadUrlLabel.isHidden = true
             self.downloadUrl.isHidden = true
-            (self.openInstancesButtonItem.view as! NSButton).isEnabled = false
-            (self.refreshInstanceButtonItem.view as! NSButton).isEnabled = false
-            (self.editButtonItem.view as! NSButton).isEnabled = false
-            (self.removeInstanceButtonItem.view as! NSButton).isEnabled = false
+            if let view = self.openInstancesButtonItem {
+                (view.view as! NSButton).isEnabled = false
+            }
+            if let view = self.refreshInstanceButtonItem {
+                (view.view as! NSButton).isEnabled = false
+            }
+            if let view = self.editButtonItem {
+                (view.view as! NSButton).isEnabled = false
+            }
+            if let view = self.removeInstanceButtonItem {
+                (view.view as! NSButton).isEnabled = false
+            }
         }
     }
     

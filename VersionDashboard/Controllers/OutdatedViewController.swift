@@ -91,9 +91,15 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
                 key = OutdatedInstances.outdatedInstances[index]
             }
             
-            (self.openInstanceButtonItem.view as! NSButton).isEnabled = true
-            (self.refreshInstanceButtonItem.view as! NSButton).isEnabled = true
-            (self.editButtonItem.view as! NSButton).isEnabled = true
+            if let view = self.openInstanceButtonItem {
+                (view.view as! NSButton).isEnabled = true
+            }
+            if let view = self.refreshInstanceButtonItem {
+                (view.view as! NSButton).isEnabled = true
+            }
+            if let view = self.editButtonItem {
+                (view.view as! NSButton).isEnabled = true
+            }
             
             let modelclass = SystemInstances.systemInstances[key].self!
             if ((modelclass as? JoomlaModel) != nil) {
@@ -197,9 +203,15 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
             self.phpVersion.stringValue = ""
             self.webserver.stringValue = ""
             self.status.stringValue = ""
-            (self.openInstanceButtonItem.view as! NSButton).isEnabled = false
-            (self.refreshInstanceButtonItem.view as! NSButton).isEnabled = false
-            (self.editButtonItem.view as! NSButton).isEnabled = false
+            if let view = self.openInstanceButtonItem {
+                (view.view as! NSButton).isEnabled = false
+            }
+            if let view = self.refreshInstanceButtonItem {
+                (view.view as! NSButton).isEnabled = false
+            }
+            if let view = self.editButtonItem {
+                (view.view as! NSButton).isEnabled = false
+            }
         }
     }
     

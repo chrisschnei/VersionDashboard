@@ -2033,8 +2033,8 @@ DQ
         <image name="Outdated item" width="28.799999237060547" height="28.799999237060547"/>
         <image name="Summarize" width="28.559999465942383" height="27.840000152587891"/>
         <image name="joomla" width="40" height="40"/>
-        <image name="matamo" width="12" height="12"/>
-        <image name="owncloud" width="100" height="55"/>
+        <image name="matamo" width="50" height="50"/>
+        <image name="owncloud" width="50" height="50"/>
         <image name="wordpress" width="40" height="40"/>
     </resources>
 </document>

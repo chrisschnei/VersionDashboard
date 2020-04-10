@@ -92,7 +92,9 @@ class SummaryViewController: NSViewController {
     @objc func checksFinished() {
         self.refreshActiveSpinner.stopAnimation(self)
         self.refreshActiveSpinner.isHidden = true
-        (self.touchbarRefreshItem.view as! NSButton).isEnabled = true
+        if let view = self.touchbarRefreshItem {
+            (view.view as! NSButton).isEnabled = true
+        }
         
         SystemInstances.systemInstances.removeAll()
         if (!SystemInstancesModel.loadConfigfiles()) {
@@ -113,7 +115,9 @@ class SummaryViewController: NSViewController {
     @IBAction func checkAllInstances(_ sender: AnyObject) {
         self.refreshActiveSpinner.isHidden = false
         self.refreshActiveSpinner.startAnimation(self)
-        (self.touchbarRefreshItem.view as! NSButton).isEnabled = false
+        if let view = self.touchbarRefreshItem {
+            (view.view as! NSButton).isEnabled = false
+        }
         SummaryViewController.checkAllInstancesVersions(force: false) { result in
             self.performSelector(onMainThread: #selector(SummaryViewController.checksFinished), with: self, waitUntilDone: true)
         }
