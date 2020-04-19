@@ -13,7 +13,7 @@ import VersionDashboardSDK
 import VersionDashboardSDKARM
 #endif
 
-class WordpressInstanceViewController: UIViewController {
+class WordpressInstanceViewController: GenericViewController {
 
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
@@ -37,7 +37,7 @@ class WordpressInstanceViewController: UIViewController {
     }
     
     @IBAction func saveInstance(_ sender: Any) {
-        if (self.checkURLTextfields()) {
+        if (self.checkURLTextfields(hostUrlTextfield: self.hostUrlTextfield, infoTitle: self.infoTitle)) {
             return
         }
         
@@ -47,27 +47,12 @@ class WordpressInstanceViewController: UIViewController {
             return
         }
         
-        let wordpressInstance = WordpressModel.init(creationDate: "", currentVersion: "", hosturl: self.hostUrlTextfield.text!, headVersion: "", lastRefresh: "", name: self.nameTextfield.text!, type: "Wordpress", updateAvailable: 0, phpVersion: "", serverType: "")
+        let wordpressInstance = WordpressModel.init(creationDate: "", currentVersion: "0.0", hosturl: self.hostUrlTextfield.text!, headVersion: "0.0", lastRefresh: "", name: self.nameTextfield.text!, type: "Wordpress", updateAvailable: 0, phpVersion: "", serverType: "")
         _ = wordpressInstance.saveConfigfile()
         HeadInstances.headInstances.removeAll()
         SystemInstances.systemInstances.removeAll()
         
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-    }
-    
-    func checkURLTextfields() -> Bool {
-        var error = false
-        if (!((self.hostUrlTextfield.text?.hasSuffix("/"))!)) {
-            self.infoTitle.text = NSLocalizedString("urlEnding", comment: "")
-            self.infoTitle.isHidden = false
-            error = true
-        }
-        if (!((self.hostUrlTextfield.text?.hasPrefix("http"))!)) {
-            self.infoTitle.text = NSLocalizedString("protocolMissing", comment: "")
-            self.infoTitle.isHidden = false
-            error = true
-        }
-        return error
     }
     
 }

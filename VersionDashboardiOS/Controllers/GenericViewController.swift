@@ -14,7 +14,7 @@ import VersionDashboardSDK
 import VersionDashboardSDKARM
 #endif
 
-class GenericTableViewController : UIViewController {
+class GenericViewController : UIViewController {
     
     func takeMeToMyInstance(_ systemInstanceName : String) -> Bool {
         let instance = SystemInstances.systemInstances[systemInstanceName]
@@ -46,8 +46,6 @@ class GenericTableViewController : UIViewController {
     }
     
     @objc(tableView:didSelectRowAtIndexPath:) func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped cell number \(indexPath.row) \(indexPath.description).")
-        
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let detailsViewController = storyBoard.instantiateViewController(withIdentifier: "InstanceDetails") as! InstanceDetailsViewController
         detailsViewController.systemInstancesName = Array(SystemInstances.systemInstances.keys)[indexPath.row]
@@ -168,6 +166,21 @@ class GenericTableViewController : UIViewController {
         refreshAction.backgroundColor = .blue
         
         return UISwipeActionsConfiguration(actions: [refreshAction, takeMeToMyInstanceAction])
+    }
+    
+    func checkURLTextfields(hostUrlTextfield: UITextField!, infoTitle: UILabel!) -> Bool {
+        var error = false
+        if (!((hostUrlTextfield.text?.hasSuffix("/"))!)) {
+            infoTitle.text = NSLocalizedString("urlEnding", comment: "")
+            infoTitle.isHidden = false
+            error = true
+        }
+        if (!((hostUrlTextfield.text?.hasPrefix("http"))!)) {
+            infoTitle.text = NSLocalizedString("protocolMissing", comment: "")
+            infoTitle.isHidden = false
+            error = true
+        }
+        return error
     }
 
 }

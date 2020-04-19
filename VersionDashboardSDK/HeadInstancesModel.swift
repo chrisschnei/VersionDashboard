@@ -39,7 +39,6 @@ open class HeadInstancesModel : NSObject {
             }
         } else {
             do {
-                try FileManager.default.createDirectory(atPath: Constants.applicationSupportPath, withIntermediateDirectories: false, attributes: nil)
                 try FileManager.default.createDirectory(atPath: Constants.applicationSupportAppname, withIntermediateDirectories: false, attributes: nil)
                 try FileManager.default.createDirectory(atPath: Constants.headPlistFilesPath, withIntermediateDirectories: false, attributes: nil)
                 try fileManager.copyItem(atPath: Constants.appBundleJoomlaPath, toPath: Constants.joomlaFilePath)

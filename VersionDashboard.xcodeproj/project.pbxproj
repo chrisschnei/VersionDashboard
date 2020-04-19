@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA19F77C244103DE00292F5D /* libVersionDashboardSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */; };
 		AA1A21D52430AA4400E7A25C /* GenericTestInstanceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A21D42430AA4300E7A25C /* GenericTestInstanceProtocol.swift */; };
 		AA1A21D924326C9000E7A25C /* TouchBarIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A21D824326C9000E7A25C /* TouchBarIdentifiers.swift */; };
 		AA20D276235C83CE0027B268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35C22E35563008B393E /* Main.storyboard */; };
@@ -49,6 +50,18 @@
 		AA36C3BA22E3557B008B393E /* SummaryViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C3B822E3557B008B393E /* SummaryViewControllerUITests.swift */; };
 		AA36C3BB22E3557B008B393E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA36C3B922E3557B008B393E /* Info.plist */; };
 		AA4E5B1323A3720D00DD595C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35722E35563008B393E /* Localizable.strings */; };
+		AA58D584244249E200E457AD /* OutdatedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEB4236F7D2E00C1DEBB /* OutdatedViewControllerTests.swift */; };
+		AA58D58524424A6D00E457AD /* libVersionDashboardSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */; };
+		AA58D58624424B8F00E457AD /* InstanceDetailsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEBC236F7DF900C1DEBB /* InstanceDetailsViewControllerTests.swift */; };
+		AA58D58C24424B8F00E457AD /* GenericViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEB8236F7D9900C1DEBB /* GenericViewControllerTests.swift */; };
+		AA58D58D24439C3500E457AD /* owncloud.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD9CF6C2438FCAD00B83DAF /* owncloud.png */; };
+		AA58D58E24439C3D00E457AD /* matamo.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD9CF6F2438FF7600B83DAF /* matamo.png */; };
+		AA58D58F24439C4800E457AD /* matamo.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD9CF6F2438FF7600B83DAF /* matamo.png */; };
+		AA58D59024439C4F00E457AD /* owncloud.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD9CF6C2438FCAD00B83DAF /* owncloud.png */; };
+		AA58D59124439C6C00E457AD /* owncloud.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F0226CBDDD00BEB4C3 /* owncloud.plist */; };
+		AA58D59224439C7100E457AD /* configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F2226CBDDD00BEB4C3 /* configuration.plist */; };
+		AA58D59324439C7700E457AD /* joomla.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8FB226CBDDD00BEB4C3 /* joomla.plist */; };
+		AA58D59424439C7A00E457AD /* wordpress.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8FC226CBDDD00BEB4C3 /* wordpress.plist */; };
 		AA62EE692251393F00757106 /* SystemInstancesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE572251393800757106 /* SystemInstancesModel.swift */; };
 		AA62EE6A2251393F00757106 /* GenericModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE582251393800757106 /* GenericModelProtocol.swift */; };
 		AA62EE6B2251393F00757106 /* InternetConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE592251393900757106 /* InternetConnectivity.swift */; };
@@ -67,71 +80,44 @@
 		AA62EE792251393F00757106 /* JoomlaHeadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE672251393E00757106 /* JoomlaHeadModel.swift */; };
 		AA62EE7A2251393F00757106 /* WordpressHeadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE682251393F00757106 /* WordpressHeadModel.swift */; };
 		AA62EE7B2251398400757106 /* libVersionDashboardSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */; };
-		AA62F5292251508B00757106 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4EA2251508A00757106 /* Info.plist */; };
-		AA62F52B2251508B00757106 /* VersionDashboardiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4EC2251508A00757106 /* VersionDashboardiOSUITests.swift */; };
-		AA62F52C2251508B00757106 /* VersionDashboardiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4EC2251508A00757106 /* VersionDashboardiOSUITests.swift */; };
-		AA62F52E2251508B00757106 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4ED2251508A00757106 /* Info.plist */; };
 		AA62F5302251508B00757106 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4EF2251508B00757106 /* LaunchScreen.strings */; };
-		AA62F5312251508B00757106 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4EF2251508B00757106 /* LaunchScreen.strings */; };
 		AA62F5322251508B00757106 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4EF2251508B00757106 /* LaunchScreen.strings */; };
 		AA62F5332251508B00757106 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4F12251508B00757106 /* Main.strings */; };
-		AA62F5342251508B00757106 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4F12251508B00757106 /* Main.strings */; };
 		AA62F5352251508B00757106 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4F12251508B00757106 /* Main.strings */; };
 		AA62F5362251508B00757106 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4F32251508B00757106 /* Localizable.strings */; };
-		AA62F5372251508B00757106 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4F32251508B00757106 /* Localizable.strings */; };
 		AA62F5382251508B00757106 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4F32251508B00757106 /* Localizable.strings */; };
 		AA62F54B2251508B00757106 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4FC2251508B00757106 /* SummaryViewController.swift */; };
-		AA62F54C2251508B00757106 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4FC2251508B00757106 /* SummaryViewController.swift */; };
 		AA62F54D2251508B00757106 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4FC2251508B00757106 /* SummaryViewController.swift */; };
 		AA62F5512251508B00757106 /* badgeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4FE2251508B00757106 /* badgeFunctions.swift */; };
-		AA62F5522251508B00757106 /* badgeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4FE2251508B00757106 /* badgeFunctions.swift */; };
 		AA62F5532251508B00757106 /* badgeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4FE2251508B00757106 /* badgeFunctions.swift */; };
 		AA62F5542251508B00757106 /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4FF2251508B00757106 /* GenericViewController.swift */; };
-		AA62F5552251508B00757106 /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4FF2251508B00757106 /* GenericViewController.swift */; };
 		AA62F5562251508B00757106 /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4FF2251508B00757106 /* GenericViewController.swift */; };
 		AA62F55A2251508B00757106 /* PiwikInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5012251508B00757106 /* PiwikInstanceViewController.swift */; };
-		AA62F55B2251508B00757106 /* PiwikInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5012251508B00757106 /* PiwikInstanceViewController.swift */; };
 		AA62F55C2251508B00757106 /* PiwikInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5012251508B00757106 /* PiwikInstanceViewController.swift */; };
-		AA62F55D2251508B00757106 /* GenericTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5022251508B00757106 /* GenericTableViewController.swift */; };
-		AA62F55E2251508B00757106 /* GenericTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5022251508B00757106 /* GenericTableViewController.swift */; };
-		AA62F55F2251508B00757106 /* GenericTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5022251508B00757106 /* GenericTableViewController.swift */; };
 		AA62F5602251508B00757106 /* InstanceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5032251508B00757106 /* InstanceDetailsViewController.swift */; };
-		AA62F5612251508B00757106 /* InstanceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5032251508B00757106 /* InstanceDetailsViewController.swift */; };
 		AA62F5622251508B00757106 /* InstanceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5032251508B00757106 /* InstanceDetailsViewController.swift */; };
 		AA62F5752251508B00757106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA62F50B2251508B00757106 /* Assets.xcassets */; };
-		AA62F5762251508B00757106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA62F50B2251508B00757106 /* Assets.xcassets */; };
 		AA62F5772251508B00757106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA62F50B2251508B00757106 /* Assets.xcassets */; };
 		AA62F5782251508B00757106 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F50C2251508B00757106 /* ChartsViewController.swift */; };
-		AA62F5792251508B00757106 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F50C2251508B00757106 /* ChartsViewController.swift */; };
 		AA62F57A2251508B00757106 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F50C2251508B00757106 /* ChartsViewController.swift */; };
 		AA62F57E2251508B00757106 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA62F50E2251508B00757106 /* LaunchScreen.storyboard */; };
-		AA62F57F2251508B00757106 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA62F50E2251508B00757106 /* LaunchScreen.storyboard */; };
 		AA62F5802251508B00757106 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA62F50E2251508B00757106 /* LaunchScreen.storyboard */; };
 		AA62F5812251508B00757106 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5102251508B00757106 /* Main.storyboard */; };
-		AA62F5822251508B00757106 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5102251508B00757106 /* Main.storyboard */; };
 		AA62F5832251508B00757106 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5102251508B00757106 /* Main.storyboard */; };
 		AA62F58D2251508B00757106 /* OutdatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5162251508B00757106 /* OutdatedViewController.swift */; };
-		AA62F58E2251508B00757106 /* OutdatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5162251508B00757106 /* OutdatedViewController.swift */; };
 		AA62F58F2251508B00757106 /* OutdatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5162251508B00757106 /* OutdatedViewController.swift */; };
 		AA62F5902251508B00757106 /* WordpressInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5172251508B00757106 /* WordpressInstanceViewController.swift */; };
-		AA62F5912251508B00757106 /* WordpressInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5172251508B00757106 /* WordpressInstanceViewController.swift */; };
 		AA62F5922251508B00757106 /* WordpressInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5172251508B00757106 /* WordpressInstanceViewController.swift */; };
 		AA62F5962251508B00757106 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5192251508B00757106 /* AppDelegate.swift */; };
-		AA62F5972251508B00757106 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5192251508B00757106 /* AppDelegate.swift */; };
 		AA62F5982251508B00757106 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5192251508B00757106 /* AppDelegate.swift */; };
 		AA62F5A22251508B00757106 /* InstanceTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F51D2251508B00757106 /* InstanceTypeViewController.swift */; };
-		AA62F5A32251508B00757106 /* InstanceTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F51D2251508B00757106 /* InstanceTypeViewController.swift */; };
 		AA62F5A42251508B00757106 /* InstanceTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F51D2251508B00757106 /* InstanceTypeViewController.swift */; };
 		AA62F5A82251508B00757106 /* JoomlaInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F51F2251508B00757106 /* JoomlaInstanceViewController.swift */; };
-		AA62F5A92251508B00757106 /* JoomlaInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F51F2251508B00757106 /* JoomlaInstanceViewController.swift */; };
 		AA62F5AA2251508B00757106 /* JoomlaInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F51F2251508B00757106 /* JoomlaInstanceViewController.swift */; };
-		AA62F5AC2251508B00757106 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5202251508B00757106 /* Info.plist */; };
 		AA62F5AD2251508B00757106 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5202251508B00757106 /* Info.plist */; };
 		AA62F5B12251508B00757106 /* OwncloudInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5222251508B00757106 /* OwncloudInstanceViewController.swift */; };
-		AA62F5B22251508B00757106 /* OwncloudInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5222251508B00757106 /* OwncloudInstanceViewController.swift */; };
 		AA62F5B32251508B00757106 /* OwncloudInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5222251508B00757106 /* OwncloudInstanceViewController.swift */; };
 		AA62F5B42251508B00757106 /* NotificationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5232251508B00757106 /* NotificationFunctions.swift */; };
-		AA62F5B52251508B00757106 /* NotificationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5232251508B00757106 /* NotificationFunctions.swift */; };
 		AA62F5B62251508B00757106 /* NotificationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5232251508B00757106 /* NotificationFunctions.swift */; };
 		AA62F5B92252880300757106 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62F5B82252880200757106 /* UserNotifications.framework */; };
 		AA62F72E22589E7900757106 /* SystemInstances.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F72D22589E7900757106 /* SystemInstances.swift */; };
@@ -169,7 +155,6 @@
 		AA62F76A2258AE9D00757106 /* InstanceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5032251508B00757106 /* InstanceDetailsViewController.swift */; };
 		AA62F76B2258AE9D00757106 /* OutdatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5162251508B00757106 /* OutdatedViewController.swift */; };
 		AA62F76C2258AE9D00757106 /* NotificationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5232251508B00757106 /* NotificationFunctions.swift */; };
-		AA62F76D2258AE9D00757106 /* GenericTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5022251508B00757106 /* GenericTableViewController.swift */; };
 		AA62F76E2258AE9D00757106 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4FC2251508B00757106 /* SummaryViewController.swift */; };
 		AA62F76F2258AE9D00757106 /* OwncloudInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5222251508B00757106 /* OwncloudInstanceViewController.swift */; };
 		AA62F7702258AE9D00757106 /* JoomlaInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F51F2251508B00757106 /* JoomlaInstanceViewController.swift */; };
@@ -220,14 +205,6 @@
 		AA71A911227D74CC00BEB4C3 /* wordpress_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8FA226CBDDD00BEB4C3 /* wordpress_dots.png */; };
 		AA8CDEA9236F01AD00C1DEBB /* wordpress.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F4226CBDDD00BEB4C3 /* wordpress.png */; };
 		AA8CDEAB236F01B000C1DEBB /* joomla.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F1226CBDDD00BEB4C3 /* joomla.png */; };
-		AA8CDEB5236F7D2E00C1DEBB /* OutdatedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEB4236F7D2E00C1DEBB /* OutdatedViewControllerTests.swift */; };
-		AA8CDEB7236F7D7A00C1DEBB /* SummaryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEB6236F7D7A00C1DEBB /* SummaryViewControllerTests.swift */; };
-		AA8CDEB9236F7D9900C1DEBB /* GenericViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEB8236F7D9900C1DEBB /* GenericViewControllerTests.swift */; };
-		AA8CDEBB236F7DB000C1DEBB /* PiwikInstanceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEBA236F7DB000C1DEBB /* PiwikInstanceViewControllerTests.swift */; };
-		AA8CDEBD236F7DF900C1DEBB /* InstanceDetailsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEBC236F7DF900C1DEBB /* InstanceDetailsViewControllerTests.swift */; };
-		AA8CDEBF236F7E2200C1DEBB /* WordpressInstanceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEBE236F7E2200C1DEBB /* WordpressInstanceViewControllerTests.swift */; };
-		AA8CDEC1236F7E4B00C1DEBB /* JoomlaInstanceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEC0236F7E4B00C1DEBB /* JoomlaInstanceViewControllerTests.swift */; };
-		AA8CDEC3236F7E5C00C1DEBB /* OwncloudInstanceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEC2236F7E5C00C1DEBB /* OwncloudInstanceViewControllerTests.swift */; };
 		AA8D60FE23C09048003D1B34 /* container-migration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA8D60FD23C09048003D1B34 /* container-migration.plist */; };
 		AA93435E22594D78005D8C1C /* libVersionDashboardSDKARM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62F75C2258ADE300757106 /* libVersionDashboardSDKARM.a */; };
 		AAB511B323AA863200B440A7 /* wordpress.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F4226CBDDD00BEB4C3 /* wordpress.png */; };
@@ -262,6 +239,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		AA19F74B24406F7700292F5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA6AD7A41C6B4BD90097CD9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA62F75D2258AE9D00757106;
+			remoteInfo = VersionDashboardiOSSimulator;
+		};
+		AA19F7552440768A00292F5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA6AD7A41C6B4BD90097CD9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA62F75D2258AE9D00757106;
+			remoteInfo = VersionDashboardiOSSimulator;
+		};
 		AA20D2822361071E0027B268 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AA6AD7A41C6B4BD90097CD9A /* Project object */;
@@ -269,12 +260,12 @@
 			remoteGlobalIDString = AA62EE4D2251391000757106;
 			remoteInfo = VersionDashboardSDK;
 		};
-		AA62EE972251456800757106 /* PBXContainerItemProxy */ = {
+		AA58D57F244249D000E457AD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AA6AD7A41C6B4BD90097CD9A /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AA62EE802251456000757106;
-			remoteInfo = VersionDashboardiOS;
+			remoteGlobalIDString = AA62F75D2258AE9D00757106;
+			remoteInfo = VersionDashboardiOSSimulator;
 		};
 		AA62EEA22251456900757106 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -310,13 +301,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = A58A4ED274A941CA248EA921;
 			remoteInfo = Charts;
-		};
-		AA8CDEC4236F7FB400C1DEBB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AA6AD7A41C6B4BD90097CD9A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AA62F75D2258AE9D00757106;
-			remoteInfo = VersionDashboardiOSSimulator;
 		};
 		AA93435F22594D83005D8C1C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -472,6 +456,8 @@
 		AA36C38A22E35563008B393E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA36C3B822E3557B008B393E /* SummaryViewControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewControllerUITests.swift; sourceTree = "<group>"; };
 		AA36C3B922E3557B008B393E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA58D57A244249CF00E457AD /* VersionDashboardiOSSimulatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardiOSSimulatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA58D57E244249D000E457AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVersionDashboardSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA62EE572251393800757106 /* SystemInstancesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemInstancesModel.swift; sourceTree = "<group>"; };
 		AA62EE582251393800757106 /* GenericModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericModelProtocol.swift; sourceTree = "<group>"; };
@@ -493,9 +479,6 @@
 		AA62EE812251456000757106 /* VersionDashboardiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VersionDashboardiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA62EE962251456800757106 /* VersionDashboardiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA62EEA12251456800757106 /* VersionDashboardiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA62F4EA2251508A00757106 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AA62F4EC2251508A00757106 /* VersionDashboardiOSUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionDashboardiOSUITests.swift; sourceTree = "<group>"; };
-		AA62F4ED2251508A00757106 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA62F4F02251508B00757106 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		AA62F4F22251508B00757106 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		AA62F4F42251508B00757106 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -504,7 +487,6 @@
 		AA62F4FE2251508B00757106 /* badgeFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = badgeFunctions.swift; sourceTree = "<group>"; };
 		AA62F4FF2251508B00757106 /* GenericViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
 		AA62F5012251508B00757106 /* PiwikInstanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PiwikInstanceViewController.swift; sourceTree = "<group>"; };
-		AA62F5022251508B00757106 /* GenericTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericTableViewController.swift; sourceTree = "<group>"; };
 		AA62F5032251508B00757106 /* InstanceDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstanceDetailsViewController.swift; sourceTree = "<group>"; };
 		AA62F50B2251508B00757106 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA62F50C2251508B00757106 /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
@@ -575,13 +557,8 @@
 		AA8CDEAF236F020F00C1DEBB /* Version Dashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Version Dashboard.png"; sourceTree = "<group>"; };
 		AA8CDEB0236F020F00C1DEBB /* Version Dashboard1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Version Dashboard1024.png"; sourceTree = "<group>"; };
 		AA8CDEB4236F7D2E00C1DEBB /* OutdatedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutdatedViewControllerTests.swift; sourceTree = "<group>"; };
-		AA8CDEB6236F7D7A00C1DEBB /* SummaryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewControllerTests.swift; sourceTree = "<group>"; };
 		AA8CDEB8236F7D9900C1DEBB /* GenericViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewControllerTests.swift; sourceTree = "<group>"; };
-		AA8CDEBA236F7DB000C1DEBB /* PiwikInstanceViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiwikInstanceViewControllerTests.swift; sourceTree = "<group>"; };
 		AA8CDEBC236F7DF900C1DEBB /* InstanceDetailsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceDetailsViewControllerTests.swift; sourceTree = "<group>"; };
-		AA8CDEBE236F7E2200C1DEBB /* WordpressInstanceViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordpressInstanceViewControllerTests.swift; sourceTree = "<group>"; };
-		AA8CDEC0236F7E4B00C1DEBB /* JoomlaInstanceViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoomlaInstanceViewControllerTests.swift; sourceTree = "<group>"; };
-		AA8CDEC2236F7E5C00C1DEBB /* OwncloudInstanceViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwncloudInstanceViewControllerTests.swift; sourceTree = "<group>"; };
 		AA8D60FC23BF9156003D1B34 /* VersionDashboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VersionDashboard.entitlements; sourceTree = "<group>"; };
 		AA8D60FD23C09048003D1B34 /* container-migration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "container-migration.plist"; sourceTree = "<group>"; };
 		AAB9131C2234371E006D1EE7 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts.framework/Charts.xcodeproj; sourceTree = "<group>"; };
@@ -611,6 +588,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA58D577244249CF00E457AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA58D58524424A6D00E457AD /* libVersionDashboardSDK.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AA62EE4C2251391000757106 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -632,6 +617,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA19F77C244103DE00292F5D /* libVersionDashboardSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -854,6 +840,17 @@
 			path = VersionDashboardUITests;
 			sourceTree = "<group>";
 		};
+		AA58D57B244249CF00E457AD /* VersionDashboardiOSSimulatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA8CDEB4236F7D2E00C1DEBB /* OutdatedViewControllerTests.swift */,
+				AA8CDEB8236F7D9900C1DEBB /* GenericViewControllerTests.swift */,
+				AA8CDEBC236F7DF900C1DEBB /* InstanceDetailsViewControllerTests.swift */,
+				AA58D57E244249D000E457AD /* Info.plist */,
+			);
+			path = VersionDashboardiOSSimulatorTests;
+			sourceTree = "<group>";
+		};
 		AA62EE4F2251391000757106 /* VersionDashboardSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -882,31 +879,6 @@
 			path = VersionDashboardSDK;
 			sourceTree = "<group>";
 		};
-		AA62F4E82251508A00757106 /* VersionDashboardiOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				AA62F4EA2251508A00757106 /* Info.plist */,
-				AA8CDEB4236F7D2E00C1DEBB /* OutdatedViewControllerTests.swift */,
-				AA8CDEB6236F7D7A00C1DEBB /* SummaryViewControllerTests.swift */,
-				AA8CDEB8236F7D9900C1DEBB /* GenericViewControllerTests.swift */,
-				AA8CDEBA236F7DB000C1DEBB /* PiwikInstanceViewControllerTests.swift */,
-				AA8CDEBC236F7DF900C1DEBB /* InstanceDetailsViewControllerTests.swift */,
-				AA8CDEBE236F7E2200C1DEBB /* WordpressInstanceViewControllerTests.swift */,
-				AA8CDEC0236F7E4B00C1DEBB /* JoomlaInstanceViewControllerTests.swift */,
-				AA8CDEC2236F7E5C00C1DEBB /* OwncloudInstanceViewControllerTests.swift */,
-			);
-			path = VersionDashboardiOSTests;
-			sourceTree = "<group>";
-		};
-		AA62F4EB2251508A00757106 /* VersionDashboardiOSUITests */ = {
-			isa = PBXGroup;
-			children = (
-				AA62F4EC2251508A00757106 /* VersionDashboardiOSUITests.swift */,
-				AA62F4ED2251508A00757106 /* Info.plist */,
-			);
-			path = VersionDashboardiOSUITests;
-			sourceTree = "<group>";
-		};
 		AA62F4EE2251508A00757106 /* VersionDashboardiOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -932,7 +904,6 @@
 				AA62F4FC2251508B00757106 /* SummaryViewController.swift */,
 				AA62F4FF2251508B00757106 /* GenericViewController.swift */,
 				AA62F5012251508B00757106 /* PiwikInstanceViewController.swift */,
-				AA62F5022251508B00757106 /* GenericTableViewController.swift */,
 				AA62F5032251508B00757106 /* InstanceDetailsViewController.swift */,
 				AA62F5162251508B00757106 /* OutdatedViewController.swift */,
 				AA62F5172251508B00757106 /* WordpressInstanceViewController.swift */,
@@ -960,8 +931,7 @@
 				AA36C3B622E35571008B393E /* VersionDashboardTests */,
 				AA36C3B722E3557B008B393E /* VersionDashboardUITests */,
 				AA62F4EE2251508A00757106 /* VersionDashboardiOS */,
-				AA62F4E82251508A00757106 /* VersionDashboardiOSTests */,
-				AA62F4EB2251508A00757106 /* VersionDashboardiOSUITests */,
+				AA58D57B244249CF00E457AD /* VersionDashboardiOSSimulatorTests */,
 				AA62EE4F2251391000757106 /* VersionDashboardSDK */,
 				AA20D27D2361071E0027B268 /* VersionDashboardSDKTests */,
 				AA6AD7AD1C6B4BD90097CD9A /* Products */,
@@ -983,6 +953,7 @@
 				AA62F75C2258ADE300757106 /* libVersionDashboardSDKARM.a */,
 				AA62F7862258AE9D00757106 /* VersionDashboardiOSSimulator.app */,
 				AA20D27C2361071E0027B268 /* VersionDashboardSDKTests.xctest */,
+				AA58D57A244249CF00E457AD /* VersionDashboardiOSSimulatorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1146,6 +1117,24 @@
 			productReference = AA20D27C2361071E0027B268 /* VersionDashboardSDKTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		AA58D579244249CF00E457AD /* VersionDashboardiOSSimulatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA58D581244249D000E457AD /* Build configuration list for PBXNativeTarget "VersionDashboardiOSSimulatorTests" */;
+			buildPhases = (
+				AA58D576244249CF00E457AD /* Sources */,
+				AA58D577244249CF00E457AD /* Frameworks */,
+				AA58D578244249CF00E457AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA58D580244249D000E457AD /* PBXTargetDependency */,
+			);
+			name = VersionDashboardiOSSimulatorTests;
+			productName = VersionDashboardiOSSimulatorTests;
+			productReference = AA58D57A244249CF00E457AD /* VersionDashboardiOSSimulatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		AA62EE4D2251391000757106 /* VersionDashboardSDK */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA62EE542251391000757106 /* Build configuration list for PBXNativeTarget "VersionDashboardSDK" */;
@@ -1194,8 +1183,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				AA62EE982251456800757106 /* PBXTargetDependency */,
-				AA8CDEC5236F7FB400C1DEBB /* PBXTargetDependency */,
+				AA19F7562440768A00292F5D /* PBXTargetDependency */,
 			);
 			name = VersionDashboardiOSTests;
 			productName = VersionDashboardiOSTests;
@@ -1214,6 +1202,7 @@
 			);
 			dependencies = (
 				AA62EEA32251456900757106 /* PBXTargetDependency */,
+				AA19F74C24406F7700292F5D /* PBXTargetDependency */,
 			);
 			name = VersionDashboardiOSUITests;
 			productName = VersionDashboardiOSUITests;
@@ -1328,6 +1317,12 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = AA6AD7AB1C6B4BD90097CD9A;
 					};
+					AA58D579244249CF00E457AD = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = G7RXN8CWKG;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AA62F75D2258AE9D00757106;
+					};
 					AA62EE4D2251391000757106 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
@@ -1340,13 +1335,13 @@
 					};
 					AA62EE952251456800757106 = {
 						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = G7RXN8CWKG;
 						ProvisioningStyle = Automatic;
-						TestTargetID = AA62F75D2258AE9D00757106;
 					};
 					AA62EEA02251456800757106 = {
 						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Automatic;
-						TestTargetID = AA62EE802251456000757106;
+						TestTargetID = AA62F75D2258AE9D00757106;
 					};
 					AA62F7402258ADE300757106 = {
 						ProvisioningStyle = Automatic;
@@ -1406,13 +1401,14 @@
 				AA6AD7AB1C6B4BD90097CD9A /* VersionDashboard */,
 				AAE8B64D1F87F2C5004E4AF3 /* VersionDashboardTests */,
 				AA6AD7C71C6B4BD90097CD9A /* VersionDashboardUITests */,
-				AA62EE4D2251391000757106 /* VersionDashboardSDK */,
-				AA62F7402258ADE300757106 /* VersionDashboardSDKARM */,
 				AA62EE802251456000757106 /* VersionDashboardiOS */,
+				AA62F75D2258AE9D00757106 /* VersionDashboardiOSSimulator */,
 				AA62EE952251456800757106 /* VersionDashboardiOSTests */,
 				AA62EEA02251456800757106 /* VersionDashboardiOSUITests */,
-				AA62F75D2258AE9D00757106 /* VersionDashboardiOSSimulator */,
+				AA62EE4D2251391000757106 /* VersionDashboardSDK */,
+				AA62F7402258ADE300757106 /* VersionDashboardSDKARM */,
 				AA20D27B2361071E0027B268 /* VersionDashboardSDKTests */,
+				AA58D579244249CF00E457AD /* VersionDashboardiOSSimulatorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1442,6 +1438,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA58D578244249CF00E457AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AA62EE7F2251456000757106 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1449,8 +1452,12 @@
 				AA62F5752251508B00757106 /* Assets.xcassets in Resources */,
 				AA62F5362251508B00757106 /* Localizable.strings in Resources */,
 				AA62F5332251508B00757106 /* Main.strings in Resources */,
+				AA58D59224439C7100E457AD /* configuration.plist in Resources */,
+				AA58D59124439C6C00E457AD /* owncloud.plist in Resources */,
 				AA71A828226B00EF00BEB4C3 /* chart@2x.png in Resources */,
 				AA71A7F4226B00EF00BEB4C3 /* LaunchScreen.png in Resources */,
+				AA58D59324439C7700E457AD /* joomla.plist in Resources */,
+				AA58D59424439C7A00E457AD /* wordpress.plist in Resources */,
 				AA62F5812251508B00757106 /* Main.storyboard in Resources */,
 				AAB511B323AA863200B440A7 /* wordpress.png in Resources */,
 				AAB511B923AA864E00B440A7 /* owncloud_dots.png in Resources */,
@@ -1459,8 +1466,10 @@
 				AA71A7FA226B00EF00BEB4C3 /* summary@2x.png in Resources */,
 				AAB511B823AA864B00B440A7 /* joomla_dots.png in Resources */,
 				AAB511B623AA864700B440A7 /* piwik_dots.png in Resources */,
+				AA58D59024439C4F00E457AD /* owncloud.png in Resources */,
 				AA71A82A226B00EF00BEB4C3 /* chart.png in Resources */,
 				AA71A82C226B00EF00BEB4C3 /* chart@3x.png in Resources */,
+				AA58D58F24439C4800E457AD /* matamo.png in Resources */,
 				AA71A834226B00EF00BEB4C3 /* outdated.png in Resources */,
 				AA71A830226B00EF00BEB4C3 /* outdated@3x.png in Resources */,
 				AA71A7FC226B00EF00BEB4C3 /* summary.png in Resources */,
@@ -1475,14 +1484,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA62F5762251508B00757106 /* Assets.xcassets in Resources */,
-				AA62F5372251508B00757106 /* Localizable.strings in Resources */,
-				AA62F52E2251508B00757106 /* Info.plist in Resources */,
-				AA62F5AC2251508B00757106 /* Info.plist in Resources */,
-				AA62F5342251508B00757106 /* Main.strings in Resources */,
-				AA62F5822251508B00757106 /* Main.storyboard in Resources */,
-				AA62F57F2251508B00757106 /* LaunchScreen.storyboard in Resources */,
-				AA62F5312251508B00757106 /* LaunchScreen.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1497,7 +1498,6 @@
 				AA62F5832251508B00757106 /* Main.storyboard in Resources */,
 				AA62F5802251508B00757106 /* LaunchScreen.storyboard in Resources */,
 				AA62F5322251508B00757106 /* LaunchScreen.strings in Resources */,
-				AA62F5292251508B00757106 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1520,7 +1520,9 @@
 				AAB511BC23AA86B000B440A7 /* joomla.png in Resources */,
 				AAB511C223AA86BE00B440A7 /* wordpress_dots.png in Resources */,
 				AAB511BD23AA86B300B440A7 /* piwik_dots.png in Resources */,
+				AA58D58E24439C3D00E457AD /* matamo.png in Resources */,
 				AA71A7F5226B00EF00BEB4C3 /* LaunchScreen.png in Resources */,
+				AA58D58D24439C3500E457AD /* owncloud.png in Resources */,
 				AA62F7782258AE9D00757106 /* Main.storyboard in Resources */,
 				AA71A7FB226B00EF00BEB4C3 /* summary@2x.png in Resources */,
 				AA71A82B226B00EF00BEB4C3 /* chart.png in Resources */,
@@ -1602,6 +1604,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA58D576244249CF00E457AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA58D58624424B8F00E457AD /* InstanceDetailsViewControllerTests.swift in Sources */,
+				AA58D58C24424B8F00E457AD /* GenericViewControllerTests.swift in Sources */,
+				AA58D584244249E200E457AD /* OutdatedViewControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AA62EE4B2251391000757106 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1644,7 +1656,6 @@
 				AA62F5602251508B00757106 /* InstanceDetailsViewController.swift in Sources */,
 				AA62F58D2251508B00757106 /* OutdatedViewController.swift in Sources */,
 				AA62F5B42251508B00757106 /* NotificationFunctions.swift in Sources */,
-				AA62F55D2251508B00757106 /* GenericTableViewController.swift in Sources */,
 				AA62F54B2251508B00757106 /* SummaryViewController.swift in Sources */,
 				AA62F5B12251508B00757106 /* OwncloudInstanceViewController.swift in Sources */,
 				AA62F5A82251508B00757106 /* JoomlaInstanceViewController.swift in Sources */,
@@ -1655,29 +1666,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA62F55B2251508B00757106 /* PiwikInstanceViewController.swift in Sources */,
-				AA8CDEBF236F7E2200C1DEBB /* WordpressInstanceViewControllerTests.swift in Sources */,
-				AA62F52B2251508B00757106 /* VersionDashboardiOSUITests.swift in Sources */,
-				AA62F5792251508B00757106 /* ChartsViewController.swift in Sources */,
-				AA62F5522251508B00757106 /* badgeFunctions.swift in Sources */,
-				AA62F5972251508B00757106 /* AppDelegate.swift in Sources */,
-				AA62F5A32251508B00757106 /* InstanceTypeViewController.swift in Sources */,
-				AA62F5552251508B00757106 /* GenericViewController.swift in Sources */,
-				AA62F5912251508B00757106 /* WordpressInstanceViewController.swift in Sources */,
-				AA8CDEB5236F7D2E00C1DEBB /* OutdatedViewControllerTests.swift in Sources */,
-				AA62F5612251508B00757106 /* InstanceDetailsViewController.swift in Sources */,
-				AA8CDEC1236F7E4B00C1DEBB /* JoomlaInstanceViewControllerTests.swift in Sources */,
-				AA8CDEBB236F7DB000C1DEBB /* PiwikInstanceViewControllerTests.swift in Sources */,
-				AA8CDEC3236F7E5C00C1DEBB /* OwncloudInstanceViewControllerTests.swift in Sources */,
-				AA8CDEB7236F7D7A00C1DEBB /* SummaryViewControllerTests.swift in Sources */,
-				AA62F58E2251508B00757106 /* OutdatedViewController.swift in Sources */,
-				AA8CDEB9236F7D9900C1DEBB /* GenericViewControllerTests.swift in Sources */,
-				AA62F5B52251508B00757106 /* NotificationFunctions.swift in Sources */,
-				AA62F55E2251508B00757106 /* GenericTableViewController.swift in Sources */,
-				AA8CDEBD236F7DF900C1DEBB /* InstanceDetailsViewControllerTests.swift in Sources */,
-				AA62F54C2251508B00757106 /* SummaryViewController.swift in Sources */,
-				AA62F5B22251508B00757106 /* OwncloudInstanceViewController.swift in Sources */,
-				AA62F5A92251508B00757106 /* JoomlaInstanceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1686,7 +1674,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA62F55C2251508B00757106 /* PiwikInstanceViewController.swift in Sources */,
-				AA62F52C2251508B00757106 /* VersionDashboardiOSUITests.swift in Sources */,
 				AA62F57A2251508B00757106 /* ChartsViewController.swift in Sources */,
 				AA62F5532251508B00757106 /* badgeFunctions.swift in Sources */,
 				AA62F5982251508B00757106 /* AppDelegate.swift in Sources */,
@@ -1696,7 +1683,6 @@
 				AA62F5622251508B00757106 /* InstanceDetailsViewController.swift in Sources */,
 				AA62F58F2251508B00757106 /* OutdatedViewController.swift in Sources */,
 				AA62F5B62251508B00757106 /* NotificationFunctions.swift in Sources */,
-				AA62F55F2251508B00757106 /* GenericTableViewController.swift in Sources */,
 				AA62F54D2251508B00757106 /* SummaryViewController.swift in Sources */,
 				AA62F5B32251508B00757106 /* OwncloudInstanceViewController.swift in Sources */,
 				AA62F5AA2251508B00757106 /* JoomlaInstanceViewController.swift in Sources */,
@@ -1745,7 +1731,6 @@
 				AA62F76A2258AE9D00757106 /* InstanceDetailsViewController.swift in Sources */,
 				AA62F76B2258AE9D00757106 /* OutdatedViewController.swift in Sources */,
 				AA62F76C2258AE9D00757106 /* NotificationFunctions.swift in Sources */,
-				AA62F76D2258AE9D00757106 /* GenericTableViewController.swift in Sources */,
 				AA62F76E2258AE9D00757106 /* SummaryViewController.swift in Sources */,
 				AA62F76F2258AE9D00757106 /* OwncloudInstanceViewController.swift in Sources */,
 				AA62F7702258AE9D00757106 /* JoomlaInstanceViewController.swift in Sources */,
@@ -1806,15 +1791,25 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		AA19F74C24406F7700292F5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA62F75D2258AE9D00757106 /* VersionDashboardiOSSimulator */;
+			targetProxy = AA19F74B24406F7700292F5D /* PBXContainerItemProxy */;
+		};
+		AA19F7562440768A00292F5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA62F75D2258AE9D00757106 /* VersionDashboardiOSSimulator */;
+			targetProxy = AA19F7552440768A00292F5D /* PBXContainerItemProxy */;
+		};
 		AA20D2832361071E0027B268 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = AA62EE4D2251391000757106 /* VersionDashboardSDK */;
 			targetProxy = AA20D2822361071E0027B268 /* PBXContainerItemProxy */;
 		};
-		AA62EE982251456800757106 /* PBXTargetDependency */ = {
+		AA58D580244249D000E457AD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AA62EE802251456000757106 /* VersionDashboardiOS */;
-			targetProxy = AA62EE972251456800757106 /* PBXContainerItemProxy */;
+			target = AA62F75D2258AE9D00757106 /* VersionDashboardiOSSimulator */;
+			targetProxy = AA58D57F244249D000E457AD /* PBXContainerItemProxy */;
 		};
 		AA62EEA32251456900757106 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1840,11 +1835,6 @@
 			isa = PBXTargetDependency;
 			name = Charts;
 			targetProxy = AA71A742226A3E8C00BEB4C3 /* PBXContainerItemProxy */;
-		};
-		AA8CDEC5236F7FB400C1DEBB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AA62F75D2258AE9D00757106 /* VersionDashboardiOSSimulator */;
-			targetProxy = AA8CDEC4236F7FB400C1DEBB /* PBXContainerItemProxy */;
 		};
 		AA93436022594D83005D8C1C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1997,6 +1987,67 @@
 			};
 			name = Release;
 		};
+		AA58D582244249D000E457AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G7RXN8CWKG;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = VersionDashboardiOSSimulatorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nonamecompany.VersionDashboardiOSSimulatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VersionDashboardiOSSimulator.app/VersionDashboardiOSSimulator";
+			};
+			name = Debug;
+		};
+		AA58D583244249D000E457AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G7RXN8CWKG;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = VersionDashboardiOSSimulatorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nonamecompany.VersionDashboardiOSSimulatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VersionDashboardiOSSimulator.app/VersionDashboardiOSSimulator";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		AA62EE552251391000757106 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2018,10 +2069,10 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = "";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macOS";
+				SUPPORTED_PLATFORMS = "iphonesimulator macOS iOS iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				VALID_ARCHS = "x86_64 armv7 arm64e arm64";
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -2045,9 +2096,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = "";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macOS";
+				SUPPORTED_PLATFORMS = "iphonesimulator macOS iOS iphoneos";
 				SWIFT_VERSION = 4.2;
-				VALID_ARCHS = "x86_64 armv7 arm64e arm64";
+				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};
@@ -2138,7 +2189,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2147,20 +2197,22 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = G7RXN8CWKG;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = VersionDashboardiOSTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nonamecompany.VersionDashboardiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VersionDashboardiOSSimulator.app/VersionDashboardiOSSimulator";
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -2168,7 +2220,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2177,19 +2228,21 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = G7RXN8CWKG;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = VersionDashboardiOSTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nonamecompany.VersionDashboardiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VersionDashboardiOSSimulator.app/VersionDashboardiOSSimulator";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};
@@ -2217,7 +2270,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = VersionDashboardiOS;
+				TEST_TARGET_NAME = VersionDashboardiOSSimulator;
 			};
 			name = Debug;
 		};
@@ -2243,7 +2296,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = VersionDashboardiOS;
+				TEST_TARGET_NAME = VersionDashboardiOSSimulator;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -2333,7 +2386,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nonamecompany.VersionDashboardiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2379,7 +2432,7 @@
 					"$(SRCROOT)/**",
 				);
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nonamecompany.VersionDashboardiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2425,7 +2478,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -2456,7 +2509,7 @@
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/**";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				VALID_ARCHS = "x86_64 armv7";
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -2490,7 +2543,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2515,7 +2568,7 @@
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/**";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				VALID_ARCHS = "x86_64 armv7";
+				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};
@@ -2663,6 +2716,15 @@
 			buildConfigurations = (
 				AA20D2852361071E0027B268 /* Debug */,
 				AA20D2862361071E0027B268 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA58D581244249D000E457AD /* Build configuration list for PBXNativeTarget "VersionDashboardiOSSimulatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA58D582244249D000E457AD /* Debug */,
+				AA58D583244249D000E457AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

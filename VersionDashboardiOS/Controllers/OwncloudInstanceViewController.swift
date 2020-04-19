@@ -13,7 +13,7 @@ import VersionDashboardSDK
 import VersionDashboardSDKARM
 #endif
 
-class OwncloudInstanceViewController: UIViewController {
+class OwncloudInstanceViewController: GenericViewController {
 
     @IBOutlet weak var infoTitle: UILabel!
     @IBOutlet weak var hostUrlTextfield: UITextField!
@@ -37,7 +37,7 @@ class OwncloudInstanceViewController: UIViewController {
     }
     
     @IBAction func saveInstance(_ sender: Any) {
-        if (self.checkURLTextfields()) {
+        if (self.checkURLTextfields(hostUrlTextfield: self.hostUrlTextfield, infoTitle: self.infoTitle)) {
             return
         }
         
@@ -47,27 +47,12 @@ class OwncloudInstanceViewController: UIViewController {
             return
         }
         
-        let owncloudInstance = OwncloudModel.init(creationDate: "", currentVersion: "", hosturl: self.hostUrlTextfield.text!, headVersion: "", lastRefresh: "", name: self.nameTextfield.text!, type: "Owncloud", updateAvailable: 0, phpVersion: "", serverType: "")
+        let owncloudInstance = OwncloudModel.init(creationDate: "", currentVersion: "0.0", hosturl: self.hostUrlTextfield.text!, headVersion: "0.0", lastRefresh: "", name: self.nameTextfield.text!, type: "Owncloud", updateAvailable: 0, phpVersion: "", serverType: "")
         _ = owncloudInstance.saveConfigfile()
         HeadInstances.headInstances.removeAll()
         SystemInstances.systemInstances.removeAll()
         
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-    }
-    
-    func checkURLTextfields() -> Bool {
-        var error = false
-        if (!((self.hostUrlTextfield.text?.hasSuffix("/"))!)) {
-            self.infoTitle.text = NSLocalizedString("urlEnding", comment: "")
-            self.infoTitle.isHidden = false
-            error = true
-        }
-        if (!((self.hostUrlTextfield.text?.hasPrefix("http"))!)) {
-            self.infoTitle.text = NSLocalizedString("protocolMissing", comment: "")
-            self.infoTitle.isHidden = false
-            error = true
-        }
-        return error
     }
     
 }

@@ -53,7 +53,7 @@ class SummaryViewController: GenericViewController, UITableViewDelegate, UITable
         self.tabBarController?.setOutdatedBadgeNumber()
     }
     
-    @objc(tableView:leadingSwipeActionsConfigurationForRowAtIndexPath:) func tableView(_ tableView: UITableView,
+    @objc(tableView:leadingSwipeActionsConfigurationForRowAtIndexPath:) override func tableView(_ tableView: UITableView,
                                                                                        leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
         let systemInstanceName = Array(SystemInstances.systemInstances.keys)[indexPath.row]
@@ -80,16 +80,16 @@ class SummaryViewController: GenericViewController, UITableViewDelegate, UITable
         return UISwipeActionsConfiguration(actions: [refreshAction, takeMeToMyInstanceAction])
     }
     
-    @objc(tableView:didSelectRowAtIndexPath:) func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    @objc(tableView:didSelectRowAtIndexPath:) override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row) \(indexPath.description).")
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let detailsViewController = storyBoard.instantiateViewController(withIdentifier: "InstanceDetails") as! InstanceDetailsViewController
+        let detailsViewController = storyBoard.instantiateViewController(withIdentifier: "InstanceDetailsViewController") as! InstanceDetailsViewController
         detailsViewController.systemInstancesName = Array(SystemInstances.systemInstances.keys)[indexPath.row]
         self.present(detailsViewController, animated:true, completion:nil)
     }
     
-    @objc(tableView:trailingSwipeActionsConfigurationForRowAtIndexPath:) func tableView(_ tableView: UITableView,
+    @objc(tableView:trailingSwipeActionsConfigurationForRowAtIndexPath:) override func tableView(_ tableView: UITableView,
                                                                                         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
         let systemInstanceName = Array(SystemInstances.systemInstances.keys)[indexPath.row]
@@ -220,4 +220,3 @@ class SummaryViewController: GenericViewController, UITableViewDelegate, UITable
     }
 
 }
-

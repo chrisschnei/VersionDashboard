@@ -21,12 +21,12 @@ class InstanceDetailsViewController: GenericViewController {
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var hostUrlTextfield: UITextField!
-    @IBOutlet weak var typeEditField: UITextField!
+    @IBOutlet weak var typeEditField: UILabel!
     @IBOutlet weak var instanceTitle: UITextField!
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var apiTokenEdit: UITextField!
-    @IBOutlet weak var noInternetConnection: UITextField!
+    @IBOutlet weak var noInternetConnection: UILabel!
     @IBOutlet weak var phpversionLabel: UILabel!
     @IBOutlet weak var apiTokenLabel: UILabel!
     @IBOutlet weak var webserverLabel: UILabel!
@@ -102,7 +102,7 @@ class InstanceDetailsViewController: GenericViewController {
     }
     
     @IBAction func saveInstance(_ sender: Any) {
-        if (self.checkURLTextfields()) {
+        if (self.checkURLTextfields(hostUrlTextfield: self.hostUrlTextfield, infoTitle: self.noInternetConnection)) {
             return
         }
         
@@ -137,21 +137,6 @@ class InstanceDetailsViewController: GenericViewController {
             print("Error saving instance")
         }
         self.dismiss(animated: true)
-    }
-    
-    func checkURLTextfields() -> Bool {
-        var error = false
-        if (!((self.hostUrlTextfield.text?.hasSuffix("/"))!)) {
-            self.noInternetConnection.text = NSLocalizedString("urlEnding", comment: "")
-            self.noInternetConnection.isHidden = false
-            error = true
-        }
-        if (!((self.hostUrlTextfield.text?.hasPrefix("http"))!)) {
-            self.noInternetConnection.text = NSLocalizedString("protocolMissing", comment: "")
-            self.noInternetConnection.isHidden = false
-            error = true
-        }
-        return error
     }
     
     @IBAction func refreshInstance(_ sender: Any) {

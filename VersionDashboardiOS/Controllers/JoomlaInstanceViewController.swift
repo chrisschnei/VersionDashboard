@@ -13,7 +13,7 @@ import VersionDashboardSDK
 import VersionDashboardSDKARM
 #endif
 
-class JoomlaInstanceViewController: UIViewController {
+class JoomlaInstanceViewController: GenericViewController {
     
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
@@ -37,7 +37,7 @@ class JoomlaInstanceViewController: UIViewController {
     }
     
     @IBAction func saveInstance(_ sender: Any) {
-        if (self.checkURLTextfields()) {
+        if (self.checkURLTextfields(hostUrlTextfield: self.hostUrlTextfield, infoTitle: self.infoTitle)) {
             return
         }
         
@@ -47,27 +47,12 @@ class JoomlaInstanceViewController: UIViewController {
             return
         }
         
-        let joomlaInstance = JoomlaModel.init(creationDate: "", currentVersion: "", hosturl: self.hostUrlTextfield.text!, headVersion: "", lastRefresh: "", name: self.nameTextfield.text!, type: "Joomla", updateAvailable: 0, phpVersion: "", serverType: "")
+        let joomlaInstance = JoomlaModel.init(creationDate: "", currentVersion: "0.0", hosturl: self.hostUrlTextfield.text!, headVersion: "0.0", lastRefresh: "", name: self.nameTextfield.text!, type: "Joomla", updateAvailable: 0, phpVersion: "", serverType: "")
         _ = joomlaInstance.saveConfigfile()
         HeadInstances.headInstances.removeAll()
         SystemInstances.systemInstances.removeAll()
         
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-    }
-    
-    func checkURLTextfields() -> Bool {
-        var error = false
-        if (!((self.hostUrlTextfield.text?.hasSuffix("/"))!)) {
-            self.infoTitle.text = NSLocalizedString("urlEnding", comment: "")
-            self.infoTitle.isHidden = false
-            error = true
-        }
-        if (!((self.hostUrlTextfield.text?.hasPrefix("http"))!)) {
-            self.infoTitle.text = NSLocalizedString("protocolMissing", comment: "")
-            self.infoTitle.isHidden = false
-            error = true
-        }
-        return error
     }
     
 }

@@ -32,7 +32,7 @@ class OutdatedViewController: GenericViewController, UITableViewDelegate, UITabl
         table.dataSource = self
     }
     
-    @objc(tableView:leadingSwipeActionsConfigurationForRowAtIndexPath:) func tableView(_ tableView: UITableView,
+    @objc(tableView:leadingSwipeActionsConfigurationForRowAtIndexPath:) override func tableView(_ tableView: UITableView,
                                                                                        leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
         let systemInstanceName = Array(SystemInstancesModel.getOutdatedInstances().keys)[indexPath.row]
@@ -59,7 +59,7 @@ class OutdatedViewController: GenericViewController, UITableViewDelegate, UITabl
         return UISwipeActionsConfiguration(actions: [refreshAction, takeMeToMyInstanceAction])
     }
     
-    @objc(tableView:trailingSwipeActionsConfigurationForRowAtIndexPath:) func tableView(_ tableView: UITableView,
+    @objc(tableView:trailingSwipeActionsConfigurationForRowAtIndexPath:) override func tableView(_ tableView: UITableView,
                                                                                         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
         let systemInstanceName = Array(SystemInstances.systemInstances.keys)[indexPath.row]
@@ -77,8 +77,7 @@ class OutdatedViewController: GenericViewController, UITableViewDelegate, UITabl
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
-    @objc(tableView:didSelectRowAtIndexPath:) func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped cell number \(indexPath.row) \(indexPath.description).")
+    @objc(tableView:didSelectRowAtIndexPath:) override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let detailsViewController = storyBoard.instantiateViewController(withIdentifier: "InstanceDetails") as! InstanceDetailsViewController

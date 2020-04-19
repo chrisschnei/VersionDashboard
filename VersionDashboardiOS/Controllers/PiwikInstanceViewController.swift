@@ -13,7 +13,7 @@ import VersionDashboardSDK
 import VersionDashboardSDKARM
 #endif
 
-class PiwikInstanceViewController: UIViewController {
+class PiwikInstanceViewController: GenericViewController {
 
     @IBOutlet weak var navigationBar: UINavigationBar!
     
@@ -36,7 +36,7 @@ class PiwikInstanceViewController: UIViewController {
     }
     
     @IBAction func saveInstance(_ sender: Any) {
-        if (self.checkURLTextfields()) {
+        if (self.checkURLTextfields(hostUrlTextfield: self.hostUrlTextfield, infoTitle: self.infoTitle)) {
             return
         }
         
@@ -46,7 +46,7 @@ class PiwikInstanceViewController: UIViewController {
             return
         }
         
-        let piwikInstance = PiwikModel.init(creationDate: "", currentVersion: "", hosturl: self.hostUrlTextfield.text!, apiToken: self.apiTokenTextfield.text!, lastRefresh: "", name: self.nameTextfield.text!, type: "Piwik", headVersion: "", updateAvailable: 0, phpVersion: "", serverType: "")
+        let piwikInstance = PiwikModel.init(creationDate: "", currentVersion: "0.0", hosturl: self.hostUrlTextfield.text!, apiToken: self.apiTokenTextfield.text!, lastRefresh: "", name: self.nameTextfield.text!, type: "Piwik", headVersion: "0.0", updateAvailable: 0, phpVersion: "", serverType: "")
         _ = piwikInstance.saveConfigfile()
         HeadInstances.headInstances.removeAll()
         SystemInstances.systemInstances.removeAll()
@@ -56,21 +56,6 @@ class PiwikInstanceViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    func checkURLTextfields() -> Bool {
-        var error = false
-        if (!((self.hostUrlTextfield.text?.hasSuffix("/"))!)) {
-            self.infoTitle.text = NSLocalizedString("urlEnding", comment: "")
-            self.infoTitle.isHidden = false
-            error = true
-        }
-        if (!((self.hostUrlTextfield.text?.hasPrefix("http"))!)) {
-            self.infoTitle.text = NSLocalizedString("protocolMissing", comment: "")
-            self.infoTitle.isHidden = false
-            error = true
-        }
-        return error
     }
 
 }
