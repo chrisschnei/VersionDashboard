@@ -30,6 +30,7 @@ class SummaryViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(SummaryViewController.forceCheckAllInstances(_:)), name: NSNotification.Name(rawValue: "forceUpdateInstances"), object: nil)
         
         Constants.initialize(Bundle.main.bundlePath)
         
@@ -119,6 +120,23 @@ class SummaryViewController: NSViewController {
             (view.view as! NSButton).isEnabled = false
         }
         SummaryViewController.checkAllInstancesVersions(force: false) { result in
+            self.performSelector(onMainThread: #selector(SummaryViewController.checksFinished), with: self, waitUntilDone: true)
+        }
+    }
+    
+    /**
+     Callback force check all instances.
+     
+     - Parameters:
+     - sender: Sending object.
+     */
+    @objc public func forceCheckAllInstances(_ sender: AnyObject) {
+        self.refreshActiveSpinner.isHidden = false
+        self.refreshActiveSpinner.startAnimation(self)
+        if let view = self.touchbarRefreshItem {
+            (view.view as! NSButton).isEnabled = false
+        }
+        SummaryViewController.checkAllInstancesVersions(force: true) { result in
             self.performSelector(onMainThread: #selector(SummaryViewController.checksFinished), with: self, waitUntilDone: true)
         }
     }
