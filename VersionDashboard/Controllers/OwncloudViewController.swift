@@ -9,9 +9,9 @@
 import Cocoa
 import VersionDashboardSDK
 
-class OwncloudViewController: NSViewController {
+class OwncloudViewController: GenericViewController {
 
-    @IBOutlet weak var cancelButton: NSLayoutConstraint!
+    @IBOutlet weak var cancelButton: NSButton!
     @IBOutlet weak var saveButton: NSButton!
     @IBOutlet weak var urlField: NSTextField!
     @IBOutlet weak var instanceName: NSTextField!
@@ -21,12 +21,8 @@ class OwncloudViewController: NSViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func cancelAction(_ sender: AnyObject) {
-        self.dismiss(self)
-    }
-    
     @IBAction func saveAction(_ sender: AnyObject) {
-        if (self.checkURLTextfields()) {
+        if (checkURLTextfields(hostUrlTextfield: self.urlField, infoTitle: self.errorMessage)) {
             return
         }
         if (SystemInstancesModel.checkInstanceNameAlreadyPresent(self.instanceName.stringValue)) {
@@ -38,18 +34,4 @@ class OwncloudViewController: NSViewController {
         NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadTableContents"), object: nil)
     }
     
-    func checkURLTextfields() -> Bool {
-        var error = false
-        if (!(self.urlField.stringValue.hasSuffix("/"))) {
-            self.errorMessage.stringValue = NSLocalizedString("urlEnding", comment: "")
-            self.errorMessage.isHidden = false
-            error = true
-        }
-        if (!(self.urlField.stringValue.hasPrefix("http"))) {
-            self.errorMessage.stringValue = NSLocalizedString("protocolMissing", comment: "")
-            self.errorMessage.isHidden = false
-            error = true
-        }
-        return error
-    }
 }

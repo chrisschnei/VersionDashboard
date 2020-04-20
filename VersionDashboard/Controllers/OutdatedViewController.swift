@@ -9,7 +9,7 @@
 import Cocoa
 import VersionDashboardSDK
 
-class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
+class OutdatedViewController: GenericViewController, NSTableViewDelegate, NSTableViewDataSource {
     
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var table: NSScrollView!
@@ -59,27 +59,20 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
         self.reloadTable()
     }
     
-    @IBAction func copyDownloadUrlToClipboard(_ sender: Any) {
-        self.infoMessage.isHidden = false
-        timer = Timer.scheduledTimer(timeInterval: TimeInterval(Constants.timerInterval), target: self, selector: #selector(disableInfoMessage), userInfo: nil, repeats: false)
-        let owncloudhead = HeadInstances.headInstances["Owncloud"] as! OwncloudHeadModel
-        if (owncloudhead.downloadurl == "") {
-            infoMessage.stringValue = NSLocalizedString("clipboardCopyingFailed", comment: "")
-            return
-        }
-        let pasteboard = NSPasteboard.general
-        pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
-        if (pasteboard.setString(owncloudhead.downloadurl, forType: NSPasteboard.PasteboardType.string)) {
-            infoMessage.stringValue = NSLocalizedString("clipboardCopyingWorked", comment: "")
-        } else {
-            infoMessage.stringValue = NSLocalizedString("clipboardCopyingFailed", comment: "")
-        }
-    }
-
     @objc func disableInfoMessage() {
         self.infoMessage.stringValue = ""
         self.infoMessage.isHidden = true
         self.timer?.invalidate()
+    }
+    
+    @IBAction func copyDownloadUrlToClipboard(_ sender: Any) {
+        self.infoMessage.isHidden = false
+        timer = Timer.scheduledTimer(timeInterval: TimeInterval(Constants.timerInterval), target: self, selector: #selector(disableInfoMessage), userInfo: nil, repeats: false)
+        if (self.copyToClipboard()) {
+            infoMessage.stringValue = NSLocalizedString("clipboardCopyingWorked", comment: "")
+        } else {
+            infoMessage.stringValue = NSLocalizedString("clipboardCopyingFailed", comment: "")
+        }
     }
     
     func updateInstanceDetails(_ index: Int) {
@@ -303,25 +296,8 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
     }
     
     @IBAction func takeMeToMyInstanceAction(_ sender: AnyObject) {
-        if (self.tableView.selectedRow != -1) {
-            var key : String
-            if (!filtertext.isEmpty) {
-                key = filteredInstancesArray[self.tableView.selectedRow]
-            } else {
-                key = Array(SystemInstances.systemInstances.keys)[self.tableView.selectedRow]
-            }
-            let instance = SystemInstances.systemInstances[key]
-            var url = ""
-            if ((instance as? JoomlaModel) != nil) {
-                url = (instance as! JoomlaModel).hosturl + Constants.joomlaBackendURL
-            } else if ((instance as? WordpressModel) != nil) {
-                url = (instance as! WordpressModel).hosturl + Constants.wordpressBackendURL
-            } else if ((instance as? PiwikModel) != nil) {
-                url = (instance as! PiwikModel).hosturl
-            } else if ((instance as? OwncloudModel) != nil) {
-                url = (instance as! OwncloudModel).hosturl
-            }
-            NSWorkspace.shared.open(URL(string: url)!)
+        if (!self.openInstanceWebsite(selectedRow: tableView.selectedRow, filteredInstancesArray: self.filteredInstancesArray, filtertext: self.filtertext)) {
+            print("Opening website did not work")
         }
     }
 
@@ -353,22 +329,8 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
         self.tableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
     }
     
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?
-    {
-        self.tableView.rowHeight = 30.0
-        let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "InstanceName"), owner: self) as! NSTableCellView
-        let name = filteredInstancesArray[row]
-        if ((SystemInstances.systemInstances[name] as? OwncloudModel) != nil) {
-            cellView.imageView!.image = NSImage(named: NSImage.Name("owncloud_dots.png"))!
-        } else if ((SystemInstances.systemInstances[name] as? PiwikModel) != nil) {
-            cellView.imageView!.image = NSImage(named: NSImage.Name("piwik_dots.png"))!
-        } else if ((SystemInstances.systemInstances[name] as? WordpressModel) != nil) {
-            cellView.imageView!.image = NSImage(named: NSImage.Name("wordpress_dots.png"))!
-        } else if ((SystemInstances.systemInstances[name] as? JoomlaModel) != nil) {
-            cellView.imageView!.image = NSImage(named: NSImage.Name("joomla_dots.png"))!
-        }
-        cellView.textField?.stringValue = name
-        return cellView
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        return createTableCell(tableView: self.tableView, filteredInstancesArray: filteredInstancesArray, row: row)
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {
@@ -415,17 +377,6 @@ class OutdatedViewController: NSViewController, NSTableViewDelegate, NSTableView
         return OutdatedInstances.outdatedInstances.count
     }
     
-    @IBAction func loadSummaryViewController(_: Any) {
-        let storyBoard : NSStoryboard = NSStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateController(withIdentifier: "SummaryViewController") as! SummaryViewController
-        self.view.window?.contentViewController = nextViewController
-    }
-    
-    @IBAction func loadDetailedViewController(_: Any) {
-        let storyBoard : NSStoryboard = NSStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateController(withIdentifier: "DetailedViewController") as! DetailedViewController
-        self.view.window?.contentViewController = nextViewController
-    }
 }
 
 /**
@@ -464,12 +415,12 @@ extension OutdatedViewController: NSTouchBarDelegate {
             return self.refreshInstanceButtonItem
         case NSTouchBarItem.Identifier.summaryViewController:
             self.summaryViewControllerItem = NSCustomTouchBarItem(identifier: identifier)
-            let summaryButton = NSButton(image: NSImage(named: NSImage.Name("Summarize.png"))!, target: self, action: #selector(self.loadSummaryViewController))
+            let summaryButton = NSButton(image: NSImage(named: NSImage.Name("Summarize.png"))!, target: self, action: #selector(GenericViewController.loadSummaryViewController))
             self.summaryViewControllerItem.view = summaryButton
             return self.summaryViewControllerItem
         case NSTouchBarItem.Identifier.detailedViewController:
             self.detailedViewControllerItem = NSCustomTouchBarItem(identifier: identifier)
-            let detailedButton = NSButton(image: NSImage(named: NSImage.Name("Detailed view.png"))!, target: self, action: #selector(self.loadDetailedViewController))
+            let detailedButton = NSButton(image: NSImage(named: NSImage.Name("Detailed view.png"))!, target: self, action: #selector(GenericViewController.loadDetailedViewController))
             self.detailedViewControllerItem.view = detailedButton
             return self.detailedViewControllerItem
         case NSTouchBarItem.Identifier.openInstanceWebsite:

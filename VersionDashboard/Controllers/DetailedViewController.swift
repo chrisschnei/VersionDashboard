@@ -9,7 +9,7 @@
 import Cocoa
 import VersionDashboardSDK
 
-class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
+class DetailedViewController: GenericViewController, NSTableViewDelegate, NSTableViewDataSource {
     
     @IBOutlet weak var refreshButton: NSButton!
     @IBOutlet weak var systemLabel: NSTextField!
@@ -21,7 +21,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     @IBOutlet weak var addButton: NSButton!
     @IBOutlet weak var removeButton: NSButton!
     @IBOutlet weak var editButton: NSButton!
-    @IBOutlet weak var systemTableView: NSTableView!
+    @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var infoMessage: NSTextField!
     @IBOutlet weak var checkActiveSpinner: NSProgressIndicator!
     @IBOutlet weak var takeMeToMyInstance: NSButton!
@@ -46,9 +46,10 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(DetailedViewController.reloadTable(_:)), name: NSNotification.Name(rawValue: "reloadTableContents"), object: nil)
-        systemTableView.delegate = self
-        systemTableView.dataSource = self
+        NotificationCenter.default.addObserver(self, selector: #selector(DetailedViewController.reloadTable(_:)), name: NSNotification.Name(rawValue: "reloadTableContentsDetailed"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(DetailedViewController.reloadTable(_:)), name: NSNotification.Name(rawValue: "reloadTableContentsAdd"), object: nil)
+        tableView.delegate = self
+        tableView.dataSource = self
         self.addInstancesToTable()
         self.takeMeToMyInstance.isEnabled = false
         self.editButton.isEnabled = false
@@ -60,7 +61,7 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     
     @IBAction func filterInstances(_ sender: Any) {
         self.filtertext = searchfield.stringValue.lowercased()
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadTableContents"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadTableContentsDetailed"), object: nil)
     }
     
     @IBAction func copyDownloadUrlToClipboard(_ sender: Any) {
@@ -87,32 +88,15 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     }
     
     @IBAction func takeMeToMyInstanceAction(_ sender: AnyObject) {
-        if (self.systemTableView.selectedRow != -1) {
-            var key : String
-            if (!filtertext.isEmpty) {
-                key = filteredInstancesArray[self.systemTableView.selectedRow]
-            } else {
-                key = Array(SystemInstances.systemInstances.keys)[self.systemTableView.selectedRow]
-            }
-            let instance = SystemInstances.systemInstances[key]
-            var url = ""
-            if ((instance as? JoomlaModel) != nil) {
-                url = (instance as! JoomlaModel).hosturl + Constants.joomlaBackendURL
-            } else if ((instance as? WordpressModel) != nil) {
-                url = (instance as! WordpressModel).hosturl + Constants.wordpressBackendURL
-            } else if ((instance as? PiwikModel) != nil) {
-                url = (instance as! PiwikModel).hosturl
-            } else if ((instance as? OwncloudModel) != nil) {
-                url = (instance as! OwncloudModel).hosturl
-            }
-            NSWorkspace.shared.open(URL(string: url)!)
+        if (!self.openInstanceWebsite(selectedRow: tableView.selectedRow, filteredInstancesArray: self.filteredInstancesArray, filtertext: self.filtertext)) {
+            print("Opening website did not work")
         }
     }
     
     @IBAction func removeInstance(_ sender: AnyObject) {
-        if (self.systemTableView.selectedRow != -1) {
+        if (self.tableView.selectedRow != -1) {
             let instances = Array(SystemInstances.systemInstances.keys)
-            let filename = instances[self.systemTableView.selectedRow]
+            let filename = instances[self.tableView.selectedRow]
             if (!GenericModel.deleteFile(filename)) {
                 print("Deleting plist file with name \(filename) did not work.")
                 return
@@ -128,19 +112,19 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
     }
     
     func addInstancesToTable() {
-        self.systemTableView.reloadData()
+        self.tableView.reloadData()
     }
     
     @objc func reloadTable(_ notification: Notification) {
-        let selectedRow = self.systemTableView.selectedRow
-        self.systemTableView.deselectAll(self)
+        let selectedRow = self.tableView.selectedRow
+        self.tableView.deselectAll(self)
         SystemInstances.systemInstances.removeAll()
         if (!SystemInstancesModel.loadConfigfiles()) {
             print("Loading system instances config files failed.")
             return
         }
-        self.systemTableView.reloadData()
-        self.systemTableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
+        self.tableView.reloadData()
+        self.tableView.selectRowIndexes((IndexSet(integer:selectedRow)), byExtendingSelection: false)
     }
     
     func updateSingleInstance(instanceName: String, completion: @escaping (Bool) -> ()) {
@@ -210,13 +194,13 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
             (view.view as! NSButton).isEnabled = false
         }
         if (checkInternetConnection()) {
-            let selectedRow = self.systemTableView.selectedRow
+            let selectedRow = self.tableView.selectedRow
             if (selectedRow != -1) {
                 var key : String
                 if (!filtertext.isEmpty) {
-                    key = filteredInstancesArray[self.systemTableView.selectedRow]
+                    key = filteredInstancesArray[self.tableView.selectedRow]
                 } else {
-                    key = Array(SystemInstances.systemInstances.keys)[self.systemTableView.selectedRow]
+                    key = Array(SystemInstances.systemInstances.keys)[self.tableView.selectedRow]
                 }
                 self.updateSingleInstance(instanceName: key) { completion in
                     let parameters = ["self": self, "completion" : completion, "selectedRow" : selectedRow] as [String : Any]
@@ -250,8 +234,8 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         } else {
             self.infoMessage.isHidden = true
         }
-        self.systemTableView.deselectAll(parameters["self"])
-        self.systemTableView.selectRowIndexes((IndexSet(integer:parameters["selectedRow"] as! Int)), byExtendingSelection: false)
+        self.tableView.deselectAll(parameters["self"])
+        self.tableView.selectRowIndexes((IndexSet(integer:parameters["selectedRow"] as! Int)), byExtendingSelection: false)
         
         setOutdatedBadgeNumber()
     }
@@ -405,26 +389,12 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         }
     }
     
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?
-    {
-        self.systemTableView.rowHeight = 30.0
-        let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "InstanceName"), owner: self) as! NSTableCellView
-        let name = filteredInstancesArray[row]
-        if ((SystemInstances.systemInstances[name] as? OwncloudModel) != nil) {
-            cellView.imageView!.image = NSImage(named: NSImage.Name("owncloud_dots.png"))!
-        } else if ((SystemInstances.systemInstances[name] as? PiwikModel) != nil) {
-            cellView.imageView!.image = NSImage(named: NSImage.Name("piwik_dots.png"))!
-        } else if ((SystemInstances.systemInstances[name] as? WordpressModel) != nil) {
-            cellView.imageView!.image = NSImage(named: NSImage.Name("wordpress_dots.png"))!
-        } else if ((SystemInstances.systemInstances[name] as? JoomlaModel) != nil) {
-            cellView.imageView!.image = NSImage(named: NSImage.Name("joomla_dots.png"))!
-        }
-        cellView.textField?.stringValue = name
-        return cellView
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        return createTableCell(tableView: self.tableView, filteredInstancesArray: filteredInstancesArray, row: row)
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {
-        self.updateInstanceDetails(systemTableView.selectedRow)
+        self.updateInstanceDetails(tableView.selectedRow)
     }
     
     func numberOfRows(in aTableView: NSTableView) -> Int {
@@ -442,27 +412,23 @@ class DetailedViewController: NSViewController, NSTableViewDelegate, NSTableView
         return SystemInstances.systemInstances.count
     }
     
-    @IBAction func loadSummaryViewController(_: Any) {
-        let storyBoard : NSStoryboard = NSStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateController(withIdentifier: "SummaryViewController") as! SummaryViewController
-        self.view.window?.contentViewController = nextViewController
-    }
-    
-    @IBAction func loadOutdatedViewController(_: Any) {
-        let storyBoard : NSStoryboard = NSStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateController(withIdentifier: "OutdatedViewController") as! OutdatedViewController
-        self.view.window?.contentViewController = nextViewController
-    }
-    
     @IBAction func loadAddViewController(_: Any) {
-        let myWindowController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "AddSystemViewController") as! AddSystemViewController
-        presentAsSheet(myWindowController)
+        let myWindowController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "AddSystemViewController") as? AddSystemViewController
+        if (myWindowController == nil) {
+            print("Instantiating add system view controller did not work.")
+            return
+        }
+        presentAsSheet(myWindowController!)
     }
     
     @IBAction func loadSettingsViewController(_: Any) {
-        let myWindowController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "SettingsViewController") as! SettingsViewController
-        myWindowController.instanceName = self.systemLabel.stringValue
-        presentAsSheet(myWindowController)
+        let myWindowController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "SettingsViewController") as? SettingsViewController
+        if (myWindowController == nil) {
+            print("Instantiating settings view controller did not work.")
+            return
+        }
+        myWindowController!.instanceName = self.systemLabel.stringValue
+        presentAsSheet(myWindowController!)
     }
 }
 
@@ -519,12 +485,12 @@ extension DetailedViewController: NSTouchBarDelegate {
             return refreshInstanceButtonItem
         case NSTouchBarItem.Identifier.summaryViewController:
             self.summaryViewControllerItem = NSCustomTouchBarItem(identifier: identifier)
-            let summaryButton = NSButton(image: NSImage(named: NSImage.Name("Summarize.png"))!, target: self, action: #selector(self.loadSummaryViewController))
+            let summaryButton = NSButton(image: NSImage(named: NSImage.Name("Summarize.png"))!, target: self, action: #selector(GenericViewController.loadSummaryViewController))
             self.summaryViewControllerItem.view = summaryButton
             return self.summaryViewControllerItem
         case NSTouchBarItem.Identifier.outdatedViewController:
             self.outdatedViewControllerItem = NSCustomTouchBarItem(identifier: identifier)
-            let outdatedButton = NSButton(image: NSImage(named: NSImage.Name("Outdated item.png"))!, target: self, action: #selector(self.loadOutdatedViewController))
+            let outdatedButton = NSButton(image: NSImage(named: NSImage.Name("Outdated item.png"))!, target: self, action: #selector(GenericViewController.loadOutdatedViewController))
             self.outdatedViewControllerItem.view = outdatedButton
             return self.outdatedViewControllerItem
         case NSTouchBarItem.Identifier.openInstanceWebsite:

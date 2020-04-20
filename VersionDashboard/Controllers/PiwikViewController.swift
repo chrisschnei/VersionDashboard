@@ -9,7 +9,7 @@
 import Cocoa
 import VersionDashboardSDK
 
-class PiwikViewController: NSViewController {
+class PiwikViewController: GenericViewController {
 
     @IBOutlet weak var hostUrl: NSTextField!
     @IBOutlet weak var tokenField: NSTextField!
@@ -23,7 +23,7 @@ class PiwikViewController: NSViewController {
     }
     
     @IBAction func saveAction(_ sender: AnyObject) {
-        if (self.checkURLTextfields()) {
+        if (self.checkURLTextfields(hostUrlTextfield: self.hostUrl, infoTitle: self.errorMessage)) {
             return
         }
         if (SystemInstancesModel.checkInstanceNameAlreadyPresent(self.instanceName.stringValue)) {
@@ -33,25 +33,6 @@ class PiwikViewController: NSViewController {
         _ = piwikinstance.saveConfigfile()
         self.dismiss(self)
         NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadTableContents"), object: nil)
-    }
-    
-    @IBAction func cancelAction(_ sender: AnyObject) {
-        self.dismiss(self)
-    }
-    
-    func checkURLTextfields() -> Bool {
-        var error = false
-        if (!(self.hostUrl.stringValue.hasSuffix("/"))) {
-            self.errorMessage.stringValue = NSLocalizedString("urlEnding", comment: "")
-            self.errorMessage.isHidden = false
-            error = true
-        }
-        if (!(self.hostUrl.stringValue.hasPrefix("http"))) {
-            self.errorMessage.stringValue = NSLocalizedString("protocolMissing", comment: "")
-            self.errorMessage.isHidden = false
-            error = true
-        }
-        return error
     }
     
 }

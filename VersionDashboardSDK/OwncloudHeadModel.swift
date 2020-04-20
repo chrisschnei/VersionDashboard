@@ -41,6 +41,9 @@ open class OwncloudHeadModel: GenericHeadModel {
                     print("Error saving owncloud head plist file.")
                     return false
                 }
+            } else {
+                print("Fetching owncloud head infos did not work.")
+                return false
             }
         }
     

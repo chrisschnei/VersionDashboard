@@ -9,7 +9,7 @@
 import Cocoa
 import VersionDashboardSDK
 
-class PreferencesViewController: NSViewController {
+class PreferencesViewController: GenericViewController {
 
     @IBOutlet weak var dropdownInterval: NSComboBox!
     @IBOutlet weak var cancelButton: NSButton!
@@ -78,10 +78,6 @@ class PreferencesViewController: NSViewController {
         } else if (self.activatedCheckbox.state.rawValue == 0) {
             self.stopTimer()
         }
-        self.dismiss(self)
-    }
-    
-    @IBAction func cancelPreferences(_ sender: AnyObject) {
         self.dismiss(self)
     }
     

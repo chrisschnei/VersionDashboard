@@ -9,7 +9,7 @@
 import Cocoa
 import VersionDashboardSDK
 
-class SettingsViewController: NSViewController {
+class SettingsViewController: GenericViewController {
 
     @IBOutlet weak var settingsLabel: NSTextField!
     @IBOutlet weak var hostTextbox: NSTextField!
@@ -116,10 +116,6 @@ class SettingsViewController: NSViewController {
             }
         }
         return false
-    }
-    
-    @IBAction func cancelButton(_ sender: AnyObject) {
-        self.dismiss(self)
     }
     
     @IBAction func saveButton(_ sender: AnyObject) {

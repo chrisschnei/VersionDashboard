@@ -62,6 +62,8 @@
 		AA58D59224439C7100E457AD /* configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F2226CBDDD00BEB4C3 /* configuration.plist */; };
 		AA58D59324439C7700E457AD /* joomla.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8FB226CBDDD00BEB4C3 /* joomla.plist */; };
 		AA58D59424439C7A00E457AD /* wordpress.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8FC226CBDDD00BEB4C3 /* wordpress.plist */; };
+		AA58D596244CF68C00E457AD /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA58D595244CF68C00E457AD /* GenericViewController.swift */; };
+		AA58D598244DA5C700E457AD /* GenericViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA58D597244DA5C700E457AD /* GenericViewControllerTests.swift */; };
 		AA62EE692251393F00757106 /* SystemInstancesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE572251393800757106 /* SystemInstancesModel.swift */; };
 		AA62EE6A2251393F00757106 /* GenericModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE582251393800757106 /* GenericModelProtocol.swift */; };
 		AA62EE6B2251393F00757106 /* InternetConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE592251393900757106 /* InternetConnectivity.swift */; };
@@ -458,6 +460,8 @@
 		AA36C3B922E3557B008B393E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA58D57A244249CF00E457AD /* VersionDashboardiOSSimulatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardiOSSimulatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA58D57E244249D000E457AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA58D595244CF68C00E457AD /* GenericViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
+		AA58D597244DA5C700E457AD /* GenericViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewControllerTests.swift; sourceTree = "<group>"; };
 		AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVersionDashboardSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA62EE572251393800757106 /* SystemInstancesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemInstancesModel.swift; sourceTree = "<group>"; };
 		AA62EE582251393800757106 /* GenericModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericModelProtocol.swift; sourceTree = "<group>"; };
@@ -784,19 +788,20 @@
 		AA36C37922E35563008B393E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AA36C37A22E35563008B393E /* OwncloudViewController.swift */,
-				AA36C37B22E35563008B393E /* SummaryViewController.swift */,
-				AA36C37C22E35563008B393E /* AddSystemViewController.swift */,
-				AA36C37D22E35563008B393E /* DetailedViewController.swift */,
-				AA36C37E22E35563008B393E /* PreferencesViewController.swift */,
-				AA36C37F22E35563008B393E /* PreferencesWindowController.swift */,
-				AA36C38022E35563008B393E /* WordpressViewController.swift */,
-				AA36C38122E35563008B393E /* OutdatedViewController.swift */,
 				AA36C38222E35563008B393E /* MainWindow.swift */,
+				AA36C37F22E35563008B393E /* PreferencesWindowController.swift */,
+				AA36C37E22E35563008B393E /* PreferencesViewController.swift */,
+				AA58D595244CF68C00E457AD /* GenericViewController.swift */,
+				AA1A21D824326C9000E7A25C /* TouchBarIdentifiers.swift */,
+				AA36C37B22E35563008B393E /* SummaryViewController.swift */,
+				AA36C37D22E35563008B393E /* DetailedViewController.swift */,
+				AA36C38122E35563008B393E /* OutdatedViewController.swift */,
+				AA36C37C22E35563008B393E /* AddSystemViewController.swift */,
+				AA36C38522E35563008B393E /* SettingsViewController.swift */,
+				AA36C38022E35563008B393E /* WordpressViewController.swift */,
+				AA36C37A22E35563008B393E /* OwncloudViewController.swift */,
 				AA36C38322E35563008B393E /* PiwikViewController.swift */,
 				AA36C38422E35563008B393E /* JoomlaViewController.swift */,
-				AA36C38522E35563008B393E /* SettingsViewController.swift */,
-				AA1A21D824326C9000E7A25C /* TouchBarIdentifiers.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -819,6 +824,7 @@
 				AABD442923674FDA009A98C1 /* DetailedViewControllerTests.swift */,
 				AABD442B23674FEE009A98C1 /* PreferencesViewControllerTests.swift */,
 				AABD442D23674FFF009A98C1 /* OutdatedViewControllerTests.swift */,
+				AA58D597244DA5C700E457AD /* GenericViewControllerTests.swift */,
 			);
 			path = VersionDashboardTests;
 			sourceTree = "<group>";
@@ -1741,6 +1747,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA58D596244CF68C00E457AD /* GenericViewController.swift in Sources */,
 				AA36C3AC22E35563008B393E /* WordpressViewController.swift in Sources */,
 				AA36C3A822E35563008B393E /* AddSystemViewController.swift in Sources */,
 				AA36C3AB22E35563008B393E /* PreferencesWindowController.swift in Sources */,
@@ -1781,6 +1788,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA58D598244DA5C700E457AD /* GenericViewControllerTests.swift in Sources */,
 				AABD442E23674FFF009A98C1 /* OutdatedViewControllerTests.swift in Sources */,
 				AABD442C23674FEE009A98C1 /* PreferencesViewControllerTests.swift in Sources */,
 				AABD442A23674FDA009A98C1 /* DetailedViewControllerTests.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class AddSystemViewController: NSViewController {
+class AddSystemViewController: GenericViewController {
     
     var addPiwikItem: NSCustomTouchBarItem!
     var addOwncloudItem: NSCustomTouchBarItem!
@@ -17,7 +17,7 @@ class AddSystemViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(AddSystemViewController.cancelClicked(_:)), name: NSNotification.Name(rawValue: "reloadTableContents"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AddSystemViewController.cancelClicked(_:)), name: NSNotification.Name(rawValue: "reloadTableContentsAdd"), object: nil)
     }
     
     @IBAction func cancelClicked(_ sender: AnyObject) {
@@ -25,27 +25,19 @@ class AddSystemViewController: NSViewController {
     }
     
     @IBAction func loadPiwikController(_ sender: AnyObject) {
-        let storyBoard : NSStoryboard = NSStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateController(withIdentifier: "PiwikController") as! PiwikViewController
-        presentAsSheet(nextViewController)
+        presentAsSheet(instantiatePiwikViewController())
     }
     
     @IBAction func loadOwncloudController(_ sender: AnyObject) {
-        let storyBoard : NSStoryboard = NSStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateController(withIdentifier: "OwncloudViewController") as! OwncloudViewController
-        presentAsSheet(nextViewController)
+        presentAsSheet(instantiateOwncloudViewController())
     }
     
     @IBAction func loadWordpressController(_ sender: AnyObject) {
-        let storyBoard : NSStoryboard = NSStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateController(withIdentifier: "WordpressViewController") as! WordpressViewController
-        presentAsSheet(nextViewController)
+        presentAsSheet(instantiateWordpressViewController())
     }
     
     @IBAction func loadJoomlaController(_ sender: AnyObject) {
-        let storyBoard : NSStoryboard = NSStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateController(withIdentifier: "JoomlaViewController") as! JoomlaViewController
-        presentAsSheet(nextViewController)
+        presentAsSheet(instantiateJoomlaViewController())
     }
     
 }

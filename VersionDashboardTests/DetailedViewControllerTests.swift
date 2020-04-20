@@ -56,7 +56,7 @@ class DetailedViewControllerTests: XCTestCase {
     
     func testViewDidLoad() {
         XCTAssertFalse(vc.takeMeToMyInstance.isEnabled)
-        XCTAssertEqual(vc.systemTableView.numberOfRows, SystemInstances.systemInstances.count)
+        XCTAssertEqual(vc.tableView.numberOfRows, SystemInstances.systemInstances.count)
     }
     
     func testUpdateInstanceDetails() {

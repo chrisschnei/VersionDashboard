@@ -14,7 +14,7 @@ import VersionDashboardSDK
 /**
  SummaryViewController class representing main view controller.
  */
-class SummaryViewController: NSViewController {
+class SummaryViewController: GenericViewController {
 
     @IBOutlet weak var checkAllInstancesButton: NSButton!
     @IBOutlet var summaryViewController: NSView!
@@ -192,32 +192,6 @@ class SummaryViewController: NSViewController {
             completionHandler(true)
         }
     }
-    
-    /**
-     Replace existing view controller by detailed view controller.
-     */
-    @IBAction func loadDetailedViewController(_: Any) {
-        let storyBoard : NSStoryboard = NSStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateController(withIdentifier: "DetailedViewController") as! DetailedViewController
-        self.view.window?.contentViewController = nextViewController
-    }
-    
-    /**
-     Replace existing view controller by outdated view controller.
-     */
-    @IBAction func loadOutdatedViewController(_: Any) {
-        let storyBoard : NSStoryboard = NSStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateController(withIdentifier: "OutdatedViewController") as! OutdatedViewController
-        self.view.window?.contentViewController = nextViewController
-    }
-    
-    /**
-     Load modal preferences window dialog.
-     */
-    @IBAction func loadPreferencesWindow(_: Any) {
-        let myWindowController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "PreferencesViewController") as! PreferencesViewController
-        presentAsModalWindow(myWindowController)
-    }
 }
 
 /**
@@ -250,7 +224,7 @@ extension SummaryViewController: NSTouchBarDelegate {
         switch identifier {
         case NSTouchBarItem.Identifier.preferencesDialog:
             self.touchbarPreferencesItem = NSCustomTouchBarItem(identifier: identifier)
-            let preferencesButton = NSButton(image: NSImage(named: NSImage.actionTemplateName)!, target: self, action: #selector(self.loadPreferencesWindow))
+            let preferencesButton = NSButton(image: NSImage(named: NSImage.actionTemplateName)!, target: self, action: #selector(GenericViewController.loadPreferencesWindow))
             self.touchbarPreferencesItem.view = preferencesButton
             return self.touchbarPreferencesItem
         case NSTouchBarItem.Identifier.refreshAllInstances:
@@ -260,12 +234,12 @@ extension SummaryViewController: NSTouchBarDelegate {
             return self.touchbarRefreshItem
         case NSTouchBarItem.Identifier.detailedViewController:
             self.detailedViewControllerItem = NSCustomTouchBarItem(identifier: identifier)
-            let detailedButton = NSButton(image: NSImage(named: NSImage.Name("Detailed view.png"))!, target: self, action: #selector(self.loadDetailedViewController))
+            let detailedButton = NSButton(image: NSImage(named: NSImage.Name("Detailed view.png"))!, target: self, action: #selector(GenericViewController.loadDetailedViewController))
             self.detailedViewControllerItem.view = detailedButton
             return self.detailedViewControllerItem
         case NSTouchBarItem.Identifier.outdatedViewController:
             self.outdatedViewControllerItem = NSCustomTouchBarItem(identifier: identifier)
-            let outdatedButton = NSButton(image: NSImage(named: NSImage.Name("Outdated item.png"))!, target: self, action: #selector(self.loadOutdatedViewController))
+            let outdatedButton = NSButton(image: NSImage(named: NSImage.Name("Outdated item.png"))!, target: self, action: #selector(GenericViewController.loadOutdatedViewController))
             self.outdatedViewControllerItem.view = outdatedButton
             return self.outdatedViewControllerItem
         default:

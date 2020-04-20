@@ -50,7 +50,7 @@ public class Constants {
     public static var piwikAPIUrl = "index.php?module=API&method=API.getPiwikVersion&token_auth="
     public static var piwikLatestVersionURL = "https://api.piwik.org/1.0/getLatestVersion/"
     
-    public static var owncloudAPIUrl = "https://owncloud.org/install/#edition"
+    public static var owncloudAPIUrl = "https://owncloud.org/download"
     public static var owncloudStatusFile = "status.php"
     public static var owncloudRegexDownload = "https:[/]*download.owncloud.org/community/owncloud[0-9a-zA-Z-.]*zip"
     
@@ -97,7 +97,7 @@ public class Constants {
         piwikAPIUrl = "index.php?module=API&method=API.getPiwikVersion&token_auth="
         piwikLatestVersionURL = "https://api.piwik.org/1.0/getLatestVersion/"
         
-        owncloudAPIUrl = "https://owncloud.org/install/#edition"
+        owncloudAPIUrl = "https://owncloud.org/download"
         owncloudStatusFile = "status.php"
         
         refreshIntervals = ["6", "12", "24", "48"]
