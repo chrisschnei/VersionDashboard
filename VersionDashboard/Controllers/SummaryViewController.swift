@@ -64,7 +64,7 @@ class SummaryViewController: GenericViewController {
         }
         
         let data = PieChartData()
-        let ds1 = PieChartDataSet(entries: chartdata, label:"")
+        let ds1 = PieChartDataSet(values: chartdata, label:"")
         ds1.colors = ChartColorTemplates.material()
         data.addDataSet(ds1)
         self.pieChartInstanceSummary.data = data
@@ -80,7 +80,7 @@ class SummaryViewController: GenericViewController {
         chartdata.append(PieChartDataEntry(value: Double(SystemInstancesModel.getAmountOfUptodateInstances()), label:  NSLocalizedString("uptodate", comment: "")))
         
         let data = PieChartData()
-        let ds1 = PieChartDataSet(entries: chartdata, label:"")
+        let ds1 = PieChartDataSet(values: chartdata, label:"")
         ds1.colors = ChartColorTemplates.colorful()
         data.addDataSet(ds1)
         self.pieChartInstanceOutdated.data = data

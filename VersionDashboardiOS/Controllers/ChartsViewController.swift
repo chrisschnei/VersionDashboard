@@ -55,7 +55,7 @@ class ChartsViewController: UIViewController {
         }
         
         let data = PieChartData()
-        let ds1 = PieChartDataSet(entries: chartdata, label:"")
+        let ds1 = PieChartDataSet(values: chartdata, label:"")
         ds1.colors = ChartColorTemplates.material()
         data.addDataSet(ds1)
         self.overviewChart.data = data
@@ -69,7 +69,7 @@ class ChartsViewController: UIViewController {
         chartdata.append(PieChartDataEntry(value: Double(SystemInstancesModel.getAmountOfUptodateInstances()), label: NSLocalizedString("uptodate", comment: "")))
         
         let data = PieChartData()
-        let ds1 = PieChartDataSet(entries: chartdata, label:"")
+        let ds1 = PieChartDataSet(values: chartdata, label:"")
         ds1.colors = ChartColorTemplates.colorful()
         data.addDataSet(ds1)
         self.outdatedChart.data = data
