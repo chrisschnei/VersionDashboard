@@ -1,24 +1,14 @@
 #! /bin/bash
 
 resolutions=(
-	20
-	29
-	40
-	50
-	57
-	58
-	60
-	72
-	76
-	80
-	87
-	100
-	114
-	120
-	144
-	152
-	167
-	180
+	16
+	32
+	48
+	64
+	96
+	128
+	256
+	512
 	1024
 )
 
@@ -26,7 +16,7 @@ inputimage=$1
 
 if [[ ${inputimage} != *.png ]]
 then
-	echo Input images must be of type png due to transparancy.
+	echo Input images must be of type png due to transparency.
 	exit
 fi
 

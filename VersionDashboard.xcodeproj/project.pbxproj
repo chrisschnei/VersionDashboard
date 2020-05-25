@@ -402,7 +402,6 @@
 /* Begin PBXFileReference section */
 		AA1A21D42430AA4300E7A25C /* GenericTestInstanceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTestInstanceProtocol.swift; sourceTree = "<group>"; };
 		AA1A21D824326C9000E7A25C /* TouchBarIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarIdentifiers.swift; sourceTree = "<group>"; };
-		AA20D273235C7DD40027B268 /* generateLogos.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = generateLogos.sh; sourceTree = "<group>"; };
 		AA20D27C2361071E0027B268 /* VersionDashboardSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA20D27E2361071E0027B268 /* GenericHeadModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericHeadModelTests.swift; sourceTree = "<group>"; };
 		AA20D2802361071E0027B268 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -431,19 +430,15 @@
 		AA36C35A22E35563008B393E /* configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = configuration.plist; sourceTree = "<group>"; };
 		AA36C35B22E35563008B393E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA36C35F22E35563008B393E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AA36C36222E35563008B393E /* Summarize.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Summarize.ai; sourceTree = "<group>"; };
 		AA36C36322E35563008B393E /* Summarize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Summarize.png; sourceTree = "<group>"; };
 		AA36C36422E35563008B393E /* VDDetailed.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = VDDetailed.tiff; sourceTree = "<group>"; };
 		AA36C36622E35563008B393E /* Detailed view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Detailed view.png"; sourceTree = "<group>"; };
-		AA36C36722E35563008B393E /* Detailed view.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Detailed view.ai"; sourceTree = "<group>"; };
-		AA36C36922E35563008B393E /* Outdated item.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Outdated item.ai"; sourceTree = "<group>"; };
 		AA36C36A22E35563008B393E /* Outdated item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Outdated item.png"; sourceTree = "<group>"; };
 		AA36C36C22E35563008B393E /* 16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 16x16.png; sourceTree = "<group>"; };
 		AA36C36D22E35563008B393E /* 256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 256x256.png; sourceTree = "<group>"; };
 		AA36C36F22E35563008B393E /* 96x96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 96x96.png; sourceTree = "<group>"; };
 		AA36C37122E35563008B393E /* 128x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 128x128.png; sourceTree = "<group>"; };
 		AA36C37222E35563008B393E /* 48x48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 48x48.png; sourceTree = "<group>"; };
-		AA36C37322E35563008B393E /* 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 24x24.png; sourceTree = "<group>"; };
 		AA36C37422E35563008B393E /* 32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 32x32.png; sourceTree = "<group>"; };
 		AA36C37522E35563008B393E /* 512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 512x512.png; sourceTree = "<group>"; };
 		AA36C37722E35563008B393E /* 64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 64x64.png; sourceTree = "<group>"; };
@@ -565,14 +560,18 @@
 		AA71A8FA226CBDDD00BEB4C3 /* wordpress_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wordpress_dots.png; sourceTree = "<group>"; };
 		AA71A8FB226CBDDD00BEB4C3 /* joomla.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = joomla.plist; sourceTree = "<group>"; };
 		AA71A8FC226CBDDD00BEB4C3 /* wordpress.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = wordpress.plist; sourceTree = "<group>"; };
-		AA8CDEAE236F020E00C1DEBB /* Version Dashboard.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Version Dashboard.ai"; sourceTree = "<group>"; };
-		AA8CDEAF236F020F00C1DEBB /* Version Dashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Version Dashboard.png"; sourceTree = "<group>"; };
-		AA8CDEB0236F020F00C1DEBB /* Version Dashboard1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Version Dashboard1024.png"; sourceTree = "<group>"; };
 		AA8CDEB4236F7D2E00C1DEBB /* OutdatedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutdatedViewControllerTests.swift; sourceTree = "<group>"; };
 		AA8CDEB8236F7D9900C1DEBB /* GenericViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewControllerTests.swift; sourceTree = "<group>"; };
 		AA8CDEBC236F7DF900C1DEBB /* InstanceDetailsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceDetailsViewControllerTests.swift; sourceTree = "<group>"; };
 		AA8D60FC23BF9156003D1B34 /* VersionDashboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VersionDashboard.entitlements; sourceTree = "<group>"; };
 		AA8D60FD23C09048003D1B34 /* container-migration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "container-migration.plist"; sourceTree = "<group>"; };
+		AA9D754E247C43DB00EC2EEB /* Summarize.afdesign */ = {isa = PBXFileReference; lastKnownFileType = file; path = Summarize.afdesign; sourceTree = "<group>"; };
+		AA9D7550247C43E900EC2EEB /* Detailed view.afdesign */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Detailed view.afdesign"; sourceTree = "<group>"; };
+		AA9D7551247C43F700EC2EEB /* Outdated item.afdesign */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Outdated item.afdesign"; sourceTree = "<group>"; };
+		AA9D7552247C441500EC2EEB /* Version Dashboard.afdesign */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Version Dashboard.afdesign"; sourceTree = "<group>"; };
+		AA9D7553247C455400EC2EEB /* generateLogosiOS.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generateLogosiOS.sh; sourceTree = "<group>"; };
+		AA9D7554247C455400EC2EEB /* generateLogosMacOS.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generateLogosMacOS.sh; sourceTree = "<group>"; };
+		AA9D7555247C464E00EC2EEB /* 1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024x1024.png; sourceTree = "<group>"; };
 		AAB9131C2234371E006D1EE7 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts.framework/Charts.xcodeproj; sourceTree = "<group>"; };
 		AABD442623674EAF009A98C1 /* SettingsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerTests.swift; sourceTree = "<group>"; };
 		AABD442923674FDA009A98C1 /* DetailedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewControllerTests.swift; sourceTree = "<group>"; };
@@ -754,7 +753,7 @@
 		AA36C36122E35563008B393E /* summarize_item */ = {
 			isa = PBXGroup;
 			children = (
-				AA36C36222E35563008B393E /* Summarize.ai */,
+				AA9D754E247C43DB00EC2EEB /* Summarize.afdesign */,
 				AA36C36322E35563008B393E /* Summarize.png */,
 			);
 			path = summarize_item;
@@ -764,7 +763,7 @@
 			isa = PBXGroup;
 			children = (
 				AA36C36622E35563008B393E /* Detailed view.png */,
-				AA36C36722E35563008B393E /* Detailed view.ai */,
+				AA9D7550247C43E900EC2EEB /* Detailed view.afdesign */,
 			);
 			path = detailedview_item;
 			sourceTree = "<group>";
@@ -772,8 +771,8 @@
 		AA36C36822E35563008B393E /* outdated_item */ = {
 			isa = PBXGroup;
 			children = (
-				AA36C36922E35563008B393E /* Outdated item.ai */,
 				AA36C36A22E35563008B393E /* Outdated item.png */,
+				AA9D7551247C43F700EC2EEB /* Outdated item.afdesign */,
 			);
 			path = outdated_item;
 			sourceTree = "<group>";
@@ -782,17 +781,15 @@
 			isa = PBXGroup;
 			children = (
 				AA36C36C22E35563008B393E /* 16x16.png */,
-				AA36C36D22E35563008B393E /* 256x256.png */,
+				AA36C37422E35563008B393E /* 32x32.png */,
+				AA36C37222E35563008B393E /* 48x48.png */,
+				AA36C37722E35563008B393E /* 64x64.png */,
 				AA36C36F22E35563008B393E /* 96x96.png */,
 				AA36C37122E35563008B393E /* 128x128.png */,
-				AA36C37222E35563008B393E /* 48x48.png */,
-				AA8CDEAE236F020E00C1DEBB /* Version Dashboard.ai */,
-				AA8CDEAF236F020F00C1DEBB /* Version Dashboard.png */,
-				AA8CDEB0236F020F00C1DEBB /* Version Dashboard1024.png */,
-				AA36C37322E35563008B393E /* 24x24.png */,
-				AA36C37422E35563008B393E /* 32x32.png */,
+				AA36C36D22E35563008B393E /* 256x256.png */,
 				AA36C37522E35563008B393E /* 512x512.png */,
-				AA36C37722E35563008B393E /* 64x64.png */,
+				AA9D7555247C464E00EC2EEB /* 1024x1024.png */,
+				AA9D7552247C441500EC2EEB /* Version Dashboard.afdesign */,
 			);
 			path = applogo;
 			sourceTree = "<group>";
@@ -1062,7 +1059,8 @@
 		AA71A8EE226CBDDD00BEB4C3 /* GenericResources */ = {
 			isa = PBXGroup;
 			children = (
-				AA20D273235C7DD40027B268 /* generateLogos.sh */,
+				AA9D7553247C455400EC2EEB /* generateLogosiOS.sh */,
+				AA9D7554247C455400EC2EEB /* generateLogosMacOS.sh */,
 				AA71A8F0226CBDDD00BEB4C3 /* owncloud.plist */,
 				AA71A8F1226CBDDD00BEB4C3 /* joomla.png */,
 				AA71A8F2226CBDDD00BEB4C3 /* configuration.plist */,
