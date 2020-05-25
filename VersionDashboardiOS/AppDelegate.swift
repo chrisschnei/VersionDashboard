@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        //displaying the ios local notification when app is in foreground
+        // force displaying ios local notification when app is in foreground
         completionHandler([.alert, .badge, .sound])
     }
 
@@ -37,7 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert]) {
             (granted, error) in
-            print("Permission granted: \(granted)")
+            if ((error) != nil) {
+                print("Permission not granted: \(String(describing: error))")
+            }
         }
     }
 

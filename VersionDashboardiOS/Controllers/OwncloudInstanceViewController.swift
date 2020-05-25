@@ -41,7 +41,7 @@ class OwncloudInstanceViewController: GenericViewController {
             return
         }
         
-        if (SystemInstancesModel.checkInstanceNameAlreadyPresent(self.nameTitle.text!)) {
+        if (SystemInstancesModel.checkInstanceNameAlreadyPresent(self.nameTextfield.text!)) {
             self.infoTitle.isHidden = false
             self.infoTitle.text = NSLocalizedString("instanceDuplicate", comment: "")
             return

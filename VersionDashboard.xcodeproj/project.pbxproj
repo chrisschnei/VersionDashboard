@@ -235,6 +235,14 @@
 		AABD444623689649009A98C1 /* OwncloudInstanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD443F23689648009A98C1 /* OwncloudInstanceUITests.swift */; };
 		AABD4448236897CA009A98C1 /* SettingsViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD4447236897C9009A98C1 /* SettingsViewControllerUITests.swift */; };
 		AABD44492369A8EE009A98C1 /* libVersionDashboardSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */; };
+		AAD4CC80247BC78D0083D307 /* imageResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD4CC7F247BC78D0083D307 /* imageResize.swift */; };
+		AAD4CC82247BC8790083D307 /* imageResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD4CC7F247BC78D0083D307 /* imageResize.swift */; };
+		AAD4CC86247BD62D0083D307 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD4CC84247BD6280083D307 /* home.png */; };
+		AAD4CC87247BD62D0083D307 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD4CC85247BD6280083D307 /* refresh.png */; };
+		AAD4CC88247BD6500083D307 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD4CC84247BD6280083D307 /* home.png */; };
+		AAD4CC89247BD6520083D307 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD4CC85247BD6280083D307 /* refresh.png */; };
+		AAD4CC8B247BD85F0083D307 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD4CC8A247BD85F0083D307 /* trash.png */; };
+		AAD4CC8C247BD85F0083D307 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD4CC8A247BD85F0083D307 /* trash.png */; };
 		AAD9CF6E2438FCAD00B83DAF /* owncloud.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD9CF6C2438FCAD00B83DAF /* owncloud.png */; };
 		AAD9CF702438FF7700B83DAF /* matamo.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD9CF6F2438FF7600B83DAF /* matamo.png */; };
 		AAE626C6226256EE00398F81 /* libVersionDashboardSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */; };
@@ -578,6 +586,10 @@
 		AABD443D23689648009A98C1 /* WordpressInstanceUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordpressInstanceUITests.swift; sourceTree = "<group>"; };
 		AABD443F23689648009A98C1 /* OwncloudInstanceUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwncloudInstanceUITests.swift; sourceTree = "<group>"; };
 		AABD4447236897C9009A98C1 /* SettingsViewControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerUITests.swift; sourceTree = "<group>"; };
+		AAD4CC7F247BC78D0083D307 /* imageResize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageResize.swift; sourceTree = "<group>"; };
+		AAD4CC84247BD6280083D307 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		AAD4CC85247BD6280083D307 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
+		AAD4CC8A247BD85F0083D307 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
 		AAD9CF6C2438FCAD00B83DAF /* owncloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = owncloud.png; sourceTree = "<group>"; };
 		AAD9CF6F2438FF7600B83DAF /* matamo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = matamo.png; sourceTree = "<group>"; };
 		AAE8B64E1F87F2C5004E4AF3 /* VersionDashboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -906,14 +918,14 @@
 		AA62F6EC2255380C00757106 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AA62F4FF2251508B00757106 /* GenericViewController.swift */,
 				AA62F50C2251508B00757106 /* ChartsViewController.swift */,
 				AA62F4FC2251508B00757106 /* SummaryViewController.swift */,
-				AA62F4FF2251508B00757106 /* GenericViewController.swift */,
-				AA62F5012251508B00757106 /* PiwikInstanceViewController.swift */,
-				AA62F5032251508B00757106 /* InstanceDetailsViewController.swift */,
 				AA62F5162251508B00757106 /* OutdatedViewController.swift */,
-				AA62F5172251508B00757106 /* WordpressInstanceViewController.swift */,
 				AA62F51D2251508B00757106 /* InstanceTypeViewController.swift */,
+				AA62F5032251508B00757106 /* InstanceDetailsViewController.swift */,
+				AA62F5172251508B00757106 /* WordpressInstanceViewController.swift */,
+				AA62F5012251508B00757106 /* PiwikInstanceViewController.swift */,
 				AA62F51F2251508B00757106 /* JoomlaInstanceViewController.swift */,
 				AA62F5222251508B00757106 /* OwncloudInstanceViewController.swift */,
 			);
@@ -925,6 +937,7 @@
 			children = (
 				AA62F4FE2251508B00757106 /* badgeFunctions.swift */,
 				AA62F5232251508B00757106 /* NotificationFunctions.swift */,
+				AAD4CC7F247BC78D0083D307 /* imageResize.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -967,6 +980,7 @@
 		AA71A7CC226B00EE00BEB4C3 /* graphics */ = {
 			isa = PBXGroup;
 			children = (
+				AAD4CC83247BD6280083D307 /* icons */,
 				AA71A7CD226B00EE00BEB4C3 /* LaunchScreen */,
 				AA71A7D0226B00EE00BEB4C3 /* summary_item */,
 				AA71A7D5226B00EE00BEB4C3 /* VDiOSLogo */,
@@ -1083,6 +1097,17 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		AAD4CC83247BD6280083D307 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				AAD4CC84247BD6280083D307 /* home.png */,
+				AAD4CC8A247BD85F0083D307 /* trash.png */,
+				AAD4CC85247BD6280083D307 /* refresh.png */,
+			);
+			name = icons;
+			path = VersionDashboardiOS/graphics/icons;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -1463,6 +1488,7 @@
 				AA71A828226B00EF00BEB4C3 /* chart@2x.png in Resources */,
 				AA71A7F4226B00EF00BEB4C3 /* LaunchScreen.png in Resources */,
 				AA58D59324439C7700E457AD /* joomla.plist in Resources */,
+				AAD4CC8B247BD85F0083D307 /* trash.png in Resources */,
 				AA58D59424439C7A00E457AD /* wordpress.plist in Resources */,
 				AA62F5812251508B00757106 /* Main.storyboard in Resources */,
 				AAB511B323AA863200B440A7 /* wordpress.png in Resources */,
@@ -1472,7 +1498,9 @@
 				AA71A7FA226B00EF00BEB4C3 /* summary@2x.png in Resources */,
 				AAB511B823AA864B00B440A7 /* joomla_dots.png in Resources */,
 				AAB511B623AA864700B440A7 /* piwik_dots.png in Resources */,
+				AAD4CC86247BD62D0083D307 /* home.png in Resources */,
 				AA58D59024439C4F00E457AD /* owncloud.png in Resources */,
+				AAD4CC87247BD62D0083D307 /* refresh.png in Resources */,
 				AA71A82A226B00EF00BEB4C3 /* chart.png in Resources */,
 				AA71A82C226B00EF00BEB4C3 /* chart@3x.png in Resources */,
 				AA58D58F24439C4800E457AD /* matamo.png in Resources */,
@@ -1514,6 +1542,8 @@
 				AA71A908226CC5F300BEB4C3 /* owncloud.plist in Resources */,
 				AA71A909226CC5F300BEB4C3 /* configuration.plist in Resources */,
 				AA71A90A226CC5F300BEB4C3 /* piwik.plist in Resources */,
+				AAD4CC88247BD6500083D307 /* home.png in Resources */,
+				AAD4CC89247BD6520083D307 /* refresh.png in Resources */,
 				AA71A90B226CC5F300BEB4C3 /* joomla.plist in Resources */,
 				AA71A90C226CC5F300BEB4C3 /* wordpress.plist in Resources */,
 				AA62F7742258AE9D00757106 /* Assets.xcassets in Resources */,
@@ -1539,6 +1569,7 @@
 				AA62F77B2258AE9D00757106 /* LaunchScreen.storyboard in Resources */,
 				AA71A7FF226B00EF00BEB4C3 /* summary@3x.png in Resources */,
 				AA71A833226B00EF00BEB4C3 /* outdated@2x.png in Resources */,
+				AAD4CC8C247BD85F0083D307 /* trash.png in Resources */,
 				AA62F77C2258AE9D00757106 /* LaunchScreen.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1655,6 +1686,7 @@
 				AA62F55A2251508B00757106 /* PiwikInstanceViewController.swift in Sources */,
 				AA62F5782251508B00757106 /* ChartsViewController.swift in Sources */,
 				AA62F5512251508B00757106 /* badgeFunctions.swift in Sources */,
+				AAD4CC80247BC78D0083D307 /* imageResize.swift in Sources */,
 				AA62F5962251508B00757106 /* AppDelegate.swift in Sources */,
 				AA62F5A22251508B00757106 /* InstanceTypeViewController.swift in Sources */,
 				AA62F5542251508B00757106 /* GenericViewController.swift in Sources */,
@@ -1730,6 +1762,7 @@
 				AA62F7632258AE9D00757106 /* PiwikInstanceViewController.swift in Sources */,
 				AA62F7642258AE9D00757106 /* ChartsViewController.swift in Sources */,
 				AA62F7652258AE9D00757106 /* badgeFunctions.swift in Sources */,
+				AAD4CC82247BC8790083D307 /* imageResize.swift in Sources */,
 				AA62F7662258AE9D00757106 /* AppDelegate.swift in Sources */,
 				AA62F7672258AE9D00757106 /* InstanceTypeViewController.swift in Sources */,
 				AA62F7682258AE9D00757106 /* GenericViewController.swift in Sources */,

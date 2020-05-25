@@ -13,68 +13,61 @@ import VersionDashboardSDK
 import VersionDashboardSDKARM
 #endif
 
-class OutdatedViewController: GenericViewController, UITableViewDelegate, UITableViewDataSource {
+class OutdatedViewController: UITableViewController, UISearchBarDelegate {
     
-    @IBOutlet weak var refreshActiveSpinner: UIActivityIndicatorView!
     @IBOutlet weak var refreshAllButton: UIBarButtonItem!
-    @IBOutlet weak var navigationBar: UINavigationBar!
-    @IBOutlet weak var tabBarOutdated: UITabBarItem!
+    
     @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var outdatedNaviBar: UINavigationItem!
+    
+    var searchActive : Bool = false
+    var genericview: GenericViewController
     
     let cellReuseIdentifier = "instanceCellOutdated"
     
+    public init() {
+        self.genericview = GenericViewController()
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.genericview = GenericViewController()
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.prefersLargeTitles = true
+        
+        self.table.rowHeight = 60.0
         
         self.table.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
-        table.delegate = self
-        table.dataSource = self
+        self.table.delegate = self
+        self.table.dataSource = self
+        
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self as UISearchResultsUpdating
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = NSLocalizedString("searchInstances", comment: "")
+        searchController.hidesNavigationBarDuringPresentation = false
+        self.outdatedNaviBar.searchController = searchController
+        self.outdatedNaviBar.hidesSearchBarWhenScrolling = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.viewWillAppear(_:)), name: NSNotification.Name(rawValue: "viewWillAppear"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshInstance(_:)), name: NSNotification.Name(rawValue: "refreshInstance"), object: nil)
     }
     
     @objc(tableView:leadingSwipeActionsConfigurationForRowAtIndexPath:) override func tableView(_ tableView: UITableView,
                                                                                        leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
         let systemInstanceName = Array(SystemInstancesModel.getOutdatedInstances().keys)[indexPath.row]
-        _ = (Constants.plistFilesPath + systemInstanceName) + ".plist"
-        let takeMeToMyInstanceAction = UIContextualAction(style: .normal, title: NSLocalizedString("takeMeToMyInstance", comment: ""), handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            if (self.takeMeToMyInstance(systemInstanceName)) {
-                success(true)
-            } else {
-                success(false)
-            }
-            tableView.reloadData()
-        })
-        takeMeToMyInstanceAction.backgroundColor = .lightGray
-        
-        let refreshAction = UIContextualAction(style: .normal, title:  NSLocalizedString("refresh", comment: ""), handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            if (self.refreshInstance(instanceName: systemInstanceName)) {
-                success(true)
-            } else {
-                success(false)
-            }
-        })
-        refreshAction.backgroundColor = .darkGray
-        
-        return UISwipeActionsConfiguration(actions: [refreshAction, takeMeToMyInstanceAction])
+        return UISwipeActionsConfiguration(actions: self.genericview.createLeadingSwipeActions(systemInstanceName: systemInstanceName))
     }
     
     @objc(tableView:trailingSwipeActionsConfigurationForRowAtIndexPath:) override func tableView(_ tableView: UITableView,
                                                                                         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
         let systemInstanceName = Array(SystemInstances.systemInstances.keys)[indexPath.row]
-        let path = (Constants.plistFilesPath + systemInstanceName) + ".plist"
-        let deleteAction = UIContextualAction(style: .normal, title: NSLocalizedString("deleteInstance", comment: ""), handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            if (self.deleteInstance(path, systemInstanceName)) {
-                success(true)
-            } else {
-                success(false)
-            }
-            tableView.reloadData()
-        })
-        deleteAction.backgroundColor = .red
-        
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+        return UISwipeActionsConfiguration(actions: genericview.createTrailingSwipeActions(systemInstanceName: systemInstanceName))
     }
     
     @objc(tableView:didSelectRowAtIndexPath:) override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -94,21 +87,31 @@ class OutdatedViewController: GenericViewController, UITableViewDelegate, UITabl
         }
         
         self.table.reloadData()
+        
+        self.tabBarController?.setOutdatedBadgeNumber()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return SystemInstancesModel.getAmountOfOutdateInstances()
     }
     
-    func refreshInstance(instanceName: String) -> Bool {
+    @objc func refreshInstance(_ notification: NSNotification) {
+        if let dict = notification.userInfo as NSDictionary? {
+            if let instancename = dict["systemInstanceName"] as? String {
+                _ = self.refreshInstanceName(instanceName: instancename)
+            }
+        }
+    }
+    
+    func refreshInstanceName(instanceName: String) -> Bool {
         if (InternetConnectivity.checkInternetConnection()) {
-            self.refreshActiveSpinner.startAnimating()
-            self.refreshActiveSpinner.isHidden = false
-            self.updateSingleInstance(instanceName: instanceName) { completion in
+            self.refreshAllButton.isEnabled = false
+            self.refreshControl?.beginRefreshing()
+            self.genericview.updateSingleInstance(instanceName: instanceName) { completion in
                 let parameters = ["self": self, "completion" : completion] as [String : Any]
                 self.performSelector(onMainThread: #selector(self.checksFinished), with: parameters, waitUntilDone: true)
             }
@@ -116,48 +119,38 @@ class OutdatedViewController: GenericViewController, UITableViewDelegate, UITabl
         return true
     }
     
-    func tableView(_ table: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    override func tableView(_ table: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell:UITableViewCell = (self.table.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
         let instance = SystemInstances.systemInstances[Array(SystemInstancesModel.getOutdatedInstances().keys)[indexPath.row]]
-        var name = ""
-        if ((instance as? JoomlaModel) != nil) {
-            let model = instance as! JoomlaModel
-            cell.imageView?.image = UIImage(named: "joomla_dots.png")
-            name = model.name
-        } else if ((instance as? WordpressModel) != nil) {
-            let model = instance as! WordpressModel
-            cell.imageView?.image = UIImage(named: "wordpress_dots.png")
-            name = model.name
-        } else if ((instance as? PiwikModel) != nil) {
-            let model = instance as! PiwikModel
-            cell.imageView?.image = UIImage(named: "piwik_dots.png")
-            name = model.name
-        } else {
-            let model = instance as! OwncloudModel
-            cell.imageView?.image = UIImage(named: "owncloud_dots.png")
-            name = model.name
-        }
-        cell.textLabel?.text = name
-        
-        return cell;
+        return genericview.createCell(instance: instance!);
     }
     
     @IBAction func refreshAll(_ sender: Any) {
-        self.refreshActiveSpinner.startAnimating()
-        self.refreshActiveSpinner.isHidden = false
+        self.refreshControl?.beginRefreshing()
+        self.refreshAllButton.isEnabled = false
         SummaryViewController.checkAllInstancesVersions(force: false) { result in
             self.performSelector(onMainThread: #selector(self.checksFinished), with: self, waitUntilDone: true)
         }
     }
     
     @objc func checksFinished() -> Void {
-        self.refreshActiveSpinner.stopAnimating()
-        self.refreshActiveSpinner.isHidden = true
+        self.refreshControl?.endRefreshing()
+        self.refreshAllButton.isEnabled = true
         SystemInstances.systemInstances.removeAll()
         if (!SystemInstancesModel.loadConfigfiles()) {
             print("Loading system instances config files failed.")
         }
         self.tabBarController?.setOutdatedBadgeNumber()
+    }
+}
+
+extension OutdatedViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if searchController.searchBar.text! == "" {
+            genericview.filteredInstances = SystemInstancesModel.getOutdatedInstances()
+        } else {
+            genericview.filteredInstances = genericview.filteredInstances.filter { $0.key.lowercased().contains(searchController.searchBar.text!.lowercased()) }
+        }
+        self.table.reloadData()
     }
 }

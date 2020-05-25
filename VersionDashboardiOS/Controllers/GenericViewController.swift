@@ -16,6 +16,8 @@ import VersionDashboardSDKARM
 
 class GenericViewController : UIViewController {
     
+    var filteredInstances = Dictionary<String, AnyObject>()
+    
     func takeMeToMyInstance(_ systemInstanceName : String) -> Bool {
         let instance = SystemInstances.systemInstances[systemInstanceName]
         var url = ""
@@ -42,32 +44,8 @@ class GenericViewController : UIViewController {
             return false
         }
         SystemInstances.systemInstances.remove(at: SystemInstances.systemInstances.index(forKey: name)!)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "viewWillAppear"), object: nil)
         return true
-    }
-    
-    @objc(tableView:didSelectRowAtIndexPath:) func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let detailsViewController = storyBoard.instantiateViewController(withIdentifier: "InstanceDetails") as! InstanceDetailsViewController
-        detailsViewController.systemInstancesName = Array(SystemInstances.systemInstances.keys)[indexPath.row]
-        self.present(detailsViewController, animated:true, completion:nil)
-    }
-    
-    @objc(tableView:trailingSwipeActionsConfigurationForRowAtIndexPath:) func tableView(_ tableView: UITableView,
-                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-    {
-        let systemInstanceName = Array(SystemInstances.systemInstances.keys)[indexPath.row]
-        let path = (Constants.plistFilesPath + systemInstanceName) + ".plist"
-        let deleteAction = UIContextualAction(style: .normal, title: NSLocalizedString("deleteInstance", comment: ""), handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            if (self.deleteInstance(path, systemInstanceName)) {
-                success(true)
-            } else {
-                success(false)
-            }
-            tableView.reloadData()
-        })
-        deleteAction.backgroundColor = .red
-        
-        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
     func updateSingleInstance(instanceName: String, completion: @escaping (Bool) -> ()) {
@@ -146,28 +124,6 @@ class GenericViewController : UIViewController {
         }
     }
     
-    @objc(tableView:leadingSwipeActionsConfigurationForRowAtIndexPath:) func tableView(_ tableView: UITableView,
-                                                                                        leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-    {
-        let systemInstanceName = Array(SystemInstances.systemInstances.keys)[indexPath.row]
-        _ = (Constants.plistFilesPath + systemInstanceName) + ".plist"
-        let takeMeToMyInstanceAction = UIContextualAction(style: .normal, title: NSLocalizedString("deleteInstance", comment: ""), handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            if (self.takeMeToMyInstance(systemInstanceName)) {
-                success(true)
-            } else {
-                success(false)
-            }
-            tableView.reloadData()
-        })
-        takeMeToMyInstanceAction.backgroundColor = .blue
-        
-        let refreshAction = UIContextualAction(style: .normal, title:  NSLocalizedString("refresh", comment: ""), handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-        })
-        refreshAction.backgroundColor = .blue
-        
-        return UISwipeActionsConfiguration(actions: [refreshAction, takeMeToMyInstanceAction])
-    }
-    
     func checkURLTextfields(hostUrlTextfield: UITextField!, infoTitle: UILabel!) -> Bool {
         var error = false
         if (!((hostUrlTextfield.text?.hasSuffix("/"))!)) {
@@ -181,6 +137,74 @@ class GenericViewController : UIViewController {
             error = true
         }
         return error
+    }
+    
+    func createCell(instance: AnyObject) -> UITableViewCell {
+        let cell:UITableViewCell = UITableViewCell()
+        var name = ""
+        let ratio = 30
+        if ((instance as? JoomlaModel) != nil) {
+            let resizedImage = UIImage(named: "joomla_dots.png")?.resized(to: CGSize(width: ratio, height: ratio))
+            cell.imageView?.image = resizedImage
+            name = (instance as! JoomlaModel).name
+        } else if ((instance as? WordpressModel) != nil) {
+            let resizedImage = UIImage(named: "wordpress_dots.png")?.resized(to: CGSize(width: ratio, height: ratio))
+            cell.imageView?.image = resizedImage
+            name = (instance as! WordpressModel).name
+        } else if ((instance as? PiwikModel) != nil) {
+            let resizedImage = UIImage(named: "piwik_dots.png")?.resized(to: CGSize(width: ratio, height: ratio))
+            cell.imageView?.image = resizedImage
+            name = (instance as! PiwikModel).name
+        } else {
+            let resizedImage = UIImage(named: "owncloud_dots.png")?.resized(to: CGSize(width: ratio, height: ratio))
+            cell.imageView?.image = resizedImage
+            name = (instance as! OwncloudModel).name
+        }
+        cell.textLabel?.text = name
+        
+        return cell
+    }
+    
+    func createTrailingSwipeActions(systemInstanceName: String) -> [UIContextualAction] {
+        let path = (Constants.plistFilesPath + systemInstanceName) + ".plist"
+        let deleteAction = UIContextualAction(style: .normal, title: nil, handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            if (self.deleteInstance(path, systemInstanceName)) {
+                success(true)
+            } else {
+                success(false)
+            }
+        })
+        // iOS >= 13 use UIimage(init(systemName: UIBarButtonItem.SystemItem.trash))
+        deleteAction.image = UIImage(named: "trash")
+        deleteAction.backgroundColor = .red
+        
+        return [deleteAction]
+    }
+    
+    func createLeadingSwipeActions(systemInstanceName: String) -> [UIContextualAction] {
+        let takeMeToMyInstanceAction = UIContextualAction(style: .normal, title: nil, handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            if (self.takeMeToMyInstance(systemInstanceName)) {
+                success(true)
+                } else {
+                success(false)
+            }
+        })
+        // iOS >= 13 use UIimage(init(systemName: UIBarButtonItem.SystemItem.home))
+        takeMeToMyInstanceAction.image = UIImage(named: "home")
+        // yellow
+        takeMeToMyInstanceAction.backgroundColor = UIColor(red: 255/255, green: 206/255, blue: 93/255, alpha: 1.00)
+    
+        let refreshAction = UIContextualAction(style: .normal, title: nil, handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            let nameDataDict:[String: String] = ["systemInstanceName": systemInstanceName]
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "refreshInstance"), object: nil, userInfo: nameDataDict)
+            success(true)
+        })
+        // iOS >= 13 use UIimage(init(systemName: UIBarButtonItem.SystemItem.refresh))
+        refreshAction.image = UIImage(named: "refresh")
+        // green
+        refreshAction.backgroundColor = UIColor(red: 0/255, green: 205/255, blue: 90/255, alpha: 1.00)
+        
+        return [refreshAction, takeMeToMyInstanceAction]
     }
 
 }

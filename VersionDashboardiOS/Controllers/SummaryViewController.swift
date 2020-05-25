@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  SummaryViewController.swift
 //  VersionDashboardiOS
 //
 //  Created by Christian Schneider on 02.09.17.
@@ -13,31 +13,57 @@ import VersionDashboardSDK
 import VersionDashboardSDKARM
 #endif
 
-class SummaryViewController: GenericViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+class SummaryViewController: UITableViewController, UISearchBarDelegate {
     
-    @IBOutlet weak var refreshActiveSpinner: UIActivityIndicatorView!
-    @IBOutlet weak var refreshAll: UIBarButtonItem!
-    @IBOutlet weak var addInstance: UIBarButtonItem!
+    @IBOutlet weak var refreshButton: UIBarButtonItem!
+    @IBOutlet weak var addInstanceRight: UIBarButtonItem!
+    
     @IBOutlet weak var table: UITableView!
-    @IBOutlet weak var navigationBar: UINavigationBar!
-    @IBOutlet weak var tabBarSummary: UITabBarItem!
+    @IBOutlet weak var instancesNaviBar: UINavigationItem!
+    
+    var genericview: GenericViewController
     
     let cellReuseIdentifier = "instanceCell"
+    
+    public init() {
+        self.genericview = GenericViewController()
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.genericview = GenericViewController()
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationBar.prefersLargeTitles = true
-        
+        self.table.rowHeight = 60.0
         self.table.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        self.table.delegate = self
+        self.table.dataSource = self
         
-        table.delegate = self
-        table.dataSource = self
+        genericview.filteredInstances = SystemInstances.systemInstances
         
         let searchController = UISearchController(searchResultsController: nil)
-        self.navigationController?.navigationItem.searchController = searchController
-        self.navigationController?.navigationItem.hidesSearchBarWhenScrolling = false
-        self.navigationController?.navigationItem.titleView = navigationBar
+        searchController.searchResultsUpdater = self as UISearchResultsUpdating
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = NSLocalizedString("searchInstances", comment: "")
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        self.instancesNaviBar.searchController = searchController
+        self.instancesNaviBar.hidesSearchBarWhenScrolling = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.viewWillAppear(_:)), name: NSNotification.Name(rawValue: "viewWillAppear"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshInstance(_:)), name: NSNotification.Name(rawValue: "refreshInstance"), object: nil)
+    }
+    
+    @IBAction func refreshControlAction(_ sender: Any) {
+        self.refreshButton.isEnabled = false
+        SummaryViewController.checkAllInstancesVersions(force: false) { result in
+            self.performSelector(onMainThread: #selector(self.checksFinished), with: self, waitUntilDone: true)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,99 +73,46 @@ class SummaryViewController: GenericViewController, UITableViewDelegate, UITable
         if (!SystemInstancesModel.loadConfigfiles()) {
             print("Loading system instances config files failed.")
         }
+        let searchText = self.instancesNaviBar.searchController?.searchBar.text!
+        if (searchText == "") {
+            genericview.filteredInstances = SystemInstances.systemInstances
+        } else {
+            genericview.filteredInstances = genericview.filteredInstances.filter { $0.key.lowercased().contains(searchText!.lowercased()) }
+        }
         
         self.table.reloadData()
-        
         self.tabBarController?.setOutdatedBadgeNumber()
     }
     
     @objc(tableView:leadingSwipeActionsConfigurationForRowAtIndexPath:) override func tableView(_ tableView: UITableView,
                                                                                        leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
-        let systemInstanceName = Array(SystemInstances.systemInstances.keys)[indexPath.row]
-        _ = (Constants.plistFilesPath + systemInstanceName) + ".plist"
-        let takeMeToMyInstanceAction = UIContextualAction(style: .normal, title: NSLocalizedString("takeMeToMyInstance", comment: ""), handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            if (self.takeMeToMyInstance(systemInstanceName)) {
-                success(true)
-            } else {
-                success(false)
-            }
-            tableView.reloadData()
-        })
-        takeMeToMyInstanceAction.backgroundColor = .lightGray
-        
-        let refreshAction = UIContextualAction(style: .normal, title:  NSLocalizedString("refresh", comment: ""), handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            if (self.refreshInstance(instanceName: systemInstanceName)) {
-                success(true)
-            } else {
-                success(false)
-            }
-        })
-        refreshAction.backgroundColor = .darkGray
-        
-        return UISwipeActionsConfiguration(actions: [refreshAction, takeMeToMyInstanceAction])
-    }
-    
-    @objc(tableView:didSelectRowAtIndexPath:) override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped cell number \(indexPath.row) \(indexPath.description).")
-        
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let detailsViewController = storyBoard.instantiateViewController(withIdentifier: "InstanceDetailsViewController") as! InstanceDetailsViewController
-        detailsViewController.systemInstancesName = Array(SystemInstances.systemInstances.keys)[indexPath.row]
-        self.present(detailsViewController, animated:true, completion:nil)
+        let systemInstanceName = Array(genericview.filteredInstances.keys)[indexPath.row]
+        return UISwipeActionsConfiguration(actions: self.genericview.createLeadingSwipeActions(systemInstanceName: systemInstanceName))
     }
     
     @objc(tableView:trailingSwipeActionsConfigurationForRowAtIndexPath:) override func tableView(_ tableView: UITableView,
-                                                                                        trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+                                                                                                 trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
-        let systemInstanceName = Array(SystemInstances.systemInstances.keys)[indexPath.row]
-        let path = (Constants.plistFilesPath + systemInstanceName) + ".plist"
-        let deleteAction = UIContextualAction(style: .normal, title: NSLocalizedString("deleteInstance", comment: ""), handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            if (self.deleteInstance(path, systemInstanceName)) {
-                success(true)
-            } else {
-                success(false)
-            }
-            tableView.reloadData()
-        })
-        deleteAction.backgroundColor = .red
-        
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+        let systemInstanceName = Array(genericview.filteredInstances.keys)[indexPath.row]
+        return UISwipeActionsConfiguration(actions: genericview.createTrailingSwipeActions(systemInstanceName: systemInstanceName))
     }
     
-    func tableView(_ table: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    @objc(tableView:didSelectRowAtIndexPath:) override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let detailsViewController = storyBoard.instantiateViewController(withIdentifier: "InstanceDetailsViewController") as! InstanceDetailsViewController
+        detailsViewController.systemInstancesName = Array(genericview.filteredInstances.keys)[indexPath.row]
+        self.present(detailsViewController, animated:true, completion:nil)
+    }
+    
+    override func tableView(_ table: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell:UITableViewCell = (self.table.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
-        let instance = SystemInstances.systemInstances[Array(SystemInstances.systemInstances.keys)[indexPath.row]]
-        var name = ""
-        if ((instance as? JoomlaModel) != nil) {
-            cell.imageView?.image = UIImage(named: "joomla_dots.png")
-            name = (instance as! JoomlaModel).name
-        } else if ((instance as? WordpressModel) != nil) {
-            cell.imageView?.image = UIImage(named: "wordpress_dots.png")
-            name = (instance as! WordpressModel).name
-        } else if ((instance as? PiwikModel) != nil) {
-            cell.imageView?.image = UIImage(named: "piwik_dots.png")
-            name = (instance as! PiwikModel).name
-        } else {
-            cell.imageView?.image = UIImage(named: "owncloud_dots.png")
-            name = (instance as! OwncloudModel).name
-        }
-        cell.textLabel?.text = name
-        
-        return cell;
+        let instance = genericview.filteredInstances[Array(genericview.filteredInstances.keys)[indexPath.row]]
+        return genericview.createCell(instance: instance!);
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SystemInstances.systemInstances.count
-    }
-    
-    @IBAction func refreshAll(_ sender: Any) {
-        self.refreshActiveSpinner.startAnimating()
-        self.refreshActiveSpinner.isHidden = false
-        SummaryViewController.checkAllInstancesVersions(force: false) { result in
-            self.performSelector(onMainThread: #selector(self.checksFinished), with: self, waitUntilDone: true)
-        }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return genericview.filteredInstances.count
     }
     
     /**
@@ -190,11 +163,19 @@ class SummaryViewController: GenericViewController, UITableViewDelegate, UITable
         }
     }
     
-    func refreshInstance(instanceName: String) -> Bool {
+    @objc func refreshInstance(_ notification: NSNotification) {
+        if let dict = notification.userInfo as NSDictionary? {
+            if let instancename = dict["systemInstanceName"] as? String {
+                _ = self.refreshInstanceName(instanceName: instancename)
+            }
+        }
+    }
+    
+    func refreshInstanceName(instanceName: String) -> Bool {
         if (InternetConnectivity.checkInternetConnection()) {
-            self.refreshActiveSpinner.startAnimating()
-            self.refreshActiveSpinner.isHidden = false
-            self.updateSingleInstance(instanceName: instanceName) { completion in
+            self.refreshButton.isEnabled = false
+            self.refreshControl?.beginRefreshing()
+            self.genericview.updateSingleInstance(instanceName: instanceName) { completion in
                 let parameters = ["self": self, "completion" : completion] as [String : Any]
                 self.performSelector(onMainThread: #selector(self.checksFinished), with: parameters, waitUntilDone: true)
             }
@@ -203,8 +184,8 @@ class SummaryViewController: GenericViewController, UITableViewDelegate, UITable
     }
     
     @objc func checksFinished() -> Void {
-        self.refreshActiveSpinner.stopAnimating()
-        self.refreshActiveSpinner.isHidden = true
+        self.refreshControl?.endRefreshing()
+        self.refreshButton.isEnabled = true
         SystemInstances.systemInstances.removeAll()
         if (!SystemInstancesModel.loadConfigfiles()) {
             print("Loading system instances config files failed.")
@@ -215,8 +196,16 @@ class SummaryViewController: GenericViewController, UITableViewDelegate, UITable
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    func updateSearchResults(for searchController: UISearchController) {
-    }
 
+}
+
+extension SummaryViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if searchController.searchBar.text! == "" {
+            genericview.filteredInstances = SystemInstances.systemInstances
+        } else {
+            genericview.filteredInstances = genericview.filteredInstances.filter { $0.key.lowercased().contains(searchController.searchBar.text!.lowercased()) }
+        }
+        self.table.reloadData()
+    }
 }
