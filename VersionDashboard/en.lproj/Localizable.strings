@@ -25,3 +25,4 @@
 "clipboardCopyingFailed" = "URL not copied";
 "searchInstances" = "Search instances";
 "instances" = "Instances";
+"copyUrl" = "Copy download URL";

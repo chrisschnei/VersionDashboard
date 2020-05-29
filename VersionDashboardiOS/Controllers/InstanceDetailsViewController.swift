@@ -142,6 +142,7 @@ class InstanceDetailsViewController: GenericViewController {
     @IBAction func refreshInstance(_ sender: Any) {
         self.activitySpinner.isHidden = false
         self.activitySpinner.startAnimating()
+        self.refreshButton.isEnabled = false
         if (InternetConnectivity.checkInternetConnection()) {
             self.updateSingleInstance(instanceName: systemInstancesName) { completion in
                 let parameters = ["self": self, "completion" : completion] as [String : Any]
@@ -150,13 +151,16 @@ class InstanceDetailsViewController: GenericViewController {
         } else {
             self.noInternetConnection.text = NSLocalizedString("errorInternetConnection", comment: "")
             self.noInternetConnection.isHidden = false
-            self.refreshButton.setTitle(NSLocalizedString("retry", comment: ""), for: (UIControl.State).normal)
+            self.activitySpinner.isHidden = true
+            self.activitySpinner.stopAnimating()
+            self.refreshButton.isEnabled = true
         }
     }
     
     @objc func checksFinished(_ parameters: [String: Any]) {
         self.activitySpinner.stopAnimating()
         self.activitySpinner.isHidden = true
+        self.refreshButton.isEnabled = true
         if (!(parameters["completion"] as! Bool)) {
             self.noInternetConnection.text = NSLocalizedString("errorfetchingVersions", comment: "")
             self.noInternetConnection.isHidden = false

@@ -12,7 +12,7 @@
 "urlEnding" = "URL muss mit / enden.";
 "protocolMissing" = "Protokolltyp fehlt.";
 "errorInternetConnection" = "Keine Internetverbindung.";
-"retry" = "Versioncheck wiederholen.";
+"retry" = "Versioncheck wiederholen";
 "errorfetchingVersions" = "Versionscheck fehlgeschlagen.";
 "newerVersion" = "Neuere Version verfügbar";
 "pleaseUpdate" = "Bitte aktualisieren Sie die Instanz %@.";

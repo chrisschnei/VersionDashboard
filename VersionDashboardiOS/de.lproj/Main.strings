@@ -8,9 +8,6 @@
 /* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "30M-1M-2IR"; */
 "30M-1M-2IR.title" = "Abbrechen";
 
-/* Class = "UIBarButtonItem"; title = "Add instance"; ObjectID = "4SY-QC-ErI"; */
-"4SY-QC-ErI.title" = "Instanz hinzufügen";
-
 /* Class = "UITextField"; text = "API Token"; ObjectID = "51h-FX-OBl"; */
 "51h-FX-OBl.text" = "API Token";
 
@@ -68,15 +65,20 @@
 /* Class = "UITextField"; text = "Instance version"; ObjectID = "Yi5-Dw-59e"; */
 "Yi5-Dw-59e.text" = "Instanzversion";
 
-/* Class = "UITabBarItem"; title = "Outdated"; ObjectID = "YiT-TW-Zp6"; */
-"YiT-TW-Zp6.title" = "Veraltet";
+"QyA-h3-Gm9.text" = "Instanzversion";
 
 /* Class = "UITextField"; text = "Host URL"; ObjectID = "ZoN-Qq-eRe"; */
 "ZoN-Qq-eRe.text" = "Host URL";
 
-"XED-WA-hk1.title" = "Alle aktualisieren";
+"fi4-JC-4TL.title" = "Übersicht";
 
-"fi4-JC-4TL.title" = "Diagramme";
+"haK-lW-ldh.title" = "Instanzen";
+
+"zUL-6w-iBq.title" = "Instanzen";
+
+"Ruz-kn-X3f.title" = "Veraltet";
+
+"v1j-rd-3c7.title" = "Veraltet";
 
 /* Class = "UITabBarItem"; title = "Summary"; ObjectID = "acW-dT-cKf"; */
 "acW-dT-cKf.title" = "Übersicht";
@@ -96,10 +98,12 @@
 /* Class = "UINavigationItem"; title = "Outdated instances"; ObjectID = "eDi-a2-4b6"; */
 "eDi-a2-4b6.title" = "Veraltete Instanzen";
 
-"JUN-WU-qN3.title" = "Überblick";
+"JUN-WU-qN3.title" = "Übersicht";
 
-/* Class = "UITextField"; text = "PHP Version"; ObjectID = "egZ-dw-rsn"; */
-"egZ-dw-rsn.text" = "PHP Version";
+/* Class = "UITextField"; text = "PHP Version"; ObjectID = "4S0-Gf-kJz"; */
+"4S0-Gf-kJz.text" = "PHP Version";
+
+"3v9-ES-mUd.text" = "Typ";
 
 /* Class = "UITextField"; text = "Host URL"; ObjectID = "ehx-6e-U1t"; */
 "ehx-6e-U1t.text" = "Host URL";
@@ -113,14 +117,8 @@
 /* Class = "UITextField"; text = "URL must begin with http:// and end with /"; ObjectID = "hfx-fG-eHX"; */
 "hfx-fG-eHX.text" = "URL muss mit http:// beginnen und mit / enden.";
 
-/* Class = "UIButton"; normalTitle = "Delete instance"; ObjectID = "mBi-xf-VTc"; */
-"mBi-xf-VTc.normalTitle" = "Lösche Instanz";
-
 /* Class = "UITextField"; text = "Host URL"; ObjectID = "mkM-2m-OyH"; */
 "mkM-2m-OyH.text" = "Host URL";
-
-/* Class = "UIBarButtonItem"; title = "Refresh all"; ObjectID = "nES-1h-48X"; */
-"nES-1h-48X.title" = "Alle aktualisieren";
 
 /* Class = "UITextField"; text = "Host URL"; ObjectID = "pCZ-fX-6nO"; */
 "pCZ-fX-6nO.text" = "Host URL";
@@ -132,7 +130,9 @@
 "s4c-6R-tmy.title" = "Abbrechen";
 
 /* Class = "UITextField"; text = "Head version"; ObjectID = "uvT-Pp-Ka9"; */
-"uvT-Pp-Ka9.text" = "Headversion";
+"uvT-Pp-Ka9.text" = "Herstellerversion";
+
+"FLu-4q-2xq.text" = "Herstellerversion";
 
 /* Class = "UITextField"; text = "Host URL"; ObjectID = "vE8-CP-gae"; */
 "vE8-CP-gae.text" = "Host URL";

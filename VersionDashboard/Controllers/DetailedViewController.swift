@@ -56,6 +56,7 @@ class DetailedViewController: GenericViewController, NSTableViewDelegate, NSTabl
         self.removeButton.isEnabled = false
         self.copyDownloadURL.isHidden = true
         self.copyDownloadURL.isEnabled = false
+        self.copyDownloadURL.title = NSLocalizedString("copyUrl", comment: "")
         self.searchfield.placeholderString = NSLocalizedString("searchInstances", comment: "")
     }
     
