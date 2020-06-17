@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA19F77C244103DE00292F5D /* libVersionDashboardSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */; };
 		AA1A21D52430AA4400E7A25C /* GenericTestInstanceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A21D42430AA4300E7A25C /* GenericTestInstanceProtocol.swift */; };
 		AA1A21D924326C9000E7A25C /* TouchBarIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A21D824326C9000E7A25C /* TouchBarIdentifiers.swift */; };
 		AA20D276235C83CE0027B268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35C22E35563008B393E /* Main.storyboard */; };
@@ -48,7 +47,6 @@
 		AA36C3B322E35563008B393E /* badgeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C38822E35563008B393E /* badgeFunctions.swift */; };
 		AA36C3B422E35563008B393E /* NotificationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C38922E35563008B393E /* NotificationFunctions.swift */; };
 		AA36C3BA22E3557B008B393E /* SummaryViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C3B822E3557B008B393E /* SummaryViewControllerUITests.swift */; };
-		AA36C3BB22E3557B008B393E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA36C3B922E3557B008B393E /* Info.plist */; };
 		AA4E5B1323A3720D00DD595C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35722E35563008B393E /* Localizable.strings */; };
 		AA58D584244249E200E457AD /* OutdatedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CDEB4236F7D2E00C1DEBB /* OutdatedViewControllerTests.swift */; };
 		AA58D58524424A6D00E457AD /* libVersionDashboardSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */; };
@@ -83,44 +81,24 @@
 		AA62EE7A2251393F00757106 /* WordpressHeadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62EE682251393F00757106 /* WordpressHeadModel.swift */; };
 		AA62EE7B2251398400757106 /* libVersionDashboardSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */; };
 		AA62F5302251508B00757106 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4EF2251508B00757106 /* LaunchScreen.strings */; };
-		AA62F5322251508B00757106 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4EF2251508B00757106 /* LaunchScreen.strings */; };
 		AA62F5332251508B00757106 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4F12251508B00757106 /* Main.strings */; };
-		AA62F5352251508B00757106 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4F12251508B00757106 /* Main.strings */; };
 		AA62F5362251508B00757106 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4F32251508B00757106 /* Localizable.strings */; };
-		AA62F5382251508B00757106 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4F32251508B00757106 /* Localizable.strings */; };
 		AA62F54B2251508B00757106 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4FC2251508B00757106 /* SummaryViewController.swift */; };
-		AA62F54D2251508B00757106 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4FC2251508B00757106 /* SummaryViewController.swift */; };
 		AA62F5512251508B00757106 /* badgeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4FE2251508B00757106 /* badgeFunctions.swift */; };
-		AA62F5532251508B00757106 /* badgeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4FE2251508B00757106 /* badgeFunctions.swift */; };
 		AA62F5542251508B00757106 /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4FF2251508B00757106 /* GenericViewController.swift */; };
-		AA62F5562251508B00757106 /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F4FF2251508B00757106 /* GenericViewController.swift */; };
 		AA62F55A2251508B00757106 /* PiwikInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5012251508B00757106 /* PiwikInstanceViewController.swift */; };
-		AA62F55C2251508B00757106 /* PiwikInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5012251508B00757106 /* PiwikInstanceViewController.swift */; };
 		AA62F5602251508B00757106 /* InstanceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5032251508B00757106 /* InstanceDetailsViewController.swift */; };
-		AA62F5622251508B00757106 /* InstanceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5032251508B00757106 /* InstanceDetailsViewController.swift */; };
 		AA62F5752251508B00757106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA62F50B2251508B00757106 /* Assets.xcassets */; };
-		AA62F5772251508B00757106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA62F50B2251508B00757106 /* Assets.xcassets */; };
 		AA62F5782251508B00757106 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F50C2251508B00757106 /* ChartsViewController.swift */; };
-		AA62F57A2251508B00757106 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F50C2251508B00757106 /* ChartsViewController.swift */; };
 		AA62F57E2251508B00757106 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA62F50E2251508B00757106 /* LaunchScreen.storyboard */; };
-		AA62F5802251508B00757106 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA62F50E2251508B00757106 /* LaunchScreen.storyboard */; };
 		AA62F5812251508B00757106 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5102251508B00757106 /* Main.storyboard */; };
-		AA62F5832251508B00757106 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5102251508B00757106 /* Main.storyboard */; };
 		AA62F58D2251508B00757106 /* OutdatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5162251508B00757106 /* OutdatedViewController.swift */; };
-		AA62F58F2251508B00757106 /* OutdatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5162251508B00757106 /* OutdatedViewController.swift */; };
 		AA62F5902251508B00757106 /* WordpressInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5172251508B00757106 /* WordpressInstanceViewController.swift */; };
-		AA62F5922251508B00757106 /* WordpressInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5172251508B00757106 /* WordpressInstanceViewController.swift */; };
 		AA62F5962251508B00757106 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5192251508B00757106 /* AppDelegate.swift */; };
-		AA62F5982251508B00757106 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5192251508B00757106 /* AppDelegate.swift */; };
 		AA62F5A22251508B00757106 /* InstanceTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F51D2251508B00757106 /* InstanceTypeViewController.swift */; };
-		AA62F5A42251508B00757106 /* InstanceTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F51D2251508B00757106 /* InstanceTypeViewController.swift */; };
 		AA62F5A82251508B00757106 /* JoomlaInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F51F2251508B00757106 /* JoomlaInstanceViewController.swift */; };
-		AA62F5AA2251508B00757106 /* JoomlaInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F51F2251508B00757106 /* JoomlaInstanceViewController.swift */; };
-		AA62F5AD2251508B00757106 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5202251508B00757106 /* Info.plist */; };
 		AA62F5B12251508B00757106 /* OwncloudInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5222251508B00757106 /* OwncloudInstanceViewController.swift */; };
-		AA62F5B32251508B00757106 /* OwncloudInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5222251508B00757106 /* OwncloudInstanceViewController.swift */; };
 		AA62F5B42251508B00757106 /* NotificationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5232251508B00757106 /* NotificationFunctions.swift */; };
-		AA62F5B62251508B00757106 /* NotificationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F5232251508B00757106 /* NotificationFunctions.swift */; };
 		AA62F5B92252880300757106 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62F5B82252880200757106 /* UserNotifications.framework */; };
 		AA62F72E22589E7900757106 /* SystemInstances.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F72D22589E7900757106 /* SystemInstances.swift */; };
 		AA62F73122589EB400757106 /* HeadInstances.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62F73022589EB400757106 /* HeadInstances.swift */; };
@@ -205,6 +183,13 @@
 		AA71A90F227D74CC00BEB4C3 /* joomla_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F7226CBDDD00BEB4C3 /* joomla_dots.png */; };
 		AA71A910227D74CC00BEB4C3 /* owncloud_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F8226CBDDD00BEB4C3 /* owncloud_dots.png */; };
 		AA71A911227D74CC00BEB4C3 /* wordpress_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8FA226CBDDD00BEB4C3 /* wordpress_dots.png */; };
+		AA7F1DBD2497A14D00F4B067 /* ChartsViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7F1DBC2497A14D00F4B067 /* ChartsViewControllerUITests.swift */; };
+		AA7F1DC02497A5A800F4B067 /* OutdatedViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7F1DBF2497A5A800F4B067 /* OutdatedViewControllerUITests.swift */; };
+		AA7F1DC22497A5CD00F4B067 /* InstanceDetailsViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7F1DC12497A5CD00F4B067 /* InstanceDetailsViewControllerUITests.swift */; };
+		AA7F1DC42497A62700F4B067 /* WordpressInstanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7F1DC32497A62700F4B067 /* WordpressInstanceUITests.swift */; };
+		AA7F1DC62497A63C00F4B067 /* PiwikInstanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7F1DC52497A63C00F4B067 /* PiwikInstanceUITests.swift */; };
+		AA7F1DC82497A65100F4B067 /* OwncloudInstanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7F1DC72497A65100F4B067 /* OwncloudInstanceUITests.swift */; };
+		AA7F1DCA2497A66600F4B067 /* JoomlaInstanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7F1DC92497A66600F4B067 /* JoomlaInstanceUITests.swift */; };
 		AA8CDEA9236F01AD00C1DEBB /* wordpress.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F4226CBDDD00BEB4C3 /* wordpress.png */; };
 		AA8CDEAB236F01B000C1DEBB /* joomla.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F1226CBDDD00BEB4C3 /* joomla.png */; };
 		AA8D60FE23C09048003D1B34 /* container-migration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA8D60FD23C09048003D1B34 /* container-migration.plist */; };
@@ -249,20 +234,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		AA19F74B24406F7700292F5D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AA6AD7A41C6B4BD90097CD9A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AA62F75D2258AE9D00757106;
-			remoteInfo = VersionDashboardiOSSimulator;
-		};
-		AA19F7552440768A00292F5D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AA6AD7A41C6B4BD90097CD9A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AA62F75D2258AE9D00757106;
-			remoteInfo = VersionDashboardiOSSimulator;
-		};
 		AA20D2822361071E0027B268 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AA6AD7A41C6B4BD90097CD9A /* Project object */;
@@ -276,13 +247,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = AA62F75D2258AE9D00757106;
 			remoteInfo = VersionDashboardiOSSimulator;
-		};
-		AA62EEA22251456900757106 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AA6AD7A41C6B4BD90097CD9A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AA62EE802251456000757106;
-			remoteInfo = VersionDashboardiOS;
 		};
 		AA62F7042257DBAC00757106 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -311,6 +275,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A58A4ED274A941CA248EA921;
 			remoteInfo = Charts;
+		};
+		AA7F1DB82497A03400F4B067 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA6AD7A41C6B4BD90097CD9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA62F75D2258AE9D00757106;
+			remoteInfo = VersionDashboardiOSSimulator;
 		};
 		AA93435F22594D83005D8C1C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -479,8 +450,6 @@
 		AA62EE672251393E00757106 /* JoomlaHeadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoomlaHeadModel.swift; sourceTree = "<group>"; };
 		AA62EE682251393F00757106 /* WordpressHeadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordpressHeadModel.swift; sourceTree = "<group>"; };
 		AA62EE812251456000757106 /* VersionDashboardiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VersionDashboardiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA62EE962251456800757106 /* VersionDashboardiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA62EEA12251456800757106 /* VersionDashboardiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA62F4F02251508B00757106 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		AA62F4F22251508B00757106 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		AA62F4F42251508B00757106 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -555,6 +524,15 @@
 		AA71A8FA226CBDDD00BEB4C3 /* wordpress_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wordpress_dots.png; sourceTree = "<group>"; };
 		AA71A8FB226CBDDD00BEB4C3 /* joomla.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = joomla.plist; sourceTree = "<group>"; };
 		AA71A8FC226CBDDD00BEB4C3 /* wordpress.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = wordpress.plist; sourceTree = "<group>"; };
+		AA7F1DA524979C4400F4B067 /* VersionDashboardiOSSimulatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardiOSSimulatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA7F1DB524979DEC00F4B067 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA7F1DBC2497A14D00F4B067 /* ChartsViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewControllerUITests.swift; sourceTree = "<group>"; };
+		AA7F1DBF2497A5A800F4B067 /* OutdatedViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutdatedViewControllerUITests.swift; sourceTree = "<group>"; };
+		AA7F1DC12497A5CD00F4B067 /* InstanceDetailsViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceDetailsViewControllerUITests.swift; sourceTree = "<group>"; };
+		AA7F1DC32497A62700F4B067 /* WordpressInstanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordpressInstanceUITests.swift; sourceTree = "<group>"; };
+		AA7F1DC52497A63C00F4B067 /* PiwikInstanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiwikInstanceUITests.swift; sourceTree = "<group>"; };
+		AA7F1DC72497A65100F4B067 /* OwncloudInstanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwncloudInstanceUITests.swift; sourceTree = "<group>"; };
+		AA7F1DC92497A66600F4B067 /* JoomlaInstanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoomlaInstanceUITests.swift; sourceTree = "<group>"; };
 		AA8CDEB4236F7D2E00C1DEBB /* OutdatedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutdatedViewControllerTests.swift; sourceTree = "<group>"; };
 		AA8CDEB8236F7D9900C1DEBB /* GenericViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewControllerTests.swift; sourceTree = "<group>"; };
 		AA8CDEBC236F7DF900C1DEBB /* InstanceDetailsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceDetailsViewControllerTests.swift; sourceTree = "<group>"; };
@@ -628,21 +606,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA62EE932251456800757106 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AA19F77C244103DE00292F5D /* libVersionDashboardSDK.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AA62EE9E2251456800757106 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AA62F7582258ADE300757106 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -674,6 +637,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AABD44492369A8EE009A98C1 /* libVersionDashboardSDK.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA7F1DA224979C4400F4B067 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -949,6 +919,7 @@
 				AA58D57B244249CF00E457AD /* VersionDashboardiOSSimulatorTests */,
 				AA62EE4F2251391000757106 /* VersionDashboardSDK */,
 				AA20D27D2361071E0027B268 /* VersionDashboardSDKTests */,
+				AA7F1DB324979DEC00F4B067 /* VersionDashboardiOSSimulatorUITests */,
 				AA6AD7AD1C6B4BD90097CD9A /* Products */,
 				AAB9131C2234371E006D1EE7 /* Charts.xcodeproj */,
 				AAADAF531E4C635B0073B238 /* Frameworks */,
@@ -963,12 +934,11 @@
 				AAE8B64E1F87F2C5004E4AF3 /* VersionDashboardTests.xctest */,
 				AA62EE4E2251391000757106 /* libVersionDashboardSDK.a */,
 				AA62EE812251456000757106 /* VersionDashboardiOS.app */,
-				AA62EE962251456800757106 /* VersionDashboardiOSTests.xctest */,
-				AA62EEA12251456800757106 /* VersionDashboardiOSUITests.xctest */,
 				AA62F75C2258ADE300757106 /* libVersionDashboardSDKARM.a */,
 				AA62F7862258AE9D00757106 /* VersionDashboardiOSSimulator.app */,
 				AA20D27C2361071E0027B268 /* VersionDashboardSDKTests.xctest */,
 				AA58D57A244249CF00E457AD /* VersionDashboardiOSSimulatorTests.xctest */,
+				AA7F1DA524979C4400F4B067 /* VersionDashboardiOSSimulatorUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1076,6 +1046,21 @@
 				AA71A8FC226CBDDD00BEB4C3 /* wordpress.plist */,
 			);
 			path = GenericResources;
+			sourceTree = "<group>";
+		};
+		AA7F1DB324979DEC00F4B067 /* VersionDashboardiOSSimulatorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AA7F1DB524979DEC00F4B067 /* Info.plist */,
+				AA7F1DBC2497A14D00F4B067 /* ChartsViewControllerUITests.swift */,
+				AA7F1DBF2497A5A800F4B067 /* OutdatedViewControllerUITests.swift */,
+				AA7F1DC12497A5CD00F4B067 /* InstanceDetailsViewControllerUITests.swift */,
+				AA7F1DC32497A62700F4B067 /* WordpressInstanceUITests.swift */,
+				AA7F1DC52497A63C00F4B067 /* PiwikInstanceUITests.swift */,
+				AA7F1DC72497A65100F4B067 /* OwncloudInstanceUITests.swift */,
+				AA7F1DC92497A66600F4B067 /* JoomlaInstanceUITests.swift */,
+			);
+			path = VersionDashboardiOSSimulatorUITests;
 			sourceTree = "<group>";
 		};
 		AAADAF531E4C635B0073B238 /* Frameworks */ = {
@@ -1200,43 +1185,6 @@
 			productReference = AA62EE812251456000757106 /* VersionDashboardiOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AA62EE952251456800757106 /* VersionDashboardiOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AA62EEAB2251456900757106 /* Build configuration list for PBXNativeTarget "VersionDashboardiOSTests" */;
-			buildPhases = (
-				AA62EE922251456800757106 /* Sources */,
-				AA62EE932251456800757106 /* Frameworks */,
-				AA62EE942251456800757106 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AA19F7562440768A00292F5D /* PBXTargetDependency */,
-			);
-			name = VersionDashboardiOSTests;
-			productName = VersionDashboardiOSTests;
-			productReference = AA62EE962251456800757106 /* VersionDashboardiOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		AA62EEA02251456800757106 /* VersionDashboardiOSUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AA62EEAE2251456900757106 /* Build configuration list for PBXNativeTarget "VersionDashboardiOSUITests" */;
-			buildPhases = (
-				AA62EE9D2251456800757106 /* Sources */,
-				AA62EE9E2251456800757106 /* Frameworks */,
-				AA62EE9F2251456800757106 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AA62EEA32251456900757106 /* PBXTargetDependency */,
-				AA19F74C24406F7700292F5D /* PBXTargetDependency */,
-			);
-			name = VersionDashboardiOSUITests;
-			productName = VersionDashboardiOSUITests;
-			productReference = AA62EEA12251456800757106 /* VersionDashboardiOSUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		AA62F7402258ADE300757106 /* VersionDashboardSDKARM */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA62F7592258ADE300757106 /* Build configuration list for PBXNativeTarget "VersionDashboardSDKARM" */;
@@ -1312,6 +1260,24 @@
 			productReference = AA6AD7C81C6B4BD90097CD9A /* VersionDashboardUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		AA7F1DA424979C4400F4B067 /* VersionDashboardiOSSimulatorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA7F1DAC24979C4500F4B067 /* Build configuration list for PBXNativeTarget "VersionDashboardiOSSimulatorUITests" */;
+			buildPhases = (
+				AA7F1DA124979C4400F4B067 /* Sources */,
+				AA7F1DA224979C4400F4B067 /* Frameworks */,
+				AA7F1DA324979C4400F4B067 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA7F1DB92497A03400F4B067 /* PBXTargetDependency */,
+			);
+			name = VersionDashboardiOSSimulatorUITests;
+			productName = VersionDashboardiOSUITests;
+			productReference = AA7F1DA524979C4400F4B067 /* VersionDashboardiOSSimulatorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		AAE8B64D1F87F2C5004E4AF3 /* VersionDashboardTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AAE8B6551F87F2C6004E4AF3 /* Build configuration list for PBXNativeTarget "VersionDashboardTests" */;
@@ -1361,16 +1327,6 @@
 						DevelopmentTeam = G7RXN8CWKG;
 						ProvisioningStyle = Automatic;
 					};
-					AA62EE952251456800757106 = {
-						CreatedOnToolsVersion = 10.1;
-						DevelopmentTeam = G7RXN8CWKG;
-						ProvisioningStyle = Automatic;
-					};
-					AA62EEA02251456800757106 = {
-						CreatedOnToolsVersion = 10.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = AA62F75D2258AE9D00757106;
-					};
 					AA62F7402258ADE300757106 = {
 						ProvisioningStyle = Automatic;
 					};
@@ -1398,6 +1354,12 @@
 						CreatedOnToolsVersion = 7.2.1;
 						ProvisioningStyle = Manual;
 						TestTargetID = AA6AD7AB1C6B4BD90097CD9A;
+					};
+					AA7F1DA424979C4400F4B067 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = G7RXN8CWKG;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AA62F75D2258AE9D00757106;
 					};
 					AAE8B64D1F87F2C5004E4AF3 = {
 						CreatedOnToolsVersion = 9.0;
@@ -1432,12 +1394,11 @@
 				AA6AD7C71C6B4BD90097CD9A /* VersionDashboardUITests */,
 				AA62EE802251456000757106 /* VersionDashboardiOS */,
 				AA62F75D2258AE9D00757106 /* VersionDashboardiOSSimulator */,
-				AA62EE952251456800757106 /* VersionDashboardiOSTests */,
-				AA62EEA02251456800757106 /* VersionDashboardiOSUITests */,
+				AA58D579244249CF00E457AD /* VersionDashboardiOSSimulatorTests */,
+				AA7F1DA424979C4400F4B067 /* VersionDashboardiOSSimulatorUITests */,
 				AA62EE4D2251391000757106 /* VersionDashboardSDK */,
 				AA62F7402258ADE300757106 /* VersionDashboardSDKARM */,
 				AA20D27B2361071E0027B268 /* VersionDashboardSDKTests */,
-				AA58D579244249CF00E457AD /* VersionDashboardiOSSimulatorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1512,27 +1473,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA62EE942251456800757106 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AA62EE9F2251456800757106 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AA62F5772251508B00757106 /* Assets.xcassets in Resources */,
-				AA62F5382251508B00757106 /* Localizable.strings in Resources */,
-				AA62F5AD2251508B00757106 /* Info.plist in Resources */,
-				AA62F5352251508B00757106 /* Main.strings in Resources */,
-				AA62F5832251508B00757106 /* Main.storyboard in Resources */,
-				AA62F5802251508B00757106 /* LaunchScreen.storyboard in Resources */,
-				AA62F5322251508B00757106 /* LaunchScreen.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AA62F7712258AE9D00757106 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1603,7 +1543,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA36C3BB22E3557B008B393E /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA7F1DA324979C4400F4B067 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1698,33 +1644,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA62EE922251456800757106 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AA62EE9D2251456800757106 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AA62F55C2251508B00757106 /* PiwikInstanceViewController.swift in Sources */,
-				AA62F57A2251508B00757106 /* ChartsViewController.swift in Sources */,
-				AA62F5532251508B00757106 /* badgeFunctions.swift in Sources */,
-				AA62F5982251508B00757106 /* AppDelegate.swift in Sources */,
-				AA62F5A42251508B00757106 /* InstanceTypeViewController.swift in Sources */,
-				AA62F5562251508B00757106 /* GenericViewController.swift in Sources */,
-				AA62F5922251508B00757106 /* WordpressInstanceViewController.swift in Sources */,
-				AA62F5622251508B00757106 /* InstanceDetailsViewController.swift in Sources */,
-				AA62F58F2251508B00757106 /* OutdatedViewController.swift in Sources */,
-				AA62F5B62251508B00757106 /* NotificationFunctions.swift in Sources */,
-				AA62F54D2251508B00757106 /* SummaryViewController.swift in Sources */,
-				AA62F5B32251508B00757106 /* OwncloudInstanceViewController.swift in Sources */,
-				AA62F5AA2251508B00757106 /* JoomlaInstanceViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AA62F7422258ADE300757106 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1815,6 +1734,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA7F1DA124979C4400F4B067 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA7F1DC42497A62700F4B067 /* WordpressInstanceUITests.swift in Sources */,
+				AA7F1DC82497A65100F4B067 /* OwncloudInstanceUITests.swift in Sources */,
+				AA7F1DC62497A63C00F4B067 /* PiwikInstanceUITests.swift in Sources */,
+				AA7F1DC02497A5A800F4B067 /* OutdatedViewControllerUITests.swift in Sources */,
+				AA7F1DC22497A5CD00F4B067 /* InstanceDetailsViewControllerUITests.swift in Sources */,
+				AA7F1DBD2497A14D00F4B067 /* ChartsViewControllerUITests.swift in Sources */,
+				AA7F1DCA2497A66600F4B067 /* JoomlaInstanceUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AAE8B64A1F87F2C5004E4AF3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1830,16 +1763,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		AA19F74C24406F7700292F5D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AA62F75D2258AE9D00757106 /* VersionDashboardiOSSimulator */;
-			targetProxy = AA19F74B24406F7700292F5D /* PBXContainerItemProxy */;
-		};
-		AA19F7562440768A00292F5D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AA62F75D2258AE9D00757106 /* VersionDashboardiOSSimulator */;
-			targetProxy = AA19F7552440768A00292F5D /* PBXContainerItemProxy */;
-		};
 		AA20D2832361071E0027B268 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = AA62EE4D2251391000757106 /* VersionDashboardSDK */;
@@ -1849,11 +1772,6 @@
 			isa = PBXTargetDependency;
 			target = AA62F75D2258AE9D00757106 /* VersionDashboardiOSSimulator */;
 			targetProxy = AA58D57F244249D000E457AD /* PBXContainerItemProxy */;
-		};
-		AA62EEA32251456900757106 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AA62EE802251456000757106 /* VersionDashboardiOS */;
-			targetProxy = AA62EEA22251456900757106 /* PBXContainerItemProxy */;
 		};
 		AA62F7052257DBAC00757106 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1874,6 +1792,11 @@
 			isa = PBXTargetDependency;
 			name = Charts;
 			targetProxy = AA71A742226A3E8C00BEB4C3 /* PBXContainerItemProxy */;
+		};
+		AA7F1DB92497A03400F4B067 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA62F75D2258AE9D00757106 /* VersionDashboardiOSSimulator */;
+			targetProxy = AA7F1DB82497A03400F4B067 /* PBXContainerItemProxy */;
 		};
 		AA93436022594D83005D8C1C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2214,122 +2137,6 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "$(ARCHS_STANDARD)";
-			};
-			name = Release;
-		};
-		AA62EEAC2251456900757106 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = G7RXN8CWKG;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = VersionDashboardiOSTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nonamecompany.VersionDashboardiOSTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = x86_64;
-			};
-			name = Debug;
-		};
-		AA62EEAD2251456900757106 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = G7RXN8CWKG;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = VersionDashboardiOSTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nonamecompany.VersionDashboardiOSTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = x86_64;
-			};
-			name = Release;
-		};
-		AA62EEAF2251456900757106 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = VersionDashboardiOSUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nonamecompany.VersionDashboardiOSUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = VersionDashboardiOSSimulator;
-			};
-			name = Debug;
-		};
-		AA62EEB02251456900757106 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = VersionDashboardiOSUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nonamecompany.VersionDashboardiOSUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = VersionDashboardiOSSimulator;
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -2686,6 +2493,65 @@
 			};
 			name = Release;
 		};
+		AA7F1DAD24979C4500F4B067 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G7RXN8CWKG;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = VersionDashboardiOSSimulatorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nonamecompany.VersionDashboardiOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VersionDashboardiOSSimulator;
+			};
+			name = Debug;
+		};
+		AA7F1DAE24979C4500F4B067 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G7RXN8CWKG;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = VersionDashboardiOSSimulatorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nonamecompany.VersionDashboardiOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VersionDashboardiOSSimulator;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		AAE8B6561F87F2C6004E4AF3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2779,24 +2645,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA62EEAB2251456900757106 /* Build configuration list for PBXNativeTarget "VersionDashboardiOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AA62EEAC2251456900757106 /* Debug */,
-				AA62EEAD2251456900757106 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AA62EEAE2251456900757106 /* Build configuration list for PBXNativeTarget "VersionDashboardiOSUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AA62EEAF2251456900757106 /* Debug */,
-				AA62EEB02251456900757106 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		AA62F7592258ADE300757106 /* Build configuration list for PBXNativeTarget "VersionDashboardSDKARM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2838,6 +2686,15 @@
 			buildConfigurations = (
 				AA6AD7D81C6B4BD90097CD9A /* Debug */,
 				AA6AD7D91C6B4BD90097CD9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA7F1DAC24979C4500F4B067 /* Build configuration list for PBXNativeTarget "VersionDashboardiOSSimulatorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA7F1DAD24979C4500F4B067 /* Debug */,
+				AA7F1DAE24979C4500F4B067 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
