@@ -1,7 +1,3 @@
-
-/* Class = "NSButtonCell"; title = "Download URL kopieren"; ObjectID = "03f-qa-eHE"; */
-"03f-qa-eHE.title" = "Download URL kopieren";
-
 /* Class = "NSButton"; ibExternalAccessibilityDescription = "CheckAllInstancesButton"; ObjectID = "0C2-LV-LAx"; */
 "0C2-LV-LAx.ibExternalAccessibilityDescription" = "CheckAllInstancesButton";
 
@@ -223,9 +219,6 @@
 
 /* Class = "NSTextFieldCell"; title = "Status"; ObjectID = "Kk4-9p-D1n"; */
 "Kk4-9p-D1n.title" = "Status";
-
-"3I8-vI-FaJ.title" = "Kopiere URL";
-"3I8-vI-FaJ.text" = "Kopiere URL";
 
 /* Class = "NSButton"; ibExternalAccessibilityDescription = "TakeMeToMyInstanceButton"; ObjectID = "KmH-SR-oju"; */
 "KmH-SR-oju.ibExternalAccessibilityDescription" = "TakeMeToMyInstanceButton";
@@ -476,14 +469,17 @@
 /* Class = "NSTextFieldCell"; title = "Aktualisierung"; ObjectID = "law-gm-i1b"; */
 "law-gm-i1b.title" = "Aktualisierung";
 
+/* Class = "NSButtonCell"; title = "Kopiere Download URL"; ObjectID = "Bak-v0-sEO"; */
+"Bak-v0-sEO.title" = "Kopiere Download URL";
+
+/* Class = "NSButtonCell"; title = "Kopiere Download URL"; ObjectID = "KLE-Lz-85j"; */
+"KLE-Lz-85j.title" = "Kopiere Download URL";
+
 /* Class = "NSView"; ibExternalAccessibilityDescription = "DetailedViewController"; ObjectID = "m2S-Jp-Qdl"; */
 "m2S-Jp-Qdl.ibExternalAccessibilityDescription" = "DetailedViewController";
 
 /* Class = "NSTextFieldCell"; title = "Host"; ObjectID = "mK1-Vi-vvt"; */
 "mK1-Vi-vvt.title" = "Host";
-
-/* Class = "NSButtonCell"; title = "Download URL kopieren"; ObjectID = "mdc-7w-YnB"; */
-"mdc-7w-YnB.title" = "Download URL kopieren";
 
 /* Class = "NSButtonCell"; title = "Abbrechen"; ObjectID = "nF2-Kr-GZY"; */
 "nF2-Kr-GZY.title" = "Abbrechen";

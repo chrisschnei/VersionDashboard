@@ -58,16 +58,16 @@ open class OwncloudHeadModel: GenericHeadModel {
      - lines: Fetched owncloud data from website.
      - Returns: String containing version number
      */
-    func getLatestVersion(_ content: String, _ lines: [String]) -> String {
-        if (content.range(of: "<td>Production</td>") != nil) {
-            let index = lines.index(of: content)
-            let part2 = lines[index! + 1]
-            let part3 = part2.components(separatedBy: "<td>")
-            let part4 = part3[1].components(separatedBy: "</td>")
-            if(part4[0] != "" && !part4[0].isEmpty) {
-                return part4[0]
-            }
+    func getLatestVersion(_ content: String, _ lines: [String]) -> String {        
+        if let range2 = content.range(of: Constants.owncloudRegexDownload, options: .regularExpression) {
+            guard let range = content[range2].range(of: "[0-9]*[.][0-9]*[.][0-9]*", options: .regularExpression)
+                else {
+                    return ""
+                }
+            let fullversion = content[range2]
+            return String(fullversion[range])
         }
+
         return ""
     }
     

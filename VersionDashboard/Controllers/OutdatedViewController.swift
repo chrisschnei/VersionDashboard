@@ -125,6 +125,7 @@ class OutdatedViewController: GenericViewController, NSTableViewDelegate, NSTabl
                 self.currentVersion.stringValue = owncloudmodel!.currentVersion
                 self.phpVersion.stringValue = owncloudmodel!.phpVersion
                 self.webserver.stringValue = owncloudmodel!.serverType
+                self.downloadUrl.stringValue = owncloudhead.downloadurl
                 self.copyDownloadURL.isHidden = false
                 self.downloadUrlLabel.isHidden = false
                 self.downloadUrl.isHidden = false
