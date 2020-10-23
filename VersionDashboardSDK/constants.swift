@@ -40,24 +40,23 @@ public class Constants {
     
     public static var dateformat = "dd-MM-yyyy"
     
-    public static var joomlapath = "administrator/manifests/files/joomla.xml"
-    public static var joomlaAPIUrl = "https://www.joomla.org/"
-    public static var joomlaBackendURL = "administrator/"
+    public static var joomlapath = String()
+    public static var joomlaAPIUrl = String()
+    public static var joomlaBackendURL = String()
     
-    public static var wordpressAPIUrl = "http://api.wordpress.org/core/version-check/1.7/"
-    public static var wordpressBackendURL = "wp-admin/"
+    public static var wordpressAPIUrl = String()
+    public static var wordpressBackendURL = String()
     
-    public static var piwikAPIUrl = "index.php?module=API&method=API.getPiwikVersion&token_auth="
-    public static var piwikLatestVersionURL = "https://api.piwik.org/1.0/getLatestVersion/"
+    public static var piwikAPIUrl = String()
+    public static var piwikLatestVersionURL = String()
     
-    public static var owncloudAPIUrl = "https://owncloud.org/download"
-    public static var owncloudStatusFile = "status.php"
-    public static var owncloudRegexDownload = "https:[/]*download.owncloud.org/community/owncloud[0-9a-zA-Z-.]*zip"
+    public static var owncloudAPIUrl = String()
+    public static var owncloudStatusFile = String()
+    public static var owncloudRegexDownload = String()
     
-    public static var refreshIntervals = ["6", "12", "24", "48"]
+    public static var refreshIntervals = Array<String>()
     
-    /* 3h */
-    public static var refreshHeadInstances = 10800
+    public static var refreshHeadInstances = Int()
     
     public static var timer: Timer = Timer()
     
@@ -97,8 +96,9 @@ public class Constants {
         piwikAPIUrl = "index.php?module=API&method=API.getPiwikVersion&token_auth="
         piwikLatestVersionURL = "https://api.piwik.org/1.0/getLatestVersion/"
         
-        owncloudAPIUrl = "https://owncloud.org/download"
+        owncloudAPIUrl = "https://demo.owncloud.org/"
         owncloudStatusFile = "status.php"
+        owncloudRegexDownload = "https:[/]*download.owncloud.org/community/owncloud[0-9a-zA-Z-.]*zip"
         
         refreshIntervals = ["6", "12", "24", "48"]
         

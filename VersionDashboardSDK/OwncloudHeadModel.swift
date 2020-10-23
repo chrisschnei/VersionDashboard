@@ -19,7 +19,7 @@ open class OwncloudHeadModel: GenericHeadModel {
      */
     override public func updateHeadObject(forceUpdate: Bool = false) -> Bool {
         if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-Constants.refreshHeadInstances)))) {
-            if let data = try? Data(contentsOf: URL(string: Constants.owncloudAPIUrl)!) {
+            if let data = try? Data(contentsOf: URL(string: Constants.owncloudAPIUrl + Constants.owncloudStatusFile)!) {
                 let version = String(data: data, encoding: String.Encoding.utf8)
                 let lines = version?.components(separatedBy: "\n")
                 var headVersion = ""
@@ -27,7 +27,7 @@ open class OwncloudHeadModel: GenericHeadModel {
                 
                 for part in lines! {
                     if (headVersion == "") {
-                        headVersion = self.getLatestVersion(part, lines!)
+                        headVersion = self.getLatestVersion(part)
                     }
                     if (downloadUrl == "") {
                         downloadUrl = self.getDownloadUrl(part)
@@ -55,20 +55,14 @@ open class OwncloudHeadModel: GenericHeadModel {
      
      - Parameters:
      - content: Fetched owncloud data from website.
-     - lines: Fetched owncloud data from website.
      - Returns: String containing version number
      */
-    func getLatestVersion(_ content: String, _ lines: [String]) -> String {        
-        if let range2 = content.range(of: Constants.owncloudRegexDownload, options: .regularExpression) {
-            guard let range = content[range2].range(of: "[0-9]*[.][0-9]*[.][0-9]*", options: .regularExpression)
+    func getLatestVersion(_ content: String) -> String {
+            guard let range = content.range(of: "[0-9]*[.][0-9]*[.]*[0-9]*", options: .regularExpression)
                 else {
                     return ""
                 }
-            let fullversion = content[range2]
-            return String(fullversion[range])
-        }
-
-        return ""
+            return String(content[range])
     }
     
     /**
