@@ -16,7 +16,7 @@ class VersionDashboardXMLParserTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        let queryurl = (Constants.joomlaAPIUrl + Constants.joomlapath)
+        let queryurl = (Constants.joomlaAPIUrl)
         let pathToXml = URL(string: queryurl)
         parser = VersionDashboardXMLParser(url: pathToXml!)
     }

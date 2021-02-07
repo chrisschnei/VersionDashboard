@@ -19,19 +19,34 @@ open class JoomlaHeadModel: GenericHeadModel {
      */
     override public func updateHeadObject(forceUpdate: Bool = false) -> Bool {
         if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-Constants.refreshHeadInstances)))) {
-            let headVersion = self.getInstanceVersion(Constants.joomlaAPIUrl + Constants.joomlapath)
-            if(headVersion != "") {
-                self.headVersion = headVersion
+            if let data = try? Data(contentsOf: URL(string: Constants.joomlaAPIUrl)!) {
+                let version = String(data: data, encoding: String.Encoding.utf8)
+                let lines = version?.components(separatedBy: "\n")
+                var headVersion = ""
+
+                for part in lines! {
+                        headVersion = self.getLatestVersion(part)
+                        let versionCompare = self.headVersion.compare(headVersion, options: .numeric)
+                        if versionCompare == .orderedSame {
+                            // execute if current == appStore
+                        } else if versionCompare == .orderedAscending {
+                            // execute if current < appStore; update available
+                            self.headVersion = headVersion
+                        } else if versionCompare == .orderedDescending {
+                            // execute if current > appStore
+                        }
+                }
+
+                if (!self.saveConfigfile(filename: Constants.joomlaHead)) {
+                    print("Error saving joomla head plist file.")
+                    return false
+                }
             } else {
-                self.headVersion = "0.0"
-                return false
-            }
-            if (!self.saveConfigfile(filename: Constants.joomlaHead)) {
-                print("Error saving Joomla head plist file.")
+                print("Fetching joomla head infos did not work.")
                 return false
             }
         }
-        
+
         return true
     }
     
@@ -49,6 +64,25 @@ open class JoomlaHeadModel: GenericHeadModel {
             print("Error extracting joomla head version string.")
         }
         return parser.version
+    }
+    
+    /**
+     Parse version string from HTML content.
+     
+     - Parameters:
+     - content: Fetched owncloud data from website.
+     - Returns: String containing version number in success case; empty in error case
+     */
+    func getLatestVersion(_ content: String) -> String {
+        guard let range = content.range(of: "Joomla! [0-9]*[.][0-9]*[.]*[0-9]*", options: .regularExpression)
+            else {
+                return ""
+        }
+        if (content[range].components(separatedBy: " ")[1] != "") {
+            return String(content[range].components(separatedBy: " ")[1])
+        } else {
+            return ""
+        }
     }
     
 }

@@ -90,7 +90,7 @@ class VersionDashboardXMLParser : NSObject, Foundation.XMLParserDelegate {
     public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?,
                          attributes attributeDict: [String : String]) {
         if(!searchKeys.contains(elementName)) {
-            print("Element \(elementName) is not in \(searchKeys)")
+            /*print("Element \(elementName) is not in \(searchKeys)")*/
             return
         }
 
@@ -106,7 +106,7 @@ class VersionDashboardXMLParser : NSObject, Foundation.XMLParserDelegate {
      */
     public func parser(_ parser: XMLParser, foundCharacters string: String) {
         if (!processXMLElement) {
-            print("Skip element \(string)")
+            /*print("Skip element \(string)")*/
             return
         }
         
