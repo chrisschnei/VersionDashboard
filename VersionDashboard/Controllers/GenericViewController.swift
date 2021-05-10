@@ -75,6 +75,11 @@ class GenericViewController : NSViewController {
         return storyBoard.instantiateController(withIdentifier: "PiwikController") as! PiwikViewController
     }
     
+    func instantiateNextcloudViewController() -> NextcloudViewController {
+        let storyBoard : NSStoryboard = NSStoryboard(name: "Main", bundle:nil)
+        return storyBoard.instantiateController(withIdentifier: "NextcloudController") as! NextcloudViewController
+    }
+    
     func createTableCell(tableView: NSTableView, filteredInstancesArray: Array<String>, row: Int) -> NSTableCellView {
         tableView.rowHeight = 30.0
         let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "InstanceName"), owner: self) as! NSTableCellView
@@ -87,6 +92,8 @@ class GenericViewController : NSViewController {
             cellView.imageView!.image = NSImage(named: NSImage.Name("wordpress_dots.png"))!
         } else if ((SystemInstances.systemInstances[name] as? JoomlaModel) != nil) {
             cellView.imageView!.image = NSImage(named: NSImage.Name("joomla_dots.png"))!
+        } else if ((SystemInstances.systemInstances[name] as? NextcloudModel) != nil) {
+            cellView.imageView!.image = NSImage(named: NSImage.Name("nextcloud_dots.png"))!
         }
         cellView.textField?.stringValue = name
         
@@ -111,6 +118,8 @@ class GenericViewController : NSViewController {
                 url = (instance as! PiwikModel).hosturl
             } else if ((instance as? OwncloudModel) != nil) {
                 url = (instance as! OwncloudModel).hosturl
+            } else if ((instance as? NextcloudModel) != nil) {
+                url = (instance as! NextcloudModel).hosturl
             }
             return NSWorkspace.shared.open(URL(string: url)!)
         }

@@ -16,24 +16,43 @@ open class SystemInstancesModel : NSObject {
      - Returns: Dictionary with instance name as key and amount of instances as value.
      */
     public static func checkAllInstancesTypes() -> Dictionary<String, Int> {
-        var wordpressInstances = 0
-        var piwikInstances = 0
-        var owncloudInstances = 0
-        var joomlaInstances = 0
+        var result = Dictionary<String, Int>()
         
         let keys = SystemInstances.systemInstances.keys
         for instanceName in keys {
             if((SystemInstances.systemInstances[instanceName] as? WordpressModel) != nil) {
-                wordpressInstances = wordpressInstances + 1
+                if (result["Wordpress"] == nil) {
+                    result["Wordpress"] = 1
+                } else {
+                    result["Wordpress"] = result["Wordpress"]! + 1
+                }
             } else if((SystemInstances.systemInstances[instanceName] as? JoomlaModel) != nil) {
-                joomlaInstances = joomlaInstances + 1
+                if (result["Joomla"] == nil) {
+                    result["Joomla"] = 1
+                } else {
+                    result["Joomla"] = result["Joomla"]! + 1
+                }
             } else if((SystemInstances.systemInstances[instanceName] as? PiwikModel) != nil) {
-                piwikInstances = piwikInstances + 1
+                if (result["Piwik"] == nil) {
+                    result["Piwik"] = 1
+                } else {
+                    result["Piwik"] = result["Piwik"]! + 1
+                }
             } else if((SystemInstances.systemInstances[instanceName] as? OwncloudModel) != nil) {
-                owncloudInstances = owncloudInstances + 1
+                if (result["Owncloud"] == nil) {
+                    result["Owncloud"] = 1
+                } else {
+                    result["Owncloud"] = result["Owncloud"]! + 1
+                }
+            } else if((SystemInstances.systemInstances[instanceName] as? NextcloudModel) != nil) {
+                if (result["Nextcloud"] == nil) {
+                    result["Nextcloud"] = 1
+                } else {
+                    result["Nextcloud"] = result["Nextcloud"]! + 1
+                }
             }
         }
-        return ["Wordpress" : wordpressInstances, "Joomla" : joomlaInstances, "Owncloud" : owncloudInstances, "Piwik" : piwikInstances]
+        return result
     }
     
     /**
@@ -57,19 +76,23 @@ open class SystemInstancesModel : NSObject {
         for instanceName in keys {
             if((SystemInstances.systemInstances[instanceName] as? WordpressModel) != nil) {
                 if(((SystemInstances.systemInstances[instanceName] as! WordpressModel).updateAvailable) != 0) {
-                    instancesOutOfDate = instancesOutOfDate + 1
+                    instancesOutOfDate += 1
                 }
             } else if((SystemInstances.systemInstances[instanceName] as? JoomlaModel) != nil) {
                 if(((SystemInstances.systemInstances[instanceName] as! JoomlaModel).updateAvailable) != 0) {
-                    instancesOutOfDate = instancesOutOfDate + 1
+                    instancesOutOfDate += 1
                 }
             } else if((SystemInstances.systemInstances[instanceName] as? PiwikModel) != nil) {
                 if(((SystemInstances.systemInstances[instanceName] as! PiwikModel).updateAvailable) != 0) {
-                    instancesOutOfDate = instancesOutOfDate + 1
+                    instancesOutOfDate += 1
                 }
             } else if((SystemInstances.systemInstances[instanceName] as? OwncloudModel) != nil) {
                 if(((SystemInstances.systemInstances[instanceName] as! OwncloudModel).updateAvailable) != 0) {
-                    instancesOutOfDate = instancesOutOfDate + 1
+                    instancesOutOfDate += 1
+                }
+            } else if((SystemInstances.systemInstances[instanceName] as? NextcloudModel) != nil) {
+                if(((SystemInstances.systemInstances[instanceName] as! NextcloudModel).updateAvailable) != 0) {
+                    instancesOutOfDate += 1
                 }
             }
         }
@@ -117,6 +140,12 @@ open class SystemInstancesModel : NSObject {
                         } else if myDict!["type"] as! String == "Piwik" {
                             let piwikhead = HeadInstances.headInstances["Piwik"].self! as! PiwikHeadModel
                             SystemInstances.systemInstances[myDict!["name"] as! String] = PiwikModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, apiToken: myDict!["apiToken"] as! String, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, headVersion: piwikhead.headVersion, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
+                        } else if myDict!["type"] as! String == "Nextcloud" {
+                            let nextcloudhead = HeadInstances.headInstances["Nextcloud"].self! as! NextcloudHeadModel
+                            SystemInstances.systemInstances[myDict!["name"] as! String] = NextcloudModel(creationDate: myDict!["creationDate"] as! String, currentVersion: myDict!["currentVersion"] as! String, hosturl: myDict!["hosturl"] as! String, headVersion: nextcloudhead.headVersion, lastRefresh: myDict!["lastRefresh"] as! String, name: myDict!["name"] as! String, type: myDict!["type"] as! String, updateAvailable: myDict!["updateAvailable"] as! Int, phpVersion: myDict!["phpVersion"] as! String, serverType: myDict!["serverType"] as! String)
+                        } else {
+                            NSLog("HeadInstance files data loading failed")
+                            return false
                         }
                     }
                 }
@@ -160,6 +189,10 @@ open class SystemInstancesModel : NSObject {
                 if(((SystemInstances.systemInstances[instanceName] as! OwncloudModel).updateAvailable) == 0) {
                     instancesUptoDate = instancesUptoDate + 1
                 }
+            } else if((SystemInstances.systemInstances[instanceName] as? NextcloudModel) != nil) {
+                if(((SystemInstances.systemInstances[instanceName] as! NextcloudModel).updateAvailable) == 0) {
+                    instancesUptoDate = instancesUptoDate + 1
+                }
             }
         }
         return instancesUptoDate
@@ -189,6 +222,10 @@ open class SystemInstancesModel : NSObject {
                 }
             } else if((SystemInstances.systemInstances[instanceName] as? OwncloudModel) != nil) {
                 if(((SystemInstances.systemInstances[instanceName] as! OwncloudModel).updateAvailable) == 1) {
+                    outdatedInstances[instanceName] = SystemInstances.systemInstances[instanceName]
+                }
+            } else if((SystemInstances.systemInstances[instanceName] as? NextcloudModel) != nil) {
+                if(((SystemInstances.systemInstances[instanceName] as! NextcloudModel).updateAvailable) == 1) {
                     outdatedInstances[instanceName] = SystemInstances.systemInstances[instanceName]
                 }
             }

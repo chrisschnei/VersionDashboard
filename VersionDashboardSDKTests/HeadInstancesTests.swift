@@ -23,11 +23,12 @@ class HeadInstancesTests: XCTestCase {
 
     func testHeadInstancesAmount() {
         /* VD currently supports 4 instance types */
-        XCTAssertEqual(HeadInstances.headInstances.keys.count, 4)
+        XCTAssertEqual(HeadInstances.headInstances.keys.count, 5)
         XCTAssertNotNil(HeadInstances.headInstances["Joomla"])
         XCTAssertNotNil(HeadInstances.headInstances["Wordpress"])
         XCTAssertNotNil(HeadInstances.headInstances["Piwik"])
         XCTAssertNotNil(HeadInstances.headInstances["Owncloud"])
+        XCTAssertNotNil(HeadInstances.headInstances["Nextcloud"])
     }
 
 }

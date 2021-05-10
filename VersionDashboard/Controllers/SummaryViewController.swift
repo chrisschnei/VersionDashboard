@@ -63,9 +63,13 @@ class SummaryViewController: GenericViewController {
             chartdata.append(PieChartDataEntry(value: Double(amount), label:instancename))
         }
         
-        let data = PieChartData()
         let ds1 = PieChartDataSet(values: chartdata, label:"")
-        ds1.colors = ChartColorTemplates.material()
+        ds1.colors = [ChartColorTemplates.colorFromString("#21759B"), //wordpress
+                      ChartColorTemplates.colorFromString("#F9A541"), //joomla
+                      ChartColorTemplates.colorFromString("#304057"), //owncloud
+                      ChartColorTemplates.colorFromString("#D4291F"), //piwik
+                      ChartColorTemplates.colorFromString("#41C8F9")] //nextcloud
+        let data = PieChartData()
         data.addDataSet(ds1)
         self.pieChartInstanceSummary.data = data
         self.pieChartInstanceSummary.chartDescription?.text = ""
@@ -187,6 +191,15 @@ class SummaryViewController: GenericViewController {
                         sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), wordpressmodel!.name)))
                     }
                     _ = wordpressmodel!.saveConfigfile()
+                } else if ((SystemInstances.systemInstances[instance] as? NextcloudModel) != nil) {
+                    let nextcloudmodel = SystemInstances.systemInstances[instance] as? NextcloudModel
+                    //Remote Version url
+                    _ = nextcloudmodel!.getVersions(forceUpdate: force)
+                    _ = nextcloudmodel!.updateDate()
+                    if (nextcloudmodel!.checkNotificationRequired()) {
+                        sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), nextcloudmodel!.name)))
+                    }
+                    _ = nextcloudmodel!.saveConfigfile()
                 }
             }
             completionHandler(true)

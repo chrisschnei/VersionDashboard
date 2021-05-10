@@ -19,7 +19,7 @@ open class PiwikHeadModel: GenericHeadModel, XMLParserDelegate {
      */
     override public func updateHeadObject(forceUpdate: Bool = false) -> Bool {
         if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-Constants.refreshHeadInstances)))) {
-            let headVersion = self.getInstanceVersion(Constants.piwikLatestVersionURL)
+            let headVersion = self.getInstanceVersion()
             if(headVersion != "") {
                 self.headVersion = headVersion
             } else {
@@ -37,12 +37,10 @@ open class PiwikHeadModel: GenericHeadModel, XMLParserDelegate {
     /**
      Get version from piwik vendor server.
      
-     - Parameters:
-     - url: URL to piwik vendor version string page.
      - Returns: String containing version number
      */
-    func getInstanceVersion(_ url: String) -> String {
-        if let version = try? Data(contentsOf: URL(string: url)!) {
+    func getInstanceVersion() -> String {
+        if let version = try? Data(contentsOf: URL(string: Constants.piwikLatestVersionURL)!) {
             let version = String(data: version, encoding: String.Encoding.utf8)
             return version!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }

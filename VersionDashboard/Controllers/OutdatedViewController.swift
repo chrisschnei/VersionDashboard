@@ -143,6 +143,34 @@ class OutdatedViewController: GenericViewController, NSTableViewDelegate, NSTabl
                 } else {
                     self.status.stringValue = ""
                 }
+            } else if ((modelclass as? NextcloudModel) != nil) {
+                let nextcloudmodel = modelclass as? NextcloudModel
+                let nextcloudhead = HeadInstances.headInstances["Nextcloud"] as! NextcloudHeadModel
+                self.hostName.stringValue = nextcloudmodel!.hosturl
+                self.systemName.stringValue = nextcloudmodel!.name
+                self.lastcheck.stringValue = nextcloudmodel!.lastRefresh
+                self.latestVersion.stringValue = nextcloudmodel!.headVersion
+                self.currentVersion.stringValue = nextcloudmodel!.currentVersion
+                self.phpVersion.stringValue = nextcloudmodel!.phpVersion
+                self.webserver.stringValue = nextcloudmodel!.serverType
+                self.downloadUrl.stringValue = nextcloudhead.downloadurl
+                self.copyDownloadURL.isHidden = false
+                self.downloadUrlLabel.isHidden = false
+                self.downloadUrl.isHidden = false
+                if (nextcloudhead.downloadurl != "") {
+                    self.copyDownloadURL.isEnabled = true
+                }
+                if (self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
+                    if (nextcloudmodel!.updateAvailable == 0) {
+                        self.status.stringValue = NSLocalizedString("ok", comment: "")
+                    } else if (nextcloudmodel?.updateAvailable == -1) {
+                        self.status.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                    } else {
+                        self.status.stringValue = NSLocalizedString("updateavailable", comment: "")
+                    }
+                } else {
+                    self.status.stringValue = ""
+                }
             } else if ((modelclass as? PiwikModel) != nil) {
                 let piwikmodel = modelclass as? PiwikModel
                 self.hostName.stringValue = piwikmodel!.hosturl
@@ -236,6 +264,19 @@ class OutdatedViewController: GenericViewController, NSTableViewDelegate, NSTabl
                 }
                 owncloudmodel!.updateDate()
                 if (!(owncloudmodel!.saveConfigfile())) {
+                    print("Error saving plist File.")
+                }
+            } else if ((SystemInstances.systemInstances[instanceName] as? NextcloudModel) != nil) {
+                let nextcloudmodel = SystemInstances.systemInstances[instanceName] as? NextcloudModel
+                if (nextcloudmodel!.getVersions(forceUpdate: false)) {
+                    if (nextcloudmodel!.checkNotificationRequired()) {
+                        sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), nextcloudmodel!.name)))
+                    }
+                } else {
+                    returnValue = false
+                }
+                nextcloudmodel!.updateDate()
+                if (!(nextcloudmodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
             } else if ((SystemInstances.systemInstances[instanceName] as? PiwikModel) != nil) {
@@ -354,6 +395,10 @@ class OutdatedViewController: GenericViewController, NSTableViewDelegate, NSTabl
                 }
             } else if ((SystemInstances.systemInstances[instance] as? OwncloudModel) != nil) {
                 if ((SystemInstances.systemInstances[instance] as! OwncloudModel).updateAvailable == 1) {
+                    OutdatedInstances.outdatedInstances.append(instance)
+                }
+            }  else if ((SystemInstances.systemInstances[instance] as? NextcloudModel) != nil) {
+                if ((SystemInstances.systemInstances[instance] as! NextcloudModel).updateAvailable == 1) {
                     OutdatedInstances.outdatedInstances.append(instance)
                 }
             }

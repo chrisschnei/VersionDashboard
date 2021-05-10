@@ -30,7 +30,7 @@ class JoomlaModelTests: XCTestCase {
     }
     
     func testGetInstanceVersion() {
-        XCTAssertNotEqual(testobject.getInstanceVersion(Constants.joomlaAPIUrl + Constants.joomlapath), "")
+        XCTAssertNotEqual(testobject.getInstanceVersion(), "")
     }
 
 }

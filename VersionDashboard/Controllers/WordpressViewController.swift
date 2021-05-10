@@ -31,7 +31,7 @@ class WordpressViewController: GenericViewController {
         let wordpressinstance = WordpressModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, headVersion: "", lastRefresh: "", name: instanceName.stringValue, type: "Wordpress", updateAvailable: 0, phpVersion: "", serverType: "")
         _ = wordpressinstance.saveConfigfile()
         self.dismiss(self)
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadTableContents"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadTableContentsAdd"), object: nil)
     }
 
 }

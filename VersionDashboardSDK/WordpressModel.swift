@@ -23,7 +23,7 @@ public class WordpressModel : GenericModel {
             print("Could not get wordpress head version. Abort further checking.")
             return false
         }
-        let currentVersion = self.getInstanceVersion(self.hosturl)
+        let currentVersion = self.getInstanceVersion()
         self.phpVersionRequest(self.phpReturnHandler)
         if(currentVersion != "") {
             self.currentVersion = currentVersion
@@ -39,12 +39,10 @@ public class WordpressModel : GenericModel {
     /**
      Extract version string from javascript file.
      
-     - Parameters:
-     - url: url to javascript file
      - Returns: string containing version number, empty string in error case.
      */
-    func checkVersionViaJavascript(_ url: String) -> String {
-        if let version = try? Data(contentsOf: URL(string: url)!) {
+    func checkVersionViaJavascript() -> String {
+        if let version = try? Data(contentsOf: URL(string: self.hosturl)!) {
             let version = String(data: version, encoding: String.Encoding.utf8)
             let lines = version?.components(separatedBy: "\n")
             for part in lines! {
@@ -61,12 +59,10 @@ public class WordpressModel : GenericModel {
     /**
      Extract wordpress version number from emoji javascript part.
      
-     - Parameters:
-     - url: contains url to javascript file
      - Returns: version number string on success, empty string in error case.
      */
-    func checkVersionViaJavascriptEmoji(_ url: String) -> String {
-        if let version = try? Data(contentsOf: URL(string: url)!) {
+    func checkVersionViaJavascriptEmoji() -> String {
+        if let version = try? Data(contentsOf: URL(string: self.hosturl)!) {
             let version = String(data: version, encoding: String.Encoding.utf8)
             let lines = version?.components(separatedBy: "\n")
             for part in lines! {
@@ -83,12 +79,10 @@ public class WordpressModel : GenericModel {
     /**
      Extracts wordpress version number from rss feed.
      
-     - Parameters:
-     - url: URL to rss feed.
      - Returns: version number string on success, empty string in error case.
      */
-    func checkVersionViaRSSFeed(_ url: String) -> String {
-        if let version = try? Data(contentsOf: URL(string: url)!) {
+    func checkVersionViaRSSFeed() -> String {
+        if let version = try? Data(contentsOf: URL(string: self.hosturl + "feed")!) {
             let version = String(data: version, encoding: String.Encoding.utf8)
             let lines = version?.components(separatedBy: "\n")
             for part in lines! {
@@ -105,39 +99,32 @@ public class WordpressModel : GenericModel {
     /**
      Checks wordpress instance version using different wordpress specific sources in an instance.
      
-     - Parameters:
-     - url: URL to custom wordpress instance
      - Returns: version number string on success, empty string in error case.
      */
-    func getInstanceVersion(_ url: String) -> String {
-        if(url != "") {
-            var result = ""
-            result = checkVersionViaJavascriptEmoji(url)
-            if(result != "") {
-                return result
-            }
-            result = self.checkVersionViaJavascript(url)
-            if(result != "") {
-                return result
-            }
-            result = self.checkVersionViaRSSFeed(url + "feed")
-            if(result != "") {
-                return result
-            }
+    func getInstanceVersion() -> String {
+        var result = ""
+        result = checkVersionViaJavascriptEmoji()
+        if(result != "") {
             return result
         }
-        return ""
+        result = self.checkVersionViaJavascript()
+        if(result != "") {
+            return result
+        }
+        result = self.checkVersionViaRSSFeed()
+        if(result != "") {
+            return result
+        }
+        return result
     }
     
     /**
      Extracts wordpress version from json file.
      
-     - Parameters:
-     - url: URL to json file.
      - Returns: version number string on success, empty string in error case.
      */
-    func getInstanceVersionJSON(_ url: String) -> String {
-        if let version = try? Data(contentsOf: URL(string: url)!) {
+    func getInstanceVersionJSON() -> String {
+        if let version = try? Data(contentsOf: URL(string: self.hosturl)!) {
             do {
                 let json = try JSONSerialization.jsonObject(with: version, options: .allowFragments) as! [String:Any]
                 if json["offers"] != nil {

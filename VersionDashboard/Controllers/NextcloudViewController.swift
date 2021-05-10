@@ -1,16 +1,16 @@
 //
-//  OwncloudViewController.swift
+//  NextcloudViewController.swift
 //  Version Dashboard
 //
-//  Created by Christian Schneider on 10.02.16.
-//  Copyright © 2016 NonameCompany. All rights reserved.
+//  Created by Christian Schneider on 19.03.21.
+//  Copyright © 2021 NonameCompany. All rights reserved.
 //
 
 import Cocoa
 import VersionDashboardSDK
 
-class OwncloudViewController: GenericViewController {
-
+class NextcloudViewController: GenericViewController {
+    
     @IBOutlet weak var cancelButton: NSButton!
     @IBOutlet weak var saveButton: NSButton!
     @IBOutlet weak var urlField: NSTextField!
@@ -28,8 +28,8 @@ class OwncloudViewController: GenericViewController {
         if (SystemInstancesModel.checkInstanceNameAlreadyPresent(self.instanceName.stringValue)) {
             return
         }
-        let owncloudinstance = OwncloudModel(creationDate: "", currentVersion: "", hosturl: urlField.stringValue, headVersion: "", lastRefresh: "", name: instanceName.stringValue, type: "Owncloud", updateAvailable: 0, phpVersion: "", serverType: "")
-        _ = owncloudinstance.saveConfigfile()
+        let nextcloudinstance = NextcloudModel(creationDate: "", currentVersion: "", hosturl: urlField.stringValue, headVersion: "", lastRefresh: "", name: instanceName.stringValue, type: "Nextcloud", updateAvailable: 0, phpVersion: "", serverType: "")
+        _ = nextcloudinstance.saveConfigfile()
         self.dismiss(self)
         NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadTableContentsAdd"), object: nil)
     }

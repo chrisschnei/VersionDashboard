@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>downloadurl</key>
+	<string></string>
+	<key>name</key>
+	<string>Nextcloud</string>
+	<key>type</key>
+	<string>Nextcloud</string>
+	<key>headVersion</key>
+	<string></string>
+	<key>creationDate</key>
+	<date>2021-02-20T22:01:00Z</date>
+	<key>lastRefresh</key>
+	<date>2021-02-20T22:01:00Z</date>
+</dict>
+</plist>

@@ -41,7 +41,7 @@ open class PiwikModel : GenericModel, XMLParserDelegate {
             print("Could not get piwik head version. Abort further checking.")
             return false
         }
-        let currentVersion = self.getInstanceVersionXML(((self.hosturl) + Constants.piwikAPIUrl) + self.apiToken)
+        let currentVersion = self.getInstanceVersionXML()
         self.phpVersionRequest(self.phpReturnHandler)
         if(!currentVersion.isEmpty) {
             self.currentVersion = currentVersion
@@ -92,12 +92,10 @@ open class PiwikModel : GenericModel, XMLParserDelegate {
     /**
      Get version from joomla vendor server.
      
-     - Parameters:
-     - url: URL to joomla vendor version string page.
      - Returns: String containing version number
      */
-    func getInstanceVersion(_ url: String) -> String {
-        if let version = try? Data(contentsOf: URL(string: url)!) {
+    func getInstanceVersion() -> String {
+        if let version = try? Data(contentsOf: URL(string: self.hosturl)!) {
             let version = String(data: version, encoding: String.Encoding.utf8)
             return version!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
@@ -118,12 +116,10 @@ open class PiwikModel : GenericModel, XMLParserDelegate {
     /**
      Get version from piwik vendor server.
      
-     - Parameters:
-     - url: URL to piwik instance version string page.
      - Returns: String containing version number
      */
-    func getInstanceVersionXML(_ url: String) -> String {
-        let pathToXml = URL(string: url)
+    func getInstanceVersionXML() -> String {
+        let pathToXml = URL(string: (self.hosturl + Constants.piwikAPIUrl) + self.apiToken)
         let parser = VersionDashboardXMLParser(url: pathToXml!);
         if (!parser.startParsing()) {
             print("Error extracting piwik version string.")

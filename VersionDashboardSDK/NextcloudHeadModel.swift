@@ -1,17 +1,17 @@
 //
-//  OwncloudHeadModel.swift
-//  Version Dashboard
+//  NextcloudHeadModel.swift
+//  VersionDashboard
 //
-//  Created by Christian Schneider on 06.10.17.
-//  Copyright © 2017 NonameCompany. All rights reserved.
+//  Created by Christian Schneider on 20.02.21.
+//  Copyright © 2021 NonameCompany. All rights reserved.
 //
 
 import Foundation
 
-open class OwncloudHeadModel: GenericHeadModel {
+open class NextcloudHeadModel: GenericHeadModel {
     
     /**
-     Get version from owncloud vendor server.
+     Get version from nextcloud vendor server.
      
      - Parameters:
      - forceUpdate: true if time checks should be ignored and version should be updated immediately, false to only retrieve version when time interval is exceeded.
@@ -19,7 +19,11 @@ open class OwncloudHeadModel: GenericHeadModel {
      */
     override public func updateHeadObject(forceUpdate: Bool = false) -> Bool {
         if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-Constants.refreshHeadInstances)))) {
-            if let data = try? Data(contentsOf: URL(string: Constants.owncloudAPIUrl + Constants.owncloudStatusFile)!) {
+            if let data = try? Data(contentsOf: URL(string: (Constants.nextcloudAPIUrl + Constants.nextcloudStatusFile))!) {
+                if (data.isEmpty) {
+                    print("Querying nextcloud head version failed")
+                    return false
+                }
                 let version = String(data: data, encoding: String.Encoding.utf8)
                 let lines = version?.components(separatedBy: "\n")
                 var headVersion = ""
@@ -37,16 +41,16 @@ open class OwncloudHeadModel: GenericHeadModel {
                 self.headVersion = headVersion
                 self.downloadurl = downloadUrl
                 
-                if (!self.saveConfigfile(filename: Constants.owncloudHead)) {
-                    print("Error saving owncloud head plist file.")
+                if (!self.saveConfigfile(filename: Constants.nextcloudHead)) {
+                    print("Error saving nextcloud head plist file.")
                     return false
                 }
             } else {
-                print("Fetching owncloud head infos did not work.")
+                print("Fetching nextcloud head infos did not work.")
                 return false
             }
         }
-    
+        
         return true
     }
     
@@ -54,26 +58,26 @@ open class OwncloudHeadModel: GenericHeadModel {
      Parse version string from HTML content.
      
      - Parameters:
-     - content: Fetched owncloud data from website.
+     - content: Fetched nextcloud data from website.
      - Returns: String containing version number
      */
     func getLatestVersion(_ content: String) -> String {
-            guard let range = content.range(of: "[0-9]*[.][0-9]*[.]*[0-9]*", options: .regularExpression)
-                else {
-                    return ""
-                }
-            return String(content[range])
+        guard let range = content.range(of: "nextcloud-[0-9]*[.][0-9]*[.]*[0-9]*.zip", options: .regularExpression)
+            else {
+                return ""
+        }
+        return String(content[range]).replacingOccurrences(of: "nextcloud-", with: "").replacingOccurrences(of: ".zip", with: "")
     }
     
     /**
      Parse download url string from HTML content.
      
      - Parameters:
-     - content: Fetched owncloud data from website.
+     - content: Fetched nextcloud data from website.
      - Returns: String containing download url
      */
     func getDownloadUrl(_ line: String) -> String {
-          if let range2 = line.range(of: Constants.owncloudRegexDownload, options: .regularExpression) {
+        if let range2 = line.range(of: Constants.nextcloudRegexDownload, options: .regularExpression) {
             return String(line[range2])
         }
         return ""

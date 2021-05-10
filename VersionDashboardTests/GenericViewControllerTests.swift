@@ -16,6 +16,7 @@ class GenericViewControllerTests: XCTestCase {
     var testobjectOwncloud: OwncloudModel!
     var testobjectWordpress: WordpressModel!
     var testobjectPiwik: PiwikModel!
+    var testobjectNextcloud: NextcloudModel!
     var vc: GenericViewController!
 
     override func setUp() {
@@ -34,6 +35,7 @@ class GenericViewControllerTests: XCTestCase {
         XCTAssert(GenericModel.deleteFile(testobjectWordpress.name))
         XCTAssert(GenericModel.deleteFile(testobjectOwncloud.name))
         XCTAssert(GenericModel.deleteFile(testobjectJoomla.name))
+        XCTAssert(GenericModel.deleteFile(testobjectNextcloud.name))
         
         super.tearDown()
     }
@@ -50,6 +52,9 @@ class GenericViewControllerTests: XCTestCase {
         
         testobjectOwncloud = OwncloudModel(creationDate: "06-04-2016", currentVersion: "10.2.0", hosturl: "https://demo.owncloud.com/", headVersion: (HeadInstances.headInstances["Owncloud"] as! OwncloudHeadModel).headVersion, lastRefresh: "26.10.2019, 22:38", name: "Owncloudtestinstance", type: "Owncloud", updateAvailable: 1, phpVersion: "7.2.23", serverType: "Apache/2.2.15 (CentOS)")
         XCTAssert(testobjectOwncloud.saveConfigfile())
+        
+        testobjectNextcloud = NextcloudModel(creationDate: "06-04-2016", currentVersion: "10.3.0", hosturl: "https://demo2.nextcloud.com/", headVersion: "10.3.0", lastRefresh: "26.10.2019, 22:38", name: "Nextcloudtestinstance", type: "Nextcloud", updateAvailable: 0, phpVersion: "7.2.23", serverType: "Apache/2.2.15 (CentOS)")
+        XCTAssert(testobjectNextcloud.saveConfigfile())
     }
 
     func testCheckURLTextfields() {
@@ -67,10 +72,16 @@ class GenericViewControllerTests: XCTestCase {
         XCTAssertEqual(label.stringValue, NSLocalizedString("protocolMissing", comment: ""))
     }
     
-    func testCopyToClipboard() {
+    func testCopyToClipboardOwncloud() {
         (HeadInstances.headInstances["Owncloud"] as! OwncloudHeadModel).downloadurl = "https://test.de/"
         XCTAssert(vc.copyToClipboard())
         XCTAssertEqual(NSPasteboard.general.string(forType: NSPasteboard.PasteboardType.string), (HeadInstances.headInstances["Owncloud"] as! OwncloudHeadModel).downloadurl)
+    }
+    
+    func testCopyToClipboardNextcloud() {
+        (HeadInstances.headInstances["Nextcloud"] as! NextcloudHeadModel).downloadurl = "https://test.de/"
+        XCTAssert(vc.copyToClipboard())
+        XCTAssertEqual(NSPasteboard.general.string(forType: NSPasteboard.PasteboardType.string), (HeadInstances.headInstances["Nextcloud"] as! NextcloudHeadModel).downloadurl)
     }
     
     func testInstantiateDetailedViewController() {

@@ -68,14 +68,32 @@ class DetailedViewController: GenericViewController, NSTableViewDelegate, NSTabl
     @IBAction func copyDownloadUrlToClipboard(_ sender: Any) {
         self.infoMessage.isHidden = false
         timer = Timer.scheduledTimer(timeInterval: TimeInterval(Constants.timerInterval), target: self, selector: #selector(disableInfoMessage), userInfo: nil, repeats: false)
-        let owncloudhead = HeadInstances.headInstances["Owncloud"] as! OwncloudHeadModel
-        if (owncloudhead.downloadurl == "") {
+        
+        let key = Array(SystemInstances.systemInstances.keys)[tableView.selectedRow]
+        let instance = SystemInstances.systemInstances[key]
+        var url = ""
+        if ((instance as? OwncloudModel) != nil) {
+            let owncloudhead = HeadInstances.headInstances["Owncloud"] as! OwncloudHeadModel
+            if (owncloudhead.downloadurl == "") {
+                infoMessage.stringValue = NSLocalizedString("clipboardCopyingFailed", comment: "")
+                return
+            }
+            url = owncloudhead.downloadurl
+        } else if ((instance as? NextcloudModel) != nil) {
+            let nextcloudhead = HeadInstances.headInstances["Nextcloud"] as! NextcloudHeadModel
+            if (nextcloudhead.downloadurl == "") {
+                infoMessage.stringValue = NSLocalizedString("clipboardCopyingFailed", comment: "")
+                return
+            }
+            url = nextcloudhead.downloadurl
+        } else {
             infoMessage.stringValue = NSLocalizedString("clipboardCopyingFailed", comment: "")
             return
         }
+        
         let pasteboard = NSPasteboard.general
         pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
-        if (pasteboard.setString(owncloudhead.downloadurl, forType: NSPasteboard.PasteboardType.string)) {
+        if (pasteboard.setString(url, forType: NSPasteboard.PasteboardType.string)) {
             infoMessage.stringValue = NSLocalizedString("clipboardCopyingWorked", comment: "")
         } else {
             infoMessage.stringValue = NSLocalizedString("clipboardCopyingFailed", comment: "")
@@ -96,10 +114,14 @@ class DetailedViewController: GenericViewController, NSTableViewDelegate, NSTabl
     
     @IBAction func removeInstance(_ sender: AnyObject) {
         if (self.tableView.selectedRow != -1) {
-            let instances = Array(SystemInstances.systemInstances.keys)
-            let filename = instances[self.tableView.selectedRow]
-            if (!GenericModel.deleteFile(filename)) {
-                print("Deleting plist file with name \(filename) did not work.")
+            var key : String
+            if (!filtertext.isEmpty) {
+                key = filteredInstancesArray[self.tableView.selectedRow]
+            } else {
+                key = Array(SystemInstances.systemInstances.keys)[self.tableView.selectedRow]
+            }
+            if (!GenericModel.deleteFile(key)) {
+                print("Deleting plist file with name \(key) did not work.")
                 return
             }
             zeroBadgeNumber()
@@ -181,6 +203,19 @@ class DetailedViewController: GenericViewController, NSTableViewDelegate, NSTabl
                 }
                 wordpressmodel!.updateDate()
                 if (!(wordpressmodel!.saveConfigfile())) {
+                    print("Error saving plist File.")
+                }
+            } else if ((SystemInstances.systemInstances[instanceName] as? NextcloudModel) != nil) {
+                let nextcloudmodel = SystemInstances.systemInstances[instanceName] as? NextcloudModel
+                if (nextcloudmodel!.getVersions(forceUpdate: false)) {
+                    if (nextcloudmodel!.checkNotificationRequired()) {
+                        sendNotification(NSLocalizedString("newerVersion", comment: ""), informativeText: (String.localizedStringWithFormat(NSLocalizedString("pleaseUpdate", comment: ""), nextcloudmodel!.name)))
+                    }
+                } else {
+                    returnValue = false
+                }
+                nextcloudmodel!.updateDate()
+                if (!(nextcloudmodel!.saveConfigfile())) {
                     print("Error saving plist File.")
                 }
             }
@@ -307,6 +342,32 @@ class DetailedViewController: GenericViewController, NSTableViewDelegate, NSTabl
                 }
                 if (self.latestsversionLabel.stringValue != "" || self.deployedversionLabel.stringValue != "") {
                     if (owncloudmodel!.updateAvailable == 0) {
+                        self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")
+                    } else {
+                        self.statusLabel.stringValue = NSLocalizedString("updateavailable", comment: "")
+                    }
+                } else {
+                    self.statusLabel.stringValue = ""
+                }
+            } else if ((modelclass as? NextcloudModel) != nil) {
+                let nextcloudmodel = modelclass as? NextcloudModel
+                let nextcloudhead = HeadInstances.headInstances["Nextcloud"] as! NextcloudHeadModel
+                self.latestsversionLabel.stringValue = nextcloudhead.headVersion
+                self.downloadUrl.stringValue = nextcloudhead.downloadurl
+                self.hostLabel.stringValue = nextcloudmodel!.hosturl
+                self.systemLabel.stringValue = nextcloudmodel!.name
+                self.lastcheckLabel.stringValue = nextcloudmodel!.lastRefresh
+                self.deployedversionLabel.stringValue = nextcloudmodel!.currentVersion
+                self.phpVersion.stringValue = nextcloudmodel!.phpVersion
+                self.webserver.stringValue = nextcloudmodel!.serverType
+                self.copyDownloadURL.isHidden = false
+                self.downloadUrlLabel.isHidden = false
+                self.downloadUrl.isHidden = false
+                if (nextcloudhead.downloadurl != "") {
+                    self.copyDownloadURL.isEnabled = true
+                }
+                if (self.latestsversionLabel.stringValue != "" || self.deployedversionLabel.stringValue != "") {
+                    if (nextcloudmodel!.updateAvailable == 0) {
                         self.statusLabel.stringValue = NSLocalizedString("ok", comment: "")
                     } else {
                         self.statusLabel.stringValue = NSLocalizedString("updateavailable", comment: "")
