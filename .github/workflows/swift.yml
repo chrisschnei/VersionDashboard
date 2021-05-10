@@ -1,0 +1,35 @@
+name: Swift
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: BuildSDK
+      run: xcodebuild -project VersionDashboard.xcodeproj -scheme VersionDashboardSDK -destination 'platform=OS X,arch=x86_64' clean build | xcpretty -c || true
+    - name: TestSDK
+      run: xcodebuild test -project VersionDashboard.xcodeproj -scheme VersionDashboardSDKTests -destination 'platform=OS X,arch=x86_64' | xcpretty -c || true
+    - name: BuildMacOSApp
+      run: xcodebuild -project VersionDashboard.xcodeproj -scheme VersionDashboard -destination 'platform=OS X,arch=x86_64' clean build | xcpretty -c || true
+    - name: TestMacOSApp
+      run: xcodebuild test -project VersionDashboard.xcodeproj -scheme VersionDashboardTests -destination 'platform=OS X,arch=x86_64' | xcpretty -c || true
+#    - name: BuildiOSSimulatorApp
+#      run: xcodebuild -project VersionDashboard.xcodeproj -scheme VersionDashboardiOSSimulator -destination 'platform=iOS Simulator,OS=12.1,name=iPhone XR' clean build
+    - name: BuildSDKARMVersion
+      run: xcodebuild -project VersionDashboard.xcodeproj -scheme VersionDashboardSDKARM clean build | xcpretty -c || true
+#    - name: BuildiOSAppReal
+#      run: xcodebuild -project VersionDashboard.xcodeproj -scheme VersionDashboardiOS clean build
+
+# use on macos >= 10.15
+#    - name: Build
+#      run: swift build -v
+#    - name: Run tests
+#      run: swift test -v
