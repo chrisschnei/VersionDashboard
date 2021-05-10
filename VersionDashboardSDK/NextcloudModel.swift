@@ -1,33 +1,33 @@
 //
-//  OwncloudModel.swift
-//  Version Dashboard
+//  NextcloudModel.swift
+//  VersionDashboard
 //
-//  Created by Christian Schneider on 10.02.16.
-//  Copyright © 2016 NonameCompany. All rights reserved.
+//  Created by Christian Schneider on 20.02.21.
+//  Copyright © 2021 NonameCompany. All rights reserved.
 //
 
 import Foundation
 
-open class OwncloudModel : GenericModel {
+open class NextcloudModel : GenericModel {
     
     /**
-     Get version from custom owncloud instance server.
+     Get version from custom nextcloud instance server.
      
      - Parameters:
      - forceUpdate: true to retrieve version string and ignore time interval, false if time interval should be respected.
      - Returns: true if version string download succeeded, false on error
      */
     open override func getVersions(forceUpdate: Bool) -> Bool {
-        let owncloudheadobject = HeadInstances.headInstances["Owncloud"] as! OwncloudHeadModel
-        if (!owncloudheadobject.updateHeadObject(forceUpdate: forceUpdate)) {
-            print("Could not get owncloud head version. Abort further checking.")
+        let nextcloudheadobject = HeadInstances.headInstances["Nextcloud"] as! NextcloudHeadModel
+        if (!nextcloudheadobject.updateHeadObject(forceUpdate: forceUpdate)) {
+            print("Could not get nextcloud head version. Abort further checking.")
             return false
         }
         let currentVersion = self.getInstanceVersion()
         self.phpVersionRequest(self.phpReturnHandler)
         if(currentVersion != "") {
             self.currentVersion = currentVersion
-            self.headVersion = owncloudheadobject.headVersion
+            self.headVersion = nextcloudheadobject.headVersion
             return true
         }
         
@@ -35,14 +35,14 @@ open class OwncloudModel : GenericModel {
         self.headVersion = "0.0"
         return false
     }
-
+    
     /**
-     Get version from owncloud vendor server.
+     Get version from nextcloud vendor server.
      
      - Returns: String containing version number
      */
     func getInstanceVersion() -> String {
-        if let version = try? Data(contentsOf: URL(string: self.hosturl + Constants.owncloudStatusFile)!) {
+        if let version = try? Data(contentsOf: URL(string: self.hosturl + "/status.php")!) {
             let version = String(data: version, encoding: String.Encoding.utf8)
             let lines = version?.components(separatedBy: "\n")
             for part in lines! {

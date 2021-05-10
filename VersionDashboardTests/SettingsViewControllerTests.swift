@@ -16,6 +16,7 @@ class SettingsViewControllerTests: XCTestCase {
     var testobjectOwncloud: OwncloudModel!
     var testobjectWordpress: WordpressModel!
     var testobjectPiwik: PiwikModel!
+    var testobjectNextcloud: NextcloudModel!
     var vc: SettingsViewController!
 
     override func setUp() {
@@ -43,6 +44,9 @@ class SettingsViewControllerTests: XCTestCase {
         
         testobjectOwncloud = OwncloudModel(creationDate: "06-04-2016", currentVersion: "10.3.0", hosturl: "https://demo.owncloud.com/", headVersion: "10.3", lastRefresh: "26.10.2019, 22:38", name: "Owncloudtestinstance", type: "Owncloud", updateAvailable: 0, phpVersion: "7.2.23", serverType: "Apache/2.2.15 (CentOS)")
         XCTAssert(testobjectOwncloud.saveConfigfile())
+        
+        testobjectNextcloud = NextcloudModel(creationDate: "06-04-2016", currentVersion: "10.3.0", hosturl: "https://demo2.nextcloud.com/", headVersion: (HeadInstances.headInstances["Nextcloud"] as! NextcloudHeadModel).headVersion, lastRefresh: "26.10.2019, 22:38", name: "Nextcloudtestinstance", type: "Nextcloud", updateAvailable: 0, phpVersion: "7.2.23", serverType: "Apache/2.2.15 (CentOS)")
+        XCTAssert(testobjectNextcloud.saveConfigfile())
     }
 
     override func tearDown() {
@@ -50,6 +54,7 @@ class SettingsViewControllerTests: XCTestCase {
         XCTAssert(GenericModel.deleteFile(testobjectWordpress.name))
         XCTAssert(GenericModel.deleteFile(testobjectOwncloud.name))
         XCTAssert(GenericModel.deleteFile(testobjectJoomla.name))
+        XCTAssert(GenericModel.deleteFile(testobjectNextcloud.name))
         
         super.tearDown()
     }
@@ -65,6 +70,15 @@ class SettingsViewControllerTests: XCTestCase {
     
     func testLoadInstanceDetailsOwncloud() {
         vc.instanceName = testobjectOwncloud.name
+        vc.viewDidLoad()
+        
+        XCTAssertNotEqual(vc.settingsLabel.stringValue, "")
+        XCTAssertNotEqual(vc.lastcheckLabel.stringValue, "")
+        XCTAssertNotEqual(vc.hostTextbox.stringValue, "")
+    }
+    
+    func testLoadInstanceDetailsNextcloud() {
+        vc.instanceName = testobjectNextcloud.name
         vc.viewDidLoad()
         
         XCTAssertNotEqual(vc.settingsLabel.stringValue, "")
@@ -100,6 +114,12 @@ class SettingsViewControllerTests: XCTestCase {
     
     func testUpdateConfigfileOwncloud() {
         vc.instanceName = testobjectOwncloud.name
+        vc.viewDidLoad()
+        XCTAssert(vc.updateConfigfile())
+    }
+    
+    func testUpdateConfigfileNextcloud() {
+        vc.instanceName = testobjectNextcloud.name
         vc.viewDidLoad()
         XCTAssert(vc.updateConfigfile())
     }

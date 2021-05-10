@@ -23,7 +23,7 @@ open class JoomlaModel : GenericModel, XMLParserDelegate {
             print("Getting version form joomla instance failed.")
             return false
         }
-        let currentVersion = self.getInstanceVersion((self.hosturl) + Constants.joomlapath)
+        let currentVersion = self.getInstanceVersion()
         self.phpVersionRequest(self.phpReturnHandler)
         if(currentVersion != "") {
             self.currentVersion = currentVersion
@@ -52,12 +52,10 @@ open class JoomlaModel : GenericModel, XMLParserDelegate {
     /**
      Get version from joomla vendor server.
      
-     - Parameters:
-     - url: URL to joomla vendor version string page.
      - Returns: String containing version number
      */
-    func getInstanceVersion(_ url: String) -> String {
-        let pathToXml = URL(string: url)
+    func getInstanceVersion() -> String {
+        let pathToXml = URL(string: self.hosturl + Constants.joomlapath)
         let parser = VersionDashboardXMLParser(url: pathToXml!);
         if (!parser.startParsing()) {
             print("Error extracting joomla version string.")

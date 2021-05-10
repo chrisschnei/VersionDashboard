@@ -19,7 +19,7 @@ open class WordpressHeadModel: GenericHeadModel {
      */
     override public func updateHeadObject(forceUpdate: Bool = false) -> Bool {
         if (forceUpdate || (self.lastRefresh <= Date().addingTimeInterval(TimeInterval(-Constants.refreshHeadInstances)))) {
-            let headVersion = self.getInstanceVersionJSON(Constants.wordpressAPIUrl)
+            let headVersion = self.getInstanceVersionJSON()
             if(headVersion != "") {
                 self.headVersion = headVersion
             } else {
@@ -38,12 +38,10 @@ open class WordpressHeadModel: GenericHeadModel {
     /**
      Get version from wordpress vendor server.
      
-     - Parameters:
-     - url: URL to wordpress vendor version string page.
      - Returns: String containing version number
      */
-    func getInstanceVersionJSON(_ url: String) -> String {
-        if let version = try? Data(contentsOf: URL(string: url)!) {
+    func getInstanceVersionJSON() -> String {
+        if let version = try? Data(contentsOf: URL(string: Constants.wordpressAPIUrl)!) {
             do {
                 let json = try JSONSerialization.jsonObject(with: version, options: .allowFragments) as! [String:Any]
                 if json["offers"] != nil {

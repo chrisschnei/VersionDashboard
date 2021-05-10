@@ -16,6 +16,7 @@ class DetailedViewControllerTests: XCTestCase {
     var testobjectOwncloud: OwncloudModel!
     var testobjectWordpress: WordpressModel!
     var testobjectPiwik: PiwikModel!
+    var testobjectNextcloud: NextcloudModel!
     var vc: DetailedViewController!
 
     override func setUp() {
@@ -36,6 +37,7 @@ class DetailedViewControllerTests: XCTestCase {
         XCTAssert(GenericModel.deleteFile(testobjectWordpress.name))
         XCTAssert(GenericModel.deleteFile(testobjectOwncloud.name))
         XCTAssert(GenericModel.deleteFile(testobjectJoomla.name))
+        XCTAssert(GenericModel.deleteFile(testobjectNextcloud.name))
         
         super.tearDown()
     }
@@ -52,6 +54,9 @@ class DetailedViewControllerTests: XCTestCase {
         
         testobjectOwncloud = OwncloudModel(creationDate: "06-04-2016", currentVersion: "10.3.0", hosturl: "https://demo.owncloud.com/", headVersion: (HeadInstances.headInstances["Owncloud"] as! OwncloudHeadModel).headVersion, lastRefresh: "26.10.2019, 22:38", name: "Owncloudtestinstance", type: "Owncloud", updateAvailable: 0, phpVersion: "7.2.23", serverType: "Apache/2.2.15 (CentOS)")
         XCTAssert(testobjectOwncloud.saveConfigfile())
+        
+        testobjectNextcloud = NextcloudModel(creationDate: "06-04-2016", currentVersion: "10.3.0", hosturl: "https://demo2.nextcloud.com/", headVersion: (HeadInstances.headInstances["Nextcloud"] as! NextcloudHeadModel).headVersion, lastRefresh: "26.10.2019, 22:38", name: "Nextcloudtestinstance", type: "Nextcloud", updateAvailable: 0, phpVersion: "7.2.23", serverType: "Apache/2.2.15 (CentOS)")
+        XCTAssert(testobjectNextcloud.saveConfigfile())
     }
     
     func testViewDidLoad() {
@@ -102,6 +107,14 @@ class DetailedViewControllerTests: XCTestCase {
                 phpVersion = testobjectOwncloud.phpVersion
                 headVersion = testobjectOwncloud.headVersion
                 serverType = testobjectOwncloud.serverType
+            } else if (instanceName == testobjectNextcloud.name) {
+                hosturl = testobjectNextcloud.hosturl
+                name = testobjectNextcloud.name
+                lastRefresh = testobjectNextcloud.lastRefresh
+                currentVersion = testobjectNextcloud.currentVersion
+                phpVersion = testobjectNextcloud.phpVersion
+                headVersion = testobjectNextcloud.headVersion
+                serverType = testobjectNextcloud.serverType
             } else if (instanceName == testobjectWordpress.name) {
                 hosturl = testobjectWordpress.hosturl
                 name = testobjectWordpress.name

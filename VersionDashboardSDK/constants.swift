@@ -29,12 +29,15 @@ public class Constants {
     public static var appBundlewordpressPath = appurl + contentsResources + "wordpress.plist"
     public static var appBundleOwncloudPath = appurl + contentsResources + "owncloud.plist"
     public static var appBundlePiwikPath = appurl + contentsResources + "piwik.plist"
+    public static var appBundleNexcloudPath = appurl + contentsResources + "nextcloud.plist"
     public static let joomlaHead = "joomla.plist"
     public static var joomlaFilePath = headPlistFilesPath + joomlaHead
     public static let wordpressHead = "wordpress.plist"
     public static var wordpressFilePath = headPlistFilesPath + wordpressHead
     public static let owncloudHead = "owncloud.plist"
     public static var owncloudFilePath = headPlistFilesPath + owncloudHead
+    public static let nextcloudHead = "nextcloud.plist"
+    public static var nextcloudFilePath = headPlistFilesPath + nextcloudHead
     public static let piwikHead = "piwik.plist"
     public static var piwikFilePath = headPlistFilesPath + piwikHead
     
@@ -53,6 +56,10 @@ public class Constants {
     public static var owncloudAPIUrl = String()
     public static var owncloudStatusFile = String()
     public static var owncloudRegexDownload = String()
+    
+    public static var nextcloudAPIUrl = String()
+    public static var nextcloudStatusFile = String()
+    public static var nextcloudRegexDownload = String()
     
     public static var refreshIntervals = Array<String>()
     
@@ -78,10 +85,12 @@ public class Constants {
         appBundlewordpressPath = appurl + contentsResources + "wordpress.plist"
         appBundleOwncloudPath = appurl + contentsResources + "owncloud.plist"
         appBundlePiwikPath = appurl + contentsResources + "piwik.plist"
+        appBundleNexcloudPath = appurl + contentsResources + "nextcloud.plist"
         
         joomlaFilePath = headPlistFilesPath + joomlaHead
         wordpressFilePath = headPlistFilesPath + wordpressHead
         owncloudFilePath = headPlistFilesPath + owncloudHead
+        nextcloudFilePath = headPlistFilesPath + nextcloudHead
         piwikFilePath = headPlistFilesPath + piwikHead
         
         dateformat = "dd-MM-yyyy"
@@ -99,6 +108,10 @@ public class Constants {
         owncloudAPIUrl = "https://demo.owncloud.org/"
         owncloudStatusFile = "status.php"
         owncloudRegexDownload = "https:[/]*download.owncloud.org/community/owncloud[0-9a-zA-Z-.]*zip"
+        
+        nextcloudAPIUrl = "https://nextcloud.com/"
+        nextcloudStatusFile = "changelog"
+        nextcloudRegexDownload = "https:[/]*download.nextcloud.com/server/releases/nextcloud-[0-9a-zA-Z-.]*zip"
         
         refreshIntervals = ["6", "12", "24", "48"]
         

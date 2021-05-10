@@ -40,6 +40,10 @@ class AddSystemViewController: GenericViewController {
         presentAsSheet(instantiateJoomlaViewController())
     }
     
+    @IBAction func loadNextcloudController(_ sender: AnyObject) {
+        presentAsSheet(instantiateNextcloudViewController())
+    }
+    
 }
 
 /**

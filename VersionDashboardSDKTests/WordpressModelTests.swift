@@ -35,11 +35,11 @@ class WordpressModelTests: XCTestCase {
     }
     
     func testCheckVersionViaJavascriptEmoji() {
-        XCTAssertNotEqual(testobject.checkVersionViaJavascriptEmoji("https://s1.demo.opensourcecms.com/wordpress/"), "")
+        XCTAssertNotEqual(testobject.checkVersionViaJavascriptEmoji(), "")
     }
     
     func testCheckVersionViaRSSFeed() {
-        XCTAssertNotEqual(testobject.checkVersionViaRSSFeed("https://s1.demo.opensourcecms.com/wordpress/feed"), "")
+        XCTAssertNotEqual(testobject.checkVersionViaRSSFeed(), "")
     }
 
 }

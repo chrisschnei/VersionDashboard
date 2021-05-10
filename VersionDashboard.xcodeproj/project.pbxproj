@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA18E14F25E1BA3900A730B2 /* NextcloudHeadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA18E14E25E1BA3900A730B2 /* NextcloudHeadModel.swift */; };
+		AA18E15025E1BA3900A730B2 /* NextcloudHeadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA18E14E25E1BA3900A730B2 /* NextcloudHeadModel.swift */; };
+		AA18E15425E1BA5D00A730B2 /* NextcloudModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA18E15325E1BA5D00A730B2 /* NextcloudModel.swift */; };
+		AA18E15525E1BA5D00A730B2 /* NextcloudModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA18E15325E1BA5D00A730B2 /* NextcloudModel.swift */; };
 		AA1A21D52430AA4400E7A25C /* GenericTestInstanceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A21D42430AA4300E7A25C /* GenericTestInstanceProtocol.swift */; };
 		AA1A21D924326C9000E7A25C /* TouchBarIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A21D824326C9000E7A25C /* TouchBarIdentifiers.swift */; };
 		AA20D276235C83CE0027B268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35C22E35563008B393E /* Main.storyboard */; };
@@ -27,6 +31,13 @@
 		AA20D29E23610A370027B268 /* WordpressHeadModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20D29D23610A370027B268 /* WordpressHeadModelTests.swift */; };
 		AA20D2A023610A460027B268 /* WordpressModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20D29F23610A460027B268 /* WordpressModelTests.swift */; };
 		AA20D2A223610A640027B268 /* SystemInstancesModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20D2A123610A640027B268 /* SystemInstancesModelTests.swift */; };
+		AA29B51126053D4E00E8E1A5 /* NextcloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA29B51026053D4E00E8E1A5 /* NextcloudViewController.swift */; };
+		AA29B513260541A100E8E1A5 /* nextcloud.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA18E15825E1BDFE00A730B2 /* nextcloud.plist */; };
+		AA29B514260541A300E8E1A5 /* nextcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = AA18E15925E1BDFE00A730B2 /* nextcloud.png */; };
+		AA29B515260541B600E8E1A5 /* nextcloud_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA18E15A25E1BDFE00A730B2 /* nextcloud_dots.png */; };
+		AA2C86F3263EFB3E00BB762F /* NextcloudHeadModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2C86F2263EFB3E00BB762F /* NextcloudHeadModelTests.swift */; };
+		AA2C86F6263EFB5500BB762F /* NextcloudModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2C86F5263EFB5500BB762F /* NextcloudModelTests.swift */; };
+		AA2C86F8263F3A6D00BB762F /* NextcloudInstanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2C86F7263F3A6D00BB762F /* NextcloudInstanceUITests.swift */; };
 		AA36C38F22E35563008B393E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA36C35B22E35563008B393E /* Assets.xcassets */; };
 		AA36C39122E35563008B393E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36C35F22E35563008B393E /* AppDelegate.swift */; };
 		AA36C39322E35563008B393E /* Summarize.png in Resources */ = {isa = PBXBuildFile; fileRef = AA36C36322E35563008B393E /* Summarize.png */; };
@@ -194,6 +205,8 @@
 		AA8CDEAB236F01B000C1DEBB /* joomla.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F1226CBDDD00BEB4C3 /* joomla.png */; };
 		AA8D60FE23C09048003D1B34 /* container-migration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA8D60FD23C09048003D1B34 /* container-migration.plist */; };
 		AA93435E22594D78005D8C1C /* libVersionDashboardSDKARM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62F75C2258ADE300757106 /* libVersionDashboardSDKARM.a */; };
+		AAB0ABEC264B0D03000B2ADA /* NextcloudInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB0ABEB264B0D03000B2ADA /* NextcloudInstanceViewController.swift */; };
+		AAB0ABED264B0D03000B2ADA /* NextcloudInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB0ABEB264B0D03000B2ADA /* NextcloudInstanceViewController.swift */; };
 		AAB511B323AA863200B440A7 /* wordpress.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F4226CBDDD00BEB4C3 /* wordpress.png */; };
 		AAB511B523AA864300B440A7 /* joomla.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F1226CBDDD00BEB4C3 /* joomla.png */; };
 		AAB511B623AA864700B440A7 /* piwik_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F3226CBDDD00BEB4C3 /* piwik_dots.png */; };
@@ -371,6 +384,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AA18E14E25E1BA3900A730B2 /* NextcloudHeadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextcloudHeadModel.swift; sourceTree = "<group>"; };
+		AA18E15325E1BA5D00A730B2 /* NextcloudModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextcloudModel.swift; sourceTree = "<group>"; };
+		AA18E15725E1BDE900A730B2 /* buttons.afphoto */ = {isa = PBXFileReference; lastKnownFileType = file; path = buttons.afphoto; sourceTree = "<group>"; };
+		AA18E15825E1BDFE00A730B2 /* nextcloud.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = nextcloud.plist; sourceTree = "<group>"; };
+		AA18E15925E1BDFE00A730B2 /* nextcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nextcloud.png; sourceTree = "<group>"; };
+		AA18E15A25E1BDFE00A730B2 /* nextcloud_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nextcloud_dots.png; sourceTree = "<group>"; };
 		AA1A21D42430AA4300E7A25C /* GenericTestInstanceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTestInstanceProtocol.swift; sourceTree = "<group>"; };
 		AA1A21D824326C9000E7A25C /* TouchBarIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarIdentifiers.swift; sourceTree = "<group>"; };
 		AA20D27C2361071E0027B268 /* VersionDashboardSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VersionDashboardSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -390,8 +409,12 @@
 		AA20D29D23610A370027B268 /* WordpressHeadModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordpressHeadModelTests.swift; sourceTree = "<group>"; };
 		AA20D29F23610A460027B268 /* WordpressModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordpressModelTests.swift; sourceTree = "<group>"; };
 		AA20D2A123610A640027B268 /* SystemInstancesModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemInstancesModelTests.swift; sourceTree = "<group>"; };
+		AA29B51026053D4E00E8E1A5 /* NextcloudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextcloudViewController.swift; sourceTree = "<group>"; };
 		AA2A6FDC240AF81B00611588 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AA2A6FDE240AF85800611588 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AA2C86F2263EFB3E00BB762F /* NextcloudHeadModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextcloudHeadModelTests.swift; sourceTree = "<group>"; };
+		AA2C86F5263EFB5500BB762F /* NextcloudModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextcloudModelTests.swift; sourceTree = "<group>"; };
+		AA2C86F7263F3A6D00BB762F /* NextcloudInstanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextcloudInstanceUITests.swift; sourceTree = "<group>"; };
 		AA36C35822E35563008B393E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AA36C35A22E35563008B393E /* configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = configuration.plist; sourceTree = "<group>"; };
 		AA36C35B22E35563008B393E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -517,7 +540,6 @@
 		AA71A8F2226CBDDD00BEB4C3 /* configuration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = configuration.plist; sourceTree = "<group>"; };
 		AA71A8F3226CBDDD00BEB4C3 /* piwik_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = piwik_dots.png; sourceTree = "<group>"; };
 		AA71A8F4226CBDDD00BEB4C3 /* wordpress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wordpress.png; sourceTree = "<group>"; };
-		AA71A8F5226CBDDD00BEB4C3 /* buttons.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = buttons.psd; sourceTree = "<group>"; };
 		AA71A8F7226CBDDD00BEB4C3 /* joomla_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joomla_dots.png; sourceTree = "<group>"; };
 		AA71A8F8226CBDDD00BEB4C3 /* owncloud_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = owncloud_dots.png; sourceTree = "<group>"; };
 		AA71A8F9226CBDDD00BEB4C3 /* piwik.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = piwik.plist; sourceTree = "<group>"; };
@@ -550,6 +572,7 @@
 		AA9D755D247D8F2500EC2EEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AA9D7564247DA20C00EC2EEB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		AA9D7569247DA82300EC2EEB /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		AAB0ABEB264B0D03000B2ADA /* NextcloudInstanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextcloudInstanceViewController.swift; sourceTree = "<group>"; };
 		AAB9131C2234371E006D1EE7 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts.framework/Charts.xcodeproj; sourceTree = "<group>"; };
 		AABD442623674EAF009A98C1 /* SettingsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerTests.swift; sourceTree = "<group>"; };
 		AABD442923674FDA009A98C1 /* DetailedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewControllerTests.swift; sourceTree = "<group>"; };
@@ -671,6 +694,8 @@
 				AA20D293236109F60027B268 /* VersionDashboardXMLParserTests.swift */,
 				AA20D29523610A040027B268 /* OwncloudHeadModelTests.swift */,
 				AA20D29723610A100027B268 /* OwncloudModelTests.swift */,
+				AA2C86F2263EFB3E00BB762F /* NextcloudHeadModelTests.swift */,
+				AA2C86F5263EFB5500BB762F /* NextcloudModelTests.swift */,
 				AA20D29923610A1D0027B268 /* PiwikHeadModelTests.swift */,
 				AA20D29B23610A290027B268 /* PiwikModelTests.swift */,
 				AA20D29D23610A370027B268 /* WordpressHeadModelTests.swift */,
@@ -778,6 +803,7 @@
 				AA36C38522E35563008B393E /* SettingsViewController.swift */,
 				AA36C38022E35563008B393E /* WordpressViewController.swift */,
 				AA36C37A22E35563008B393E /* OwncloudViewController.swift */,
+				AA29B51026053D4E00E8E1A5 /* NextcloudViewController.swift */,
 				AA36C38322E35563008B393E /* PiwikViewController.swift */,
 				AA36C38422E35563008B393E /* JoomlaViewController.swift */,
 			);
@@ -816,6 +842,7 @@
 				AABD443B23689648009A98C1 /* JoomlaInstanceUITests.swift */,
 				AABD443923689647009A98C1 /* PiwikInstanceUITests.swift */,
 				AABD443F23689648009A98C1 /* OwncloudInstanceUITests.swift */,
+				AA2C86F7263F3A6D00BB762F /* NextcloudInstanceUITests.swift */,
 				AABD443C23689648009A98C1 /* PreferencesViewControllerUITests.swift */,
 				AABD443A23689648009A98C1 /* OutdatedViewControllerUITests.swift */,
 				AA36C3B822E3557B008B393E /* SummaryViewControllerUITests.swift */,
@@ -852,6 +879,8 @@
 				AA62EE672251393E00757106 /* JoomlaHeadModel.swift */,
 				AA62EE5E2251393B00757106 /* JoomlaModel.swift */,
 				AA62EE652251393D00757106 /* VersionDashboardXMLParser.swift */,
+				AA18E14E25E1BA3900A730B2 /* NextcloudHeadModel.swift */,
+				AA18E15325E1BA5D00A730B2 /* NextcloudModel.swift */,
 				AA62EE622251393C00757106 /* OwncloudHeadModel.swift */,
 				AA62EE5D2251393A00757106 /* OwncloudModel.swift */,
 				AA62EE602251393B00757106 /* PiwikHeadModel.swift */,
@@ -891,6 +920,7 @@
 				AA62F51D2251508B00757106 /* InstanceTypeViewController.swift */,
 				AA62F5032251508B00757106 /* InstanceDetailsViewController.swift */,
 				AA62F5172251508B00757106 /* WordpressInstanceViewController.swift */,
+				AAB0ABEB264B0D03000B2ADA /* NextcloudInstanceViewController.swift */,
 				AA62F5012251508B00757106 /* PiwikInstanceViewController.swift */,
 				AA62F51F2251508B00757106 /* JoomlaInstanceViewController.swift */,
 				AA62F5222251508B00757106 /* OwncloudInstanceViewController.swift */,
@@ -1036,7 +1066,10 @@
 				AA71A8F3226CBDDD00BEB4C3 /* piwik_dots.png */,
 				AAD9CF6C2438FCAD00B83DAF /* owncloud.png */,
 				AA71A8F4226CBDDD00BEB4C3 /* wordpress.png */,
-				AA71A8F5226CBDDD00BEB4C3 /* buttons.psd */,
+				AA18E15725E1BDE900A730B2 /* buttons.afphoto */,
+				AA18E15A25E1BDFE00A730B2 /* nextcloud_dots.png */,
+				AA18E15825E1BDFE00A730B2 /* nextcloud.plist */,
+				AA18E15925E1BDFE00A730B2 /* nextcloud.png */,
 				AAD9CF6F2438FF7600B83DAF /* matamo.png */,
 				AA71A8F7226CBDDD00BEB4C3 /* joomla_dots.png */,
 				AA71A8F8226CBDDD00BEB4C3 /* owncloud_dots.png */,
@@ -1308,7 +1341,7 @@
 				TargetAttributes = {
 					AA20D27B2361071E0027B268 = {
 						CreatedOnToolsVersion = 10.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = AA6AD7AB1C6B4BD90097CD9A;
 					};
 					AA58D579244249CF00E457AD = {
@@ -1338,6 +1371,7 @@
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = G7RXN8CWKG;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.GameCenter.Mac = {
 								enabled = 0;
@@ -1520,7 +1554,9 @@
 				AA71A90F227D74CC00BEB4C3 /* joomla_dots.png in Resources */,
 				AA20D277235C84F10027B268 /* Detailed view.png in Resources */,
 				AA36C39822E35563008B393E /* Outdated item.png in Resources */,
+				AA29B515260541B600E8E1A5 /* nextcloud_dots.png in Resources */,
 				AA8CDEAB236F01B000C1DEBB /* joomla.png in Resources */,
+				AA29B514260541A300E8E1A5 /* nextcloud.png in Resources */,
 				AA36C39322E35563008B393E /* Summarize.png in Resources */,
 				AA36C38F22E35563008B393E /* Assets.xcassets in Resources */,
 				AA8D60FE23C09048003D1B34 /* container-migration.plist in Resources */,
@@ -1530,6 +1566,7 @@
 				AA20D276235C83CE0027B268 /* Main.storyboard in Resources */,
 				AA71A911227D74CC00BEB4C3 /* wordpress_dots.png in Resources */,
 				AA71A903226CC56E00BEB4C3 /* owncloud.plist in Resources */,
+				AA29B513260541A100E8E1A5 /* nextcloud.plist in Resources */,
 				AA71A904226CC56E00BEB4C3 /* configuration.plist in Resources */,
 				AA71A905226CC56E00BEB4C3 /* piwik.plist in Resources */,
 				AAD9CF702438FF7700B83DAF /* matamo.png in Resources */,
@@ -1567,21 +1604,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA2C86F3263EFB3E00BB762F /* NextcloudHeadModelTests.swift in Sources */,
+				AA2C86F6263EFB5500BB762F /* NextcloudModelTests.swift in Sources */,
 				AA20D29823610A100027B268 /* OwncloudModelTests.swift in Sources */,
-				AA20D29A23610A1D0027B268 /* PiwikHeadModelTests.swift in Sources */,
-				AA20D28C2361099E0027B268 /* HeadInstancesTests.swift in Sources */,
-				AA20D292236109DD0027B268 /* JoomlaModelTests.swift in Sources */,
-				AA20D2A223610A640027B268 /* SystemInstancesModelTests.swift in Sources */,
-				AA20D290236109CF0027B268 /* JoomlaHeadModelTests.swift in Sources */,
 				AA20D29623610A040027B268 /* OwncloudHeadModelTests.swift in Sources */,
-				AA20D29E23610A370027B268 /* WordpressHeadModelTests.swift in Sources */,
-				AA20D27F2361071E0027B268 /* GenericHeadModelTests.swift in Sources */,
-				AA20D28E236109BD0027B268 /* InternetConnectivityTests.swift in Sources */,
+				AA20D29A23610A1D0027B268 /* PiwikHeadModelTests.swift in Sources */,
 				AA20D29C23610A290027B268 /* PiwikModelTests.swift in Sources */,
-				AA20D28A236109700027B268 /* HeadInstancesModelTests.swift in Sources */,
+				AA20D2A223610A640027B268 /* SystemInstancesModelTests.swift in Sources */,
+				AA20D292236109DD0027B268 /* JoomlaModelTests.swift in Sources */,
+				AA20D290236109CF0027B268 /* JoomlaHeadModelTests.swift in Sources */,
+				AA20D29E23610A370027B268 /* WordpressHeadModelTests.swift in Sources */,
 				AA20D2A023610A460027B268 /* WordpressModelTests.swift in Sources */,
-				AA20D294236109F60027B268 /* VersionDashboardXMLParserTests.swift in Sources */,
 				AA20D288236109480027B268 /* GenericModelTests.swift in Sources */,
+				AA20D27F2361071E0027B268 /* GenericHeadModelTests.swift in Sources */,
+				AA20D28C2361099E0027B268 /* HeadInstancesTests.swift in Sources */,
+				AA20D28A236109700027B268 /* HeadInstancesModelTests.swift in Sources */,
+				AA20D294236109F60027B268 /* VersionDashboardXMLParserTests.swift in Sources */,
+				AA20D28E236109BD0027B268 /* InternetConnectivityTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1605,6 +1644,7 @@
 				AA62EE6D2251393F00757106 /* HeadInstancesModel.swift in Sources */,
 				AA62EE752251393F00757106 /* GenericHeadModel.swift in Sources */,
 				AA62EE6A2251393F00757106 /* GenericModelProtocol.swift in Sources */,
+				AA18E15425E1BA5D00A730B2 /* NextcloudModel.swift in Sources */,
 				AA62EE6F2251393F00757106 /* OwncloudModel.swift in Sources */,
 				AA62EE742251393F00757106 /* OwncloudHeadModel.swift in Sources */,
 				AA62F72E22589E7900757106 /* SystemInstances.swift in Sources */,
@@ -1619,6 +1659,7 @@
 				AA62F73422589ECB00757106 /* OutdatedInstances.swift in Sources */,
 				AA62EE782251393F00757106 /* GenericHeadModelProtocol.swift in Sources */,
 				AA62EE692251393F00757106 /* SystemInstancesModel.swift in Sources */,
+				AA18E14F25E1BA3900A730B2 /* NextcloudHeadModel.swift in Sources */,
 				AA62EE7A2251393F00757106 /* WordpressHeadModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1634,6 +1675,7 @@
 				AA62F5962251508B00757106 /* AppDelegate.swift in Sources */,
 				AA62F5A22251508B00757106 /* InstanceTypeViewController.swift in Sources */,
 				AA62F5542251508B00757106 /* GenericViewController.swift in Sources */,
+				AAB0ABEC264B0D03000B2ADA /* NextcloudInstanceViewController.swift in Sources */,
 				AA62F5902251508B00757106 /* WordpressInstanceViewController.swift in Sources */,
 				AA62F5602251508B00757106 /* InstanceDetailsViewController.swift in Sources */,
 				AA62F58D2251508B00757106 /* OutdatedViewController.swift in Sources */,
@@ -1654,6 +1696,7 @@
 				AA62F7462258ADE300757106 /* HeadInstancesModel.swift in Sources */,
 				AA62F7472258ADE300757106 /* GenericHeadModel.swift in Sources */,
 				AA62F7482258ADE300757106 /* GenericModelProtocol.swift in Sources */,
+				AA18E15525E1BA5D00A730B2 /* NextcloudModel.swift in Sources */,
 				AA62F7492258ADE300757106 /* OwncloudModel.swift in Sources */,
 				AA62F74A2258ADE300757106 /* OwncloudHeadModel.swift in Sources */,
 				AA62F74B2258ADE300757106 /* SystemInstances.swift in Sources */,
@@ -1668,6 +1711,7 @@
 				AA62F7542258ADE300757106 /* OutdatedInstances.swift in Sources */,
 				AA62F7552258ADE300757106 /* GenericHeadModelProtocol.swift in Sources */,
 				AA62F7562258ADE300757106 /* SystemInstancesModel.swift in Sources */,
+				AA18E15025E1BA3900A730B2 /* NextcloudHeadModel.swift in Sources */,
 				AA62F7572258ADE300757106 /* WordpressHeadModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1683,6 +1727,7 @@
 				AA62F7662258AE9D00757106 /* AppDelegate.swift in Sources */,
 				AA62F7672258AE9D00757106 /* InstanceTypeViewController.swift in Sources */,
 				AA62F7682258AE9D00757106 /* GenericViewController.swift in Sources */,
+				AAB0ABED264B0D03000B2ADA /* NextcloudInstanceViewController.swift in Sources */,
 				AA62F7692258AE9D00757106 /* WordpressInstanceViewController.swift in Sources */,
 				AA62F76A2258AE9D00757106 /* InstanceDetailsViewController.swift in Sources */,
 				AA62F76B2258AE9D00757106 /* OutdatedViewController.swift in Sources */,
@@ -1697,6 +1742,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA29B51126053D4E00E8E1A5 /* NextcloudViewController.swift in Sources */,
 				AA58D596244CF68C00E457AD /* GenericViewController.swift in Sources */,
 				AA36C3AC22E35563008B393E /* WordpressViewController.swift in Sources */,
 				AA36C3A822E35563008B393E /* AddSystemViewController.swift in Sources */,
@@ -1725,6 +1771,7 @@
 				AABD444623689649009A98C1 /* OwncloudInstanceUITests.swift in Sources */,
 				AA36C3BA22E3557B008B393E /* SummaryViewControllerUITests.swift in Sources */,
 				AA1A21D52430AA4400E7A25C /* GenericTestInstanceProtocol.swift in Sources */,
+				AA2C86F8263F3A6D00BB762F /* NextcloudInstanceUITests.swift in Sources */,
 				AABD444423689649009A98C1 /* WordpressInstanceUITests.swift in Sources */,
 				AABD444023689649009A98C1 /* PiwikInstanceUITests.swift in Sources */,
 				AABD444223689649009A98C1 /* JoomlaInstanceUITests.swift in Sources */,
@@ -1895,22 +1942,24 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				DEVELOPMENT_TEAM = "";
+				GCC_C_LANGUAGE_STANDARD = c11;
 				INFOPLIST_FILE = VersionDashboardSDKTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nonamecompany.VersionDashboardSDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VersionDashboard.app/Contents/MacOS/VersionDashboard";
@@ -1922,21 +1971,23 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				DEVELOPMENT_TEAM = "";
+				GCC_C_LANGUAGE_STANDARD = c11;
 				INFOPLIST_FILE = VersionDashboardSDKTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nonamecompany.VersionDashboardSDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VersionDashboard.app/Contents/MacOS/VersionDashboard";
 			};
@@ -2008,7 +2059,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -2022,9 +2073,9 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = "";
+				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator macOS iOS iphoneos";
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				VALID_ARCHS = x86_64;
@@ -2036,7 +2087,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -2049,9 +2100,9 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = "";
+				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator macOS iOS iphoneos";
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_VERSION = 4.2;
 				VALID_ARCHS = x86_64;
 			};
@@ -2064,7 +2115,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -2106,7 +2157,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -2293,7 +2344,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -2322,10 +2373,10 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/VersionDashboard/**";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = fast;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -2358,7 +2409,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -2387,8 +2438,9 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/VersionDashboard/**";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = fast;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -2402,7 +2454,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/**";
@@ -2418,6 +2470,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = VersionDashboard/VersionDashboard.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = G7RXN8CWKG;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2427,6 +2480,7 @@
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.versiondashboard.VersionDashboardApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INCLUDE_PATHS = "$(SOURCE_ROOT)/**";
 				SWIFT_VERSION = 4.2;
 			};
@@ -2439,6 +2493,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = VersionDashboard/VersionDashboard.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = G7RXN8CWKG;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2448,6 +2503,7 @@
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.versiondashboard.VersionDashboardApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INCLUDE_PATHS = "$(SOURCE_ROOT)/**";
 				SWIFT_VERSION = 4.2;
 			};

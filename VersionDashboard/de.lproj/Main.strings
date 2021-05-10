@@ -573,3 +573,21 @@
 
 /* Class = "NSTextFieldCell"; title = "Webserver"; ObjectID = "zgH-SH-kev"; */
 "zgH-SH-kev.title" = "Webserver";
+
+/* Class = "NSTextFieldCell"; title = "Nextcloud title"; ObjectID = "XSs-7p-GcF"; */
+"XSs-7p-GcF.title" = "Neue Nextcloud Instanz hinzufügen";
+
+/* Class = "NSTextFieldCell"; title = "Host URL"; ObjectID = "HAM-71-aIq"; */
+"HAM-71-aIq.title" = "Host URL";
+
+/* Class = "NSTextFieldCell"; title = "Instanzname"; ObjectID = "e8V-Xi-udI"; */
+"e8V-Xi-udI.title" = "Instanzname";
+
+/* Class = "NSButtonCell"; title = "Abbrechen"; ObjectID = "acv-ue-454"; */
+"acv-ue-454.title" = "Abbrechen";
+
+/* Class = "NSButtonCell"; title = "Speichern"; ObjectID = "Iv5-4W-n3Z"; */
+"Iv5-4W-n3Z.title" = "Speichern";
+
+/* Class = "NSTextFieldCell"; placeholderString = "http://example.com/"; ObjectID = "fTB-DY-8QP"; */
+"fTB-DY-8QP.placeholderString" = "http://example.com/";

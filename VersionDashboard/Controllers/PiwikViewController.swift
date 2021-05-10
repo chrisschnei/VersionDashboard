@@ -32,7 +32,7 @@ class PiwikViewController: GenericViewController {
         let piwikinstance = PiwikModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, apiToken : tokenField.stringValue, lastRefresh: "", name: instanceName.stringValue, type: "Piwik", headVersion: "", updateAvailable: 0, phpVersion: "", serverType: "")
         _ = piwikinstance.saveConfigfile()
         self.dismiss(self)
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadTableContents"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadTableContentsAdd"), object: nil)
     }
     
 }

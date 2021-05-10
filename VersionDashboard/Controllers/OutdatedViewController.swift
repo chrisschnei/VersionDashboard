@@ -143,6 +143,34 @@ class OutdatedViewController: GenericViewController, NSTableViewDelegate, NSTabl
                 } else {
                     self.status.stringValue = ""
                 }
+            } else if ((modelclass as? NextcloudModel) != nil) {
+                let nextcloudmodel = modelclass as? NextcloudModel
+                let nextcloudhead = HeadInstances.headInstances["Nextcloud"] as! NextcloudHeadModel
+                self.hostName.stringValue = nextcloudmodel!.hosturl
+                self.systemName.stringValue = nextcloudmodel!.name
+                self.lastcheck.stringValue = nextcloudmodel!.lastRefresh
+                self.latestVersion.stringValue = nextcloudmodel!.headVersion
+                self.currentVersion.stringValue = nextcloudmodel!.currentVersion
+                self.phpVersion.stringValue = nextcloudmodel!.phpVersion
+                self.webserver.stringValue = nextcloudmodel!.serverType
+                self.downloadUrl.stringValue = nextcloudhead.downloadurl
+                self.copyDownloadURL.isHidden = false
+                self.downloadUrlLabel.isHidden = false
+                self.downloadUrl.isHidden = false
+                if (nextcloudhead.downloadurl != "") {
+                    self.copyDownloadURL.isEnabled = true
+                }
+                if (self.latestVersion.stringValue != "" || self.currentVersion.stringValue != "") {
+                    if (nextcloudmodel!.updateAvailable == 0) {
+                        self.status.stringValue = NSLocalizedString("ok", comment: "")
+                    } else if (nextcloudmodel?.updateAvailable == -1) {
+                        self.status.stringValue = NSLocalizedString("errorfetchingVersions", comment: "")
+                    } else {
+                        self.status.stringValue = NSLocalizedString("updateavailable", comment: "")
+                    }
+                } else {
+                    self.status.stringValue = ""
+                }
             } else if ((modelclass as? PiwikModel) != nil) {
                 let piwikmodel = modelclass as? PiwikModel
                 self.hostName.stringValue = piwikmodel!.hosturl

@@ -315,21 +315,21 @@ Gw
                                 <accessibility description="CheckSpinner" identifier="CheckSpinner"/>
                             </progressIndicator>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Dhg-Mj-GZ8" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="6" y="14" width="338" height="379"/>
+                                <rect key="frame" x="6" y="14" width="387" height="379"/>
                                 <accessibility description="OverviewInstancesChart" identifier="OverviewInstancesChart"/>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="CVQ-X7-pIf" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="348" y="62" width="356" height="331"/>
+                                <rect key="frame" x="401" y="62" width="303" height="331"/>
                                 <accessibility description="OutdatedInstancesChart" identifier="OutdatedInstancesChart"/>
                             </customView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="CVQ-X7-pIf" secondAttribute="trailing" constant="8" id="26y-jy-NGb"/>
-                            <constraint firstItem="CVQ-X7-pIf" firstAttribute="leading" secondItem="LeM-NU-AWq" secondAttribute="leading" constant="348" id="99s-tG-HnF"/>
+                            <constraint firstItem="CVQ-X7-pIf" firstAttribute="leading" secondItem="LeM-NU-AWq" secondAttribute="leading" constant="401" id="99s-tG-HnF"/>
                             <constraint firstItem="Dhg-Mj-GZ8" firstAttribute="top" secondItem="LeM-NU-AWq" secondAttribute="top" id="A9u-M4-YMU"/>
                             <constraint firstAttribute="trailing" secondItem="0C2-LV-LAx" secondAttribute="trailing" constant="20" symbolic="YES" id="AGw-1g-sic"/>
                             <constraint firstItem="Dhg-Mj-GZ8" firstAttribute="leading" secondItem="LeM-NU-AWq" secondAttribute="leading" constant="6" id="FtU-It-ww8"/>
-                            <constraint firstItem="CVQ-X7-pIf" firstAttribute="leading" secondItem="Dhg-Mj-GZ8" secondAttribute="trailing" constant="4" id="H4j-hl-NO1"/>
+                            <constraint firstItem="CVQ-X7-pIf" firstAttribute="leading" secondItem="Dhg-Mj-GZ8" secondAttribute="trailing" constant="8" id="H4j-hl-NO1"/>
                             <constraint firstAttribute="bottom" secondItem="Dhg-Mj-GZ8" secondAttribute="bottom" constant="14" id="Rxj-1N-Loh"/>
                             <constraint firstItem="0C2-LV-LAx" firstAttribute="leading" secondItem="Chi-F0-rb0" secondAttribute="trailing" constant="12" id="ZNv-qA-jIf"/>
                             <constraint firstItem="Dhg-Mj-GZ8" firstAttribute="top" secondItem="CVQ-X7-pIf" secondAttribute="top" id="fm6-oh-8yc"/>
@@ -1173,7 +1173,7 @@ DQ
             <objects>
                 <viewController storyboardIdentifier="AddSystemViewController" id="kEa-r5-7tV" customClass="AddSystemViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="5fz-05-hua">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="178"/>
+                        <rect key="frame" x="0.0" y="0.0" width="565" height="178"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ket-68-bye">
@@ -1198,23 +1198,19 @@ Gw
                                 </buttonCell>
                                 <accessibility description="CancelInstanceCreationButton" identifier="CancelInstanceCreationButton"/>
                             </button>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="4MJ-ct-iDJ">
-                                <rect key="frame" x="64" y="65" width="48" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="A1f-EM-XIM"/>
-                                    <constraint firstAttribute="height" constant="48" id="FIA-ta-ut8"/>
-                                </constraints>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="owncloud" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nt8-qp-y2o">
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="QWO-kV-ZkE">
+                                <rect key="frame" x="136" y="65" width="48" height="48"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="nextcloud" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="hgc-F2-yp1">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
-                                <accessibility description="OwncloudInstanceCreation" identifier="OwncloudInstanceCreation"/>
+                                <accessibility description="NextcloudInstanceCreation" identifier="NextcloudInstanceCreation"/>
                                 <connections>
-                                    <segue destination="yRM-Ta-SWb" kind="sheet" id="dg5-13-4MZ"/>
+                                    <segue destination="vVy-gW-oPB" kind="sheet" id="bnc-YC-FMM"/>
                                 </connections>
                             </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="wEb-ze-nrD">
-                                <rect key="frame" x="270" y="65" width="48" height="48"/>
+                                <rect key="frame" x="354" y="65" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="hDQ-fS-DEU"/>
                                 </constraints>
@@ -1228,7 +1224,7 @@ Gw
                                 </connections>
                             </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="bqa-eA-va2">
-                                <rect key="frame" x="368" y="65" width="48" height="48"/>
+                                <rect key="frame" x="412" y="65" width="133" height="48"/>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="wordpress" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="fah-fh-Kbl">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1239,7 +1235,7 @@ Gw
                                 </connections>
                             </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="P93-jV-bbV">
-                                <rect key="frame" x="163" y="65" width="48" height="48"/>
+                                <rect key="frame" x="245" y="65" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="OoF-5u-vde"/>
                                 </constraints>
@@ -1252,23 +1248,43 @@ Gw
                                     <segue destination="Fcf-yV-hnA" kind="sheet" id="HKm-ax-apH"/>
                                 </connections>
                             </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="4MJ-ct-iDJ">
+                                <rect key="frame" x="42" y="65" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="A1f-EM-XIM"/>
+                                    <constraint firstAttribute="height" constant="48" id="FIA-ta-ut8"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="owncloud" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nt8-qp-y2o">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <accessibility description="OwncloudInstanceCreation" identifier="OwncloudInstanceCreation"/>
+                                <connections>
+                                    <segue destination="yRM-Ta-SWb" kind="sheet" id="dg5-13-4MZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="4MJ-ct-iDJ" firstAttribute="top" secondItem="P93-jV-bbV" secondAttribute="top" id="9yb-xr-bGK"/>
-                            <constraint firstAttribute="trailing" secondItem="bqa-eA-va2" secondAttribute="trailing" constant="64" id="DJv-5f-KB1"/>
-                            <constraint firstItem="4MJ-ct-iDJ" firstAttribute="leading" secondItem="5fz-05-hua" secondAttribute="leading" constant="64" id="GU5-TC-74p"/>
+                            <constraint firstItem="QWO-kV-ZkE" firstAttribute="bottom" secondItem="4MJ-ct-iDJ" secondAttribute="bottom" id="CcX-0X-kkP"/>
+                            <constraint firstAttribute="trailing" secondItem="bqa-eA-va2" secondAttribute="trailing" constant="20" id="DJv-5f-KB1"/>
+                            <constraint firstItem="4MJ-ct-iDJ" firstAttribute="leading" secondItem="5fz-05-hua" secondAttribute="leading" constant="42" id="GU5-TC-74p"/>
                             <constraint firstItem="wEb-ze-nrD" firstAttribute="top" secondItem="bqa-eA-va2" secondAttribute="top" id="PyW-UO-LA6"/>
                             <constraint firstItem="Ket-68-bye" firstAttribute="top" secondItem="5fz-05-hua" secondAttribute="top" constant="20" symbolic="YES" id="Pyy-fg-c1b"/>
                             <constraint firstItem="wEb-ze-nrD" firstAttribute="centerY" secondItem="5fz-05-hua" secondAttribute="centerY" id="VGf-bU-kPs"/>
                             <constraint firstItem="wEb-ze-nrD" firstAttribute="top" secondItem="P93-jV-bbV" secondAttribute="top" id="WvE-82-CVx"/>
+                            <constraint firstItem="QWO-kV-ZkE" firstAttribute="top" secondItem="4MJ-ct-iDJ" secondAttribute="top" id="YEY-RP-ZdJ"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ket-68-bye" secondAttribute="trailing" constant="20" symbolic="YES" id="bel-8e-9Ut"/>
-                            <constraint firstItem="wEb-ze-nrD" firstAttribute="leading" secondItem="P93-jV-bbV" secondAttribute="trailing" constant="59" id="c7u-qq-2vP"/>
-                            <constraint firstItem="P93-jV-bbV" firstAttribute="leading" secondItem="4MJ-ct-iDJ" secondAttribute="trailing" constant="51" id="cIX-9c-JOO"/>
+                            <constraint firstItem="wEb-ze-nrD" firstAttribute="leading" secondItem="P93-jV-bbV" secondAttribute="trailing" constant="61" id="c7u-qq-2vP"/>
+                            <constraint firstItem="P93-jV-bbV" firstAttribute="leading" secondItem="4MJ-ct-iDJ" secondAttribute="trailing" constant="155" id="cIX-9c-JOO"/>
+                            <constraint firstItem="P93-jV-bbV" firstAttribute="leading" secondItem="QWO-kV-ZkE" secondAttribute="trailing" constant="61" id="eVv-Bp-kr9"/>
                             <constraint firstItem="Ket-68-bye" firstAttribute="leading" secondItem="Aw7-gO-1ek" secondAttribute="leading" id="in9-KP-5UO"/>
+                            <constraint firstItem="QWO-kV-ZkE" firstAttribute="centerX" secondItem="Ket-68-bye" secondAttribute="centerX" id="kTG-YX-5Fb"/>
                             <constraint firstItem="P93-jV-bbV" firstAttribute="bottom" secondItem="wEb-ze-nrD" secondAttribute="bottom" id="lEu-Nl-Rps"/>
-                            <constraint firstItem="bqa-eA-va2" firstAttribute="leading" secondItem="wEb-ze-nrD" secondAttribute="trailing" constant="50" id="nnU-7i-nMd"/>
+                            <constraint firstItem="bqa-eA-va2" firstAttribute="leading" secondItem="wEb-ze-nrD" secondAttribute="trailing" constant="10" id="nnU-7i-nMd"/>
                             <constraint firstItem="wEb-ze-nrD" firstAttribute="bottom" secondItem="bqa-eA-va2" secondAttribute="bottom" id="qxt-Mk-YGu"/>
                             <constraint firstItem="P93-jV-bbV" firstAttribute="bottom" secondItem="4MJ-ct-iDJ" secondAttribute="bottom" id="ty7-1X-Dhg"/>
+                            <constraint firstItem="QWO-kV-ZkE" firstAttribute="leading" secondItem="4MJ-ct-iDJ" secondAttribute="trailing" constant="46" id="vqg-Pr-TKq"/>
                             <constraint firstItem="Aw7-gO-1ek" firstAttribute="top" secondItem="4MJ-ct-iDJ" secondAttribute="bottom" constant="24" id="wgQ-g3-Li2"/>
                             <constraint firstItem="Ket-68-bye" firstAttribute="leading" secondItem="5fz-05-hua" secondAttribute="leading" constant="20" symbolic="YES" id="ysD-lm-DLY"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Aw7-gO-1ek" secondAttribute="trailing" constant="20" symbolic="YES" id="zXz-em-JId"/>
@@ -1277,7 +1293,7 @@ Gw
                 </viewController>
                 <customObject id="JSu-ur-Iub" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="210" y="1311"/>
+            <point key="canvasLocation" x="252.5" y="1311"/>
         </scene>
         <!--PiwikInstance-->
         <scene sceneID="Qae-bO-nXs">
@@ -1987,6 +2003,133 @@ DQ
             </objects>
             <point key="canvasLocation" x="1211" y="1702"/>
         </scene>
+        <!--NextcloudInstance-->
+        <scene sceneID="bdO-0g-PCZ">
+            <objects>
+                <viewController title="NextcloudInstance" storyboardIdentifier="NextcloudViewController" id="vVy-gW-oPB" customClass="NextcloudViewController" customModule="VersionDashboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Jvh-QQ-r5Q">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="250"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TUO-Bj-TRS">
+                                <rect key="frame" x="14" y="13" width="82" height="32"/>
+                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="acv-ue-454">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                </buttonCell>
+                                <accessibility description="NextcloudCancel" identifier="NextcloudCancel"/>
+                                <connections>
+                                    <action selector="cancelAction:" target="vVy-gW-oPB" id="jAj-4h-LQa"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qiZ-ze-WYA">
+                                <rect key="frame" x="366" y="13" width="70" height="32"/>
+                                <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Iv5-4W-n3Z">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <accessibility description="NextcloudSave" identifier="NextcloudSave"/>
+                                <connections>
+                                    <action selector="saveAction:" target="vVy-gW-oPB" id="q9S-KC-6IP"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AqA-yh-Erc">
+                                <rect key="frame" x="18" y="213" width="177" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Add new Nextcloud instance" id="XSs-7p-GcF">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SSu-md-nWQ">
+                                <rect key="frame" x="18" y="173" width="62" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Host URL" id="HAM-71-aIq">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Bb-hy-RCq">
+                                <rect key="frame" x="18" y="138" width="93" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Instance name" id="e8V-Xi-udI">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5HA-rG-5GC">
+                                <rect key="frame" x="18" y="57" width="351" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Error message textlabel" id="cCX-Pk-DfC">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <accessibility description="NextcloudErrorMessage" identifier="NextcloudErrorMessage"/>
+                            </textField>
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4He-h3-kM4">
+                                <rect key="frame" x="153" y="170" width="277" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="http://example.com/" drawsBackground="YES" id="fTB-DY-8QP">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <accessibility description="NextcloudHostURL" identifier="NextcloudHostURL"/>
+                            </textField>
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L43-Gs-GJf">
+                                <rect key="frame" x="153" y="135" width="277" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="e05-xr-F2z">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <accessibility description="NexrtcloudnstanceName" identifier="NexrtcloudnstanceName"/>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="6Bb-hy-RCq" firstAttribute="top" secondItem="SSu-md-nWQ" secondAttribute="bottom" constant="18" id="3XL-yk-cyW"/>
+                            <constraint firstItem="6Bb-hy-RCq" firstAttribute="leading" secondItem="SSu-md-nWQ" secondAttribute="leading" id="3l7-PJ-f5Q"/>
+                            <constraint firstItem="TUO-Bj-TRS" firstAttribute="baseline" secondItem="qiZ-ze-WYA" secondAttribute="baseline" id="6qU-eO-vcw"/>
+                            <constraint firstItem="qiZ-ze-WYA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Jvh-QQ-r5Q" secondAttribute="leading" constant="20" symbolic="YES" id="A3U-qA-vv6"/>
+                            <constraint firstItem="4He-h3-kM4" firstAttribute="leading" secondItem="L43-Gs-GJf" secondAttribute="leading" id="AoQ-Yg-Ukk"/>
+                            <constraint firstItem="4He-h3-kM4" firstAttribute="trailing" secondItem="L43-Gs-GJf" secondAttribute="trailing" id="BZX-B4-q5y"/>
+                            <constraint firstAttribute="bottom" secondItem="TUO-Bj-TRS" secondAttribute="bottom" constant="20" symbolic="YES" id="DoO-ny-Y5N"/>
+                            <constraint firstItem="AqA-yh-Erc" firstAttribute="top" secondItem="Jvh-QQ-r5Q" secondAttribute="top" constant="20" symbolic="YES" id="GKk-z4-3AD"/>
+                            <constraint firstItem="5HA-rG-5GC" firstAttribute="leading" secondItem="TUO-Bj-TRS" secondAttribute="leading" id="Ieb-QP-2C1"/>
+                            <constraint firstItem="TUO-Bj-TRS" firstAttribute="top" secondItem="5HA-rG-5GC" secondAttribute="bottom" constant="16" id="QK5-c7-18h"/>
+                            <constraint firstItem="L43-Gs-GJf" firstAttribute="trailing" secondItem="qiZ-ze-WYA" secondAttribute="trailing" id="TSO-eU-mvC"/>
+                            <constraint firstItem="L43-Gs-GJf" firstAttribute="top" secondItem="4He-h3-kM4" secondAttribute="bottom" constant="13" id="Y7N-up-4dC"/>
+                            <constraint firstAttribute="trailing" secondItem="4He-h3-kM4" secondAttribute="trailing" constant="20" symbolic="YES" id="Ya4-lt-4VX"/>
+                            <constraint firstItem="6Bb-hy-RCq" firstAttribute="leading" secondItem="5HA-rG-5GC" secondAttribute="leading" id="bcK-dl-ggA"/>
+                            <constraint firstItem="L43-Gs-GJf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Bb-hy-RCq" secondAttribute="trailing" constant="8" symbolic="YES" id="dVI-S6-EUM"/>
+                            <constraint firstAttribute="trailing" secondItem="5HA-rG-5GC" secondAttribute="trailing" constant="83" id="fo4-zT-hgm"/>
+                            <constraint firstItem="SSu-md-nWQ" firstAttribute="trailing" secondItem="TUO-Bj-TRS" secondAttribute="trailing" constant="-12" id="fs0-rF-0uV"/>
+                            <constraint firstItem="6Bb-hy-RCq" firstAttribute="baseline" secondItem="L43-Gs-GJf" secondAttribute="baseline" id="kn3-QP-Hua"/>
+                            <constraint firstItem="AqA-yh-Erc" firstAttribute="leading" secondItem="Jvh-QQ-r5Q" secondAttribute="leading" constant="20" symbolic="YES" id="nGr-sS-Se0"/>
+                            <constraint firstItem="5HA-rG-5GC" firstAttribute="top" secondItem="L43-Gs-GJf" secondAttribute="bottom" constant="61" id="tZ1-5B-kR2"/>
+                            <constraint firstItem="AqA-yh-Erc" firstAttribute="leading" secondItem="5HA-rG-5GC" secondAttribute="leading" id="xes-r6-JN7"/>
+                            <constraint firstItem="L43-Gs-GJf" firstAttribute="leading" secondItem="6Bb-hy-RCq" secondAttribute="trailing" constant="44" id="xhc-ft-dgc"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AqA-yh-Erc" secondAttribute="trailing" constant="20" symbolic="YES" id="xnt-QX-wBC"/>
+                            <constraint firstItem="L43-Gs-GJf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Bb-hy-RCq" secondAttribute="trailing" constant="8" symbolic="YES" id="yw9-kd-hqc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="TUO-Bj-TRS" id="u1g-R1-Ooy"/>
+                        <outlet property="errorMessage" destination="5HA-rG-5GC" id="CFX-N5-SP1"/>
+                        <outlet property="instanceName" destination="L43-Gs-GJf" id="wqm-Kg-gdH"/>
+                        <outlet property="saveButton" destination="qiZ-ze-WYA" id="4cy-XV-k8e"/>
+                        <outlet property="urlField" destination="4He-h3-kM4" id="jj2-TD-ozt"/>
+                    </connections>
+                </viewController>
+                <customObject id="1Wb-m9-Yt8" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1717" y="1702"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Detailed view" width="31.200000762939453" height="31.200000762939453"/>
@@ -1995,6 +2138,7 @@ DQ
         <image name="Summarize" width="31.200000762939453" height="31.200000762939453"/>
         <image name="joomla" width="40" height="40"/>
         <image name="matamo" width="50" height="50"/>
+        <image name="nextcloud" width="50" height="50"/>
         <image name="owncloud" width="50" height="50"/>
         <image name="wordpress" width="40" height="40"/>
     </resources>

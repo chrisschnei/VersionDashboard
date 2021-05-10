@@ -33,7 +33,7 @@ class JoomlaViewController: GenericViewController {
         let joomlainstance = JoomlaModel(creationDate: "", currentVersion: "", hosturl: hostUrl.stringValue, headVersion: "", lastRefresh: "", name: instanceName.stringValue, type: "Joomla", updateAvailable: 0, phpVersion: "", serverType: "")
         _ = joomlainstance.saveConfigfile()
         self.dismiss(self)
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadTableContents"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadTableContentsAdd"), object: nil)
     }
     
 }
