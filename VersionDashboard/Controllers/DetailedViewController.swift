@@ -48,6 +48,9 @@ class DetailedViewController: GenericViewController, NSTableViewDelegate, NSTabl
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(DetailedViewController.reloadTable(_:)), name: NSNotification.Name(rawValue: "reloadTableContentsDetailed"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(DetailedViewController.reloadTable(_:)), name: NSNotification.Name(rawValue: "reloadTableContentsAdd"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(DetailedViewController.activateSearchBar(_:)), name: NSNotification.Name(rawValue: "activateSearchBar"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(DetailedViewController.copyContent(_:)), name: NSNotification.Name(rawValue: "copyContent"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(DetailedViewController.cutContent(_:)), name: NSNotification.Name(rawValue: "cutContent"), object: nil)
         tableView.delegate = self
         tableView.dataSource = self
         self.addInstancesToTable()
@@ -58,6 +61,19 @@ class DetailedViewController: GenericViewController, NSTableViewDelegate, NSTabl
         self.copyDownloadURL.isEnabled = false
         self.copyDownloadURL.title = NSLocalizedString("copyUrl", comment: "")
         self.searchfield.placeholderString = NSLocalizedString("searchInstances", comment: "")
+    }
+    
+    @objc func activateSearchBar(_ notification: Notification) {
+        self.searchfield.selectText(self)
+    }
+    
+    @objc func copyContent(_ notification: Notification) {
+        self.copyStringToClipboard(string: self.searchfield!.stringValue)
+    }
+    
+    @objc func cutContent(_ notification: Notification) {
+        self.copyStringToClipboard(string: self.searchfield!.stringValue)
+        self.searchfield.stringValue = ""
     }
     
     @IBAction func filterInstances(_ sender: Any) {

@@ -13,6 +13,18 @@ import VersionDashboardSDK
 class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
     
     var mainWindowController: MainWindow? = nil
+    
+    @IBAction func activateSearch(_ sender: Any) {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "activateSearchBar"), object: nil)
+    }
+    
+    @IBAction func copyContent(_ sender: Any) {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "copyContent"), object: nil)
+    }
+    
+    @IBAction func cutContent(_ sender: Any) {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "cutContent"), object: nil)
+    }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSApplication.shared.isAutomaticCustomizeTouchBarMenuItemEnabled = true

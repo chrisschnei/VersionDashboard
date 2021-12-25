@@ -591,3 +591,30 @@
 
 /* Class = "NSTextFieldCell"; placeholderString = "http://example.com/"; ObjectID = "fTB-DY-8QP"; */
 "fTB-DY-8QP.placeholderString" = "http://example.com/";
+
+/* Class = "NSMenuItem"; title = "Search"; ObjectID = "i1P-5A-psc"; */
+"6H4-05-7SQ.title" = "Suchen";
+
+/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "V9b-cI-9YO"; */
+"ErT-tg-dyq.title" = "Bearbeiten";
+
+/* Class = "NSMenuItem"; title = "Cut"; ObjectID = "5Jh-cY-8Ik"; */
+"5Jh-cY-8Ik.title" = "Ausschneiden";
+
+/* Class = "NSMenuItem"; title = "Copy"; ObjectID = "Uky-AQ-xKo"; */
+"Uky-AQ-xKo.title" = "Kopieren";
+
+/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "vQD-Lv-MTc"; */
+"vQD-Lv-MTc.title" = "Einfügen";
+
+/* Class = "NSMenuItem"; title = "Select all"; ObjectID = "aaj-C2-fuW"; */
+"aaj-C2-fuW.title" = "Alles auswählen";
+
+/* Class = "NSMenuItem"; title = "Redo"; ObjectID = "CcR-eZ-9I3"; */
+"CcR-eZ-9I3.title" = "Wiederholen";
+
+/* Class = "NSMenuItem"; title = "Undo"; ObjectID = "Hql-Wh-ul9"; */
+"Hql-Wh-ul9.title" = "Wiederrufen";
+
+/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "wyH-Nl-Lo4"; */
+"wyH-Nl-Lo4.title" = "Bearbeiten";

@@ -580,3 +580,30 @@
 
 /* Class = "NSTextFieldCell"; title = "Webserver"; ObjectID = "zgH-SH-kev"; */
 "zgH-SH-kev.title" = "Webserver";
+
+/* Class = "NSMenuItem"; title = "Search"; ObjectID = "i1P-5A-psc"; */
+"6H4-05-7SQ.title" = "Find";
+
+/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "ErT-tg-dyq"; */
+"ErT-tg-dyq.title" = "Edit";
+
+/* Class = "NSMenuItem"; title = "Cut"; ObjectID = "5Jh-cY-8Ik"; */
+"5Jh-cY-8Ik.title" = "Cut";
+
+/* Class = "NSMenuItem"; title = "Copy"; ObjectID = "Uky-AQ-xKo"; */
+"Uky-AQ-xKo.title" = "Copy";
+
+/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "vQD-Lv-MTc"; */
+"vQD-Lv-MTc.title" = "Paste";
+
+/* Class = "NSMenuItem"; title = "Select all"; ObjectID = "aaj-C2-fuW"; */
+"aaj-C2-fuW.title" = "Select all";
+
+/* Class = "NSMenuItem"; title = "Redo"; ObjectID = "CcR-eZ-9I3"; */
+"CcR-eZ-9I3.title" = "Redo";
+
+/* Class = "NSMenuItem"; title = "Undo"; ObjectID = "Hql-Wh-ul9"; */
+"Hql-Wh-ul9.title" = "Undo";
+
+/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "wyH-Nl-Lo4"; */
+"wyH-Nl-Lo4.title" = "Edit";

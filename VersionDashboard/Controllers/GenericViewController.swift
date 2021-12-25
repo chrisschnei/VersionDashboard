@@ -30,14 +30,15 @@ class GenericViewController : NSViewController {
         self.dismiss(self)
     }
     
-    func copyToClipboard() -> Bool {
-        let owncloudhead = HeadInstances.headInstances["Owncloud"] as! OwncloudHeadModel
-        if (owncloudhead.downloadurl == "") {
-            return false
-        }
+    @objc func copyStringToClipboard(string: String) -> Bool {
         let pasteboard = NSPasteboard.general
         pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
-        return pasteboard.setString(owncloudhead.downloadurl, forType: NSPasteboard.PasteboardType.string)
+        if (!pasteboard.setString(string, forType: NSPasteboard.PasteboardType.string)) {
+            print("Copying to clipboard did not work.")
+            return false
+        } else {
+            return true
+        }
     }
     
     func instantiateDetailedViewController() -> DetailedViewController {

@@ -68,6 +68,50 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Edit" id="wyH-Nl-Lo4">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Edit" id="ErT-tg-dyq">
+                                    <items>
+                                        <menuItem title="Undo" keyEquivalent="z" id="Hql-Wh-ul9">
+                                            <connections>
+                                                <action selector="undo:" target="Ady-hI-5gd" id="itc-jA-boH"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Redo" keyEquivalent="Z" id="CcR-eZ-9I3">
+                                            <connections>
+                                                <action selector="redo:" target="Ady-hI-5gd" id="Izr-Sh-cGX"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="gw8-1o-6nK"/>
+                                        <menuItem title="Cut" keyEquivalent="x" id="5Jh-cY-8Ik">
+                                            <connections>
+                                                <action selector="cutContent:" target="Voe-Tx-rLC" id="T2X-VD-9IY"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Copy" keyEquivalent="c" id="Uky-AQ-xKo">
+                                            <connections>
+                                                <action selector="copyContent:" target="Voe-Tx-rLC" id="WGU-2d-qWl"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Paste" keyEquivalent="v" id="vQD-Lv-MTc">
+                                            <connections>
+                                                <action selector="paste:" target="Ady-hI-5gd" id="wOd-dP-2oX"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Select All" keyEquivalent="a" id="aaj-C2-fuW">
+                                            <connections>
+                                                <action selector="selectAll:" target="Ady-hI-5gd" id="58P-YM-YFk"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="YS8-Dd-6ci"/>
+                                        <menuItem title="Find" tag="1" enabled="NO" keyEquivalent="f" id="6H4-05-7SQ">
+                                            <connections>
+                                                <action selector="activateSearch:" target="Voe-Tx-rLC" id="lpu-ov-zOJ"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="Window" id="aUF-d1-5bR">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Window" systemMenu="window" id="Td7-aD-5lo">
@@ -697,7 +741,7 @@ Gw
                                     <constraint firstAttribute="width" constant="307" id="nUG-Vs-b8h"/>
                                     <constraint firstAttribute="height" constant="22" id="v4x-Ij-6O4"/>
                                 </constraints>
-                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="1Li-dC-JMc">
+                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="1Li-dC-JMc">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1082,13 +1126,10 @@ DQ
                                     <constraint firstAttribute="width" constant="307" id="UsM-bA-5za"/>
                                     <constraint firstAttribute="height" constant="22" id="Wdt-J6-Ya4"/>
                                 </constraints>
-                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="v0I-u3-Q7U">
+                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="v0I-u3-Q7U">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <connections>
-                                        <action selector="takeMeToMyInstanceAction:" target="SKc-0J-o2d" id="9ru-Ln-vhP"/>
-                                    </connections>
                                 </searchFieldCell>
                             </searchField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" preferredMaxLayoutWidth="249" translatesAutoresizingMaskIntoConstraints="NO" id="bit-zb-leL">
@@ -1153,6 +1194,7 @@ DQ
                         <outlet property="phpVersionLabel" destination="bGM-5e-vSi" id="Vwe-e1-CNq"/>
                         <outlet property="refreshButton" destination="eHz-vo-CVz" id="gfE-r1-QqL"/>
                         <outlet property="searchfield" destination="v0I-u3-Q7U" id="UPq-oH-6r6"/>
+                        <outlet property="searchfieldbar" destination="zln-CU-2HP" id="HRz-C9-kCn"/>
                         <outlet property="spinner" destination="kXR-7z-rxN" id="guH-nk-osR"/>
                         <outlet property="status" destination="8AN-Ki-O7s" id="edM-hI-P2L"/>
                         <outlet property="statusLabel" destination="Z3g-lS-q2e" id="GIX-uz-Byb"/>

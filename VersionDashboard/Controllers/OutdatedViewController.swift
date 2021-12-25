@@ -37,6 +37,7 @@ class OutdatedViewController: GenericViewController, NSTableViewDelegate, NSTabl
     @IBOutlet weak var downloadUrlLabel: NSTextField!
     @IBOutlet weak var downloadUrl: NSTextField!
     @IBOutlet weak var searchfield: NSSearchFieldCell!
+    @IBOutlet weak var searchfieldbar: NSSearchField!
     var timer: Timer?
     var filtertext = String()
     var filteredInstancesArray = Array<String>()
@@ -52,6 +53,9 @@ class OutdatedViewController: GenericViewController, NSTableViewDelegate, NSTabl
         tableView.delegate = self
         tableView.dataSource = self
         self.searchfield.placeholderString = NSLocalizedString("searchInstances", comment: "")
+        NotificationCenter.default.addObserver(self, selector: #selector(OutdatedViewController.activateSearchBar(_:)), name: NSNotification.Name(rawValue: "activateSearchBar"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(OutdatedViewController.copyContent(_:)), name: NSNotification.Name(rawValue: "copyContent"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(OutdatedViewController.cutContent(_:)), name: NSNotification.Name(rawValue: "cutContent"), object: nil)
     }
     
     @IBAction func filterInstances(_ sender: Any) {
@@ -65,10 +69,19 @@ class OutdatedViewController: GenericViewController, NSTableViewDelegate, NSTabl
         self.timer?.invalidate()
     }
     
+    @objc func cutContent(_ notification: Notification) {
+        _ = self.copyStringToClipboard(string: self.searchfieldbar!.stringValue)
+        self.searchfieldbar.stringValue = ""
+    }
+    
+    @objc func copyContent(_ notification: Notification) {
+        _ = self.copyStringToClipboard(string: self.searchfieldbar!.stringValue)
+    }
+    
     @IBAction func copyDownloadUrlToClipboard(_ sender: Any) {
         self.infoMessage.isHidden = false
         timer = Timer.scheduledTimer(timeInterval: TimeInterval(Constants.timerInterval), target: self, selector: #selector(disableInfoMessage), userInfo: nil, repeats: false)
-        if (self.copyToClipboard()) {
+        if (self.copyStringToClipboard(string: self.downloadUrl.stringValue)) {
             infoMessage.stringValue = NSLocalizedString("clipboardCopyingWorked", comment: "")
         } else {
             infoMessage.stringValue = NSLocalizedString("clipboardCopyingFailed", comment: "")
@@ -235,6 +248,10 @@ class OutdatedViewController: GenericViewController, NSTableViewDelegate, NSTabl
                 (view.view as! NSButton).isEnabled = false
             }
         }
+    }
+    
+    @objc func activateSearchBar(_ notification: Notification) {
+        self.searchfieldbar.selectText(self)
     }
     
     func updateSingleInstance(instanceName: String, completion: @escaping (Bool) -> ()) {
