@@ -91,6 +91,10 @@ class OutdatedViewController: GenericViewController, NSTableViewDelegate, NSTabl
     func updateInstanceDetails(_ index: Int) {
         if ((index) != -1) {
             var key = ""
+            self.copyDownloadURL.isHidden = true
+            self.copyDownloadURL.isEnabled = false
+            self.downloadUrlLabel.isHidden = true
+            self.downloadUrl.isHidden = true
             if (!filtertext.isEmpty) {
                 key = filteredInstancesArray[index]
             } else {

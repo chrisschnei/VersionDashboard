@@ -79,6 +79,9 @@
 /* Class = "NSTextField"; ibExternalAccessibilityDescription = "ErrorLabel"; ObjectID = "9KI-Iw-ZmR"; */
 "9KI-Iw-ZmR.ibExternalAccessibilityDescription" = "ErrorLabel";
 
+/* Class = "NSTextFieldCell"; title = "Download URL"; ObjectID = "Cn3-xS-vvR"; */
+"Cn3-xS-vvR.title" = "Download URL";
+
 /* Class = "NSTextFieldCell"; title = "Instanzversion wählen"; ObjectID = "9Od-0g-RiT"; */
 "9Od-0g-RiT.title" = "Instanzversion wählen";
 
@@ -99,6 +102,9 @@
 
 /* Class = "NSButton"; ibExternalAccessibilityDescription = "CancelInstanceCreationButton"; ObjectID = "Aw7-gO-1ek"; */
 "Aw7-gO-1ek.ibExternalAccessibilityDescription" = "CancelInstanceCreationButton";
+
+/* Class = "NSTextFieldCell"; title = "Download URL"; ObjectID = "AW3-il-ymw"; */
+"AW3-il-ymw.title" = "Download URL";
 
 /* Class = "NSMenuItem"; title = "Einstellungen..."; ObjectID = "BOF-NM-1cW"; */
 "BOF-NM-1cW.title" = "Einstellungen...";
