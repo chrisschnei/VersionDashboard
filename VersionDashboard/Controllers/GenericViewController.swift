@@ -107,7 +107,7 @@ class GenericViewController : NSViewController {
             if (!filtertext.isEmpty) {
                 key = filteredInstancesArray[selectedRow]
             } else {
-                key = Array(SystemInstances.systemInstances.keys)[selectedRow]
+                key = Array(filteredInstancesArray)[selectedRow]
             }
             let instance = SystemInstances.systemInstances[key]
             var url = ""
