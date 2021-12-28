@@ -481,6 +481,9 @@
 /* Class = "NSButtonCell"; title = "Kopiere Download URL"; ObjectID = "KLE-Lz-85j"; */
 "KLE-Lz-85j.title" = "Kopiere Download URL";
 
+/* Class = "NSButtonCell"; title = "Kopiere Download URL"; ObjectID = "X4v-ie-sGb"; */
+"X4v-ie-sGb.title" = "Kopiere Download URL";
+
 /* Class = "NSView"; ibExternalAccessibilityDescription = "DetailedViewController"; ObjectID = "m2S-Jp-Qdl"; */
 "m2S-Jp-Qdl.ibExternalAccessibilityDescription" = "DetailedViewController";
 

@@ -14,9 +14,7 @@ class GenericViewController : NSViewController {
     func checkURLTextfields(hostUrlTextfield: NSTextField!, infoTitle: NSTextField!) -> Bool {
         var error = false
         if (!((hostUrlTextfield.stringValue.hasSuffix("/")))) {
-            infoTitle.stringValue = NSLocalizedString("urlEnding", comment: "")
-            infoTitle.isHidden = false
-            error = true
+            hostUrlTextfield.stringValue.append("/")
         }
         if (!((hostUrlTextfield.stringValue.hasPrefix("http")))) {
             infoTitle.stringValue = NSLocalizedString("protocolMissing", comment: "")
