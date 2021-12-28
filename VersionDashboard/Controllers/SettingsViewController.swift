@@ -45,10 +45,14 @@ class SettingsViewController: GenericViewController {
             self.hostTextbox.stringValue = instanceObject.hosturl
             self.apiToken.isHidden = false
             self.apiTokenLabel.isHidden = false
-            
             self.apiToken.stringValue = instanceObject.apiToken
         } else if ((instance as? WordpressModel) != nil) {
             let instanceObject = SystemInstances.systemInstances[instanceName] as! WordpressModel
+            self.settingsLabel.stringValue = instanceName
+            self.lastcheckLabel.stringValue = instanceObject.lastRefresh
+            self.hostTextbox.stringValue = instanceObject.hosturl
+        }  else if ((instance as? NextcloudModel) != nil) {
+            let instanceObject = SystemInstances.systemInstances[instanceName] as! NextcloudModel
             self.settingsLabel.stringValue = instanceName
             self.lastcheckLabel.stringValue = instanceObject.lastRefresh
             self.hostTextbox.stringValue = instanceObject.hosturl
@@ -73,6 +77,20 @@ class SettingsViewController: GenericViewController {
             }
         } else if ((instance as? OwncloudModel) != nil) {
             let instanceObject = SystemInstances.systemInstances[instanceName] as! OwncloudModel
+            instanceObject.hosturl = self.hostTextbox.stringValue
+            instanceObject.name = self.settingsLabel.stringValue
+            
+            if (SystemInstancesModel.checkInstanceNameAlreadyPresent(self.settingsLabel.stringValue)) {
+                return instanceObject.saveConfigfile()
+            } else {
+                if (!instanceObject.renamePlistFile(instanceName)) {
+                    print("Renaming plist file \(instanceName) .plist failed.")
+                    return false
+                }
+                return instanceObject.saveConfigfile()
+            }
+        } else if ((instance as? NextcloudModel) != nil) {
+            let instanceObject = SystemInstances.systemInstances[instanceName] as! NextcloudModel
             instanceObject.hosturl = self.hostTextbox.stringValue
             instanceObject.name = self.settingsLabel.stringValue
             

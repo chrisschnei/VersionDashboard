@@ -25,6 +25,9 @@ open class JoomlaHeadModel: GenericHeadModel {
                 var headVersion = ""
 
                 for part in lines! {
+                    if part.contains("4.0.5") {
+                        print("pause here")
+                    }
                         headVersion = self.getLatestVersion(part)
                         let versionCompare = self.headVersion.compare(headVersion, options: .numeric)
                         if versionCompare == .orderedSame {
@@ -74,7 +77,7 @@ open class JoomlaHeadModel: GenericHeadModel {
      - Returns: String containing version number in success case; empty in error case
      */
     func getLatestVersion(_ content: String) -> String {
-        guard let range = content.range(of: "Joomla! [0-9]*[.][0-9]*[.]*[0-9]*", options: .regularExpression)
+        guard let range = content.range(of: "Joomla! [0-9]*[.][0-9]*[.][0-9]*", options: .regularExpression)
             else {
                 return ""
         }

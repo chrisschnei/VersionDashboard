@@ -68,11 +68,11 @@ class DetailedViewController: GenericViewController, NSTableViewDelegate, NSTabl
     }
     
     @objc func copyContent(_ notification: Notification) {
-        self.copyStringToClipboard(string: self.searchfield!.stringValue)
+        _ = self.copyStringToClipboard(string: self.searchfield!.stringValue)
     }
     
     @objc func cutContent(_ notification: Notification) {
-        self.copyStringToClipboard(string: self.searchfield!.stringValue)
+        _ = self.copyStringToClipboard(string: self.searchfield!.stringValue)
         self.searchfield.stringValue = ""
     }
     

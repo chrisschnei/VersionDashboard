@@ -96,7 +96,7 @@ public class Constants {
         dateformat = "dd-MM-yyyy"
         
         joomlapath = "administrator/manifests/files/joomla.xml"
-        joomlaAPIUrl = "https://downloads.joomla.org/cms/joomla3"
+        joomlaAPIUrl = "https://downloads.joomla.org/cms/joomla4"
         joomlaBackendURL = "administrator/"
         
         wordpressAPIUrl = "http://api.wordpress.org/core/version-check/1.7/"
