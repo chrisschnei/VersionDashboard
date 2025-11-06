@@ -155,11 +155,11 @@
 		AA62F7782258AE9D00757106 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA62F5102251508B00757106 /* Main.storyboard */; };
 		AA62F77B2258AE9D00757106 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA62F50E2251508B00757106 /* LaunchScreen.storyboard */; };
 		AA62F77C2258AE9D00757106 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA62F4EF2251508B00757106 /* LaunchScreen.strings */; };
-		AA62F77F2258AE9D00757106 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; };
+		AA62F77F2258AE9D00757106 /* DGCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* DGCharts.framework */; };
 		AA62F7802258AE9D00757106 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA62F5B82252880200757106 /* UserNotifications.framework */; };
-		AA62F7822258AE9D00757106 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AA71A740226A3E8C00BEB4C3 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; };
-		AA71A741226A3E8C00BEB4C3 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AA62F7822258AE9D00757106 /* DGCharts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* DGCharts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AA71A740226A3E8C00BEB4C3 /* DGCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* DGCharts.framework */; };
+		AA71A741226A3E8C00BEB4C3 /* DGCharts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* DGCharts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA71A7F4226B00EF00BEB4C3 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7CE226B00EE00BEB4C3 /* LaunchScreen.png */; };
 		AA71A7F5226B00EF00BEB4C3 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7CE226B00EE00BEB4C3 /* LaunchScreen.png */; };
 		AA71A7FA226B00EF00BEB4C3 /* summary@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A7D2226B00EE00BEB4C3 /* summary@2x.png */; };
@@ -219,8 +219,8 @@
 		AAB511C023AA86B900B440A7 /* joomla_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F7226CBDDD00BEB4C3 /* joomla_dots.png */; };
 		AAB511C123AA86BC00B440A7 /* owncloud_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8F8226CBDDD00BEB4C3 /* owncloud_dots.png */; };
 		AAB511C223AA86BE00B440A7 /* wordpress_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = AA71A8FA226CBDDD00BEB4C3 /* wordpress_dots.png */; };
-		AAB91328223437AA006D1EE7 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; };
-		AAB91329223437FA006D1EE7 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AAB91328223437AA006D1EE7 /* DGCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* DGCharts.framework */; };
+		AAB91329223437FA006D1EE7 /* DGCharts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AAB913222234371E006D1EE7 /* DGCharts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AABD442723674EAF009A98C1 /* SettingsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD442623674EAF009A98C1 /* SettingsViewControllerTests.swift */; };
 		AABD442A23674FDA009A98C1 /* DetailedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD442923674FDA009A98C1 /* DetailedViewControllerTests.swift */; };
 		AABD442C23674FEE009A98C1 /* PreferencesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD442B23674FEE009A98C1 /* PreferencesViewControllerTests.swift */; };
@@ -354,7 +354,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AA62F7822258AE9D00757106 /* Charts.framework in Embed Frameworks */,
+				AA62F7822258AE9D00757106 /* DGCharts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,7 +365,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AA71A741226A3E8C00BEB4C3 /* Charts.framework in Embed Frameworks */,
+				AA71A741226A3E8C00BEB4C3 /* DGCharts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,7 +376,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AAB91329223437FA006D1EE7 /* Charts.framework in Embed Frameworks */,
+				AAB91329223437FA006D1EE7 /* DGCharts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -623,7 +623,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA71A740226A3E8C00BEB4C3 /* Charts.framework in Frameworks */,
+				AA71A740226A3E8C00BEB4C3 /* DGCharts.framework in Frameworks */,
 				AA93435E22594D78005D8C1C /* libVersionDashboardSDKARM.a in Frameworks */,
 				AA62F5B92252880300757106 /* UserNotifications.framework in Frameworks */,
 			);
@@ -641,7 +641,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAE626C6226256EE00398F81 /* libVersionDashboardSDK.a in Frameworks */,
-				AA62F77F2258AE9D00757106 /* Charts.framework in Frameworks */,
+				AA62F77F2258AE9D00757106 /* DGCharts.framework in Frameworks */,
 				AA62F7802258AE9D00757106 /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -651,7 +651,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA62EE7B2251398400757106 /* libVersionDashboardSDK.a in Frameworks */,
-				AAB91328223437AA006D1EE7 /* Charts.framework in Frameworks */,
+				AAB91328223437AA006D1EE7 /* DGCharts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1107,8 +1107,8 @@
 		AAB9131D2234371E006D1EE7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AAB913222234371E006D1EE7 /* Charts.framework */,
-				AAB913242234371E006D1EE7 /* ChartsTests.xctest */,
+				AAB913222234371E006D1EE7 /* DGCharts.framework */,
+				AAB913242234371E006D1EE7 /* DGChartsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1405,7 +1405,7 @@
 			};
 			buildConfigurationList = AA6AD7A71C6B4BD90097CD9A /* Build configuration list for PBXProject "VersionDashboard" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -1438,17 +1438,17 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		AAB913222234371E006D1EE7 /* Charts.framework */ = {
+		AAB913222234371E006D1EE7 /* DGCharts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = Charts.framework;
+			path = DGCharts.framework;
 			remoteRef = AAB913212234371E006D1EE7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		AAB913242234371E006D1EE7 /* ChartsTests.xctest */ = {
+		AAB913242234371E006D1EE7 /* DGChartsTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = ChartsTests.xctest;
+			path = DGChartsTests.xctest;
 			remoteRef = AAB913232234371E006D1EE7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -2475,9 +2475,10 @@
 				DEVELOPMENT_TEAM = G7RXN8CWKG;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				INFOPLIST_FILE = "$(SRCROOT)/VersionDashboard/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Version Dashboard";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.versiondashboard.VersionDashboardApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2498,9 +2499,10 @@
 				DEVELOPMENT_TEAM = G7RXN8CWKG;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				INFOPLIST_FILE = "$(SRCROOT)/VersionDashboard/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Version Dashboard";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.versiondashboard.VersionDashboardApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

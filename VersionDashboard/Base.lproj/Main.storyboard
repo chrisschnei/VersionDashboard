@@ -232,7 +232,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="269" height="168"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yst-XC-hSV">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yst-XC-hSV">
                                 <rect key="frame" x="18" y="132" width="286" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Enable automatic instance refresh" id="Yub-R7-B9C">
                                     <font key="font" metaFont="system"/>
@@ -268,7 +268,7 @@ Gw
                                     <action selector="cancelAction:" target="Sma-kB-1iu" id="pm1-JI-ijA"/>
                                 </connections>
                             </button>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kuN-Yx-1F8">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kuN-Yx-1F8">
                                 <rect key="frame" x="18" y="64" width="101" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Interval in hours" id="Ggg-vf-RWh">
                                     <font key="font" metaFont="system"/>
@@ -276,7 +276,7 @@ Gw
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y9Z-db-y2I">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y9Z-db-y2I">
                                 <rect key="frame" x="18" y="96" width="62" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Activated" id="TAP-ME-8Yp">
                                     <font key="font" metaFont="system"/>
@@ -284,7 +284,7 @@ Gw
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <comboBox focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Tg-IT-24g">
+                            <comboBox verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Tg-IT-24g">
                                 <rect key="frame" x="156" y="58" width="96" height="23"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="KOl-80-PeY">
                                     <font key="font" metaFont="system"/>
@@ -447,7 +447,7 @@ Gw
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="InstanceName" width="293" minWidth="40" maxWidth="1000" id="DQk-Ef-tyh">
+                                                <tableColumn identifier="InstanceName" width="264" minWidth="40" maxWidth="1000" id="DQk-Ef-tyh">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Instance Name">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -460,11 +460,11 @@ Gw
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="InstanceName" autoresizesSubviews="NO" id="jIA-Ds-HSy">
-                                                            <rect key="frame" x="1" y="1" width="302" height="33"/>
+                                                            <rect key="frame" x="1" y="1" width="273" height="33"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                             <subviews>
-                                                                <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsExpansionToolTips="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xsn-K6-f4G">
-                                                                    <rect key="frame" x="33" y="9" width="263" height="16"/>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsExpansionToolTips="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xsn-K6-f4G">
+                                                                    <rect key="frame" x="33" y="9" width="234" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="Table View Cell" id="FA6-c0-kfz">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -523,7 +523,7 @@ Gw
                                 </tableHeaderView>
                                 <accessibility description="InstanceScrollView" identifier="InstanceScrollView"/>
                             </scrollView>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2P-gB-6tA">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2P-gB-6tA">
                                 <rect key="frame" x="333" y="330" width="99" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="95" id="Vu6-9B-p6x"/>
@@ -534,7 +534,7 @@ Gw
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9hx-PL-5Or">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9hx-PL-5Or">
                                 <rect key="frame" x="333" y="301" width="43" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Host" id="qAU-9h-9ft">
                                     <font key="font" metaFont="system"/>
@@ -542,7 +542,7 @@ Gw
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="60t-IC-axD">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="60t-IC-axD">
                                 <rect key="frame" x="333" y="269" width="43" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Status" id="MRk-mo-2E2">
                                     <font key="font" metaFont="system"/>
@@ -550,7 +550,7 @@ Gw
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L7V-eM-Il0">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L7V-eM-Il0">
                                 <rect key="frame" x="333" y="235" width="99" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="95" id="hYH-Ts-dda"/>
@@ -561,7 +561,7 @@ Gw
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfS-iu-Zxa">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfS-iu-Zxa">
                                 <rect key="frame" x="333" y="206" width="99" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Current Version" id="bY0-gO-HiG">
                                     <font key="font" metaFont="system"/>
@@ -569,7 +569,7 @@ Gw
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="48L-bd-agh">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="48L-bd-agh">
                                 <rect key="frame" x="333" y="177" width="115" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="111" id="Wtz-cG-feP"/>
@@ -580,7 +580,7 @@ Gw
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BzC-Al-VNp">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BzC-Al-VNp">
                                 <rect key="frame" x="464" y="329" width="227" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="nz7-Nb-CPg">
                                     <font key="font" metaFont="system"/>
@@ -589,7 +589,7 @@ Gw
                                 </textFieldCell>
                                 <accessibility description="SystemLabel" identifier="SystemLabel"/>
                             </textField>
-                            <textField autoresizesSubviews="NO" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" preferredMaxLayoutWidth="152" translatesAutoresizingMaskIntoConstraints="NO" id="Wpt-K6-smb">
+                            <textField autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" preferredMaxLayoutWidth="152" translatesAutoresizingMaskIntoConstraints="NO" id="Wpt-K6-smb">
                                 <rect key="frame" x="464" y="301" width="226" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" id="4af-WU-6nO">
                                     <font key="font" metaFont="system"/>
@@ -598,7 +598,7 @@ Gw
                                 </textFieldCell>
                                 <accessibility description="HostLabel" identifier="HostLabel"/>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gyu-X2-ggO">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gyu-X2-ggO">
                                 <rect key="frame" x="464" y="268" width="226" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="cGm-1Z-Hwo">
                                     <font key="font" metaFont="system"/>
@@ -607,7 +607,7 @@ Gw
                                 </textFieldCell>
                                 <accessibility description="StatusLabel" identifier="StatusLabel"/>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nve-po-yOl">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nve-po-yOl">
                                 <rect key="frame" x="464" y="237" width="226" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="sTM-Gh-sFY">
                                     <font key="font" metaFont="system"/>
@@ -616,7 +616,7 @@ Gw
                                 </textFieldCell>
                                 <accessibility description="LastCheckLabel" identifier="LastCheckLabel"/>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D4G-6k-UnL">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D4G-6k-UnL">
                                 <rect key="frame" x="464" y="207" width="226" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="aBR-xP-chN">
                                     <font key="font" metaFont="system"/>
@@ -625,7 +625,7 @@ Gw
                                 </textFieldCell>
                                 <accessibility description="CurrentVersionLabel" identifier="CurrentVersionLabel"/>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jIC-AQ-uPD">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jIC-AQ-uPD">
                                 <rect key="frame" x="448" y="177" width="129" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="zFB-4w-l8R"/>
@@ -637,7 +637,7 @@ Gw
                                 </textFieldCell>
                                 <accessibility description="LatestVersionLabel" identifier="LatestVersionLabel"/>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4GS-Yf-Kuw">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4GS-Yf-Kuw">
                                 <rect key="frame" x="333" y="147" width="99" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="95" id="KUW-Pv-ASb"/>
@@ -648,7 +648,7 @@ Gw
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="peO-bh-qjj">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="peO-bh-qjj">
                                 <rect key="frame" x="464" y="152" width="226" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" id="L2w-0P-7yb">
                                     <font key="font" metaFont="system"/>
@@ -657,7 +657,7 @@ Gw
                                 </textFieldCell>
                                 <accessibility description="PhpVersionLabel" identifier="PhpVersionLabel"/>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j8W-qX-9iN">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j8W-qX-9iN">
                                 <rect key="frame" x="333" y="127" width="115" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Webserver" id="2Gm-kX-ml3">
                                     <font key="font" metaFont="system"/>
@@ -665,7 +665,7 @@ Gw
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField autoresizesSubviews="NO" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" preferredMaxLayoutWidth="249" translatesAutoresizingMaskIntoConstraints="NO" id="6rc-fo-hW0">
+                            <textField autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" preferredMaxLayoutWidth="249" translatesAutoresizingMaskIntoConstraints="NO" id="6rc-fo-hW0">
                                 <rect key="frame" x="464" y="127" width="226" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" id="tdM-FQ-THN">
                                     <font key="font" metaFont="system"/>
@@ -674,7 +674,7 @@ Gw
                                 </textFieldCell>
                                 <accessibility description="WebserverLabel" identifier="WebserverLabel"/>
                             </textField>
-                            <textField hidden="YES" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" allowsCharacterPickerTouchBarItem="YES" preferredMaxLayoutWidth="226" translatesAutoresizingMaskIntoConstraints="NO" id="9KI-Iw-ZmR">
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" allowsCharacterPickerTouchBarItem="YES" preferredMaxLayoutWidth="226" translatesAutoresizingMaskIntoConstraints="NO" id="9KI-Iw-ZmR">
                                 <rect key="frame" x="333" y="26" width="143" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="No internet connection" id="G9d-0f-1hb">
                                     <font key="font" metaFont="system"/>
@@ -694,7 +694,7 @@ Gw
                                     <action selector="takeMeToMyInstanceAction:" target="XfG-lQ-9wD" id="C6a-Ne-iEx"/>
                                 </connections>
                             </button>
-                            <textField hidden="YES" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jnR-J1-q8m">
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jnR-J1-q8m">
                                 <rect key="frame" x="333" y="100" width="115" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="111" id="P8D-cF-LZO"/>
@@ -705,7 +705,7 @@ Gw
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" preferredMaxLayoutWidth="207" translatesAutoresizingMaskIntoConstraints="NO" id="akx-u9-XGq">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" preferredMaxLayoutWidth="207" translatesAutoresizingMaskIntoConstraints="NO" id="akx-u9-XGq">
                                 <rect key="frame" x="464" y="101" width="226" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="truncatingHead" allowsUndo="NO" id="OfC-To-K2t">
                                     <font key="font" metaFont="system"/>
@@ -726,7 +726,7 @@ Gw
                                     <action selector="refreshInstance:" target="XfG-lQ-9wD" id="5Tl-wc-iVW"/>
                                 </connections>
                             </button>
-                            <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qma-Vy-6Lc">
+                            <searchField wantsLayer="YES" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qma-Vy-6Lc">
                                 <rect key="frame" x="0.0" y="371" width="307" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="307" id="nUG-Vs-b8h"/>
@@ -885,13 +885,13 @@ DQ
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="35" horizontalPageScroll="10" verticalLineScroll="35" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2o-8F-LBc">
-                                <rect key="frame" x="0.0" y="0.0" width="307" height="344"/>
+                                <rect key="frame" x="0.0" y="0.0" width="307" height="310"/>
                                 <clipView key="contentView" ambiguous="YES" id="267-bQ-OMm">
-                                    <rect key="frame" x="1" y="1" width="305" height="342"/>
+                                    <rect key="frame" x="1" y="1" width="305" height="308"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" ambiguous="YES" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="33" rowSizeStyle="automatic" headerView="zHA-Br-Yjo" viewBased="YES" id="eQr-WQ-fPp">
-                                            <rect key="frame" x="0.0" y="0.0" width="314" height="319"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="314" height="285"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -913,7 +913,7 @@ DQ
                                                             <rect key="frame" x="1" y="1" width="311" height="33"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                             <subviews>
-                                                                <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsExpansionToolTips="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aOd-Zd-F1W">
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsExpansionToolTips="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aOd-Zd-F1W">
                                                                     <rect key="frame" x="33" y="9" width="272" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="LAC-vW-Z2T">
                                                                         <font key="font" metaFont="system"/>
@@ -981,7 +981,7 @@ DQ
                                 <rect key="frame" x="562" y="24" width="16" height="16"/>
                                 <accessibility description="RefreshSpinner" identifier="RefreshSpinner"/>
                             </progressIndicator>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JGg-nh-blm">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JGg-nh-blm">
                                 <rect key="frame" x="333" y="301" width="99" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Host" id="Krs-uG-vie">
                                     <font key="font" metaFont="system"/>
@@ -989,31 +989,31 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z3g-lS-q2e">
-                                <rect key="frame" x="333" y="241" width="99" height="16"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z3g-lS-q2e">
+                                <rect key="frame" x="333" y="207" width="99" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Status" id="Kk4-9p-D1n">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Sr-AL-9vs">
-                                <rect key="frame" x="333" y="211" width="99" height="16"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Sr-AL-9vs">
+                                <rect key="frame" x="333" y="177" width="99" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Last Check" id="law-gm-i1b">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GsD-U4-tzV">
-                                <rect key="frame" x="333" y="182" width="99" height="16"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GsD-U4-tzV">
+                                <rect key="frame" x="333" y="148" width="99" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Current Version" id="Iew-MW-iOQ">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZpB-gO-GwI">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZpB-gO-GwI">
                                 <rect key="frame" x="333" y="175" width="114" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Latests Version" id="eue-Ig-izv">
                                     <font key="font" metaFont="system"/>
@@ -1021,8 +1021,8 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8AN-Ki-O7s">
-                                <rect key="frame" x="467" y="241" width="227" height="16"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8AN-Ki-O7s">
+                                <rect key="frame" x="467" y="207" width="227" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="223" id="WEZ-Z0-Fvh"/>
                                 </constraints>
@@ -1033,8 +1033,8 @@ DQ
                                 </textFieldCell>
                                 <accessibility description="StatusLabel" identifier="StatusLabel"/>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j1M-BE-ptA">
-                                <rect key="frame" x="467" y="211" width="227" height="16"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j1M-BE-ptA">
+                                <rect key="frame" x="467" y="177" width="227" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="ZZK-nE-GOa">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1042,7 +1042,7 @@ DQ
                                 </textFieldCell>
                                 <accessibility description="LastCheckLabel" identifier="LastCheckLabel"/>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yaN-7g-FRC">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yaN-7g-FRC">
                                 <rect key="frame" x="464" y="207" width="227" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="Q7B-ly-73H">
                                     <font key="font" metaFont="system"/>
@@ -1051,7 +1051,7 @@ DQ
                                 </textFieldCell>
                                 <accessibility description="CurrentVersionLabel" identifier="CurrentVersionLabel"/>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hIz-IQ-rem">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hIz-IQ-rem">
                                 <rect key="frame" x="467" y="176" width="227" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="nSy-mP-WhG">
                                     <font key="font" metaFont="system"/>
@@ -1060,15 +1060,15 @@ DQ
                                 </textFieldCell>
                                 <accessibility description="LatestVersionLabel" identifier="LatestVersionLabel"/>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Die-1o-nyB">
-                                <rect key="frame" x="333" y="300" width="99" height="16"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Die-1o-nyB">
+                                <rect key="frame" x="333" y="266" width="99" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="System" id="Bue-0R-xcd">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bGM-5e-vSi">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bGM-5e-vSi">
                                 <rect key="frame" x="333" y="149" width="99" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PHP Version" id="ocf-wC-wev">
                                     <font key="font" metaFont="system"/>
@@ -1076,7 +1076,7 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" preferredMaxLayoutWidth="249" translatesAutoresizingMaskIntoConstraints="NO" id="MaW-lU-m0K">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" preferredMaxLayoutWidth="249" translatesAutoresizingMaskIntoConstraints="NO" id="MaW-lU-m0K">
                                 <rect key="frame" x="464" y="127" width="227" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="7Ax-Wl-VdL">
                                     <font key="font" metaFont="system"/>
@@ -1085,7 +1085,7 @@ DQ
                                 </textFieldCell>
                                 <accessibility description="WebserverLabel" identifier="WebserverLabel"/>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Laj-Up-UDR">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Laj-Up-UDR">
                                 <rect key="frame" x="333" y="127" width="99" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Webserver" id="zgH-SH-kev">
                                     <font key="font" metaFont="system"/>
@@ -1093,7 +1093,7 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField hidden="YES" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1wi-nK-egg">
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1wi-nK-egg">
                                 <rect key="frame" x="333" y="24" width="217" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="213" id="Oqc-TW-1Ya"/>
@@ -1127,7 +1127,7 @@ DQ
                                     <action selector="copyDownloadUrlToClipboard:" target="SKc-0J-o2d" id="TxM-oG-rOr"/>
                                 </connections>
                             </button>
-                            <textField hidden="YES" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TwF-4C-Ygy">
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TwF-4C-Ygy">
                                 <rect key="frame" x="333" y="102" width="99" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Download URL" id="Cn3-xS-vvR">
                                     <font key="font" metaFont="system"/>
@@ -1135,7 +1135,7 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" preferredMaxLayoutWidth="207" translatesAutoresizingMaskIntoConstraints="NO" id="gbM-3l-LXp">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" preferredMaxLayoutWidth="207" translatesAutoresizingMaskIntoConstraints="NO" id="gbM-3l-LXp">
                                 <rect key="frame" x="464" y="101" width="227" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="truncatingHead" allowsUndo="NO" id="mDw-kZ-Ehv">
                                     <font key="font" metaFont="system"/>
@@ -1144,8 +1144,8 @@ DQ
                                 </textFieldCell>
                                 <accessibility description="DownloadURL" identifier="DownloadURL"/>
                             </textField>
-                            <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zln-CU-2HP">
-                                <rect key="frame" x="0.0" y="342" width="307" height="22"/>
+                            <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zln-CU-2HP">
+                                <rect key="frame" x="0.0" y="308" width="307" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="307" id="UsM-bA-5za"/>
                                     <constraint firstAttribute="height" constant="22" id="Wdt-J6-Ya4"/>
@@ -1156,7 +1156,7 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </searchFieldCell>
                             </searchField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" preferredMaxLayoutWidth="249" translatesAutoresizingMaskIntoConstraints="NO" id="bit-zb-leL">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" preferredMaxLayoutWidth="249" translatesAutoresizingMaskIntoConstraints="NO" id="bit-zb-leL">
                                 <rect key="frame" x="464" y="150" width="227" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="36D-G7-0ed">
                                     <font key="font" metaFont="system"/>
@@ -1165,8 +1165,8 @@ DQ
                                 </textFieldCell>
                                 <accessibility description="PhpVersionLabel" identifier="PhpVersionLabel"/>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M3r-61-07x">
-                                <rect key="frame" x="436" y="273" width="255" height="16"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M3r-61-07x">
+                                <rect key="frame" x="436" y="239" width="255" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="251" id="zk2-tL-fBE"/>
                                 </constraints>
@@ -1177,7 +1177,7 @@ DQ
                                 </textFieldCell>
                                 <accessibility description="SystemLabel" identifier="SystemLabel"/>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" preferredMaxLayoutWidth="152" translatesAutoresizingMaskIntoConstraints="NO" id="AmR-J1-2Dl">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" preferredMaxLayoutWidth="152" translatesAutoresizingMaskIntoConstraints="NO" id="AmR-J1-2Dl">
                                 <rect key="frame" x="464" y="329" width="227" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" id="e0E-pk-Moc">
                                     <font key="font" metaFont="system"/>
@@ -1301,7 +1301,7 @@ DQ
                         <rect key="frame" x="0.0" y="0.0" width="565" height="178"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ket-68-bye">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ket-68-bye">
                                 <rect key="frame" x="18" y="142" width="284" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Click on a logo below to create a new instance" id="9Od-0g-RiT">
                                     <font key="font" metaFont="system"/>
@@ -1428,7 +1428,7 @@ Gw
                         <rect key="frame" x="0.0" y="0.0" width="450" height="250"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4sA-K0-5UL">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4sA-K0-5UL">
                                 <rect key="frame" x="18" y="214" width="147" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Add new Piwik instance" id="zaU-OF-K0k">
                                     <font key="font" metaFont="system"/>
@@ -1436,7 +1436,7 @@ Gw
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rpz-gW-ZNt">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rpz-gW-ZNt">
                                 <rect key="frame" x="18" y="174" width="62" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Host URL" id="ob4-3C-JkY">
                                     <font key="font" metaFont="system"/>
@@ -1444,7 +1444,7 @@ Gw
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yt4-Fe-i4q">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yt4-Fe-i4q">
                                 <rect key="frame" x="18" y="140" width="64" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="API Token" id="tmz-7A-fVo">
                                     <font key="font" metaFont="system"/>
@@ -1452,7 +1452,7 @@ Gw
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J7o-au-Ugx">
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J7o-au-Ugx">
                                 <rect key="frame" x="153" y="169" width="277" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="277" id="5U3-xH-6DM"/>
@@ -1464,7 +1464,7 @@ Gw
                                 </textFieldCell>
                                 <accessibility description="PiwikHostURL" identifier="PiwikHostURL"/>
                             </textField>
-                            <textField focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PPU-99-apf">
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PPU-99-apf">
                                 <rect key="frame" x="153" y="137" width="277" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="c8D-8K-bPU">
                                     <font key="font" metaFont="system"/>
@@ -1501,7 +1501,7 @@ DQ
                                     <action selector="saveAction:" target="Fcf-yV-hnA" id="CEO-M0-Qip"/>
                                 </connections>
                             </button>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ycd-04-HRa">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ycd-04-HRa">
                                 <rect key="frame" x="18" y="103" width="93" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Instance name" id="ZWU-4P-aIK">
                                     <font key="font" metaFont="system"/>
@@ -1509,7 +1509,7 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cru-a5-UeX">
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cru-a5-UeX">
                                 <rect key="frame" x="153" y="100" width="277" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="0hS-6e-8Pe">
                                     <font key="font" metaFont="system"/>
@@ -1518,7 +1518,7 @@ DQ
                                 </textFieldCell>
                                 <accessibility description="PiwikInstanceName" identifier="PiwikInstanceName"/>
                             </textField>
-                            <textField hidden="YES" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HKn-aV-6o9">
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HKn-aV-6o9">
                                 <rect key="frame" x="18" y="57" width="148" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Error message textlabel" id="sUN-TD-aWt">
                                     <font key="font" metaFont="system"/>
@@ -1606,7 +1606,7 @@ DQ
                                     <action selector="saveAction:" target="Fvk-we-7IL" id="Giv-pd-LE9"/>
                                 </connections>
                             </button>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQz-kc-Src">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQz-kc-Src">
                                 <rect key="frame" x="18" y="214" width="159" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Add new Joomla instance" id="JMi-is-fLx">
                                     <font key="font" metaFont="system"/>
@@ -1614,7 +1614,7 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bxw-Qk-HV8">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bxw-Qk-HV8">
                                 <rect key="frame" x="18" y="175" width="62" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Host URL" id="Wz9-j7-6Qt">
                                     <font key="font" metaFont="system"/>
@@ -1622,7 +1622,7 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KbW-JJ-9EA">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KbW-JJ-9EA">
                                 <rect key="frame" x="18" y="141" width="93" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Instance name" id="AVw-Ml-HZb">
                                     <font key="font" metaFont="system"/>
@@ -1630,7 +1630,7 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oVp-nh-aHa">
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oVp-nh-aHa">
                                 <rect key="frame" x="0.0" y="-50" width="0.0" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" id="y1g-La-PcS"/>
@@ -1641,7 +1641,7 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField hidden="YES" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dcn-Yd-Dgd">
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dcn-Yd-Dgd">
                                 <rect key="frame" x="18" y="56" width="351" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Error message textlabel" id="6s0-LZ-oRG">
                                     <font key="font" metaFont="system"/>
@@ -1650,7 +1650,7 @@ DQ
                                 </textFieldCell>
                                 <accessibility description="JoomlaErrorMessage" identifier="ErrorMessageLabel"/>
                             </textField>
-                            <textField focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hWe-RA-kh6">
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hWe-RA-kh6">
                                 <rect key="frame" x="153" y="170" width="277" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="http://example.com/" drawsBackground="YES" id="t5T-bK-yYl">
                                     <font key="font" metaFont="system"/>
@@ -1659,7 +1659,7 @@ DQ
                                 </textFieldCell>
                                 <accessibility description="JoomlaHostURL" identifier="JoomlaHostURL"/>
                             </textField>
-                            <textField focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sND-Tg-T4D">
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sND-Tg-T4D">
                                 <rect key="frame" x="153" y="136" width="277" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="IWx-We-aAJ">
                                     <font key="font" metaFont="system"/>
@@ -1718,7 +1718,7 @@ DQ
                         <rect key="frame" x="0.0" y="0.0" width="480" height="223"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LbC-gT-Nod">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LbC-gT-Nod">
                                 <rect key="frame" x="18" y="174" width="49" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="System" id="ea9-q7-2Y9">
                                     <font key="font" metaFont="system"/>
@@ -1726,7 +1726,7 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R03-rx-Z0J">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R03-rx-Z0J">
                                 <rect key="frame" x="18" y="140" width="33" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Host" id="mK1-Vi-vvt">
                                     <font key="font" metaFont="system"/>
@@ -1734,7 +1734,7 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bg4-7W-nhH">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bg4-7W-nhH">
                                 <rect key="frame" x="18" y="110" width="72" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Last Check" id="t7h-Od-5mg">
                                     <font key="font" metaFont="system"/>
@@ -1742,7 +1742,7 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2hU-PV-ipZ">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2hU-PV-ipZ">
                                 <rect key="frame" x="170" y="110" width="292" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="ZZM-7U-oe9">
                                     <font key="font" metaFont="system"/>
@@ -1751,7 +1751,7 @@ DQ
                                 </textFieldCell>
                                 <accessibility description="EditInstanceLastCheck" identifier="EditInstanceLastCheck"/>
                             </textField>
-                            <textField focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HBP-WW-ZLh">
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HBP-WW-ZLh">
                                 <rect key="frame" x="172" y="140" width="288" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="http://example.com/" drawsBackground="YES" id="hyM-j3-HzZ">
                                     <font key="font" metaFont="system"/>
@@ -1760,7 +1760,7 @@ DQ
                                 </textFieldCell>
                                 <accessibility description="EditInstanceHost" identifier="EditInstanceHost"/>
                             </textField>
-                            <textField focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="95c-qw-ULD">
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="95c-qw-ULD">
                                 <rect key="frame" x="172" y="171" width="288" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="" drawsBackground="YES" id="hEh-yb-k6z">
                                     <font key="font" metaFont="system"/>
@@ -1784,7 +1784,7 @@ Gw
                                     <action selector="cancelAction:" target="i1Z-jw-4V4" id="0op-g4-kSQ"/>
                                 </connections>
                             </button>
-                            <textField hidden="YES" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vVe-Ou-vcK">
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vVe-Ou-vcK">
                                 <rect key="frame" x="18" y="53" width="441" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Error message textlabel" id="BP6-b0-jxE">
                                     <font key="font" metaFont="system"/>
@@ -1793,7 +1793,7 @@ Gw
                                 </textFieldCell>
                                 <accessibility description="EditInstanceErrorMessage" identifier="EditInstanceErrorMessage"/>
                             </textField>
-                            <textField hidden="YES" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0g2-zl-3bK">
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0g2-zl-3bK">
                                 <rect key="frame" x="18" y="80" width="65" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="API Token" id="Wow-0l-5bp">
                                     <font key="font" metaFont="system"/>
@@ -1801,7 +1801,7 @@ Gw
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField hidden="YES" focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QeD-9V-aM8">
+                            <textField hidden="YES" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QeD-9V-aM8">
                                 <rect key="frame" x="172" y="77" width="288" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="" drawsBackground="YES" id="edr-Qy-fZr">
                                     <font key="font" metaFont="system"/>
@@ -1883,7 +1883,7 @@ DQ
                         <rect key="frame" x="0.0" y="0.0" width="450" height="250"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jQR-d8-On0">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jQR-d8-On0">
                                 <rect key="frame" x="18" y="209" width="176" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Add new Owncloud instance" id="sMT-rw-fKS">
                                     <font key="font" metaFont="system"/>
@@ -1919,7 +1919,7 @@ DQ
                                     <action selector="saveAction:" target="yRM-Ta-SWb" id="qDw-9q-qlZ"/>
                                 </connections>
                             </button>
-                            <textField hidden="YES" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Csj-fh-NFn">
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Csj-fh-NFn">
                                 <rect key="frame" x="18" y="56" width="351" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Error message textlabel" id="hqZ-gM-HbA">
                                     <font key="font" metaFont="system"/>
@@ -1928,7 +1928,7 @@ DQ
                                 </textFieldCell>
                                 <accessibility description="OwncloudErrorMessage" identifier="OwncloudErrorMessage"/>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xPd-7P-OkJ">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xPd-7P-OkJ">
                                 <rect key="frame" x="18" y="170" width="62" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Host URL" id="y7U-VJ-cPz">
                                     <font key="font" metaFont="system"/>
@@ -1936,7 +1936,7 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Dh-71-unK">
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Dh-71-unK">
                                 <rect key="frame" x="153" y="170" width="277" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="http://example.com/" drawsBackground="YES" id="3hP-Qd-euA">
                                     <font key="font" metaFont="system"/>
@@ -1945,7 +1945,7 @@ DQ
                                 </textFieldCell>
                                 <accessibility description="OwncloudHostURL" identifier="OwncloudHostURL"/>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tDV-Ay-GiM">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tDV-Ay-GiM">
                                 <rect key="frame" x="18" y="136" width="93" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Instance name" id="DEY-A5-tYy">
                                     <font key="font" metaFont="system"/>
@@ -1953,7 +1953,7 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SzC-ie-uFz">
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SzC-ie-uFz">
                                 <rect key="frame" x="153" y="133" width="277" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="oeh-JL-FvN">
                                     <font key="font" metaFont="system"/>
@@ -2037,7 +2037,7 @@ DQ
                                     <action selector="saveAction:" target="dms-g4-Ywq" id="BDi-wY-C7i"/>
                                 </connections>
                             </button>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ELt-HD-qq8">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ELt-HD-qq8">
                                 <rect key="frame" x="18" y="214" width="181" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Add new Wordpress instance" id="aHJ-n3-Skx">
                                     <font key="font" metaFont="system"/>
@@ -2045,7 +2045,7 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vX3-Yr-SLg">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vX3-Yr-SLg">
                                 <rect key="frame" x="18" y="170" width="62" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Host URL" id="ufB-aY-bct">
                                     <font key="font" metaFont="system"/>
@@ -2053,7 +2053,7 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IR4-V6-BK0">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IR4-V6-BK0">
                                 <rect key="frame" x="18" y="136" width="93" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Instance name" id="MKj-Zd-24C">
                                     <font key="font" metaFont="system"/>
@@ -2061,7 +2061,7 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField hidden="YES" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sKt-He-kfC">
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sKt-He-kfC">
                                 <rect key="frame" x="18" y="56" width="351" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Error message textlabel" id="IaD-gS-LDr">
                                     <font key="font" metaFont="system"/>
@@ -2070,7 +2070,7 @@ DQ
                                 </textFieldCell>
                                 <accessibility description="WordpressErrorMessage" identifier="WordpressErrorMessage"/>
                             </textField>
-                            <textField focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wrg-Pp-ChO">
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wrg-Pp-ChO">
                                 <rect key="frame" x="153" y="167" width="277" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="http://example.com/" drawsBackground="YES" id="Uoc-4M-zcs">
                                     <font key="font" metaFont="system"/>
@@ -2079,7 +2079,7 @@ DQ
                                 </textFieldCell>
                                 <accessibility description="WordpressHostURL" identifier="WordpressHostURL"/>
                             </textField>
-                            <textField focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jyH-iU-dRv">
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jyH-iU-dRv">
                                 <rect key="frame" x="153" y="133" width="277" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="yqD-og-VV6">
                                     <font key="font" metaFont="system"/>
@@ -2164,7 +2164,7 @@ DQ
                                     <action selector="saveAction:" target="vVy-gW-oPB" id="q9S-KC-6IP"/>
                                 </connections>
                             </button>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AqA-yh-Erc">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AqA-yh-Erc">
                                 <rect key="frame" x="18" y="214" width="177" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Add new Nextcloud instance" id="XSs-7p-GcF">
                                     <font key="font" metaFont="system"/>
@@ -2172,7 +2172,7 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SSu-md-nWQ">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SSu-md-nWQ">
                                 <rect key="frame" x="18" y="170" width="62" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Host URL" id="HAM-71-aIq">
                                     <font key="font" metaFont="system"/>
@@ -2180,7 +2180,7 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Bb-hy-RCq">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Bb-hy-RCq">
                                 <rect key="frame" x="18" y="136" width="93" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Instance name" id="e8V-Xi-udI">
                                     <font key="font" metaFont="system"/>
@@ -2188,7 +2188,7 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField hidden="YES" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5HA-rG-5GC">
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5HA-rG-5GC">
                                 <rect key="frame" x="18" y="56" width="351" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Error message textlabel" id="cCX-Pk-DfC">
                                     <font key="font" metaFont="system"/>
@@ -2197,7 +2197,7 @@ DQ
                                 </textFieldCell>
                                 <accessibility description="NextcloudErrorMessage" identifier="NextcloudErrorMessage"/>
                             </textField>
-                            <textField focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4He-h3-kM4">
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4He-h3-kM4">
                                 <rect key="frame" x="153" y="167" width="277" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="http://example.com/" drawsBackground="YES" id="fTB-DY-8QP">
                                     <font key="font" metaFont="system"/>
@@ -2206,7 +2206,7 @@ DQ
                                 </textFieldCell>
                                 <accessibility description="NextcloudHostURL" identifier="NextcloudHostURL"/>
                             </textField>
-                            <textField focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L43-Gs-GJf">
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L43-Gs-GJf">
                                 <rect key="frame" x="153" y="133" width="277" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="e05-xr-F2z">
                                     <font key="font" metaFont="system"/>
